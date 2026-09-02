@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Preconnect to API + image origins to shave a TCP/TLS handshake -->
+    <link rel="preconnect" href="https://kaveri-industries.example.com" crossorigin />
+    <link rel="dns-prefetch" href="https://kaveri-industries.example.com" />
+
+    <title>Kaveri Industries — Engineered Polymer Solutions</title>
+    <meta
+      name="description"
+      content="Kaveri Industries — engineered polymer solutions, precision moulding, and contract manufacturing for industrial OEMs."
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kaveri Industries" />
+    <meta property="og:title" content="Kaveri Industries — Engineered Polymer Solutions" />
+    <meta
+      property="og:description"
+      content="Engineered polymer solutions, precision moulding, and contract manufacturing for industrial OEMs."
+    />
+    <meta property="og:url" content="https://kaveri-industries.example.com/" />
+    <meta property="og:image" content="https://kaveri-industries.example.com/og/cover.png" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kaveri_industries" />
+    <meta name="twitter:title" content="Kaveri Industries — Engineered Polymer Solutions" />
+    <meta
+      name="twitter:description"
+      content="Engineered polymer solutions, precision moulding, and contract manufacturing for industrial OEMs."
+    />
+    <meta name="twitter:image" content="https://kaveri-industries.example.com/og/cover.png" />
+
+    <!-- Performance: blocking-supports-rel=preload scripts tagged with high priority
+         so the React entry gets parsed ASAP. -->
+    <link rel="modulepreload" href="/src/main.tsx" />
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
