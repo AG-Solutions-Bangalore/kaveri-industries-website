@@ -107,7 +107,7 @@ export function Hero() {
             {/* Main Image Frame */}
             <div className="relative aspect-4/3 overflow-hidden rounded-none border border-border bg-card shadow-sm">
               <img
-                src="/images/hero-fasteners.svg"
+                src={HERO_CONTENT.imageUrl}
                 alt={HERO_CONTENT.imageAlt}
                 className="h-full w-full object-cover"
                 loading="eager"
