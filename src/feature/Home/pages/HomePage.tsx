@@ -1,5 +1,4 @@
 import { SEO } from "@/components/common/SEO";
-import { Testimonials } from "@/feature/Home/components/Testimonials";
 import { Hero } from "@/feature/Home/components/Hero";
 import { QualityStatement } from "@/feature/Home/components/QualityStatement";
 import { ProductsCarousel } from "@/feature/Home/components/ProductsCarousel";
@@ -16,7 +15,6 @@ export default function HomePage() {
       <QualityStatement />
       <ProductsCarousel />
       <TargetSectors />
-      <Testimonials />
       <CTABanner />
     </>
   );

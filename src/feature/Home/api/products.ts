@@ -15,6 +15,9 @@ export interface Product {
   name: string;
   description: string;
   icon: LucideIcon;
+  imageUrl?: string;
+  imageAlt?: string;
+  tag?: string;
   specs: ProductSpec[];
 }
 
@@ -23,8 +26,10 @@ export const PRODUCTS: Product[] = [
     id: "hex-head-bolts",
     name: "Hex Head Bolts & Screws",
     description:
-      "Heavy-head structural fasteners (HSFG bolts) for critical bolted connections.",
+      "Standardized high-strength bolting solutions for robust structural connections.",
     icon: Bolt,
+    imageUrl: "/images/product-hex-bolts.svg",
+    imageAlt: "Hex Head Bolts & Screws",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Length Range", value: "20mm to 1000mm" },
@@ -33,10 +38,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "hot-dip-galvanised",
-    name: "Hot Dip Galvanised Fasteners",
+    name: "Hot Dip Galvanized Fasteners",
     description:
-      "Guard-rail bolts, foundation bolts, and anti-theft nuts & bolts for outdoor service.",
+      "Superior corrosion resistance for harsh environmental applications.",
     icon: Settings2,
+    imageUrl: "/images/product-galvanised.svg",
+    imageAlt: "Hot Dip Galvanized Fasteners",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Length Range", value: "20mm to 1000mm" },
@@ -45,10 +52,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "hex-nuts",
-    name: "Hex Nuts, Slotted Nuts & Nylock Nuts",
+    name: "Hex Nuts",
     description:
-      "Precision-machined nuts in hex, slotted, and nylock profiles for every assembly.",
+      "Precision-tapped nuts ensuring secure mating and tension retention.",
     icon: Nut,
+    imageUrl: "/images/product-hex-nuts.svg",
+    imageAlt: "Hex Nuts, Slotted Nuts & Nylock Nuts",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
@@ -60,6 +69,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Continuous threading for custom length requirements and flange bolting.",
     icon: Wrench,
+    imageUrl: "/images/product-studs.svg",
+    imageAlt: "Studs & Threaded Bars",
     specs: [
       { label: "Dia Range", value: "M 6 to M 100" },
       { label: "Length Range", value: "10mm to 1000mm" },
@@ -68,10 +79,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "u-bolts-center-bolts",
-    name: "U-Bolts, Center Bolts & Auto Fasteners",
+    name: "U-Bolts / Center Bolts",
     description:
-      "All types of U-bolts and center bolts for heavy & light vehicles in Indian and export markets.",
+      "Robust pipe and leaf spring clamping solutions for automotive and structural assemblies.",
     icon: CircleDot,
+    imageUrl: "/images/product-ubolts.svg",
+    imageAlt: "U-Bolts and Center Bolts",
     specs: [
       { label: "Application", value: "Heavy & light vehicles" },
       { label: "Market", value: "India & export" },
@@ -81,8 +94,10 @@ export const PRODUCTS: Product[] = [
     id: "washers",
     name: "Washers",
     description:
-      "Plain, machined, and spring washers manufactured to IS 2016, IS 3063, and customer specifications.",
+      "Load distribution and surface protection components built to exact dimensional specifications.",
     icon: Cog,
+    imageUrl: "/images/product-washers.svg",
+    imageAlt: "Plain, Machined & Spring Washers",
     specs: [
       { label: "Standards", value: "IS 2016, IS 3063" },
       { label: "Custom", value: "As per customer specs" },

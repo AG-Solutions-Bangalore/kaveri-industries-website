@@ -1,74 +1,120 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { TARGET_SECTORS } from "@/feature/Home/api/sectors";
+import { SECTORS_SECTION_HEADER } from "@/feature/Home/api/homeConstants";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Target sectors grid. Copy drawn from brochure pages 6–7
- * ("Transmission & Telecommunication Towers" through
+ * Target sectors grid.
+ * Sourced from brochure pages 6–7 ("Transmission & Telecommunication Towers" through
  * "Road Guard Rail Systems & Other Development Projects").
- * Emits one `Service` JSON-LD block per sector via the page-level <SEO />.
+ * Follows the 3x2 card layout with top imagery and clean typography shown in the design reference.
+ * Border radius set strictly to `sm` (smallest unit).
  */
 export function TargetSectors() {
   return (
     <section
       aria-labelledby="sectors-heading"
-      className="bg-background py-16 md:py-20"
+      className="bg-background py-16 md:py-24 border-t border-border"
     >
-      <div className="mx-auto max-w-6xl px-4">
-        <header className="mb-10 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Industries We Serve
-          </p>
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Section Header */}
+        <motion.header
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15% 0px" }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-10 max-w-2xl"
+        >
           <h2
             id="sectors-heading"
-            className="mt-1 text-3xl font-semibold tracking-tight md:text-4xl"
+            className="text-2xl md:text-3xl font-bold tracking-tight text-foreground"
           >
-            Target Sectors
+            {SECTORS_SECTION_HEADER.heading}
           </h2>
-          <p className="mt-3 text-muted-foreground">
-            Precision engineered for specific industrial requirements — from
-            lattice towers to highways, refineries to rolling stock.
+          <p className="mt-2 text-xs md:text-sm text-muted-foreground">
+            {SECTORS_SECTION_HEADER.description}
           </p>
-        </header>
+        </motion.header>
 
-        <ul
+        {/* 3x2 Grid of Sector Cards */}
+        <div
           role="list"
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           aria-label="Industries served"
         >
-          {TARGET_SECTORS.map((sector) => {
+          {TARGET_SECTORS.map((sector, idx) => {
             const Icon = sector.icon;
             return (
-              <li key={sector.id}>
-                <article className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-5 text-card-foreground shadow-sm transition-colors hover:border-brand-300 hover:shadow-md">
-                  <div
-                    className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-50 text-brand-700"
+              <motion.article
+                key={sector.id}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{ duration: 0.55, ease: EASE, delay: idx * 0.06 }}
+                className="group relative flex h-full flex-col rounded-sm border border-border bg-card overflow-hidden shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
+              >
+                {/* Sector Image Frame */}
+                <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-border">
+                  {sector.imageUrl ? (
+                    <img
+                      src={sector.imageUrl}
+                      alt={sector.imageAlt ?? sector.name}
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-secondary text-brand-700 transition-colors duration-300 group-hover:bg-brand-50 dark:group-hover:bg-brand-950/40">
+                      <Icon
+                        className="h-10 w-10 transition-transform duration-500 ease-out group-hover:scale-110"
+                        strokeWidth={1.5}
+                      />
+                    </div>
+                  )}
+                  {/* Brand corner ribbon — fades in on hover */}
+                  <span
                     aria-hidden="true"
+                    className="pointer-events-none absolute left-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-sm bg-brand-700/90 text-white opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100"
                   >
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                    <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                  </span>
+                </div>
+
+                {/* Card Body */}
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="grid h-7 w-7 place-items-center rounded-sm bg-brand-50 text-brand-700 transition-colors duration-300 group-hover:bg-brand-700 group-hover:text-white dark:bg-brand-950/80">
+                      <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                    </span>
+                    <h3 className="text-sm md:text-base font-bold leading-snug text-foreground transition-colors group-hover:text-accent">
+                      {sector.name}
+                    </h3>
                   </div>
-                  <h3 className="text-base font-semibold leading-snug">
-                    {sector.name}
-                  </h3>
-                  <p className="flex-1 text-sm text-muted-foreground">
+
+                  <p className="mt-2.5 flex-1 text-xs leading-relaxed text-muted-foreground">
                     {sector.description}
                   </p>
-                  <Link
-                    to="/contact"
-                    className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-brand-700"
-                    aria-label={`Enquire about ${sector.name}`}
-                  >
-                    Explore Industry
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </article>
-              </li>
+
+                  <div className="mt-4 pt-2">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent transition-colors hover:text-brand-700"
+                      aria-label={`Explore ${sector.name}`}
+                    >
+                      Explore Industry
+                      <ArrowRight
+                        className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </motion.article>
             );
           })}
-        </ul>
+        </div>
       </div>
     </section>
   );

@@ -1,16 +1,6 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
-import { cn } from "@/lib/utils";
-import { siteConfig } from "@/lib/schemas";
-
-const NAV = [
-  { to: "/", label: "Home", end: true },
-  { to: "/about", label: "About Us" },
-  { to: "/products", label: "Products" },
-  { to: "/industries", label: "Industries" },
-  { to: "/quality", label: "Quality" },
-  { to: "/contact", label: "Contact Us" },
-];
+import { Link, Outlet } from "react-router-dom";
+import { NAV, Navbar } from "@/components/layout/Navbar";
+import { company } from "@/lib/company";
 
 const FOOTER_LINKS = [
   { to: "/privacy", label: "Privacy Policy" },
@@ -20,6 +10,10 @@ const FOOTER_LINKS = [
 ];
 
 export function RootLayout() {
+  const phoneList = company.contact.phones
+    .map((p) => p.display)
+    .join(", ");
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <a
@@ -29,58 +23,7 @@ export function RootLayout() {
         Skip to main content
       </a>
 
-      <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
-        <nav
-          aria-label="Primary"
-          className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4"
-        >
-          <Link
-            to="/"
-            className="flex items-center gap-2 font-semibold tracking-tight"
-            aria-label={`${siteConfig.name} — go to home`}
-          >
-            <span
-              className="grid h-7 w-7 place-items-center rounded-md bg-primary text-primary-foreground"
-              aria-hidden="true"
-            >
-              <span className="text-xs font-bold">K</span>
-            </span>
-            <span className="hidden sm:inline">
-              KAVERI<span className="text-brand-600">.</span> INDUSTRIES
-            </span>
-          </Link>
-
-          <ul className="hidden items-center gap-1 text-sm md:flex" role="list">
-            {NAV.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  end={item.end}
-                  className={({ isActive }) =>
-                    cn(
-                      "rounded-md px-3 py-1.5 transition-colors hover:bg-accent hover:text-accent-foreground",
-                      isActive && "text-accent",
-                    )
-                  }
-                  aria-label={item.label}
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex items-center gap-2">
-            <Link
-              to="/contact"
-              className="hidden rounded-md bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:inline-flex"
-            >
-              Request a Quote
-            </Link>
-            <ThemeToggle />
-          </div>
-        </nav>
-      </header>
+      <Navbar />
 
       <main
         id="main-content"
@@ -91,48 +34,99 @@ export function RootLayout() {
       </main>
 
       <footer
-        className="border-t border-border bg-background py-10"
+        className="relative border-t border-border bg-[#F1F4F9] dark:bg-card py-12"
         aria-label="Site footer"
       >
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-2">
-          <div>
-            <Link
-              to="/"
-              className="flex items-center gap-2 font-semibold tracking-tight"
-              aria-label={`${siteConfig.name} — go to home`}
-            >
-              <span
-                className="grid h-7 w-7 place-items-center rounded-md bg-primary text-primary-foreground"
-                aria-hidden="true"
+        {/* Gradient hairline along the top edge */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/60 to-transparent"
+        />
+
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+            {/* Brand & ISO */}
+            <div className="md:col-span-2">
+              <Link
+                to="/"
+                className="group inline-flex items-center gap-2 font-semibold tracking-tight text-foreground"
+                aria-label={`${company.name} — go to home`}
               >
-                <span className="text-xs font-bold">K</span>
-              </span>
-              <span>KAVERI INDUSTRIES</span>
-            </Link>
-            <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-              Precision engineered high-tensile fasteners for demanding
-              industrial applications worldwide.
-            </p>
+                <span
+                  className="grid h-7 w-7 place-items-center rounded-sm bg-brand-700 text-white transition-all duration-300 group-hover:bg-brand-800 group-hover:shadow-[0_0_0_4px_rgb(37_99_235/0.18)]"
+                  aria-hidden="true"
+                >
+                  <span className="text-xs font-bold">{company.monogram}</span>
+                </span>
+                <span className="text-base font-bold">{company.wordmark}</span>
+              </Link>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-brand-700 dark:text-brand-400">
+                {company.certificationStatement}
+              </p>
+              <p className="mt-2 max-w-sm text-xs md:text-sm text-muted-foreground leading-relaxed">
+                {company.description}
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground">Navigation</h3>
+              <ul className="mt-3 space-y-2 text-xs md:text-sm">
+                {NAV.map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      className="link-underline text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Address & Contact */}
+            <div>
+              <h3 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground">Works & Office</h3>
+              <address className="mt-3 not-italic text-xs md:text-sm text-muted-foreground space-y-1.5 leading-relaxed">
+                <p>{company.address.street}</p>
+                <p>
+                  {company.address.city} - {company.address.postalCode}
+                </p>
+                <p className="pt-2 text-foreground font-semibold">
+                  Ph: {phoneList}
+                </p>
+                <p>Fax: {company.contact.fax.display}</p>
+                <a
+                  href={`mailto:${company.contact.primaryEmail}`}
+                  className="link-underline inline-block text-xs text-muted-foreground font-mono transition-colors hover:text-foreground"
+                >
+                  {company.contact.primaryEmail}
+                </a>
+              </address>
+            </div>
           </div>
 
-          <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              {FOOTER_LINKS.map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row text-xs text-muted-foreground">
+            <p>
+              © {new Date().getFullYear()} {company.copyright}
+            </p>
+            <nav aria-label="Legal">
+              <ul className="flex flex-wrap gap-4">
+                {FOOTER_LINKS.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="link-underline transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
-        <p className="mt-8 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-        </p>
       </footer>
     </div>
   );

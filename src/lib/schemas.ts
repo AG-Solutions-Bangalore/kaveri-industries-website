@@ -8,65 +8,10 @@
  * Conventions:
  * - `JsonLd` is a single object or an array of objects.
  * - Helpers accept rich inputs (e.g. `Review[]`) and produce schema.org JSON.
- * - URLs are resolved to absolute form against `siteConfig.url`.
+ * - URLs are resolved to absolute form against `company.url`.
  */
 
-// ---------------------------------------------------------------- //
-// Site-wide config
-// ---------------------------------------------------------------- //
-
-const SITE_NAME = "Kaveri Industries";
-const SITE_LEGAL_NAME = "Kaveri Industries Private Limited";
-const SITE_URL =
-  (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ??
-  "https://kaveri-industries.example.com";
-const ORG_LOGO = `${SITE_URL}/og/logo.png`;
-const ORG_PHONE = "+91-80-4567-8900";
-const ORG_EMAIL = "sales@kaveri-industries.example.com";
-
-/** Absolute-URL helper used by every schema builder. */
-export function absUrl(path: string): string {
-  if (!path) return SITE_URL;
-  if (/^https?:\/\//i.test(path)) return path;
-  return `${SITE_URL}${path.startsWith("/") ? "" : "/"}${path}`;
-}
-
-export const siteConfig = {
-  name: SITE_NAME,
-  legalName: SITE_LEGAL_NAME,
-  url: SITE_URL,
-  description:
-    "Kaveri Industries — engineered polymer solutions, precision moulding, and contract manufacturing for industrial OEMs.",
-  logo: ORG_LOGO,
-  phone: ORG_PHONE,
-  email: ORG_EMAIL,
-  locale: "en_IN",
-  twitter: "@kaveri_industries",
-  foundingDate: "2008",
-  /** Geo for LocalBusiness / Knowledge Panel. Whitefield, Bengaluru HQ. */
-  geo: { lat: 12.9698, lng: 77.7499 },
-  address: {
-    street: "Plot 14, Phase II, Peenya Industrial Area",
-    city: "Bengaluru",
-    region: "Karnataka",
-    postalCode: "560058",
-    country: "IN",
-  },
-  hours: [
-    {
-      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:00",
-    },
-    { days: ["Saturday"], opens: "09:00", closes: "13:00" },
-  ],
-  social: [
-    "https://www.linkedin.com/company/kaveri-industries",
-    "https://www.facebook.com/kaveriindustries",
-    "https://twitter.com/kaveri_industries",
-    "https://www.youtube.com/@kaveri-industries",
-  ],
-} as const;
+import { company } from "@/lib/company";
 
 // ---------------------------------------------------------------- //
 // Types
@@ -97,25 +42,34 @@ export interface ReviewInput {
 // Builders
 // ---------------------------------------------------------------- //
 
+/** Absolute-URL helper used by every schema builder. */
+export function absUrl(path: string): string {
+  if (!path) return company.url;
+  if (/^https?:\/\//i.test(path)) return path;
+  return `${company.url}${path.startsWith("/") ? "" : "/"}${path}`;
+}
+
 /** Generic Organization schema used site-wide (injected by SEO component). */
 export function organizationSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": `${SITE_URL}#organization`,
-    name: SITE_NAME,
-    legalName: SITE_LEGAL_NAME,
-    url: SITE_URL,
-    logo: ORG_LOGO,
-    description: siteConfig.description,
-    foundingDate: siteConfig.foundingDate,
-    email: ORG_EMAIL,
-    telephone: ORG_PHONE,
-    sameAs: [...siteConfig.social],
+    "@id": `${company.url}#organization`,
+    name: company.name,
+    legalName: company.legalName,
+    url: company.url,
+    logo: company.logo,
+    description: company.description,
+    foundingDate: company.foundingDate,
+    email: company.contact.primaryEmail,
+    telephone: company.contact.phones[0].tel,
+    sameAs: [...company.social],
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "sales",
+        email: company.contact.salesEmail,
+        telephone: company.contact.phones[0].tel,
         areaServed: ["IN", "AE", "SG", "DE"],
         availableLanguage: ["English", "Hindi"],
       },
@@ -128,19 +82,19 @@ export function organizationSchema(): Record<string, unknown> {
  * Required for Google Knowledge Panel and Google Maps rich results.
  */
 export function localBusinessSchema(): Record<string, unknown> {
-  const a = siteConfig.address;
+  const a = company.address;
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${SITE_URL}#localbusiness`,
-    name: SITE_NAME,
-    legalName: SITE_LEGAL_NAME,
-    url: SITE_URL,
-    logo: ORG_LOGO,
-    image: ORG_LOGO,
-    description: siteConfig.description,
-    telephone: ORG_PHONE,
-    email: ORG_EMAIL,
+    "@id": `${company.url}#localbusiness`,
+    name: company.name,
+    legalName: company.legalName,
+    url: company.url,
+    logo: company.logo,
+    image: company.logo,
+    description: company.description,
+    telephone: company.contact.phones[0].tel,
+    email: company.contact.primaryEmail,
     priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",
@@ -152,16 +106,16 @@ export function localBusinessSchema(): Record<string, unknown> {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: siteConfig.geo.lat,
-      longitude: siteConfig.geo.lng,
+      latitude: a.geo.lat,
+      longitude: a.geo.lng,
     },
-    openingHoursSpecification: siteConfig.hours.map((h) => ({
+    openingHoursSpecification: company.hours.map((h) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: h.days,
       opens: h.opens,
       closes: h.closes,
     })),
-    parentOrganization: { "@id": `${SITE_URL}#organization` },
+    parentOrganization: { "@id": `${company.url}#organization` },
   };
 }
 
@@ -170,16 +124,16 @@ export function websiteSchema(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${SITE_URL}#website`,
-    name: SITE_NAME,
-    url: SITE_URL,
-    inLanguage: "en-IN",
-    publisher: { "@id": `${SITE_URL}#organization` },
+    "@id": `${company.url}#website`,
+    name: company.name,
+    url: company.url,
+    inLanguage: company.locale.replace("_", "-"),
+    publisher: { "@id": `${company.url}#organization` },
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+        urlTemplate: `${company.url}/search?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },
@@ -217,8 +171,8 @@ export function productSchema(p: {
     description: p.description,
     image: absUrl(p.image),
     sku: p.sku,
-    brand: { "@type": "Brand", name: p.brand ?? SITE_NAME },
-    manufacturer: { "@id": `${SITE_URL}#organization` },
+    brand: { "@type": "Brand", name: p.brand ?? company.name },
+    manufacturer: { "@id": `${company.url}#organization` },
   };
 }
 
@@ -307,8 +261,8 @@ export function serviceSchema(s: {
     name: s.name,
     description: s.description,
     url: absUrl(s.url),
-    image: s.image ? absUrl(s.image) : ORG_LOGO,
-    provider: { "@id": `${SITE_URL}#organization` },
+    image: s.image ? absUrl(s.image) : company.logo,
+    provider: { "@id": `${company.url}#organization` },
     areaServed: { "@type": "Country", name: "India" },
   };
 }
@@ -346,8 +300,8 @@ export function articleSchema(a: {
     author: { "@type": "Person", name: a.authorName },
     publisher: {
       "@type": "Organization",
-      name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: ORG_LOGO },
+      name: company.name,
+      logo: { "@type": "ImageObject", url: company.logo },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": absUrl(a.url) },
   };

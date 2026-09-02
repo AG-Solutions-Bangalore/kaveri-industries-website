@@ -1,20 +1,13 @@
 import {
   breadcrumbSchema,
-  reviewsBlock,
   siteNavigationSchema,
 } from "@/lib/schemas";
-import { SEED_TESTIMONIALS } from "@/feature/Home/api/testimonials";
+import { company } from "@/lib/company";
 import { sectorsSchema } from "@/feature/Home/api/sectorsSchema";
+import { NAV } from "@/components/layout/Navbar";
 import type { SEOProps } from "@/components/common/SEO";
 
-const PRIMARY_NAV = [
-  { name: "Home", url: "/" },
-  { name: "About Us", url: "/about" },
-  { name: "Products", url: "/products" },
-  { name: "Industries", url: "/industries" },
-  { name: "Quality", url: "/quality" },
-  { name: "Contact Us", url: "/contact" },
-];
+const PRIMARY_NAV = NAV.map((item) => ({ name: item.label, url: item.to }));
 
 /**
  * SEO config for the homepage. The site-wide Organization + LocalBusiness
@@ -27,8 +20,7 @@ export const homeSEO: Pick<
   "title" | "description" | "path" | "schema" | "keywords" | "image" | "imageAlt"
 > = {
   title: "High-Tensile MS Fasteners Manufacturer",
-  description:
-    "Kaveri Industries — manufacturers of high-tensile mild-steel fasteners for transmission towers, refineries, railways, and structural infrastructure. ISO 9001:2015 certified.",
+  description: `${company.name} — manufacturers of high-tensile mild-steel fasteners for transmission towers, refineries, railways, and structural infrastructure. ${company.isoStandard} certified.`,
   path: "/",
   keywords: [
     "high tensile fasteners",
@@ -37,15 +29,14 @@ export const homeSEO: Pick<
     "structural bolts",
     "foundation bolts",
     "hot dip galvanised fasteners",
-    "ISO 9001:2015 fasteners",
+    `${company.isoStandard} fasteners`,
+    "Jigani Bangalore fasteners",
   ],
   image: "/og/cover.png",
-  imageAlt:
-    "Kaveri Industries — high-tensile fasteners for transmission towers, refineries, and structural infrastructure",
+  imageAlt: `${company.name} — high-tensile fasteners for transmission towers, refineries, and structural infrastructure`,
   schema: [
     breadcrumbSchema([{ name: "Home", url: "/" }]),
     siteNavigationSchema(PRIMARY_NAV),
     ...sectorsSchema(),
-    ...reviewsBlock(SEED_TESTIMONIALS),
   ],
 };

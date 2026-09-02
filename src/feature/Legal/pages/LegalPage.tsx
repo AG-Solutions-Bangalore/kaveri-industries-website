@@ -1,23 +1,24 @@
 import { SEO } from "@/components/common/SEO";
 import { breadcrumbSchema } from "@/lib/schemas";
+import { company } from "@/lib/company";
 import type { SEOProps } from "@/components/common/SEO";
 
 const LEGAL_TITLES: Record<string, { title: string; body: string }> = {
   privacy: {
     title: "Privacy Policy",
-    body: "Kaveri Industries collects only the contact information you voluntarily submit through our enquiry and quote-request forms. We do not sell, rent, or share your data with third parties.",
+    body: `${company.name} collects only the contact information you voluntarily submit through our enquiry and quote-request forms. We do not sell, rent, or share your data with third parties.`,
   },
   terms: {
     title: "Terms of Service",
-    body: "By using kaveri-industries.example.com you agree to the acceptable-use terms set out in our master supply agreement. Product specifications, lead times, and minimum order quantities are confirmed in writing per enquiry.",
+    body: `By using ${company.url.replace(/^https?:\/\//, "")} you agree to the acceptable-use terms set out in our master supply agreement. Product specifications, lead times, and minimum order quantities are confirmed in writing per enquiry.`,
   },
   compliance: {
     title: "Compliance",
-    body: "Kaveri Industries operates under ISO 9001:2015 and follows the relevant IS / ISO / ASTM standards for every product line. Material test certificates accompany each shipment.",
+    body: `${company.name} operates under ${company.isoStandard} and follows the relevant IS / ISO / ASTM standards for every product line. Material test certificates accompany each shipment.`,
   },
   sitemap: {
     title: "Sitemap",
-    body: "Browse all sections of the Kaveri Industries website from one place — products, industries, and contact.",
+    body: `Browse all sections of the ${company.name} website from one place — products, industries, and contact.`,
   },
 };
 
@@ -47,8 +48,8 @@ export default function LegalPage({ slug }: LegalPageProps) {
         <p className="mt-6 text-muted-foreground">{entry.body}</p>
         <p className="mt-6 text-sm text-muted-foreground">
           For questions about this policy, write to{" "}
-          <a className="text-accent underline" href="mailto:legal@kaveri-industries.example.com">
-            legal@kaveri-industries.example.com
+          <a className="text-accent underline" href={`mailto:${company.contact.legalEmail}`}>
+            {company.contact.legalEmail}
           </a>
           .
         </p>

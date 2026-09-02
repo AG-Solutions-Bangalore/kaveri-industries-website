@@ -1,81 +1,141 @@
 import { ArrowRight, BadgeCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import { HERO_CONTENT } from "@/feature/Home/api/homeConstants";
+import { company } from "@/lib/company";
 
 /**
- * Hero section — single h1 for SEO clarity. Copy drawn from the
- * "Manufacturers of High Tensile MS Fasteners" tagline in the brochure.
- * Visual reference only — no copy was lifted from the design PDF.
+ * Hero section — precisely matching the design reference.
+ * Border radius set strictly to `sm` (smallest unit).
  */
 export function Hero() {
+  // For the above-the-fold hero we never drop opacity to 0 — that would
+  // delay the LCP. We only translate-Y, which is fully GPU-accelerated
+  // and doesn't trigger layout/paint on the first frame.
+  const slideUp = {
+    initial: { y: 14 },
+    animate: { y: 0 },
+  };
+  const ease = [0.22, 1, 0.36, 1] as const;
+
   return (
     <section
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-background py-12 md:py-20"
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, rgba(226,232,240,0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(226,232,240,0.3) 1px, transparent 1px)",
+        backgroundSize: "32px 32px",
+      }}
     >
-      <div className="grid items-center gap-10 md:grid-cols-2">
-        <div className="space-y-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Kaveri Industries
-          </p>
-          <h1
-            id="hero-heading"
-            className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl"
-          >
-            High-Tensile MS Fasteners for{" "}
-            <span className="text-accent">Demanding Applications</span>
-          </h1>
-          <p className="max-w-prose text-base text-muted-foreground md:text-lg">
-            Manufacturers of high-tensile mild-steel fasteners engineered for
-            uncompromising strength and exacting tolerances — serving OEMs
-            across infrastructure, energy, and industrial sectors.
-          </p>
-
-          {/* ISO certification badge — mirrors the design's "ISO 9001:2015" callout */}
-          <div className="inline-flex items-center gap-3 rounded-md bg-inverted px-4 py-3 text-inverted-foreground shadow-md">
-            <BadgeCheck className="h-5 w-5 text-brand-300" aria-hidden="true" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-[10px] uppercase tracking-widest opacity-80">
-                Certified Quality
-              </span>
-              <span className="text-sm font-semibold">ISO 9001:2015</span>
-            </div>
-          </div>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Link
-              to="/products"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* Content Column */}
+          <div className="space-y-6">
+            <motion.div
+              {...slideUp}
+              transition={{ duration: 0.5, ease, delay: 0.05 }}
+              className="flex items-center gap-2"
             >
-              Explore Products
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            >
-              Request a Quote
-            </Link>
-          </div>
-        </div>
+              <span className="h-px w-6 bg-muted-foreground/60" aria-hidden="true" />
+              <p className="text-xs font-semibold uppercase relative tracking-[0.2em] text-muted-foreground">
+                {HERO_CONTENT.tagline}
 
-        {/* Visual — placeholder for hero photography, mirrors the design's
-            fastener-stack composition. Replace with a real image when available. */}
-        <div
-          className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-secondary shadow-sm"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,theme(colors.brand.500/0.15),transparent_50%),radial-gradient(circle_at_70%_80%,theme(colors.brand.700/0.25),transparent_50%)]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-3 gap-3 opacity-80">
-              {Array.from({ length: 9 }, (_, i) => (
-                <div
-                  key={i}
-                  className="h-14 w-14 rounded-md bg-foreground/80 shadow-md"
+              </p>
+            </motion.div>
+
+            <motion.h1
+              id="hero-heading"
+              {...slideUp}
+              transition={{ duration: 0.6, ease, delay: 0.1 }}
+              className="text-4xl font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-5xl"
+            >
+              High-Tensile MS<br />
+              Fasteners for<br />
+              <span className="text-brand-600">Demanding Applications</span>
+            </motion.h1>
+
+            <motion.p
+              {...slideUp}
+              transition={{ duration: 0.6, ease, delay: 0.2 }}
+              className="max-w-prose text-sm leading-relaxed text-muted-foreground sm:text-base"
+            >
+              Introducing {company.shortName}'s focus on precision-engineered
+              high-tensile MS fasteners for global industrial infrastructure.
+              We deliver uncompromising strength and exacting tolerances for
+              critical engineering projects.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              {...slideUp}
+              transition={{ duration: 0.6, ease, delay: 0.28 }}
+              className="flex flex-wrap items-center gap-3 pt-2"
+            >
+              <Link
+                to={HERO_CONTENT.primaryCta.href}
+                className="group inline-flex items-center gap-2 rounded-none bg-brand-700 px-5 py-2.5 text-xs md:text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {HERO_CONTENT.primaryCta.label}
+                <ArrowRight
+                  className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
+                  aria-hidden="true"
                 />
-              ))}
-            </div>
+              </Link>
+              <Link
+                to={HERO_CONTENT.secondaryCta.href}
+                className="inline-flex items-center gap-2 rounded-none border border-border bg-background px-5 py-2.5 text-xs md:text-sm font-semibold text-foreground shadow-xs transition-colors duration-200 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {HERO_CONTENT.secondaryCta.label}
+              </Link>
+            </motion.div>
           </div>
+
+          {/* Visual Column — Screenshot Matched Photo Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease, delay: 0.2 }}
+            className="relative"
+          >
+            {/* Background Offset Card Accent */}
+            <div
+              className="absolute -right-3 -bottom-3 h-full w-full rounded-none bg-brand-100/60 dark:bg-brand-950/40"
+              aria-hidden="true"
+            />
+
+            {/* Main Image Frame */}
+            <div className="relative aspect-4/3 overflow-hidden rounded-none border border-border bg-card shadow-sm">
+              <img
+                src="/images/hero-fasteners.svg"
+                alt={HERO_CONTENT.imageAlt}
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+            </div>
+
+            {/* Floating Tolerance Spec Badge — gentle bob */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.6 }}
+              className="float-soft absolute bottom-8 -left-12 rounded-none border border-border bg-card/95 p-3 shadow-md backdrop-blur-xs"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-brand-50 text-brand-700 dark:bg-brand-950/80">
+                  <BadgeCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                    TOLERANCE SPEC
+                  </p>
+                  <p className="text-xs font-extrabold text-foreground">
+                    {company.isoStandard}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

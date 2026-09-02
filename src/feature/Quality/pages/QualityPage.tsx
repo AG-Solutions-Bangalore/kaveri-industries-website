@@ -1,5 +1,6 @@
 import { BadgeCheck } from "lucide-react";
 import { SEO } from "@/components/common/SEO";
+import { company } from "@/lib/company";
 import { qualitySEO } from "@/feature/Quality/seo/qualitySeo";
 
 export default function QualityPage() {
@@ -19,7 +20,7 @@ export default function QualityPage() {
           <p>
             The manufacturers of zero-defect fasteners speak volumes for our
             commitment to quality. We have made quality a way of life at every
-            step of the manufacturing process — the ISO 9001 certification is
+            step of the manufacturing process — the {company.isoStandard} certification is
             ample proof of our insatiable quest for quality and desire for
             perfection.
           </p>
@@ -35,7 +36,7 @@ export default function QualityPage() {
               <span className="text-[10px] uppercase tracking-widest opacity-80">
                 Certified Quality
               </span>
-              <span className="text-sm font-semibold">ISO 9001:2015</span>
+              <span className="text-sm font-semibold">{company.isoStandard}</span>
             </div>
           </div>
         </article>

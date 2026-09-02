@@ -2,17 +2,17 @@ import { Helmet } from "react-helmet-async";
 import {
   localBusinessSchema,
   organizationSchema,
-  siteConfig,
   websiteSchema,
   type JsonLd,
 } from "@/lib/schemas";
+import { company } from "@/lib/company";
 
 export type SeoOgType = "website" | "article" | "product" | "profile";
 
 export interface SEOProps {
   /** Page-specific title. Joined with site name in the renderer. */
   title?: string;
-  /** 50–160 characters. Falls back to siteConfig.description. */
+  /** 50–160 characters. Falls back to company.description. */
   description?: string;
   /** Path of the page, e.g. "/about". Used to build canonical + OG url. */
   path?: string;
@@ -56,25 +56,25 @@ const OG_H = 630;
  */
 export function SEO({
   title,
-  description = siteConfig.description,
+  description = company.description,
   path = "/",
   image,
-  imageAlt = title ?? siteConfig.name,
+  imageAlt = title ?? company.name,
   noindex = false,
   schema,
   type = "website",
   keywords,
-  locale = siteConfig.locale,
+  locale = company.locale,
   publishedTime,
   modifiedTime,
   authorName,
   alternates,
 }: SEOProps) {
   const fullTitle = title
-    ? `${title} | ${siteConfig.name}`
-    : `${siteConfig.name} — Engineered Polymer Solutions`;
-  const url = `${siteConfig.url}${path.startsWith("/") ? "" : "/"}${path}`;
-  const ogImage = image ?? siteConfig.logo;
+    ? `${title} | ${company.name}`
+    : `${company.name} — Precision-Engineered Fasteners`;
+  const url = `${company.url}${path.startsWith("/") ? "" : "/"}${path}`;
+  const ogImage = image ?? company.logo;
 
   // Default site-wide schemas — Google reads these for Knowledge Panel +
   // sitelinks search box. LocalBusiness powers Maps / "near me" searches.
@@ -113,7 +113,7 @@ export function SEO({
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content={siteConfig.name} />
+      <meta property="og:site_name" content={company.name} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
@@ -137,8 +137,8 @@ export function SEO({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={siteConfig.twitter} />
-      <meta name="twitter:creator" content={siteConfig.twitter} />
+      <meta name="twitter:site" content={company.twitter} />
+      <meta name="twitter:creator" content={company.twitter} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />

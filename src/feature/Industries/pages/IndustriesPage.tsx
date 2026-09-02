@@ -1,5 +1,6 @@
 import { SEO } from "@/components/common/SEO";
-import { TargetSectors, sectorsSchema } from "@/feature/Home/components/TargetSectors";
+import { TargetSectors } from "@/feature/Home/components/TargetSectors";
+import { sectorsSchema } from "@/feature/Home/api/sectorsSchema";
 import { industriesSEO } from "@/feature/Industries/seo/industriesSeo";
 
 export default function IndustriesPage() {
@@ -9,7 +10,7 @@ export default function IndustriesPage() {
         {...industriesSEO}
         schema={[...(Array.isArray(industriesSEO.schema) ? industriesSEO.schema : [industriesSEO.schema ?? {}]), ...sectorsSchema()]}
       />
-      <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
         <header className="mb-10 max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
             Industries
