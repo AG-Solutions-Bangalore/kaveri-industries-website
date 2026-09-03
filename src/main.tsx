@@ -5,6 +5,7 @@ import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 
 import App from "@/App.tsx";
+import { SmoothScroll } from "@/components/common/SmoothScroll";
 import { queryClient } from "@/lib/queryClient";
 import "./index.css";
 
@@ -18,7 +19,9 @@ createRoot(document.getElementById("root")!).render(
     >
       <HelmetProvider>
         <QueryClientProvider client={queryClient}>
-          <App />
+          <SmoothScroll>
+            <App />
+          </SmoothScroll>
         </QueryClientProvider>
       </HelmetProvider>
     </ThemeProvider>

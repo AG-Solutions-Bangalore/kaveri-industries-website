@@ -337,6 +337,11 @@
     color-scheme: light dark;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    /* Suppress the browser's native bounce at top/bottom edges so it
+       doesn't compound Lenis's interpolation and produce visible jitter
+       at the page boundaries. Mobile pull-to-refresh / back-gestures are
+       unaffected because Lenis uses syncTouch: false. */
+    overscroll-behavior: none;
   }
   body {
     background-color: hsl(var(--color-background));
