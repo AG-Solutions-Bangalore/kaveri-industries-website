@@ -37,11 +37,11 @@ export function QualityCommitment() {
             />
 
             {/* Main Inspection Photo */}
-            <div className="relative aspect-4/3 overflow-hidden rounded-none border border-border bg-card shadow-sm">
+            <div className="relative aspect-4/3 overflow-hidden rounded-none border border-slate-300/80 dark:border-border bg-card shadow-sm">
               <img
                 src={QUALITY_COMMITMENT_CONTENT.imageUrl}
                 alt={QUALITY_COMMITMENT_CONTENT.imageAlt}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover grayscale contrast-115"
                 loading="lazy"
               />
             </div>
@@ -54,7 +54,7 @@ export function QualityCommitment() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-15% 0px" }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+              className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400"
             >
               {QUALITY_COMMITMENT_CONTENT.badge}
             </motion.p>

@@ -47,7 +47,7 @@ export function QualityFocus() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+            className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400"
           >
             CORE TENETS
           </motion.p>

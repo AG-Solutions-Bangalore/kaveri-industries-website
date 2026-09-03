@@ -25,7 +25,7 @@ export function QualityProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-15% 0px" }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+              className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400"
             >
               {QUALITY_PROCESS_CONTENT.badge}
             </motion.p>
@@ -46,7 +46,7 @@ export function QualityProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-15% 0px" }}
               transition={{ duration: 0.6, ease: EASE, delay: 0.16 }}
-              className="pt-2 text-sm leading-relaxed text-muted-foreground sm:text-base"
+              className="pt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base"
             >
               {QUALITY_PROCESS_CONTENT.paragraph}
             </motion.p>
@@ -58,33 +58,44 @@ export function QualityProcess() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-            className="overflow-hidden rounded-sm border border-border bg-card shadow-md"
+            className="overflow-hidden rounded-none border border-slate-300/80 dark:border-border bg-card shadow-lg"
           >
             {/* Window Top Navigation Bar */}
-            <div className="flex items-center justify-between border-b border-border bg-slate-100/80 px-3 py-2 text-xs text-muted-foreground dark:bg-slate-900/80">
-              <div className="flex items-center gap-2">
-                <span className="grid h-5 w-5 place-items-center rounded-xs bg-brand-700 text-[10px] font-bold text-white">
+            <div className="flex flex-wrap items-center justify-between border-b border-border bg-slate-100/90 px-3 py-2 text-xs text-muted-foreground dark:bg-slate-900/90 gap-2">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="grid h-5 w-5 place-items-center rounded-xs bg-brand-700 text-[10px] font-bold text-white shadow-xs">
                   {company.monogram}
                 </span>
-                <span className="font-semibold text-foreground text-[11px] hidden sm:inline">
+                <span className="font-bold text-foreground text-[11px] hidden sm:inline">
                   {company.name}
                 </span>
-                <span className="text-border hidden sm:inline">|</span>
-                <span className="text-[11px] font-medium text-foreground/80">
-                  Manufacturing Shop - Quality Overview
-                </span>
+                <div className="hidden md:flex items-center gap-2 pl-2 text-[10px] text-muted-foreground">
+                  <span className="font-semibold text-brand-600 dark:text-brand-400">Dashboard</span>
+                  <span>•</span>
+                  <span>Inspections</span>
+                  <span>•</span>
+                  <span>Defect Log</span>
+                  <span>•</span>
+                  <span>Reports</span>
+                </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                <div className="flex items-center gap-1.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
                   <Activity className="h-3 w-3 animate-pulse" />
-                  <span className="hidden md:inline">Live Line Sync</span>
+                  <span className="hidden sm:inline">Live Line Sync</span>
                 </div>
-                <div className="h-4 w-px bg-border" />
-                <div className="grid h-5 w-5 place-items-center rounded-full bg-border/60 text-foreground">
+                <div className="h-3.5 w-px bg-border" />
+                <div className="grid h-5 w-5 place-items-center rounded-full bg-slate-200 dark:bg-slate-800 text-foreground">
                   <User className="h-3 w-3" />
                 </div>
               </div>
+            </div>
+
+            {/* Window Subtitle Header */}
+            <div className="border-b border-border/70 bg-white/60 dark:bg-slate-950/60 px-3 py-1.5 text-[11px] font-medium text-foreground/80 flex items-center justify-between">
+              <span>Manufacturing Shop — Quality Overview</span>
+              <span className="text-[10px] font-mono text-muted-foreground">Station 04 Active</span>
             </div>
 
             {/* Window Image Content */}
@@ -92,7 +103,7 @@ export function QualityProcess() {
               <img
                 src={QUALITY_PROCESS_CONTENT.imageUrl}
                 alt={QUALITY_PROCESS_CONTENT.imageAlt}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover grayscale contrast-115"
                 loading="lazy"
               />
             </div>

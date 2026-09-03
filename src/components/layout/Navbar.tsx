@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { company } from "@/lib/company";
 
@@ -8,7 +8,6 @@ export const NAV = [
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", end: false },
   { to: "/industries", label: "Industries", end: false },
-  { to: "/quality", label: "Quality", end: false },
   { to: "/contact", label: "Contact Us", end: false },
 ];
 
@@ -56,10 +55,10 @@ export function Navbar() {
                 aria-label={item.label}
                 className={({ isActive }) =>
                   cn(
-                    "font-medium transition-colors duration-200",
+                    "relative py-1 font-medium transition-colors duration-200 border-b-2",
                     isActive
-                      ? "text-brand-700"
-                      : "text-foreground/70 hover:text-foreground",
+                      ? "text-brand-700 font-semibold border-brand-700"
+                      : "text-foreground/75 hover:text-foreground border-transparent",
                   )
                 }
               >
@@ -69,7 +68,15 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label="Search"
+            className="grid h-9 w-9 place-items-center rounded-sm text-foreground/70 transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Search className="h-4 w-4" aria-hidden="true" />
+          </button>
+
           <Link
             to="/contact"
             className="group inline-flex items-center gap-1.5 bg-brand-700 px-4 py-2 text-xs md:text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

@@ -1,5 +1,4 @@
 import { SEO } from "@/components/common/SEO";
-import { CTABanner } from "@/components/common/CTABanner";
 import { aboutSEO } from "@/feature/About/seo/aboutSeo";
 import { AboutHero } from "@/feature/About/components/AboutHero";
 import { WhoWeAre } from "@/feature/About/components/WhoWeAre";
@@ -12,13 +11,12 @@ import { QualityProcess } from "@/feature/About/components/QualityProcess";
  * About Us Page with integrated Quality at the Core architecture.
  *
  * Implements:
- * 1. Hero banner with technical blueprint aesthetic
- * 2. Who We Are narrative & product photography
+ * 1. Hero banner with technical blueprint aesthetic & factory watermark
+ * 2. Who We Are narrative & precision fastener photography
  * 3. Quality at the Core transition banner
- * 4. Committed to Quality with CAD corner brackets
- * 5. Our Quality Focus (4 Core Tenets on blueprint grid)
- * 6. Quality Through Manufacturing (Process Integration & Shop View)
- * 7. Consultation CTA Banner
+ * 4. Committed to Quality with CAD corner brackets & vernier inspection photo
+ * 5. Our Quality Focus (4 Core Tenets on blueprint drafting grid)
+ * 6. Quality Through Manufacturing (Process Integration & Shop View Dashboard)
  */
 export default function AboutPage() {
   return (
@@ -31,7 +29,6 @@ export default function AboutPage() {
       <QualityCommitment />
       <QualityFocus />
       <QualityProcess />
-      <CTABanner />
     </>
   );
 }

@@ -20,9 +20,9 @@ export const WHO_WE_ARE_CONTENT = {
     `${company.name} is a premier manufacturer specializing in high-tensile MS fasteners designed to meet the rigorous demands of critical industrial infrastructure. We focus on delivering precision-engineered components that ensure structural integrity and operational safety across diverse sectors.`,
     "Our operational philosophy is grounded in manufacturing excellence. We maintain strict control over our production processes, utilizing advanced technology and stringent quality assurance protocols to provide reliable fastening solutions. We are committed to supplying components that consistently perform under demanding conditions, earning the trust of engineering and procurement professionals worldwide.",
   ],
-  imageUrl: "/images/hero-fasteners.webp",
+  imageUrl: "/images/about-who-we-are.jpg",
   imageAlt:
-    "High-tensile MS fasteners, heavy hex structural bolts, and precision engineered threaded components — Kaveri Industries",
+    "High-tensile MS hex head bolts, threaded fasteners, and structural washers on workshop bench — Kaveri Industries",
 } as const;
 
 export const QUALITY_HERO_CONTENT = {
@@ -79,7 +79,7 @@ export const QUALITY_PROCESS_CONTENT = {
   heading: "Quality Through Manufacturing",
   paragraph:
     "Quality is integral to Kaveri's manufacturing approach, woven directly into the fabric of our production line. Rather than treating inspection as an afterthought, process controls are embedded at critical junctures. This systemic approach ensures that deviations are identified and corrected at the source, maintaining the integrity of the high-tensile fasteners we produce.",
-  imageUrl: "/images/manufacturing-plant.webp",
+  imageUrl: "/images/manufacturing-shop-overview.jpg",
   imageAlt:
-    "Manufacturing shop quality overview showing precision CNC production lines and quality inspection floor at Kaveri Industries",
+    "High-angle view of modern CNC manufacturing floor and automated production lines at Kaveri Industries",
 } as const;

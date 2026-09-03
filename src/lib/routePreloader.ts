@@ -8,6 +8,5 @@ export function routePreloader(): void {
   void import("@/feature/About/pages/AboutPage");
   void import("@/feature/Products/pages/ProductsPage");
   void import("@/feature/Industries/pages/IndustriesPage");
-  void import("@/feature/Quality/pages/QualityPage");
   void import("@/feature/Contact/pages/ContactPage");
 }

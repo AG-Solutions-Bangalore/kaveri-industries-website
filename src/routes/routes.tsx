@@ -20,7 +20,6 @@ const NotFoundPage = lazy(() => import("@/feature/NotFound/pages/NotFoundPage"))
 const IndustriesPage = lazy(
   () => import("@/feature/Industries/pages/IndustriesPage"),
 );
-const QualityPage = lazy(() => import("@/feature/Quality/pages/QualityPage"));
 const LegalPage = lazy(() => import("@/feature/Legal/pages/LegalPage"));
 
 const wrap = (Page: LazyExoticComponent<ComponentType>) => (
@@ -49,7 +48,6 @@ export function AppRoutes() {
             { path: "about", element: wrap(AboutPage) },
             { path: "products", element: wrap(ProductsPage) },
             { path: "industries", element: wrap(IndustriesPage) },
-            { path: "quality", element: wrap(QualityPage) },
             { path: "contact", element: wrap(ContactPage) },
             { path: "privacy", element: <LegalPage slug="privacy" /> },
             { path: "terms", element: <LegalPage slug="terms" /> },
