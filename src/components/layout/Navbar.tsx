@@ -1,7 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
-import { ArrowRight, Search } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { MobileSidebar } from "@/components/layout/MobileSidebar";
 import { company } from "@/lib/company";
+import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 
 export const NAV = [
   { to: "/", label: "Home", end: true },
@@ -18,7 +19,7 @@ export const NAV = [
  */
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-3xl">
+    <header className="sticky top-0 z-40 border-b border-border bg-white">
       <nav
         aria-label="Primary"
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4"
@@ -68,18 +69,11 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            aria-label="Search"
-            className="grid h-9 w-9 place-items-center rounded-sm text-foreground/70 transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            <Search className="h-4 w-4" aria-hidden="true" />
-          </button>
+        <div className="flex items-center gap-2 md:gap-3">
 
           <Link
             to="/contact"
-            className="group inline-flex items-center gap-1.5 bg-brand-700 px-4 py-2 text-xs md:text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group inline-flex items-center gap-1.5 bg-brand-700 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:text-sm"
           >
             Request a Quote
             <ArrowRight
@@ -87,6 +81,8 @@ export function Navbar() {
               aria-hidden="true"
             />
           </Link>
+          <MobileSidebar navItems={NAV} />
+
         </div>
       </nav>
     </header>

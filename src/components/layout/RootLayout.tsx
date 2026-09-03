@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { NAV, Navbar } from "@/components/layout/Navbar";
+import { ScrollToTop } from "@/components/common/ScrollToTop";
 import { company } from "@/lib/company";
 
 const FOOTER_LINKS = [
@@ -24,6 +25,8 @@ export function RootLayout() {
       </a>
 
       <Navbar />
+
+      <ScrollToTop />
 
       <main
         id="main-content"

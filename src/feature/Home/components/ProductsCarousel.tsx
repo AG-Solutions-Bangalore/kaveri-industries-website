@@ -31,6 +31,7 @@ export function ProductsCarousel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.6, ease: EASE }}
+          style={{ willChange: "transform, opacity" }}
           className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
@@ -109,6 +110,7 @@ function ProductCard({ product }: { product: Product }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.5, ease: EASE }}
+      style={{ willChange: "transform, opacity" }}
       className="group/card flex w-[280px] shrink-0 flex-col rounded-sm border border-border bg-card p-3 shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
     >
       {/* Product Image Frame */}

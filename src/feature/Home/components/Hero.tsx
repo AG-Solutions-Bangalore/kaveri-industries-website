@@ -35,6 +35,7 @@ export function Hero() {
             <motion.div
               {...slideUp}
               transition={{ duration: 0.5, ease, delay: 0.05 }}
+              style={{ willChange: "transform, opacity" }}
               className="flex items-center gap-2"
             >
               <span className="h-px w-6 bg-muted-foreground/60" aria-hidden="true" />
@@ -107,7 +108,7 @@ export function Hero() {
                 srcset serves a smaller variant on smaller viewports. */}
             <div className="relative aspect-4/3 overflow-hidden rounded-none border border-border bg-card shadow-sm">
               <img
-                src={HERO_CONTENT.imageUrl}
+                src="/images/home/hero-fasteners-800.webp"
                 srcSet="
                   /images/home/hero-fasteners-600.webp 600w,
                   /images/home/hero-fasteners-800.webp 800w,
@@ -129,7 +130,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.6 }}
-              className="float-soft absolute bottom-8 -left-12 rounded-none border border-border bg-card/95 p-3 shadow-md backdrop-blur-xs"
+              className="float-soft absolute bottom-3 left-3 rounded-none border border-border bg-card/95 p-3 shadow-md backdrop-blur-xs sm:bottom-6 sm:left-6 md:bottom-8 md:-left-12"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-brand-50 text-brand-700 dark:bg-brand-950/80">

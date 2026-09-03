@@ -55,6 +55,7 @@ export function CTABanner({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.55, ease: EASE }}
+          style={{ willChange: "transform, opacity" }}
           className="inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-600/20 border border-brand-400/30 text-brand-400 shadow-inner backdrop-blur-xs"
           aria-hidden="true"
         >

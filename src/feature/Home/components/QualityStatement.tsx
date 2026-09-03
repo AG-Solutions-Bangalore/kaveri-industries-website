@@ -29,6 +29,7 @@ export function QualityStatement() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
             transition={{ duration: 0.7, ease: EASE }}
+            style={{ willChange: "transform, opacity" }}
             className="order-2 lg:order-1"
           >
             <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-border bg-card shadow-sm">

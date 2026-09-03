@@ -26,6 +26,7 @@ export function TargetSectors() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.6, ease: EASE }}
+          style={{ willChange: "transform, opacity" }}
           className="mb-10 max-w-2xl"
         >
           <h2
@@ -48,13 +49,14 @@ export function TargetSectors() {
           {TARGET_SECTORS.map((sector, idx) => {
             const Icon = sector.icon;
             return (
-              <motion.article
+              <motion.div
                 key={sector.id}
                 role="listitem"
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{ duration: 0.55, ease: EASE, delay: idx * 0.06 }}
+                style={{ willChange: "transform, opacity" }}
                 className="group relative flex h-full flex-col rounded-sm border border-border bg-card overflow-hidden shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md"
               >
                 {/* Sector Image Frame */}
@@ -115,7 +117,7 @@ export function TargetSectors() {
                     </Link>
                   </div>
                 </div>
-              </motion.article>
+              </motion.div>
             );
           })}
         </div>

@@ -9,12 +9,13 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- LCP image preload — smallest variant first so mobile gets it ASAP.
-         Width/height attrs let the browser reserve layout space (no CLS). -->
+    <!-- LCP image preload — 800w is closest to the desktop display size (878px)
+         and the 1200w fallback was over-fetching by 25.8 KiB. Width/height attrs
+         reserve layout space up front (no CLS). -->
     <link
       rel="preload"
       as="image"
-      href="/images/home/hero-fasteners-1200.webp"
+      href="/images/home/hero-fasteners-800.webp"
       imagesrcset="
         /images/home/hero-fasteners-600.webp 600w,
         /images/home/hero-fasteners-800.webp 800w,
