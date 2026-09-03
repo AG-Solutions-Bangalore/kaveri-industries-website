@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import { SEO } from "@/components/common/SEO";
 import { Dithered404 } from "@/components/ui/dithered-404";
-import { ShineButton } from "@/components/shine";
 import { notFoundSEO } from "@/feature/NotFound/seo/notFoundSeo";
 
 /**
@@ -38,16 +37,16 @@ export default function NotFoundPage() {
           <p className="mt-3 text-sm text-muted-foreground">
             The page you’re looking for doesn’t exist or has moved.
           </p>
-          <ShineButton
+          <button
             onClick={() => navigate("/")}
-            className="group mt-6 inline-flex items-center gap-2 bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group mt-6 inline-flex items-center gap-2 bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
           >
             Back home
             <ArrowRight
               className="h-3.5 w-3.5 -rotate-45 transition-transform duration-300 ease-out group-hover:translate-x-0.5"
               aria-hidden="true"
             />
-          </ShineButton>
+          </button>
         </div>
       </section>
     </>

@@ -98,12 +98,12 @@ function NewsletterForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter your email"
-        className="w-full border border-border bg-card px-3 py-2 pr-11 text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30"
+        className="w-full border border-slate-700 bg-slate-900/60 px-3 py-2 pr-11 text-sm text-white placeholder:text-slate-500 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30"
       />
       <button
         type="submit"
         aria-label="Subscribe to newsletter"
-        className="absolute right-1 top-1 grid h-8 w-8 place-items-center rounded-sm bg-brand-500 text-white transition-colors hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="absolute right-1 top-1 grid h-8 w-8 place-items-center rounded-sm bg-brand-600 text-white transition-colors hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
       >
         <Send className="h-3.5 w-3.5 cursor-pointer" aria-hidden="true" />
       </button>
@@ -130,7 +130,7 @@ function ThemeSwitch() {
   return (
     <div className="mt-5 rounded-sm bg-transparent p-4">
       <div className="flex items-center justify-between">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
           Theme
         </p>
       </div>
@@ -160,23 +160,19 @@ export function SiteFooter() {
 
   return (
     <footer
-      className="relative overflow-hidden border-t border-border bg-[#F1F4F9] pt-12 pb-5 dark:bg-card"
+      className="relative overflow-hidden border-t border-slate-800/80 bg-[#071224] pt-12 pb-5 text-white"
       aria-label="Site footer"
     >
 
 
-      {/* Paper noise grain — SVG `feTurbulence` tile (see
-          /public/footer/noise.svg) blended over the bloom with
-          `mix-blend-soft-light` so the noise interacts with the
-          gradient rather than just sitting on top. Low opacity
-          (~12% light, ~20% dark) keeps it tactile without becoming
-          distracting; seamless tile (`stitchTiles="stitch"`) means
-          the grain reads as continuous texture at any width.
-          pointer-events-none + aria-hidden: decorative only. */}
+      {/* Background blueprint grid + radial glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[url('/footer/noise.svg')] bg-size-[200px_200px] opacity-[0.12] mix-blend-soft-light dark:opacity-[0.20]"
-      />
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="absolute right-0 top-1/2 h-112.5 w-112.5 -translate-y-1/2 translate-x-1/4 rounded-full bg-brand-600/15 blur-[120px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#DAA235_1px,transparent_1px)] bg-size-[24px_24px] opacity-20" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -184,11 +180,11 @@ export function SiteFooter() {
           <div>
             <Link
               to="/"
-              className="group inline-flex items-center gap-2 font-semibold tracking-tight text-foreground"
+              className="group inline-flex items-center gap-2 font-semibold tracking-tight text-white"
               aria-label={`${company.name} — go to home`}
             >
               <span
-                className="grid h-7 w-7 place-items-center rounded-sm bg-brand-700 text-white transition-all duration-300 group-hover:bg-brand-800 group-hover:shadow-[0_0_0_4px_rgb(37_99_235/0.18)]"
+                className="grid h-7 w-7 place-items-center rounded-sm bg-brand-600 text-white transition-all duration-300 group-hover:bg-brand-500 group-hover:shadow-[0_0_0_4px_rgb(37_99_235/0.18)]"
                 aria-hidden="true"
               >
                 <span className="text-xs font-bold">{company.monogram}</span>
@@ -196,15 +192,15 @@ export function SiteFooter() {
               <span className="text-base font-bold">{company.wordmark}</span>
             </Link>
 
-            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-400">
+            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-400">
               {company.certificationStatement}
             </p>
-            <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+            <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-300">
               {company.description}
             </p>
 
             <div className="mt-4">
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                 Stay in the loop
               </p>
               <NewsletterForm />
@@ -213,7 +209,7 @@ export function SiteFooter() {
 
           {/* ── Column 2: Quick Links ───────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
               Navigation
             </h3>
             <ul className="mt-3 space-y-2 text-sm">
@@ -222,7 +218,7 @@ export function SiteFooter() {
                   <FlipButton
                     to={item.to}
                     variant="link-brand"
-                    className="gap-0 [&_svg]:hidden"
+                    className="gap-0 text-slate-300 hover:text-white [&_svg]:hidden"
                   >
                     {item.label}
                   </FlipButton>
@@ -233,45 +229,45 @@ export function SiteFooter() {
 
           {/* ── Column 3: Contact ──────────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
               Works & Office
             </h3>
-            <address className="mt-3 not-italic text-sm text-slate-700 dark:text-slate-300">
+            <address className="mt-3 not-italic text-sm text-slate-300">
 
               <p className="mt-3 flex items-center gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600"
+                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
                   aria-hidden="true"
                 />
                 <a
                   href={`tel:${company.contact.phones[0]?.tel}`}
-                  className="link-underline hover:text-foreground"
+                  className="link-underline hover:text-white"
                 >
                   {phoneList}
                 </a>
               </p>
               <p className="mt-1.5 flex items-center gap-2">
                 <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600"
+                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
                   aria-hidden="true"
                 />
                 <span>Fax: {company.contact.fax.display}</span>
               </p>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600"
+                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
                   aria-hidden="true"
                 />
                 <a
                   href={`mailto:${company.contact.primaryEmail}`}
-                  className="link-underline break-all font-mono text-xs hover:text-foreground"
+                  className="link-underline break-all font-mono text-xs hover:text-white"
                 >
                   {company.contact.primaryEmail}
                 </a>
               </p>
               <p className="mt-1.5 flex items-start gap-2">
                 <MapPin
-                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-600"
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-400"
                   aria-hidden="true"
                 />
                 <span>
@@ -285,7 +281,7 @@ export function SiteFooter() {
 
           {/* ── Column 4: Social + Theme Toggle ────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
               Follow Us
             </h3>
 
@@ -301,7 +297,7 @@ export function SiteFooter() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${company.name} on ${label}`}
-                      className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-foreground/80 transition-all duration-200 hover:scale-105 hover:border-brand-600 hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="grid h-9 w-9 place-items-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-200 hover:scale-105 hover:border-brand-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                     >
                       <Icon className="h-4 w-4" />
                     </a>
@@ -319,7 +315,7 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom bar — copyright + legal links */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-xs text-slate-700 sm:flex-row dark:text-slate-300">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-xs text-slate-400 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {company.copyright}
           </p>

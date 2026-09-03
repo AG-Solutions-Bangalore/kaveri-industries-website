@@ -24,7 +24,7 @@ export function QualityBanner() {
       {/* Blueprint grid background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-25"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#DAA235_1px,transparent_1px)] [background-size:24px_24px] opacity-25"
       />
 
       {/* Radial brand glow */}

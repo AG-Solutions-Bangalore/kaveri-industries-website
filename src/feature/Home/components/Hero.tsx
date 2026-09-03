@@ -1,156 +1,158 @@
-import { ArrowRight, BadgeCheck } from "lucide-react";
+import { ArrowRight, Award, ShieldCheck, Truck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { HERO_CONTENT } from "@/feature/Home/api/homeConstants";
-import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
 import { ShineButton } from "@/components/shine";
-import { company } from "@/lib/company";
+import HeroFloating from "./HeroFloating";
+import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
 
-/**
- * Hero section — precisely matching the design reference.
- * Border radius set strictly to `sm` (smallest unit).
- */
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export function Hero() {
-  // For the above-the-fold hero we never drop opacity to 0 — that would
-  // delay the LCP. We only translate-Y, which is fully GPU-accelerated
-  // and doesn't trigger layout/paint on the first frame.
-  const slideUp = {
-    initial: { y: 14 },
-    animate: { y: 0 },
-  };
-  const ease = [0.22, 1, 0.36, 1] as const;
   const navigate = useNavigate();
 
+  const slideUp = {
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section
-      aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-background py-12 md:py-20"
-    >
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Content Column */}
-          <div className="space-y-6">
+    <div className="relative text-white">
+      {/* Background banner image */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <img
+          src="/images/home/home_banner_image.webp"
+          alt=""
+          className="h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
+
+        {/* <div className="absolute inset-0 bg-[#071120]/75" /> */}
+      </div>
+
+      <section
+        aria-labelledby="hero-heading"
+        className="relative mx-auto max-w-7xl px-4 pt-12 pb-20 md:pb-28 lg:pb-32"
+      >
+        <div className="grid items-center gap-12 lg:grid-cols-12">
+          {/* Left Content Column */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Tagline / Eyebrow */}
             <motion.div
               {...slideUp}
-              transition={{ duration: 0.5, ease, delay: 0.05 }}
-              style={{ willChange: "transform, opacity" }}
+              transition={{ duration: 0.5, ease: EASE }}
               className="flex items-center"
             >
-
-              <p className="text-xs bg-brand-500 font-display text-white px-4 py-2 font-semibold uppercase relative tracking-[0.2em]">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-300">
                 {HERO_CONTENT.tagline}
-
-              </p>
+              </span>
             </motion.div>
 
-            <motion.h1
-              id="hero-heading"
+            {/* Main Heading with Vertical Accent Line */}
+            <motion.div
               {...slideUp}
-              transition={{ duration: 0.6, ease, delay: 0.1 }}
-              className="text-4xl font-extrabold leading-[1] tracking-tight text-foreground sm:text-5xl"
+              transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
+              className="relative"
             >
-              High-Tensile MS<br />
-              Fasteners for<br />
-              {/* Rolling accent — each character does a 3D rotateX
-                  flip on mount, staggered by 30ms per character so
-                  the words cascade in. Sits under the brand wordmark
-                  (text-brand-600) and inherits the h1 font/weight. */}
-              <RollingText
-                text={HERO_CONTENT.headingHighlight}
-                transition={{ duration: 0.5, delay: 0.04, ease: "easeOut" }}
-                delay={400}
-                className="text-brand-600"
-              />
-            </motion.h1>
+              <h1
+                id="hero-heading"
+                className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12]"
+              >
+                High-Tensile MS <br />
+                Fasteners for <br />
+                <span className="text-brand-500 inline-block">
+                  <RollingText
+                    text="Demanding"
+                    transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
+                  />
+                </span>{" "}
+                Applications
+              </h1>
+            </motion.div>
 
+            {/* Description */}
             <motion.p
               {...slideUp}
-              transition={{ duration: 0.6, ease, delay: 0.2 }}
-              className="max-w-prose text-sm leading-relaxed text-muted-foreground sm:text-base"
+              transition={{ duration: 0.6, ease: EASE, delay: 0.16 }}
+              className="max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base"
             >
               {HERO_CONTENT.description}
             </motion.p>
 
-            {/* CTAs */}
+            {/* 3 Value Badges in a Row */}
             <motion.div
               {...slideUp}
-              transition={{ duration: 0.6, ease, delay: 0.28 }}
-              className="flex flex-wrap items-center gap-3 pt-2"
+              transition={{ duration: 0.6, ease: EASE, delay: 0.22 }}
+              className="grid grid-cols-1 shadow-lg gap-4 pt-2 sm:grid-cols-3"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-brand-400">
+                  <Award className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white">ISO 9001:2008</p>
+                  <p className="text-[11px] text-slate-400">Certified Company</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-brand-400">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white">Zero Defect</p>
+                  <p className="text-[11px] text-slate-400">Zero Rejection</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-brand-400">
+                  <Truck className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white">Reliable & Timely</p>
+                  <p className="text-[11px] text-slate-400">Supply</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              {...slideUp}
+              transition={{ duration: 0.6, ease: EASE, delay: 0.28 }}
+              className="flex flex-wrap items-center gap-4 pt-4"
             >
               <ShineButton
                 onClick={() => navigate(HERO_CONTENT.primaryCta.href)}
-                className="group inline-flex items-center gap-2 rounded-none bg-brand-500 px-5 py-2.5 text-xs md:text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group inline-flex items-center gap-2 rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all duration-200 hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
               >
                 {HERO_CONTENT.primaryCta.label}
                 <ArrowRight
-                  className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
+                  className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
                   aria-hidden="true"
                 />
               </ShineButton>
               <ShineButton
                 onClick={() => navigate(HERO_CONTENT.secondaryCta.href)}
-                className="inline-flex items-center gap-2 rounded-none border border-border bg-background px-5 py-2.5 text-xs md:text-sm font-semibold text-foreground shadow-xs transition-colors duration-200 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/80 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-slate-600 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
               >
                 {HERO_CONTENT.secondaryCta.label}
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
+                  aria-hidden="true"
+                />
               </ShineButton>
             </motion.div>
           </div>
-
-          {/* Visual Column — Screenshot Matched Photo Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, ease, delay: 0.2 }}
-            className="relative"
-          >
-
-            {/* Main Image Frame — the LCP element. width/height attrs reserve
-                layout space up front (kills CLS), fetchpriority="high" tells the
-                browser to start the request before lower-priority images.
-                srcset serves a smaller variant on smaller viewports. */}
-            <div className="relative aspect-4/3 overflow-hidden rounded-none">
-              <img
-                src="/images/home/hero-fasteners-800.webp"
-                srcSet="
-                  /images/home/hero-fasteners-600.webp 600w,
-                  /images/home/hero-fasteners-800.webp 800w,
-                  /images/home/hero-fasteners-1200.webp 1200w
-                "
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                alt={HERO_CONTENT.imageAlt}
-                width={1200}
-                height={900}
-                fetchPriority="high"
-                decoding="async"
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-            </div>
-
-            {/* Floating Tolerance Spec Badge — gentle bob */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease, delay: 0.6 }}
-              className="float-soft absolute bottom-3 left-3 rounded-none border border-border bg-card p-3 shadow-md sm:bottom-6 sm:left-6 md:bottom-8 md:-left-12"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-brand-50 text-brand-700 dark:bg-brand-950/70">
-                  <BadgeCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                    TOLERANCE SPEC
-                  </p>
-                  <p className="text-xs font-extrabold text-foreground">
-                    {company.isoStandard}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full bg-transparent"><HeroFloating /></div>
+    </div>
+  ) 
 }

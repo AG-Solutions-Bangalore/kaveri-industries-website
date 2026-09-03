@@ -28,7 +28,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     id: "transmission-telecom",
     name: "Transmission & Telecommunication Towers",
     description:
-      "High-tensile bolting assemblies built to withstand extreme wind loads and long-term environmental stress in tall lattice structures.",
+      "High-tensile bolting assemblies built to withstand extreme wind loads and vibration in lattice structures.",
     icon: RadioTower,
     imageUrl: "/images/home/sector-telecom.webp",
     imageAlt:
@@ -48,7 +48,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     id: "refineries-water",
     name: "Refineries & Water Treatment Plants",
     description:
-      "Corrosion-resistant, high-pressure fasteners engineered for critical flanged connections in pipeline networks and processing units.",
+      "Corrosion-resistant high-pressure fasteners engineered for critical flanged connections in pipeline networks and processing units.",
     icon: Factory,
     imageUrl: "/images/home/sector-refineries.webp",
     imageAlt:
@@ -58,7 +58,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     id: "wind-power",
     name: "Wind & Power Plants",
     description:
-      "Specialised fatigue-resistant bolting for tower foundations, nacelles and blade connections in renewable and conventional power generation.",
+      "Specialized flange connections for tower foundations, nacelles and other critical components in renewable and conventional power generation.",
     icon: Wind,
     imageUrl: "/images/home/sector-wind-power.webp",
     imageAlt:
@@ -68,7 +68,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     id: "railways-transport",
     name: "Railways & Transportation",
     description:
-      "Vibration-proof fastening systems for track infrastructure and rolling stock, ensuring long-term reliability under dynamic loads.",
+      "Wide range of fasteners used in track infrastructure, rolling stock systems fitting & other dynamic railway applications.",
     icon: Train,
     imageUrl: "/images/home/sector-railways.webp",
     imageAlt:
@@ -78,7 +78,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     id: "road-guard-rail",
     name: "Road Guard Rail Systems & Other Development Projects",
     description:
-      "Heavy-duty hot-dip galvanised fasteners designed for crash-barrier assembly — prioritising highway safety and longevity.",
+      "Heavy-duty high-galvanized fasteners designed for crash-barrier assemblies, highway safety and longevity.",
     icon: Shield,
     imageUrl: "/images/home/sector-guard-rail.webp",
     imageAlt:

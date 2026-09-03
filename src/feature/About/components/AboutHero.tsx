@@ -34,7 +34,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="text-4xl font-extrabold tracking-tight text-[#133878] dark:text-brand-300 sm:text-5xl"
+            className="text-4xl font-extrabold tracking-tight text-brand-700 dark:text-brand-300 sm:text-5xl"
           >
             {ABOUT_HERO_CONTENT.heading}
           </motion.h1>

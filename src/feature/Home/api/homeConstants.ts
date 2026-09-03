@@ -9,17 +9,31 @@
  * (cover, pages 2–8) — see `public/images/assets.md` for the asset plan.
  */
 
-import { company } from "@/lib/company";
-
 export const HERO_CONTENT = {
-  tagline: company.name,
-  heading: "High-Tensile MS Fasteners for",
-  headingHighlight: "Demanding Applications",
+  tagline: "KAVERI INDUSTRIES",
+  headingPart1: "High-Tensile MS",
+  headingPart2: "Fasteners for",
+  headingHighlight: "Demanding",
+  headingPart3: "Applications",
   description:
-    "Manufacturers of 'Zero defect' high-tensile MS fasteners — the manufacturers of zero defect fasteners speaks volumes for our commitment to quality. An ISO 9001 Certified Company serving transmission towers, refineries, railways, wind & power plants, buildings, bridges, and road guard rail systems.",
-  isoBadge: {
-    tag: "Certified Quality",
-  },
+    "We deliver a wide range of high-tensile MS fasteners — the most critical and defect-free fastening solutions for our commitment to quality.",
+  features: [
+    {
+      title: "ISO 9001:2008",
+      subtitle: "Certified Company",
+      icon: "badge-check",
+    },
+    {
+      title: "Zero Defect",
+      subtitle: "Zero Rejection",
+      icon: "shield-check",
+    },
+    {
+      title: "Reliable & Timely",
+      subtitle: "Supply",
+      icon: "truck",
+    },
+  ],
   primaryCta: {
     label: "Explore Products",
     href: "/products",
@@ -28,55 +42,44 @@ export const HERO_CONTENT = {
     label: "Request a Quote",
     href: "/contact",
   },
-  /** Image URL for hero visual; set to valid asset path or leave empty for styled mockup */
   imageUrl: "/images/home/hero-fasteners.webp",
   imageAlt:
     "High-tensile MS structural bolts, hex nuts, and precision fasteners — Kaveri Industries",
 } as const;
 
-/**
- * Quality statement — sourced from brochure page 2 ("Quality") and page 3
- * ("Encompassing the total customer experience"). Copy is verbatim from
- * the print brochure, with the brochure's "Techonology" spelling
- * preserved on the Vision bullets.
- */
-export const QUALITY_CONTENT = {
-  badge: "About Kaveri",
-  heading: "Focused on Quality and Precision",
-  subheading: "Unmatched Solutions",
-  /** Vision bullets as shown on brochure page 3. Note: "Techonology" is
-   *  preserved as printed in the source brochure. */
-  visionBullets: ["Practices", "Processes", "Ideas & Techonology"],
-  paragraphs: [
-    "The manufacturers of 'Zero defect' fasteners speaks volumes for our commitment to quality.",
-    "We have made quality a way of life at every step of the manufacturing process. The ISO 9001 certification is ample proof of our insatiable quest for quality and desire for perfection.",
-    "Each employee is immensely quality conscious and takes it upon himself to ensure that there is no room for even the slightest error. Accordingly, they deliver and settle for nothing but the very best.",
-    "Encompassing the total customer experience — we have the privilege of serving our most quality conscious customers in the industry. Over the years, we have built up the reputation of being a reliable & quality supplier source to our esteemed clients.",
-    "Our corporate mission is to aspire to achieve excellence in each area of our business so we can provide enduring value to the customer.",
-  ],
-  stats: [
-    {
-      value: "Zero",
-      label: "Defect Objective",
-    },
-    {
-      value: company.isoStandard,
-      label: "Certified Quality",
-    },
-  ],
-  cta: {
-    label: "Learn More About Us",
-    href: "/about",
+export const HERO_VALUE_PILLARS = [
+  {
+    id: "precision-manufacturing",
+    title: "Precision Manufacturing",
+    description:
+      "Advanced machining and strict process control for consistent quality.",
+    icon: "cog",
   },
-  /** Image URL for factory / quality visual; set to valid asset path or leave empty for styled mockup */
-  imageUrl: "/images/home/manufacturing-plant.webp",
-  imageAlt:
-    "State-of-the-art precision machining and quality inspection facility — Kaveri Industries",
-} as const;
+  {
+    id: "quality-assured",
+    title: "Quality Assured",
+    description:
+      "Zero defect approach with rigorous testing at every stage.",
+    icon: "shield-check",
+  },
+  {
+    id: "wide-product-range",
+    title: "Wide Product Range",
+    description:
+      "Comprehensive range of MS fasteners to meet diverse industrial requirements.",
+    icon: "package",
+  },
+  {
+    id: "customer-focused",
+    title: "Customer Focused",
+    description:
+      "Tailored solutions backed by expert support and on-time delivery.",
+    icon: "users",
+  },
+] as const;
 
-/** Header copy for the auto-scrolling Products carousel (brochure pages 4–5). */
 export const PRODUCTS_SECTION_HEADER = {
-  badge: "Product Range",
+  badge: "OUR PRODUCT RANGE",
   heading: "Precision Fastening Solutions",
   cta: {
     label: "View All Products",
@@ -84,28 +87,57 @@ export const PRODUCTS_SECTION_HEADER = {
   },
 } as const;
 
-/** Header copy for the Target Sectors grid (brochure pages 6–7). */
 export const SECTORS_SECTION_HEADER = {
-  badge: "Industries We Serve",
-  heading: "Target Sectors",
-  description:
-    "Precision engineered for specific industrial requirements — from lattice towers to highways, refineries to rolling stock.",
+  badge: "INDUSTRIES WE SERVE",
+  heading: "Engineering Solutions for Every Industry",
+  cta: {
+    label: "View All Industries",
+    href: "/contact",
+  },
 } as const;
 
-/**
- * CTA banner — sits between the Target Sectors grid and the footer.
- * Primary action redirects to the Contact Us page as requested.
- */
+export const QUALITY_CONTENT = {
+  badge: "ABOUT KAVERI",
+  heading: "Focused on Quality. Committed to Excellence.",
+  description:
+    "We follow a zero-defect manufacturing approach with a highly skilled team, advanced machinery and stringent quality control systems. Our goal is simple — to deliver reliable, durable and precision-engineered fastening solutions that strengthen your projects.",
+  stats: [
+    {
+      value: "20+",
+      label: "Years of Experience",
+      icon: "calendar",
+    },
+    {
+      value: "500+",
+      label: "Satisfied Customers",
+      icon: "users",
+    },
+    {
+      value: "1000+",
+      label: "Products Delivered",
+      icon: "package",
+    },
+    {
+      value: "100%",
+      label: "Commitment to Quality",
+      icon: "shield-check",
+    },
+  ],
+  imageUrl: "/images/home/manufacturing-plant.webp",
+  imageAlt: "Kaveri Industries CNC machining and precision quality inspection",
+} as const;
+
 export const CTA_BANNER_CONTENT = {
   heading: "Looking for the Right Fastening Solution?",
   description:
-    "Connect with our engineering team to discuss technical specifications, custom requirements, or to request a comprehensive quote for your project.",
+    "Our engineering team is ready to help you with technical specifications, custom requirements and the best solutions for your applications.",
   primaryCta: {
-    label: "Contact Us",
-    href: "/contact",
-  },
-  secondaryCta: {
     label: "Request a Quote",
     href: "/contact",
   },
+  secondaryCta: {
+    label: "Contact Us",
+    href: "/contact",
+  },
+  imageUrl: "/images/home/cta-bolt.webp",
 } as const;

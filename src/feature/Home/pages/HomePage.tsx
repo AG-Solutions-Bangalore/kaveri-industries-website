@@ -12,9 +12,9 @@ export default function HomePage() {
       <SEO {...homeSEO} />
 
       <Hero />
-      <QualityStatement />
       <ProductsCarousel />
       <TargetSectors />
+      <QualityStatement />
       <CTABanner />
     </>
   );

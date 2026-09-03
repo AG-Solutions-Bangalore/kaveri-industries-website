@@ -18,18 +18,18 @@
  * `text-foreground`, …) keep working unchanged.
  * ---------------------------------------------------------------- */
 @theme {
-  /* === Brand palette — orange (CTAs, accents, highlights) === */
-  --color-brand-50:  #fff7ed;
-  --color-brand-100: #ffedd5;
-  --color-brand-200: #fed7aa;
-  --color-brand-300: #fdba74;
-  --color-brand-400: #fb923c;
-  --color-brand-500: #f97316;
-  --color-brand-600: #ea580c;   /* primary CTA / highlight */
-  --color-brand-700: #c2410c;   /* primary hover / active */
-  --color-brand-800: #9a3412;   /* logo / brand mark */
-  --color-brand-900: #7c2d12;
-  --color-brand-950: #431407;
+  /* === Brand palette — gold #DAA235 (CTAs, accents, highlights) === */
+  --color-brand-50:  #fdf8eb;
+  --color-brand-100: #f9edcd;
+  --color-brand-200: #f3da9a;
+  --color-brand-300: #ebc467;
+  --color-brand-400: #e3b14d;
+  --color-brand-500: #DAA235;   /* brand base */
+  --color-brand-600: #b88525;   /* primary CTA / highlight */
+  --color-brand-700: #95691e;   /* primary hover / active */
+  --color-brand-800: #73511a;   /* logo / brand mark */
+  --color-brand-900: #503815;
+  --color-brand-950: #2e2010;
 
   /* === Neutral palette — slate (text + surfaces) === */
   --color-slate-50:  #f8fafc;   /* subtle section surface */
@@ -54,8 +54,9 @@
   --color-popover:              0 0% 100%;
   --color-popover-foreground:   222 47% 11%;
 
-  --color-primary:              217 91% 60%;        /* blue-600 — main CTA */
-  --color-primary-foreground:   0 0% 100%;
+  /* Main CTA — gold #DAA235 (HSL 41 67% 53%) */
+  --color-primary:              41 67% 53%;         /* #DAA235 — main CTA */
+  --color-primary-foreground:   222 47% 11%;        /* dark text on gold */
 
   --color-secondary:            210 40% 98%;        /* slate-50 — section surface */
   --color-secondary-foreground: 222 47% 11%;
@@ -63,8 +64,8 @@
   --color-muted:                210 40% 96%;        /* slate-100 */
   --color-muted-foreground:     215 16% 47%;        /* slate-500 */
 
-  --color-accent:               217 91% 60%;        /* blue-600 — link/highlight */
-  --color-accent-foreground:    0 0% 100%;
+  --color-accent:               41 67% 53%;         /* #DAA235 — link/highlight */
+  --color-accent-foreground:    222 47% 11%;
 
   --color-destructive:          0 84% 60%;
   --color-destructive-foreground: 0 0% 100%;
@@ -77,7 +78,7 @@
 
   --color-border:               214 32% 91%;        /* slate-200 */
   --color-input:                214 32% 91%;
-  --color-ring:                 217 91% 60%;        /* blue-600 */
+  --color-ring:                 41 67% 53%;         /* #DAA235 */
 
   /* Inverted "dark band" used for the bottom CTA section
      ("Looking for the Right Fastening Solution?"). Stays static
@@ -130,7 +131,7 @@
     --color-popover:              222 47% 8%;
     --color-popover-foreground:   210 40% 98%;
 
-    --color-primary:              217 91% 60%;
+    --color-primary:              41 67% 53%;         /* #DAA235 */
     --color-primary-foreground:   222 47% 11%;
 
     --color-secondary:            217 33% 17%;
@@ -139,7 +140,7 @@
     --color-muted:                217 33% 17%;
     --color-muted-foreground:     215 20% 65%;
 
-    --color-accent:               217 91% 60%;
+    --color-accent:               41 67% 53%;         /* #DAA235 */
     --color-accent-foreground:    210 40% 98%;
 
     --color-destructive:          0 63% 45%;
@@ -147,7 +148,7 @@
 
     --color-border:               217 33% 20%;
     --color-input:                217 33% 20%;
-    --color-ring:                 224 76% 70%;
+    --color-ring:                 41 67% 53%;         /* #DAA235 */
   }
 }
 
@@ -188,8 +189,8 @@
 
 /* Gentle glow pulse — used on the CTABanner primary CTA. */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgb(37 99 235 / 0.0); }
-  50%      { box-shadow: 0 0 0 6px rgb(37 99 235 / 0.18); }
+  0%, 100% { box-shadow: 0 0 0 0 rgb(218 162 53 / 0.0); }
+  50%      { box-shadow: 0 0 0 6px rgb(218 162 53 / 0.25); }
 }
 
 /* Slow grid-drift for the CTABanner blueprint backdrop. */
