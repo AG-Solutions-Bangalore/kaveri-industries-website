@@ -242,7 +242,7 @@
     --tw-ring-color: hsl(var(--color-ring));
   }
 
-  /* Inverted band (dark CTA section / "ISO 9001:2015" style badge) */
+  /* Inverted band (dark CTA section / "ISO 9001:2008" style badge) */
   .bg-inverted               { background-color: hsl(var(--color-inverted)); }
   .text-inverted             { color: hsl(var(--color-inverted)); }
   .text-inverted-foreground  { color: hsl(var(--color-inverted-foreground)); }

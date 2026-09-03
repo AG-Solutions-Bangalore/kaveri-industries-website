@@ -38,6 +38,9 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
               <img
                 src={product.imageUrl}
                 alt={product.imageAlt ?? product.name}
+                width={1200}
+                height={900}
+                decoding="async"
                 className="h-full w-full object-cover"
                 loading="eager"
               />

@@ -4,7 +4,7 @@ import type { SEOProps } from "@/components/common/SEO";
 
 export const aboutSEO: Pick<SEOProps, "title" | "description" | "path" | "schema"> = {
   title: "About Us",
-  description: `Learn about ${company.name}, a premier manufacturer of high-tensile MS fasteners and precision-engineered industrial components since ${company.foundingDate}.`,
+  description: `${company.name} — manufacturers of 'Zero defect' high-tensile MS fasteners. ${company.isoStandard} certified. Encompassing the total customer experience. ${company.address.city}, ${company.address.region}.`,
   path: "/about",
   schema: breadcrumbSchema([
     { name: "Home", url: "/" },

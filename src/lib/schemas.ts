@@ -21,22 +21,12 @@ export type JsonLd =
   | Record<string, unknown>
   | Record<string, unknown>[];
 
-export interface ReviewInput {
-  /** Display name of the reviewer. */
-  author: string;
-  /** Optional review headline. */
-  headline?: string;
-  /** Full review body. Plain text only — sanitise before passing user content. */
-  body: string;
-  /** 1–5 inclusive. */
-  rating: number;
-  /** ISO 8601 date — e.g. "2025-08-14". */
-  datePublished: string;
-  /** Author role/company — used in the visible card too. */
-  authorRole?: string;
-  /** Optional URL to the reviewer's profile. */
-  authorUrl?: string;
-}
+// Review/AggregateRating schema helpers were removed along with the
+// testimonials section (which had no brochure backing). The brochure
+// does not advertise customer reviews, and Google's structured-data
+// guidelines forbid fabricated AggregateRating. If real verified
+// reviews are added later, reintroduce `ReviewInput`, `reviewSchema`,
+// `aggregateRatingSchema`, and `reviewsBlock` here.
 
 // ---------------------------------------------------------------- //
 // Builders
@@ -189,62 +179,6 @@ export function faqSchema(
       acceptedAnswer: { "@type": "Answer", text: q.answer },
     })),
   };
-}
-
-/** A single Review. Used inside `aggregateRatingSchema` and `localBusinessSchema`. */
-export function reviewSchema(r: ReviewInput): Record<string, unknown> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: r.author,
-      ...(r.authorUrl ? { url: r.authorUrl } : {}),
-      ...(r.authorRole ? { jobTitle: r.authorRole } : {}),
-    },
-    datePublished: r.datePublished,
-    reviewBody: r.body,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: r.rating,
-      bestRating: 5,
-      worstRating: 1,
-    },
-  };
-}
-
-/**
- * AggregateRating — drives the star snippet in Google search results.
- * Pair it with the parent entity it rates (Organization, LocalBusiness, Product).
- */
-export function aggregateRatingSchema(opts: {
-  ratingValue: number;
-  reviewCount: number;
-  bestRating?: number;
-  worstRating?: number;
-}): Record<string, unknown> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "AggregateRating",
-    ratingValue: Number(opts.ratingValue.toFixed(1)),
-    reviewCount: opts.reviewCount,
-    bestRating: opts.bestRating ?? 5,
-    worstRating: opts.worstRating ?? 1,
-  };
-}
-
-/**
- * Reviews + AggregateRating combined, ready to attach to a parent entity
- * (pass to `<SEO schema={reviewsBlock({ reviews })} />`).
- */
-export function reviewsBlock(reviews: ReviewInput[]): Record<string, unknown>[] {
-  if (reviews.length === 0) return [];
-  const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
-  const avg = sum / reviews.length;
-  return [
-    aggregateRatingSchema({ ratingValue: avg, reviewCount: reviews.length }),
-    ...reviews.map(reviewSchema),
-  ];
 }
 
 /** Service schema — used for capability / capability-card pages. */

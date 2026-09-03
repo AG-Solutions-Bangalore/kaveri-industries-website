@@ -54,6 +54,9 @@ export function WhoWeAre() {
               <img
                 src={WHO_WE_ARE_CONTENT.imageUrl}
                 alt={WHO_WE_ARE_CONTENT.imageAlt}
+                width={1200}
+                height={900}
+                decoding="async"
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

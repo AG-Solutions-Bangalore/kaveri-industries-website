@@ -103,6 +103,9 @@ export function QualityProcess() {
               <img
                 src={QUALITY_PROCESS_CONTENT.imageUrl}
                 alt={QUALITY_PROCESS_CONTENT.imageAlt}
+                width={1600}
+                height={1000}
+                decoding="async"
                 className="h-full w-full object-cover grayscale contrast-115"
                 loading="lazy"
               />

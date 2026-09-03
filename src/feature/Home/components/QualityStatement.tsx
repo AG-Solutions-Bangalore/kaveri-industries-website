@@ -35,6 +35,9 @@ export function QualityStatement() {
               <img
                 src={QUALITY_CONTENT.imageUrl}
                 alt={QUALITY_CONTENT.imageAlt}
+                width={1200}
+                height={900}
+                decoding="async"
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

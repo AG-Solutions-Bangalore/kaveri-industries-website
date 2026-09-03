@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
     id: "hex-head-bolts",
     name: "Hex Head Bolts & Screws",
     description:
-      "Heavy head structural fasteners (HSFG Bolts) — engineered for the most demanding structural connections.",
+      "Heavy head structural Fasteners (HSFG BOLTS) — engineered for the most demanding structural connections.",
     icon: Bolt,
     imageUrl: "/images/home/product-hex-bolts.webp",
     imageAlt:
@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     id: "hot-dip-galvanised",
     name: "Hot Dip Galvanised Fasteners",
     description:
-      "Guard rail bolts, foundation bolts, anti-theft nuts & bolts — superior corrosion resistance for harsh environments.",
+      "Guard Rail Bolts, Foundation Bolts, Anti Theft Nut & Bolts — superior corrosion resistance for outdoor service.",
     icon: Settings2,
     imageUrl: "/images/home/product-galvanised.webp",
     imageAlt:
@@ -88,7 +88,7 @@ export const PRODUCTS: Product[] = [
     id: "u-bolts-center-bolts",
     name: "U-Bolts, Center Bolts & Other Auto Fasteners",
     description:
-      "All types of U-bolts and center bolts for heavy & light vehicles used in Indian and export markets.",
+      "All type of U-Bolts, Center Bolts for all types of heavy & light vehicles used in Indian & foreign market.",
     icon: CircleDot,
     imageUrl: "/images/home/product-ubolts.webp",
     imageAlt:
@@ -102,14 +102,14 @@ export const PRODUCTS: Product[] = [
     id: "washers",
     name: "Washers",
     description:
-      "Plain, machined and spring washers for load distribution and surface protection — built to exact dimensional specs.",
+      "All type of plain, machined & spring washers As per IS: 2016, 3063 & as per customer's specifications.",
     icon: Cog,
     imageUrl: "/images/products/product-washers.webp",
     imageAlt:
-      "Plain, machined, and spring washers as per IS 2016 and IS 3063",
+      "Plain, machined, and spring washers as per IS: 2016 and 3063",
     specs: [
-      { label: "Standards", value: "IS 2016, IS 3063" },
-      { label: "Custom", value: "As per customer specs" },
+      { label: "Standards", value: "IS: 2016, 3063" },
+      { label: "Custom", value: "As per customer's specifications" },
     ],
   },
 ];

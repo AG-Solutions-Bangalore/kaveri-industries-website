@@ -35,16 +35,16 @@ export const company = {
   // ── Positioning ───────────────────────────────────────────────────────
   /** Default <meta description> + Organization schema description. */
   description:
-    "Kaveri Industries — Manufacturers of High Tensile MS Fasteners for demanding industrial infrastructure, transmission towers, and energy sectors. ISO 9001 certified.",
-  /** Short marketing tagline (brochure / footer). */
+    "Manufacturers of High Tensile MS Fasteners for transmission & telecommunication towers, buildings & bridges, refineries & water treatment plants, wind & power plants, railways & transportation, and road guard rail systems. An ISO 9001 Certified Company.",
+  /** Short marketing tagline (from brochure cover). */
   tagline: "Manufacturers of High Tensile MS Fasteners",
   /** Footer copyright tail (year is interpolated at render time). */
   copyright: "Kaveri Industries. All rights reserved. Precision Engineered.",
 
   // ── Certifications & history ───────────────────────────────────────────
-  /** Current active ISO standard shown in badges and the Quality page. */
-  isoStandard: "ISO 9001:2015",
-  /** Legacy brochure statement — used as-is in the footer for historical accuracy. */
+  /** ISO standard shown in badges and the Quality page. */
+  isoStandard: "ISO 9001:2008",
+  /** Verbatim brochure statement — used on the cover and hero. */
   certificationStatement: "An ISO 9001 : 2008 Certified Company",
   /** Founding year used in About copy and schema. */
   foundingDate: "2008",

@@ -50,6 +50,7 @@ export function TargetSectors() {
             return (
               <motion.article
                 key={sector.id}
+                role="listitem"
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
@@ -62,6 +63,9 @@ export function TargetSectors() {
                     <img
                       src={sector.imageUrl}
                       alt={sector.imageAlt ?? sector.name}
+                      width={1200}
+                      height={750}
+                      decoding="async"
                       className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />

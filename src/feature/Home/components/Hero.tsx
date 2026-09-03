@@ -60,10 +60,7 @@ export function Hero() {
               transition={{ duration: 0.6, ease, delay: 0.2 }}
               className="max-w-prose text-sm leading-relaxed text-muted-foreground sm:text-base"
             >
-              Introducing {company.shortName}'s focus on precision-engineered
-              high-tensile MS fasteners for global industrial infrastructure.
-              We deliver uncompromising strength and exacting tolerances for
-              critical engineering projects.
+              {HERO_CONTENT.description}
             </motion.p>
 
             {/* CTAs */}
@@ -104,11 +101,24 @@ export function Hero() {
               aria-hidden="true"
             />
 
-            {/* Main Image Frame */}
+            {/* Main Image Frame — the LCP element. width/height attrs reserve
+                layout space up front (kills CLS), fetchpriority="high" tells the
+                browser to start the request before lower-priority images.
+                srcset serves a smaller variant on smaller viewports. */}
             <div className="relative aspect-4/3 overflow-hidden rounded-none border border-border bg-card shadow-sm">
               <img
                 src={HERO_CONTENT.imageUrl}
+                srcSet="
+                  /images/home/hero-fasteners-600.webp 600w,
+                  /images/home/hero-fasteners-800.webp 800w,
+                  /images/home/hero-fasteners-1200.webp 1200w
+                "
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 alt={HERO_CONTENT.imageAlt}
+                width={1200}
+                height={900}
+                fetchPriority="high"
+                decoding="async"
                 className="h-full w-full object-cover"
                 loading="eager"
               />

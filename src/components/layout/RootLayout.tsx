@@ -63,7 +63,7 @@ export function RootLayout() {
               <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-brand-700 dark:text-brand-400">
                 {company.certificationStatement}
               </p>
-              <p className="mt-2 max-w-sm text-xs md:text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-2 max-w-sm text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 {company.description}
               </p>
             </div>
@@ -76,7 +76,7 @@ export function RootLayout() {
                   <li key={item.to}>
                     <Link
                       to={item.to}
-                      className="link-underline text-muted-foreground transition-colors hover:text-foreground"
+                      className="link-underline text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                     >
                       {item.label}
                     </Link>
@@ -88,7 +88,7 @@ export function RootLayout() {
             {/* Address & Contact */}
             <div>
               <h3 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground">Works & Office</h3>
-              <address className="mt-3 not-italic text-xs md:text-sm text-muted-foreground space-y-1.5 leading-relaxed">
+              <address className="mt-3 not-italic text-xs md:text-sm text-slate-700 dark:text-slate-300 space-y-1.5 leading-relaxed">
                 <p>{company.address.street}</p>
                 <p>
                   {company.address.city} - {company.address.postalCode}
@@ -99,7 +99,7 @@ export function RootLayout() {
                 <p>Fax: {company.contact.fax.display}</p>
                 <a
                   href={`mailto:${company.contact.primaryEmail}`}
-                  className="link-underline inline-block text-xs text-muted-foreground font-mono transition-colors hover:text-foreground"
+                  className="link-underline inline-block text-xs text-slate-700 dark:text-slate-300 font-mono transition-colors hover:text-foreground"
                 >
                   {company.contact.primaryEmail}
                 </a>
@@ -107,7 +107,7 @@ export function RootLayout() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row text-xs text-muted-foreground">
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row text-xs text-slate-700 dark:text-slate-300">
             <p>
               © {new Date().getFullYear()} {company.copyright}
             </p>
@@ -117,7 +117,7 @@ export function RootLayout() {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="link-underline transition-colors hover:text-foreground"
+                      className="link-underline text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>

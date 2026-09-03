@@ -17,8 +17,10 @@ export const WHO_WE_ARE_CONTENT = {
   badge: "About Us",
   heading: "Who We Are",
   paragraphs: [
-    `${company.name} is a premier manufacturer specializing in high-tensile MS fasteners designed to meet the rigorous demands of critical industrial infrastructure. We focus on delivering precision-engineered components that ensure structural integrity and operational safety across diverse sectors.`,
-    "Our operational philosophy is grounded in manufacturing excellence. We maintain strict control over our production processes, utilizing advanced technology and stringent quality assurance protocols to provide reliable fastening solutions. We are committed to supplying components that consistently perform under demanding conditions, earning the trust of engineering and procurement professionals worldwide.",
+    `The manufacturers of 'Zero defect' fasteners speaks volumes for our commitment to quality.`,
+    `We have made quality a way of life at every step of the manufacturing process. The ${company.isoStandard.split(":")[0]} certification is ample proof of our insatiable quest for quality and desire for perfection.`,
+    "Each employee is immensely quality conscious and takes it upon himself to ensure that there is no room for even the slightest error. Accordingly, they deliver and settle for nothing but the very best.",
+    "Encompassing the total customer experience — we have the privilege of serving our most quality conscious customers in the industry. Over the years, we have built up the reputation of being a reliable & quality supplier source to our esteemed clients.",
   ],
   imageUrl: "/images/about/about-who-we-are.webp",
   imageAlt:
@@ -35,8 +37,9 @@ export const QUALITY_COMMITMENT_CONTENT = {
   badge: "COMMITMENT",
   heading: "Committed to Quality",
   paragraphs: [
-    `At ${company.name}, quality is not a department; it is the fundamental framework of our operations. Our focus is squarely on producing high-tensile MS fasteners that meet uncompromising standards of precision and consistency. Every batch engineered in our facility undergoes rigorous validation against stringent industrial benchmarks.`,
-    "We invest continuously in advanced inspection technologies and continuous improvement protocols to ensure that our products deliver absolute reliability in the most demanding infrastructure and industrial applications.",
+    `The manufacturers of 'Zero defect' fasteners speaks volumes for our commitment to quality.`,
+    `We have made quality a way of life at every step of the manufacturing process. The ${company.isoStandard.split(":")[0]} certification is ample proof of our insatiable quest for quality and desire for perfection.`,
+    "Each employee is immensely quality conscious and takes it upon himself to ensure that there is no room for even the slightest error. Accordingly, they deliver and settle for nothing but the very best.",
   ],
   imageUrl: "/images/about/quality-caliper.webp",
   imageAlt:

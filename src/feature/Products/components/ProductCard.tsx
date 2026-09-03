@@ -38,6 +38,9 @@ export function ProductCard({ product, index }: ProductCardProps) {
           <img
             src={product.imageUrl}
             alt={product.imageAlt ?? product.name}
+            width={1200}
+            height={900}
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
             loading="lazy"
           />

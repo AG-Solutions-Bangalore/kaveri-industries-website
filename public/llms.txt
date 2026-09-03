@@ -1,0 +1,28 @@
+# Kaveri Industries
+
+> Manufacturer of high-tensile MS (mild steel) fasteners — hex bolts, hex nuts, nylock nuts, slotted nuts, studs, threaded bars, U-bolts, center bolts, and washers — for B2B customers in infrastructure, energy, railways, telecom towers, refineries, and wind power. ISO 9001:2015 certified. Based in Bangalore, Karnataka, India.
+
+The company specialises in precision-engineered structural fasteners engineered to demanding dimensional and mechanical tolerances, with in-house tensile and hardness testing on every production lot.
+
+## Pages
+
+- [Home](https://kaveri-industries.example.com/): company overview, target sectors, and product highlights.
+- [About Us](https://kaveri-industries.example.com/about): who we are, quality at the core, manufacturing process, and in-house capabilities.
+- [Products](https://kaveri-industries.example.com/products): full product catalogue — hex head bolts, hot-dip galvanised fasteners, hex nuts, studs, U-bolts, and washers.
+- [Contact](https://kaveri-industries.example.com/contact): headquarters address, phone, email, enquiry form, and location map.
+- [Privacy Policy](https://kaveri-industries.example.com/privacy): data handling and user rights.
+- [Terms of Service](https://kaveri-industries.example.com/terms): site usage terms.
+- [Compliance](https://kaveri-industries.example.com/compliance): regulatory and certification details.
+- [Sitemap](https://kaveri-industries.example.com/sitemap): full site navigation map.
+
+## Optional
+
+- [Industries served](https://kaveri-industries.example.com/industries): target sectors and applications.
+
+## Company facts
+
+- Legal name: Kaveri Industries
+- ISO certification: ISO 9001:2015
+- Headquarters: Bangalore, Karnataka, India
+- Primary products: high-tensile MS hex bolts (M6–M50), hex/slotted/nylock nuts, studs, U-bolts, center bolts, washers
+- Manufacturing philosophy: zero-defect objective, process-integrated quality control

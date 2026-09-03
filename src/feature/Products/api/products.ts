@@ -70,25 +70,22 @@ export const PRODUCTS: Product[] = [
     name: "Hex Head Bolts & Screws",
     category: "bolts",
     shortDescription:
-      "High-strength hex bolts designed for heavy-duty fastening applications. Available in various grades.",
+      "Heavy head structural Fasteners (HSFG BOLTS) — engineered for the most demanding structural connections.",
     longDescription:
-      "Precision-engineered hex head bolts and screws designed for high-stress industrial applications. Manufactured to exacting tolerances to ensure reliable performance in structural engineering, heavy machinery, and critical infrastructure projects.",
+      "Heavy head structural Fasteners (HSFG BOLTS) — engineered for the most demanding structural connections in transmission towers, buildings, bridges, refineries, and rail infrastructure.",
     icon: Bolt,
     imageUrl: "/images/home/product-hex-bolts.webp",
     imageAlt:
       "Heavy hex structural bolts and screws (HSFG bolts) — Kaveri Industries",
-    tag: "Bestseller",
+    tag: "HSFG Bolts",
     specs: [
-      { label: "Product Type", value: "Hex Head Bolts & Cap Screws" },
-      { label: "Material", value: "Carbon Steel, Alloy Steel, Stainless Steel" },
-      { label: "Grade", value: "4.6, 5.6, 8.8, 10.9 & 12.9 (ISO) / Grade 5, 8 (SAE)" },
-      { label: "Size Range", value: "M 6 to M 50 (Metric) / 1/4\" to 2-1/2\" (Imperial)" },
-      { label: "Length", value: "20mm to 1000mm / Custom lengths available" },
-      { label: "Finish", value: "Plain, Zinc Plated, Hot Dip Galvanised, PTFE" },
+      { label: "Dia Range", value: "M 6 to M 50" },
+      { label: "Length Range", value: "20mm to 1000mm" },
+      { label: "Grade", value: "4.6, 5.6, 8.8, 10.9 & 12.9" },
     ],
     overview: [
-      "Our hex head bolts are cold-forged and precision-machined from high-grade alloy steel, providing exceptional tensile strength and shear resistance. These fasteners form the backbone of robust structural connections where failure is not an option.",
-      "Rigorous quality control protocols, including dimensional checks and material composition analysis, guarantee that every batch meets stringent international standards. Ideal for applications requiring high clamp loads and secure, vibration-resistant fastening.",
+      "Kaveri Industries manufactures heavy hex head structural bolts and screws, commonly specified as HSFG (High-Strength Friction Grip) bolts for critical structural connections.",
+      "Each bolt is produced to exacting dimensional tolerances and tested for proof load, hardness, and tensile strength — the hallmarks of zero-defect manufacturing that anchor our reputation with structural engineers and OEM procurement teams.",
     ],
   },
   {
@@ -97,24 +94,22 @@ export const PRODUCTS: Product[] = [
     name: "Hot Dip Galvanised Fasteners",
     category: "fasteners",
     shortDescription:
-      "Corrosion-resistant fasteners ideal for outdoor and harsh environmental conditions.",
+      "Guard Rail Bolts, Foundation Bolts, Anti Theft Nut & Bolts — superior corrosion resistance for outdoor service.",
     longDescription:
-      "Hot-dip galvanised fasteners with a heavy zinc coating for outdoor and corrosive-service applications. Engineered for guard rails, foundations, transmission towers and anti-theft assemblies.",
+      "Guard Rail Bolts, Foundation Bolts, Anti Theft Nut & Bolts — hot-dip galvanised for decades of maintenance-free service in outdoor and corrosive environments.",
     icon: Settings2,
     imageUrl: "/images/home/product-galvanised.webp",
     imageAlt:
       "Hot dip galvanised structural fasteners with a bright zinc coating",
     specs: [
-      { label: "Product Type", value: "Galvanised Bolts, Nuts, Foundation Bolts" },
-      { label: "Material", value: "Carbon Steel, Alloy Steel" },
+      { label: "Dia Range", value: "M 6 to M 50" },
+      { label: "Length Range", value: "20mm to 1000mm" },
       { label: "Grade", value: "4.6, 5.6, 8.8, 10.9 & 12.9" },
-      { label: "Coating", value: "Hot Dip Galvanised (IS 4759 / ASTM A153)" },
-      { label: "Size Range", value: "M 6 to M 50" },
-      { label: "Length", value: "20mm to 1000mm" },
+      { label: "Includes", value: "Guard Rail Bolts, Foundation Bolts, Anti-Theft Nut & Bolts" },
     ],
     overview: [
-      "Our hot-dip galvanised fasteners are designed for the most punishing outdoor environments. The thick, metallurgically-bonded zinc coating provides decades of maintenance-free service, even in coastal and chemically-aggressive atmospheres.",
-      "Each batch is tested for coating thickness, adhesion and uniformity to comply with IS 4759 and ASTM A153. We supply guard rail bolts, foundation bolts, anti-theft nuts and bolts, and complete sub-assemblies for highway and infrastructure projects.",
+      "Our hot-dip galvanised fastener range covers the three most commonly specified outdoor products: guard rail bolts for highway crash barriers, foundation bolts for tower bases, and anti-theft nuts & bolts for secured infrastructure assemblies.",
+      "The metallurgically-bonded zinc coating provides decades of maintenance-free service, even in coastal and chemically-aggressive atmospheres.",
     ],
   },
   {
@@ -123,23 +118,19 @@ export const PRODUCTS: Product[] = [
     name: "Hex Nuts",
     category: "nuts",
     shortDescription:
-      "Standard internal threaded fasteners used with mating bolts or threaded rod.",
+      "Standard hex nuts — the dependable mating half of any high-tensile bolting assembly.",
     longDescription:
-      "Standard hex nuts precision-tapped to mate with high-tensile bolts and threaded rod. Manufactured to ISO 4032 / IS 1363 tolerances with controlled thread profile and proof-load testing.",
+      "Hex nuts precision-tapped to mate with high-tensile bolts. The dependable mating half of any structural bolting assembly.",
     icon: Nut,
     imageUrl: "/images/home/product-hex-nuts.webp",
     imageAlt: "Assorted hex nuts in zinc, black-oxide and yellow finishes",
     specs: [
-      { label: "Product Type", value: "Hex Nuts (Full & Half)" },
-      { label: "Material", value: "Carbon Steel, Alloy Steel, Stainless Steel" },
+      { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
-      { label: "Size Range", value: "M 6 to M 50" },
-      { label: "Standard", value: "IS 1363, ISO 4032, DIN 934" },
-      { label: "Finish", value: "Plain, Zinc Plated, Hot Dip Galvanised" },
     ],
     overview: [
-      "Our hex nuts are cold-forged and precision-tapped to ensure consistent thread engagement and long-term tension retention. Each production lot is proof-load tested to validate the clamping performance required by structural bolting assemblies.",
-      "Available in a wide range of grades, finishes and sizes, our hex nuts are the dependable mating half of any high-tensile fastening system.",
+      "Our hex nuts are cold-forged and precision-tapped to ensure consistent thread engagement and long-term tension retention across structural bolting assemblies.",
+      "Each production lot is proof-load tested to validate the clamping performance required by high-tensile connections.",
     ],
   },
   {
@@ -148,23 +139,19 @@ export const PRODUCTS: Product[] = [
     name: "Slotted Nuts",
     category: "nuts",
     shortDescription:
-      "Specialized nuts designed to be secured with a cotter pin to prevent loosening.",
+      "Slotted (castle) nuts — positive locking with a cotter pin for vibration-proof assemblies.",
     longDescription:
-      "Slotted (castle) nuts machined with axial slots to accept a cotter pin, providing positive locking against vibration and dynamic loading.",
+      "Slotted (castle) nuts machined with axial slots to accept a cotter pin — the classic positive-locking solution for vibration and dynamic loading.",
     icon: Cog,
     imageUrl: "/images/products/product-slotted-nuts.webp",
     imageAlt: "Slotted castle nuts ready for cotter pin locking",
     specs: [
-      { label: "Product Type", value: "Slotted / Castle Nuts" },
-      { label: "Material", value: "Carbon Steel, Alloy Steel, Stainless Steel" },
-      { label: "Grade", value: "4, 6, 8, 10, 12" },
-      { label: "Size Range", value: "M 6 to M 50" },
-      { label: "Standard", value: "IS 2232, DIN 935" },
-      { label: "Locking", value: "Cotter Pin (MS / SS)" },
+      { label: "Dia Range", value: "M 6 to M 50" },
+      { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
     ],
     overview: [
       "Slotted (castle) nuts are the classic positive-locking solution for assemblies subject to vibration, shock or cyclic loading. The crown slots accept a cotter pin that passes through a transverse hole in the mating bolt, mechanically preventing rotation.",
-      "Used extensively in axle hubs, kingpins, and heavy-machinery assemblies, our slotted nuts are machined to tight dimensional tolerances and proof-load tested.",
+      "Used extensively in axle hubs, kingpins, and heavy-machinery assemblies where back-off is unacceptable.",
     ],
   },
   {
@@ -173,23 +160,19 @@ export const PRODUCTS: Product[] = [
     name: "Nylock Nuts",
     category: "nuts",
     shortDescription:
-      "Self-locking nuts featuring a nylon collar to resist turning under vibration.",
+      "Nylon insert lock nuts — self-locking under vibration, reusable across multiple cycles.",
     longDescription:
-      "Nylock lock nuts with an integrated nylon insert that grips the bolt thread and resists loosening under vibration — re-usable up to several cycles.",
+      "Nylock lock nuts with an integrated nylon insert that grips the bolt thread and resists loosening under vibration — reusable across multiple cycles.",
     icon: Nut,
     imageUrl: "/images/products/product-nylock-nuts.webp",
     imageAlt: "Nylock nuts with integrated nylon locking collar",
     specs: [
-      { label: "Product Type", value: "Nylon Insert Lock Nuts (Nylock)" },
-      { label: "Material", value: "Carbon Steel, Stainless Steel" },
-      { label: "Grade", value: "6, 8, 10" },
-      { label: "Size Range", value: "M 6 to M 30" },
-      { label: "Temperature", value: "-40 °C to +120 °C" },
-      { label: "Finish", value: "Zinc Plated, Hot Dip Galvanised" },
+      { label: "Dia Range", value: "M 6 to M 50" },
+      { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
     ],
     overview: [
       "Nylock nuts embed a precision-moulded nylon collar that grips the bolt thread and resists back-off under vibration. The locking torque is consistent across the full re-use life of the fastener.",
-      "Our nylock nuts are widely specified for automotive, white-goods and light-industrial assemblies where field serviceability matters.",
+      "Widely specified for automotive, white-goods and light-industrial assemblies where field serviceability matters.",
     ],
   },
   {
@@ -198,48 +181,41 @@ export const PRODUCTS: Product[] = [
     name: "Studs & Threaded Bars",
     category: "threaded",
     shortDescription:
-      "Fully threaded or double-ended studs for structural and piping applications.",
+      "Studs and threaded bars for high-pressure flange bolting and custom-length assemblies.",
     longDescription:
-      "Continuous-thread studs and fully-threaded bars for high-pressure flange bolting, foundation anchoring and custom-length applications.",
+      "Studs and threaded bars for high-pressure flange bolting, foundation anchoring, and custom-length requirements.",
     icon: Wrench,
     imageUrl: "/images/home/product-studs.webp",
     imageAlt: "Stud bolts and fully threaded bars in various diameters and grades",
     specs: [
-      { label: "Product Type", value: "Stud Bolts, Threaded Bars, Double-Ended Studs" },
-      { label: "Material", value: "Carbon Steel, Alloy Steel, Stainless Steel" },
+      { label: "Dia Range", value: "M 6 to M 100" },
+      { label: "Length Range", value: "10mm to 1000mm" },
       { label: "Grade", value: "B7, B7M, B8, B16, 4.6, 8.8, 10.9 etc." },
-      { label: "Size Range", value: "M 6 to M 100" },
-      { label: "Length", value: "10mm to 1000mm" },
-      { label: "Finish", value: "Plain, Zinc, PTFE, Xylan, Galvanised" },
     ],
     overview: [
-      "Our stud bolts and threaded bars are produced to ASME B16.5 / B18.31 and metric equivalents. Each piece is rolled-threaded for superior grain-flow and fatigue resistance, then proof-load tested.",
-      "Available in B7, B7M, B8, B16 and ISO metric grades, our studs are the preferred choice for high-pressure flanges, pressure vessels, and structural tie-downs.",
+      "Our stud bolts and threaded bars cover the full ASTM/ASME B-class and ISO metric range — rolled-threaded for superior grain-flow and fatigue resistance, then proof-load tested.",
+      "Preferred choice for high-pressure flanges, pressure vessels, and structural tie-downs across process industries.",
     ],
   },
   {
     id: "u-bolts",
     slug: "u-bolts",
-    name: "U-Bolts",
+    name: "U-Bolts, Center Bolts & Other Auto Fasteners",
     category: "auto",
     shortDescription:
-      "U-shaped bolts with threads on both ends, primarily used for supporting pipework.",
+      "All type of U-Bolts, Center Bolts for all types of heavy & light vehicles used in Indian & foreign market.",
     longDescription:
-      "U-bolts with two threaded legs for clamping pipework, tubes and round sections. Available in round-bend and square-bend configurations, with standard or custom centre-to-centre dimensions.",
+      "All type of U-Bolts, Center Bolts for all types of heavy & light vehicles used in Indian & foreign market.",
     icon: CircleDot,
     imageUrl: "/images/home/product-ubolts.webp",
-    imageAlt: "U-bolts for pipe and tube clamping",
+    imageAlt: "U-bolts for heavy and light commercial vehicles",
     specs: [
-      { label: "Product Type", value: "Round Bend / Square Bend U-Bolts" },
-      { label: "Material", value: "Carbon Steel, Stainless Steel" },
-      { label: "Thread", value: "BSP / Metric / UNC / UNF" },
-      { label: "Size Range", value: "M 6 to M 24" },
-      { label: "Centre Distance", value: "As per customer drawing" },
-      { label: "Finish", value: "Zinc, Hot Dip Galvanised, PTFE" },
+      { label: "Application", value: "Heavy & light vehicles" },
+      { label: "Market", value: "India & export" },
     ],
     overview: [
-      "U-bolts are the workhorse clamp for pipework, exhaust systems, sign-mounting and structural round-sections. We produce them to customer drawings with tight centre-distance and thread-length tolerances.",
-      "Each U-bolt is bend-tested and thread-gauged before dispatch. Bulk-pack or kit-pack options are available for OEM customers.",
+      "Our U-bolts and center bolts are the workhorse fasteners of the Indian and export automotive aftermarket. Each piece is bend-tested and thread-gauged before dispatch.",
+      "Bulk-pack or kit-pack options are available for OEM customers.",
     ],
   },
   {
@@ -248,23 +224,19 @@ export const PRODUCTS: Product[] = [
     name: "Center Bolts",
     category: "auto",
     shortDescription:
-      "Critical components for automotive leaf spring assemblies, ensuring secure clamping.",
+      "Leaf-spring center bolts — critical components for heavy and light commercial vehicle suspensions.",
     longDescription:
       "Leaf-spring center bolts for heavy and light commercial vehicles. Forged and machined to OEM specifications, supplied to Indian and export markets.",
     icon: CircleDot,
     imageUrl: "/images/products/product-center-bolts.webp",
     imageAlt: "Leaf-spring center bolts for heavy and light commercial vehicles",
     specs: [
-      { label: "Product Type", value: "Leaf Spring Center Bolts" },
-      { label: "Material", value: "Carbon Steel, Alloy Steel (10.9, 12.9)" },
-      { label: "Thread", value: "Metric / BSW / As per OEM" },
-      { label: "Size Range", value: "M 10 to M 24" },
       { label: "Application", value: "Heavy & light commercial vehicles" },
       { label: "Market", value: "India & export" },
     ],
     overview: [
       "Center bolts clamp the leaves of a leaf-spring pack together, ensuring the entire spring acts as a single unit. Failure of a center bolt leads to catastrophic suspension failure, so we manufacture to the highest grade with full traceability.",
-      "Each batch is supplied with material test certificates and is dimensionally inspected against the OEM drawing. We supply Tier-1 auto-ancillary customers across India and to export markets in Europe and Africa.",
+      "Each batch is supplied with material test certificates and dimensionally inspected against the OEM drawing.",
     ],
   },
   {
@@ -273,24 +245,21 @@ export const PRODUCTS: Product[] = [
     name: "Washers",
     category: "fasteners",
     shortDescription:
-      "Plain, machined and spring washers for load distribution and surface protection.",
+      "All type of plain, machined & spring washers As per IS: 2016, 3063 & as per customer's specifications.",
     longDescription:
-      "Plain, machined and spring washers for load distribution and surface protection — built to exact dimensional specs as per IS 2016 and IS 3063.",
+      "All type of plain, machined & spring washers As per IS: 2016, 3063 & as per customer's specifications.",
     icon: Cog,
     imageUrl: "/images/products/product-washers.webp",
     imageAlt:
-      "Plain, machined, and spring washers as per IS 2016 and IS 3063",
+      "Plain, machined, and spring washers as per IS: 2016 and 3063",
     specs: [
-      { label: "Product Type", value: "Plain / Machined / Spring Washers" },
-      { label: "Material", value: "Carbon Steel, Stainless Steel" },
-      { label: "Standard", value: "IS 2016, IS 3063" },
-      { label: "Size Range", value: "M 6 to M 50" },
-      { label: "Finish", value: "Plain, Zinc Plated, Hot Dip Galvanised" },
-      { label: "Custom", value: "As per customer specs" },
+      { label: "Types", value: "Plain / Machined / Spring Washers" },
+      { label: "Standard", value: "IS: 2016, 3063" },
+      { label: "Custom", value: "As per customer's specifications" },
     ],
     overview: [
-      "Our washers are produced to IS 2016 (plain) and IS 3063 (spring-lock) tolerances, with full dimensional inspection and surface-finish control. Each lot is hardness-tested to ensure consistent load distribution under clamp.",
-      "We supply bulk and kit-packed washers to fastener distributors, OEMs and infrastructure projects. Custom thicknesses, inner/outer diameters, and material grades are available on request.",
+      "We supply the full washer family — plain, machined and spring-lock — produced to IS 2016 and IS 3063 tolerances with full dimensional inspection and surface-finish control.",
+      "Each lot is hardness-tested to ensure consistent load distribution under clamp. Custom thicknesses, inner/outer diameters, and material grades are available on request.",
     ],
   },
 ];

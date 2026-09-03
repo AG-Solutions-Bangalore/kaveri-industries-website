@@ -6,6 +6,7 @@ import {
   Award,
   type LucideIcon,
 } from "lucide-react";
+import { company } from "@/lib/company";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -53,10 +54,10 @@ const CAPABILITIES: CapabilityCard[] = [
     id: "certifications",
     title: "Certifications",
     description:
-      "ISO 9001:2015 certified manufacturing process with full material traceability and batch-level test certificates on dispatch.",
+      `${company.isoStandard} certified manufacturing process with full material traceability and batch-level test certificates on dispatch.`,
     image: "/images/about/certifications-display.webp",
     imageAlt:
-      "ISO 9001:2015 certificate with a steel caliper on a walnut desk",
+      `${company.isoStandard} certificate with a steel caliper on a walnut desk`,
     icon: Award,
   },
 ];

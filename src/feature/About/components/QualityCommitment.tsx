@@ -41,6 +41,9 @@ export function QualityCommitment() {
               <img
                 src={QUALITY_COMMITMENT_CONTENT.imageUrl}
                 alt={QUALITY_COMMITMENT_CONTENT.imageAlt}
+                width={1200}
+                height={900}
+                decoding="async"
                 className="h-full w-full object-cover grayscale contrast-115"
                 loading="lazy"
               />
