@@ -21,17 +21,6 @@ export function AboutHero() {
         style={{ backgroundImage: "url(/images/about/about-hero-panorama.webp)" }}
       />
 
-      {/* Blueprint grid texture */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-45 dark:opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(37, 99, 235, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(37, 99, 235, 0.12) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-
       {/* Soft gradient wash ensuring high legibility */}
       <div
         aria-hidden="true"

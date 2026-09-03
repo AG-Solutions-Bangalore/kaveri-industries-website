@@ -12,16 +12,6 @@ export function ProductsHero() {
       aria-labelledby="products-hero-heading"
       className="relative overflow-hidden border-b border-border bg-slate-50/70 py-16 md:py-24 dark:bg-card/30"
     >
-      {/* Subtle blueprint grid background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(37, 99, 235, 0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(37, 99, 235, 0.10) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
       {/* Soft industrial wash */}
       <div
         aria-hidden="true"

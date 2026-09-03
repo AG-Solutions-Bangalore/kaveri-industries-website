@@ -28,17 +28,6 @@ export function QualityFocus() {
       aria-labelledby="tenets-heading"
       className="relative overflow-hidden bg-slate-50/70 dark:bg-card/40 py-16 md:py-24 border-y border-border"
     >
-      {/* Blueprint grid background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-60 dark:opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(37, 99, 235, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(37, 99, 235, 0.12) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-
       <div className="relative mx-auto max-w-7xl px-4">
         {/* Section Header */}
         <div className="space-y-2">

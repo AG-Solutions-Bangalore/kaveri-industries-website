@@ -13,33 +13,16 @@ export function ContactHero() {
       aria-labelledby="contact-hero-heading"
       className="relative overflow-hidden bg-slate-950 text-white"
     >
-      {/* Background mock image — gradient + faint bolt pattern until real photo lands */}
+      {/* Factory exterior photograph — real photo replaces earlier gradient mock */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(120deg,#0f172a_0%,#1e293b_50%,#0f172a_100%)]"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url(/images/contact/contact-hero-factory.webp)" }}
       />
+      {/* Dark gradient wash for legibility */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-25"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(148, 163, 184, 0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.18) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      {/* Brand radial wash for warmth */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-radial from-brand-600/20 via-transparent to-transparent opacity-80"
-      />
-      {/* Top + bottom hairlines */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-400/60 to-transparent"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-slate-700/60 to-transparent"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.78)_0%,rgba(2,6,23,0.62)_50%,rgba(2,6,23,0.86)_100%)]"
       />
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-20 text-center md:py-28">

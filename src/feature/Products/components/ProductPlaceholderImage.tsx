@@ -28,16 +28,6 @@ export function ProductPlaceholderImage({
       aria-label={`${label} — photography pending`}
       className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 ${className}`}
     >
-      {/* Subtle blueprint grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(37, 99, 235, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(37, 99, 235, 0.12) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
       {/* Centered icon */}
       <div className="relative z-10 grid h-20 w-20 place-items-center rounded-sm border border-brand-200/60 bg-white/70 text-brand-700 shadow-sm backdrop-blur-xs dark:border-brand-700/40 dark:bg-slate-900/60 dark:text-brand-400">
         {Icon ? (
