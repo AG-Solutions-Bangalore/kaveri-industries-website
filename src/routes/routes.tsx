@@ -15,6 +15,9 @@ import { routePreloader } from "@/lib/routePreloader";
 const HomePage = lazy(() => import("@/feature/Home/pages/HomePage"));
 const AboutPage = lazy(() => import("@/feature/About/pages/AboutPage"));
 const ProductsPage = lazy(() => import("@/feature/Products/pages/ProductsPage"));
+const ProductDetailPage = lazy(
+  () => import("@/feature/Products/pages/ProductDetailPage"),
+);
 const ContactPage = lazy(() => import("@/feature/Contact/pages/ContactPage"));
 const NotFoundPage = lazy(() => import("@/feature/NotFound/pages/NotFoundPage"));
 const IndustriesPage = lazy(
@@ -47,6 +50,7 @@ export function AppRoutes() {
             { index: true, element: wrap(HomePage) },
             { path: "about", element: wrap(AboutPage) },
             { path: "products", element: wrap(ProductsPage) },
+            { path: "products/:slug", element: wrap(ProductDetailPage) },
             { path: "industries", element: wrap(IndustriesPage) },
             { path: "contact", element: wrap(ContactPage) },
             { path: "privacy", element: <LegalPage slug="privacy" /> },

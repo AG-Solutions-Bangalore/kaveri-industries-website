@@ -7,6 +7,7 @@ export function routePreloader(): void {
   // Fire-and-forget — these promises are cached by the lazy() loader above.
   void import("@/feature/About/pages/AboutPage");
   void import("@/feature/Products/pages/ProductsPage");
+  void import("@/feature/Products/pages/ProductDetailPage");
   void import("@/feature/Industries/pages/IndustriesPage");
   void import("@/feature/Contact/pages/ContactPage");
 }
