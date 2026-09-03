@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import type { Product } from "@/feature/Products/api/products";
 import { ProductPlaceholderImage } from "@/feature/Products/components/ProductPlaceholderImage";
+import { ShineButton } from "@/components/shine";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -19,6 +20,7 @@ export interface ProductDetailHeroProps {
  */
 export function ProductDetailHero({ product }: ProductDetailHeroProps) {
   const Icon = product.icon;
+  const navigate = useNavigate();
 
   return (
     <section
@@ -86,18 +88,18 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
             transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
             className="flex flex-wrap items-center gap-4 pt-4"
           >
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-none bg-brand-700 px-7 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            <ShineButton
+              onClick={() => navigate("/contact")}
+              className="inline-flex items-center justify-center rounded-none bg-brand-500 px-7 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Request a Quote
-            </Link>
-            <Link
-              to="/contact"
+            </ShineButton>
+            <ShineButton
+              onClick={() => navigate("/contact")}
               className="inline-flex items-center justify-center rounded-none border border-slate-300 bg-white px-7 py-3 text-xs font-bold uppercase tracking-wider text-foreground shadow-xs transition-colors duration-200 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:border-slate-700 dark:bg-card dark:hover:bg-slate-800"
             >
               Contact Us
-            </Link>
+            </ShineButton>
           </motion.div>
         </div>
       </div>

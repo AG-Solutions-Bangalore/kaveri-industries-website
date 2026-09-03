@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* shadcn animation keyframes (fade-in/zoom-in/slide-in/out etc.). The
+ * `tw-animate-css` package is the Tailwind v4 successor to the v3
+ * `tailwindcss-animate` plugin and is what shadcn's Tooltip / Sheet /
+ * Dialog rely on for their state-driven `animate-in` / `animate-out`
+ * utilities. Adding it here so the new shadcn primitives in
+ * `components/ui/` render with the intended micro-interactions. */
+@import "tw-animate-css";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ----------------------------------------------------------------
@@ -10,18 +18,18 @@
  * `text-foreground`, …) keep working unchanged.
  * ---------------------------------------------------------------- */
 @theme {
-  /* === Brand palette — blue (CTAs, accents, highlights) === */
-  --color-brand-50:  #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;   /* primary CTA / highlight */
-  --color-brand-700: #1d4ed8;   /* primary hover / active */
-  --color-brand-800: #1e40af;   /* logo / brand mark */
-  --color-brand-900: #1e3a8a;
-  --color-brand-950: #172554;
+  /* === Brand palette — orange (CTAs, accents, highlights) === */
+  --color-brand-50:  #fff7ed;
+  --color-brand-100: #ffedd5;
+  --color-brand-200: #fed7aa;
+  --color-brand-300: #fdba74;
+  --color-brand-400: #fb923c;
+  --color-brand-500: #f97316;
+  --color-brand-600: #ea580c;   /* primary CTA / highlight */
+  --color-brand-700: #c2410c;   /* primary hover / active */
+  --color-brand-800: #9a3412;   /* logo / brand mark */
+  --color-brand-900: #7c2d12;
+  --color-brand-950: #431407;
 
   /* === Neutral palette — slate (text + surfaces) === */
   --color-slate-50:  #f8fafc;   /* subtle section surface */
@@ -85,11 +93,20 @@
   --radius-xl: 0.625rem;
   --radius-2xl: 0.75rem;
 
+  /* shadcn convention — single source of truth that shadcn components
+     can `calc()` against (e.g. `rounded-sm` = `calc(var(--radius) - 2px)`).
+     Defined alongside the explicit per-step tokens above; both coexist,
+     nothing is removed. */
+  --radius: 0.5rem;
+
   /* === Typography === */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  /* Display family used for all headings via the base-layer rule below.
+     Falls back to the body sans stack if the web font hasn't loaded. */
+  --font-display: "Space Grotesk", var(--font-sans);
 
   /* === Shadows — tuned for the white/slate surface === */
   --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.04);
@@ -332,6 +349,14 @@
 @layer base {
   * {
     border-color: hsl(var(--color-border));
+  }
+
+  /* All headings use Space Grotesk. The -0.015em letter-spacing
+     counterbalances Space Grotesk's relatively open tracking so
+     large display sizes read tighter than body copy. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
   }
   html {
     color-scheme: light dark;

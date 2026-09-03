@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { ShineButton } from "@/components/shine";
 import { CONTACT_PAGE_CONTENT } from "@/feature/Contact/api/contactInfo";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -11,6 +12,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  */
 export function ContactCTA() {
   const cta = CONTACT_PAGE_CONTENT.cta;
+  const navigate = useNavigate();
 
   return (
     <section
@@ -36,8 +38,8 @@ export function ContactCTA() {
               {cta.description}
             </p>
           </div>
-          <Link
-            to={cta.cta.href}
+          <ShineButton
+            onClick={() => navigate(cta.cta.href)}
             className="group inline-flex shrink-0 items-center gap-2 rounded-sm border border-foreground/15 bg-white px-5 py-2.5 text-xs md:text-sm font-semibold text-foreground shadow-xs transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-slate-900/60"
           >
             {cta.cta.label}
@@ -45,7 +47,7 @@ export function ContactCTA() {
               className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1"
               aria-hidden="true"
             />
-          </Link>
+          </ShineButton>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
+import { ShineButton } from "@/components/shine";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -9,6 +10,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  * Routes to /contact (the canonical quote request destination).
  */
 export function ProductsCTA() {
+  const navigate = useNavigate();
   return (
     <section
       aria-labelledby="products-cta-heading"
@@ -41,12 +43,12 @@ export function ProductsCTA() {
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.16 }}
         >
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 rounded-sm bg-brand-700 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          <ShineButton
+            onClick={() => navigate("/contact")}
+            className="inline-flex items-center gap-2 rounded-sm bg-brand-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Request a Quote
-          </Link>
+          </ShineButton>
         </motion.div>
       </div>
     </section>

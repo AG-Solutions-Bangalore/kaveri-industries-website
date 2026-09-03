@@ -51,7 +51,7 @@ export default function ProductDetailPage() {
           </p>
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 rounded-sm bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-800"
+            className="inline-flex items-center gap-2 rounded-sm bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to all products

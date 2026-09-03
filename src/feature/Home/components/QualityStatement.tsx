@@ -29,16 +29,12 @@ export function QualityStatement() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-15% 0px" }}
             transition={{ duration: 0.7, ease: EASE }}
-            style={{ willChange: "transform, opacity" }}
             className="order-2 lg:order-1"
           >
             <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-border bg-card shadow-sm">
               <img
                 src={QUALITY_CONTENT.imageUrl}
                 alt={QUALITY_CONTENT.imageAlt}
-                width={1200}
-                height={900}
-                decoding="async"
                 className="h-full w-full object-cover"
                 loading="lazy"
               />
@@ -122,14 +118,14 @@ export function QualityStatement() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-15% 0px" }}
               transition={{ duration: 0.6, ease: EASE, delay: 0.28 }}
-              className="grid grid-cols-2 gap-6 pt-2"
+              className="flex gap-8 pt-2"
             >
               {QUALITY_CONTENT.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="group/stat relative border-l-2 border-foreground pl-4 transition-all duration-300 ease-out hover:translate-x-1 hover:border-brand-600"
+                  className="group/stat relative transition-all duration-300 ease-out hover:translate-x-1 hover:border-brand-600"
                 >
-                  <p className="pulse-soft text-2xl md:text-3xl font-extrabold tracking-tight text-foreground group-hover/stat:text-brand-700 transition-colors">
+                  <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground group-hover/stat:text-brand-700 transition-colors">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">

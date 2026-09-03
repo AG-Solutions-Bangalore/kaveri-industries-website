@@ -1,6 +1,5 @@
 import {
   lazy,
-  Suspense,
   useEffect,
   useMemo,
   type ComponentType,
@@ -8,7 +7,6 @@ import {
 } from "react";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "@/components/layout/RootLayout";
-import { LoadingFallback } from "@/components/common/LoadingFallback";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { routePreloader } from "@/lib/routePreloader";
 
@@ -24,12 +22,11 @@ const IndustriesPage = lazy(
   () => import("@/feature/Industries/pages/IndustriesPage"),
 );
 const LegalPage = lazy(() => import("@/feature/Legal/pages/LegalPage"));
+const DemoPage = lazy(() => import("@/feature/Demo/pages/DemoPage"));
 
 const wrap = (Page: LazyExoticComponent<ComponentType>) => (
   <ErrorBoundary>
-    <Suspense fallback={<LoadingFallback />}>
-      <Page />
-    </Suspense>
+    <Page />
   </ErrorBoundary>
 );
 
@@ -57,6 +54,7 @@ export function AppRoutes() {
             { path: "terms", element: <LegalPage slug="terms" /> },
             { path: "compliance", element: <LegalPage slug="compliance" /> },
             { path: "sitemap", element: <LegalPage slug="sitemap" /> },
+            { path: "demo", element: wrap(DemoPage) },
             { path: "404", element: wrap(NotFoundPage) },
             { path: "*", element: <Navigate to="/404" replace /> },
           ],

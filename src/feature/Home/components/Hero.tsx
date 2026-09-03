@@ -1,7 +1,9 @@
 import { ArrowRight, BadgeCheck } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { HERO_CONTENT } from "@/feature/Home/api/homeConstants";
+import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
+import { ShineButton } from "@/components/shine";
 import { company } from "@/lib/company";
 
 /**
@@ -17,16 +19,12 @@ export function Hero() {
     animate: { y: 0 },
   };
   const ease = [0.22, 1, 0.36, 1] as const;
+  const navigate = useNavigate();
 
   return (
     <section
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-background py-12 md:py-20"
-      style={{
-        backgroundImage:
-          "linear-gradient(to right, rgba(226,232,240,0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(226,232,240,0.3) 1px, transparent 1px)",
-        backgroundSize: "32px 32px",
-      }}
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -36,10 +34,10 @@ export function Hero() {
               {...slideUp}
               transition={{ duration: 0.5, ease, delay: 0.05 }}
               style={{ willChange: "transform, opacity" }}
-              className="flex items-center gap-2"
+              className="flex items-center"
             >
-              <span className="h-px w-6 bg-muted-foreground/60" aria-hidden="true" />
-              <p className="text-xs font-semibold uppercase relative tracking-[0.2em] text-muted-foreground">
+
+              <p className="text-xs bg-brand-500 font-display text-white px-4 py-2 font-semibold uppercase relative tracking-[0.2em]">
                 {HERO_CONTENT.tagline}
 
               </p>
@@ -49,11 +47,20 @@ export function Hero() {
               id="hero-heading"
               {...slideUp}
               transition={{ duration: 0.6, ease, delay: 0.1 }}
-              className="text-4xl font-extrabold leading-[1.15] tracking-tight text-foreground sm:text-5xl"
+              className="text-4xl font-extrabold leading-[1] tracking-tight text-foreground sm:text-5xl"
             >
               High-Tensile MS<br />
               Fasteners for<br />
-              <span className="text-brand-600">Demanding Applications</span>
+              {/* Rolling accent — each character does a 3D rotateX
+                  flip on mount, staggered by 30ms per character so
+                  the words cascade in. Sits under the brand wordmark
+                  (text-brand-600) and inherits the h1 font/weight. */}
+              <RollingText
+                text={HERO_CONTENT.headingHighlight}
+                transition={{ duration: 0.5, delay: 0.04, ease: "easeOut" }}
+                delay={400}
+                className="text-brand-600"
+              />
             </motion.h1>
 
             <motion.p
@@ -70,22 +77,22 @@ export function Hero() {
               transition={{ duration: 0.6, ease, delay: 0.28 }}
               className="flex flex-wrap items-center gap-3 pt-2"
             >
-              <Link
-                to={HERO_CONTENT.primaryCta.href}
-                className="group inline-flex items-center gap-2 rounded-none bg-brand-700 px-5 py-2.5 text-xs md:text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              <ShineButton
+                onClick={() => navigate(HERO_CONTENT.primaryCta.href)}
+                className="group inline-flex items-center gap-2 rounded-none bg-brand-500 px-5 py-2.5 text-xs md:text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {HERO_CONTENT.primaryCta.label}
                 <ArrowRight
                   className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
                   aria-hidden="true"
                 />
-              </Link>
-              <Link
-                to={HERO_CONTENT.secondaryCta.href}
+              </ShineButton>
+              <ShineButton
+                onClick={() => navigate(HERO_CONTENT.secondaryCta.href)}
                 className="inline-flex items-center gap-2 rounded-none border border-border bg-background px-5 py-2.5 text-xs md:text-sm font-semibold text-foreground shadow-xs transition-colors duration-200 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {HERO_CONTENT.secondaryCta.label}
-              </Link>
+              </ShineButton>
             </motion.div>
           </div>
 
@@ -96,17 +103,12 @@ export function Hero() {
             transition={{ duration: 0.9, ease, delay: 0.2 }}
             className="relative"
           >
-            {/* Background Offset Card Accent */}
-            <div
-              className="absolute -right-3 -bottom-3 h-full w-full rounded-none bg-brand-100/60 dark:bg-brand-950/40"
-              aria-hidden="true"
-            />
 
             {/* Main Image Frame — the LCP element. width/height attrs reserve
                 layout space up front (kills CLS), fetchpriority="high" tells the
                 browser to start the request before lower-priority images.
                 srcset serves a smaller variant on smaller viewports. */}
-            <div className="relative aspect-4/3 overflow-hidden rounded-none border border-border bg-card shadow-sm">
+            <div className="relative aspect-4/3 overflow-hidden rounded-none">
               <img
                 src="/images/home/hero-fasteners-800.webp"
                 srcSet="
@@ -130,10 +132,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.6 }}
-              className="float-soft absolute bottom-3 left-3 rounded-none border border-border bg-card/95 p-3 shadow-md backdrop-blur-xs sm:bottom-6 sm:left-6 md:bottom-8 md:-left-12"
+              className="float-soft absolute bottom-3 left-3 rounded-none border border-border bg-card p-3 shadow-md sm:bottom-6 sm:left-6 md:bottom-8 md:-left-12"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-brand-50 text-brand-700 dark:bg-brand-950/80">
+                <div className="flex h-9 w-9 items-center justify-center rounded-sm bg-brand-50 text-brand-700 dark:bg-brand-950/70">
                   <BadgeCheck className="h-5 w-5" />
                 </div>
                 <div>

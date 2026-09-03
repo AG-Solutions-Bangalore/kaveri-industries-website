@@ -1,10 +1,11 @@
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { PRODUCTS, type Product } from "@/feature/Home/api/products";
 import { PRODUCTS_SECTION_HEADER } from "@/feature/Home/api/homeConstants";
 import { usePrefersReducedMotion } from "@/feature/Home/hooks/usePrefersReducedMotion";
+import { ShineButton } from "@/components/shine";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -18,6 +19,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export function ProductsCarousel() {
   const reducedMotion = usePrefersReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   return (
     <section
@@ -45,8 +47,8 @@ export function ProductsCarousel() {
               {PRODUCTS_SECTION_HEADER.heading}
             </h2>
           </div>
-          <Link
-            to={PRODUCTS_SECTION_HEADER.cta.href}
+          <ShineButton
+            onClick={() => navigate(PRODUCTS_SECTION_HEADER.cta.href)}
             className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-accent transition-colors hover:text-brand-700"
           >
             {PRODUCTS_SECTION_HEADER.cta.label}
@@ -54,7 +56,7 @@ export function ProductsCarousel() {
               className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
               aria-hidden="true"
             />
-          </Link>
+          </ShineButton>
         </motion.div>
 
         {/* Carousel Region — Continuous Infinite Auto-Scroll */}
