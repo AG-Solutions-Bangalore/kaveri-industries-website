@@ -10,7 +10,7 @@ export type CategoryFilter = ProductCategory | "all";
 export interface ProductsFilterBarProps {
   value: CategoryFilter;
   onChange: (next: CategoryFilter) => void;
-  resultCount: number;
+  resultCount?: number;
 }
 
 const OPTIONS: { value: CategoryFilter; label: string }[] = [
@@ -19,13 +19,12 @@ const OPTIONS: { value: CategoryFilter; label: string }[] = [
 ];
 
 /**
- * Filter dropdown + result count, matching the design reference.
+ * Filter dropdown, matching the design reference.
  * Native <select> so it works without JS, then enhanced styling on top.
  */
 export function ProductsFilterBar({
   value,
   onChange,
-  resultCount,
 }: ProductsFilterBarProps) {
   const selectId = useId();
 
@@ -43,14 +42,11 @@ export function ProductsFilterBar({
         </p>
       </div>
 
-      <div className="flex items-center gap-3">
-        <span className="text-xs text-muted-foreground">
-          {resultCount} {resultCount === 1 ? "product" : "products"}
-        </span>
+      <div className="flex items-center shrink-0">
         <label htmlFor={selectId} className="sr-only">
           Filter by category
         </label>
-        <div className="relative">
+        <div className="relative min-w-[180px]">
           <Filter
             className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
             aria-hidden="true"
@@ -59,7 +55,7 @@ export function ProductsFilterBar({
             id={selectId}
             value={value}
             onChange={(e) => onChange(e.target.value as CategoryFilter)}
-            className="h-10 appearance-none rounded-sm border border-border bg-card pl-9 pr-9 text-sm font-medium text-foreground shadow-xs transition-colors hover:border-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="h-10 w-full appearance-none rounded-sm border border-border bg-card pl-9 pr-9 text-sm font-medium text-foreground shadow-xs transition-colors hover:border-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
           >
             {OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -69,9 +65,9 @@ export function ProductsFilterBar({
           </select>
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground"
           >
-            ▾
+            ▼
           </span>
         </div>
       </div>

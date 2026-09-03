@@ -30,7 +30,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "High-tensile bolting assemblies built to withstand extreme wind loads and long-term environmental stress in tall lattice structures.",
     icon: RadioTower,
-    imageUrl: "/images/sector-telecom.webp",
+    imageUrl: "/images/home/sector-telecom.webp",
     imageAlt:
       "High-voltage transmission and telecommunication lattice towers against an open sky",
   },
@@ -40,7 +40,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Structural bolts and connection hardware essential for the safety and stability of commercial complexes, bridges and large civil structures.",
     icon: Building2,
-    imageUrl: "/images/sector-structures.webp",
+    imageUrl: "/images/home/sector-structures.webp",
     imageAlt:
       "Steel framework of a building and bridge under construction — structural bolting in use",
   },
@@ -50,7 +50,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Corrosion-resistant, high-pressure fasteners engineered for critical flanged connections in pipeline networks and processing units.",
     icon: Factory,
-    imageUrl: "/images/sector-refineries.webp",
+    imageUrl: "/images/home/sector-refineries.webp",
     imageAlt:
       "Petrochemical refinery columns and a water-treatment plant under daylight",
   },
@@ -60,7 +60,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Specialised fatigue-resistant bolting for tower foundations, nacelles and blade connections in renewable and conventional power generation.",
     icon: Wind,
-    imageUrl: "/images/sector-wind-power.webp",
+    imageUrl: "/images/home/sector-wind-power.webp",
     imageAlt:
       "Row of wind turbines across a green field — renewable power generation",
   },
@@ -70,7 +70,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Vibration-proof fastening systems for track infrastructure and rolling stock, ensuring long-term reliability under dynamic loads.",
     icon: Train,
-    imageUrl: "/images/sector-railways.webp",
+    imageUrl: "/images/home/sector-railways.webp",
     imageAlt:
       "High-speed trains at a modern railway platform — transportation infrastructure",
   },
@@ -80,7 +80,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Heavy-duty hot-dip galvanised fasteners designed for crash-barrier assembly — prioritising highway safety and longevity.",
     icon: Shield,
-    imageUrl: "/images/sector-guard-rail.webp",
+    imageUrl: "/images/home/sector-guard-rail.webp",
     imageAlt:
       "Hot-dip galvanised road guard rail / crash barrier along a curved highway",
   },

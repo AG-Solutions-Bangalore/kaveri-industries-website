@@ -14,24 +14,12 @@ export function AboutHero() {
       aria-labelledby="about-hero-heading"
       className="relative overflow-hidden bg-background py-20 md:py-28 border-b border-border/70"
     >
-      {/* 3-column factory workshop watermark grid matching mock */}
+      {/* Wide factory panorama watermark — single image, desaturated */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 grid grid-cols-1 md:grid-cols-3 opacity-[0.16] dark:opacity-[0.06] mix-blend-luminosity grayscale contrast-125 overflow-hidden"
-      >
-        <div
-          className="h-full w-full border-r border-slate-300/40 dark:border-slate-700/30 bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/manufacturing-shop-overview.jpg)" }}
-        />
-        <div
-          className="h-full w-full border-r border-slate-300/40 dark:border-slate-700/30 bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/manufacturing-plant.webp)" }}
-        />
-        <div
-          className="h-full w-full bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/manufacturing-shop-overview.jpg)" }}
-        />
-      </div>
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.18] dark:opacity-[0.08] mix-blend-luminosity grayscale contrast-125"
+        style={{ backgroundImage: "url(/images/about/about-hero-panorama.webp)" }}
+      />
 
       {/* Blueprint grid texture */}
       <div

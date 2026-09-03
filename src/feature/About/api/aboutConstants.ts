@@ -20,9 +20,9 @@ export const WHO_WE_ARE_CONTENT = {
     `${company.name} is a premier manufacturer specializing in high-tensile MS fasteners designed to meet the rigorous demands of critical industrial infrastructure. We focus on delivering precision-engineered components that ensure structural integrity and operational safety across diverse sectors.`,
     "Our operational philosophy is grounded in manufacturing excellence. We maintain strict control over our production processes, utilizing advanced technology and stringent quality assurance protocols to provide reliable fastening solutions. We are committed to supplying components that consistently perform under demanding conditions, earning the trust of engineering and procurement professionals worldwide.",
   ],
-  imageUrl: "/images/about-who-we-are.jpg",
+  imageUrl: "/images/about/team-engineering.webp",
   imageAlt:
-    "High-tensile MS hex head bolts, threaded fasteners, and structural washers on workshop bench — Kaveri Industries",
+    "Kaveri Industries engineering team reviewing a precision fastener drawing on the shop floor",
 } as const;
 
 export const QUALITY_HERO_CONTENT = {
@@ -38,9 +38,9 @@ export const QUALITY_COMMITMENT_CONTENT = {
     `At ${company.name}, quality is not a department; it is the fundamental framework of our operations. Our focus is squarely on producing high-tensile MS fasteners that meet uncompromising standards of precision and consistency. Every batch engineered in our facility undergoes rigorous validation against stringent industrial benchmarks.`,
     "We invest continuously in advanced inspection technologies and continuous improvement protocols to ensure that our products deliver absolute reliability in the most demanding infrastructure and industrial applications.",
   ],
-  imageUrl: "/images/quality-caliper.jpg",
+  imageUrl: "/images/about/quality-tensile-testing.webp",
   imageAlt:
-    "Precision digital vernier caliper measuring high-tensile hex bolt on granite surface table during quality control inspection",
+    "Universal Testing Machine tensile rig validating a high-tensile hex bolt specimen during quality control inspection",
 } as const;
 
 export const QUALITY_TENETS = [
@@ -79,7 +79,7 @@ export const QUALITY_PROCESS_CONTENT = {
   heading: "Quality Through Manufacturing",
   paragraph:
     "Quality is integral to Kaveri's manufacturing approach, woven directly into the fabric of our production line. Rather than treating inspection as an afterthought, process controls are embedded at critical junctures. This systemic approach ensures that deviations are identified and corrected at the source, maintaining the integrity of the high-tensile fasteners we produce.",
-  imageUrl: "/images/manufacturing-shop-overview.jpg",
+  imageUrl: "/images/about/about-hero-panorama.webp",
   imageAlt:
-    "High-angle view of modern CNC manufacturing floor and automated production lines at Kaveri Industries",
+    "Wide high-angle view of the Kaveri Industries CNC manufacturing floor and automated production lines",
 } as const;

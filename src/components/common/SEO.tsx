@@ -26,7 +26,7 @@ export interface SEOProps {
    * Extra schema.org JSON-LD. Site-wide Organization + WebSite +
    * LocalBusiness are injected automatically — pass page-specific ones here.
    */
-  schema?: JsonLd;
+  schema?: JsonLd | JsonLd[];
   /** Drives OG `og:type` + `twitter:card`. */
   type?: SeoOgType;
   /** Comma-separated keywords — keep ≤10 and avoid stuffing. */

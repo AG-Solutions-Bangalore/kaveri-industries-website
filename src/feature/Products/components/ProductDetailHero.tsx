@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
 import type { Product } from "@/feature/Products/api/products";
 import { ProductPlaceholderImage } from "@/feature/Products/components/ProductPlaceholderImage";
 
@@ -27,14 +26,14 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
       className="pb-12 md:pb-16"
     >
       <div className="grid items-start gap-10 lg:grid-cols-2">
-        {/* Image */}
+        {/* Image Container Framed */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="relative overflow-hidden rounded-sm border border-border bg-card shadow-sm"
+          className="relative flex items-center justify-center overflow-hidden rounded-none border border-slate-200/80 bg-[#F6F8FB] p-6 sm:p-10 dark:border-border dark:bg-card/40"
         >
-          <div className="aspect-[4/3]">
+          <div className="relative aspect-[4/3] w-full max-w-lg overflow-hidden bg-white shadow-xs">
             {product.imageUrl ? (
               <img
                 src={product.imageUrl}
@@ -49,14 +48,14 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
         </motion.div>
 
         {/* Content */}
-        <div className="space-y-5">
+        <div className="space-y-5 pt-2">
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground"
+            className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground"
           >
-            Fasteners
+            {product.category === "bolts" ? "Fasteners" : product.category}
           </motion.p>
 
           <motion.h1
@@ -73,7 +72,7 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.12 }}
-            className="max-w-prose text-sm leading-relaxed text-muted-foreground sm:text-base"
+            className="max-w-prose text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300"
           >
             {product.longDescription}
           </motion.p>
@@ -82,21 +81,17 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-3 pt-3"
+            className="flex flex-wrap items-center gap-4 pt-4"
           >
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 rounded-sm bg-brand-700 px-5 py-2.5 text-xs md:text-sm font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center justify-center rounded-none bg-brand-700 px-7 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-200 hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Request a Quote
-              <ArrowRight
-                className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1"
-                aria-hidden="true"
-              />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-sm border border-border bg-background px-5 py-2.5 text-xs md:text-sm font-bold uppercase tracking-wider text-foreground shadow-xs transition-colors duration-200 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center justify-center rounded-none border border-slate-300 bg-white px-7 py-3 text-xs font-bold uppercase tracking-wider text-foreground shadow-xs transition-colors duration-200 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:border-slate-700 dark:bg-card dark:hover:bg-slate-800"
             >
               Contact Us
             </Link>

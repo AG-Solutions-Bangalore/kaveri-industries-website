@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Precision-engineered hex head bolts and screws designed for high-stress industrial applications. Manufactured to exacting tolerances to ensure reliable performance in structural engineering, heavy machinery, and critical infrastructure projects.",
     icon: Bolt,
-    imageUrl: "/images/product-hex-bolts.webp",
+    imageUrl: "/images/home/product-hex-bolts.webp",
     imageAlt:
       "Heavy hex structural bolts and screws (HSFG bolts) — Kaveri Industries",
     tag: "Bestseller",
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Hot-dip galvanised fasteners with a heavy zinc coating for outdoor and corrosive-service applications. Engineered for guard rails, foundations, transmission towers and anti-theft assemblies.",
     icon: Settings2,
-    imageUrl: "/images/product-galvanised.webp",
+    imageUrl: "/images/home/product-galvanised.webp",
     imageAlt:
       "Hot dip galvanised structural fasteners with a bright zinc coating",
     specs: [
@@ -127,7 +127,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Standard hex nuts precision-tapped to mate with high-tensile bolts and threaded rod. Manufactured to ISO 4032 / IS 1363 tolerances with controlled thread profile and proof-load testing.",
     icon: Nut,
-    imageUrl: "/images/product-hex-nuts.webp",
+    imageUrl: "/images/home/product-hex-nuts.webp",
     imageAlt: "Assorted hex nuts in zinc, black-oxide and yellow finishes",
     specs: [
       { label: "Product Type", value: "Hex Nuts (Full & Half)" },
@@ -152,6 +152,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Slotted (castle) nuts machined with axial slots to accept a cotter pin, providing positive locking against vibration and dynamic loading.",
     icon: Cog,
+    imageUrl: "/images/products/product-slotted-nuts.webp",
     imageAlt: "Slotted castle nuts ready for cotter pin locking",
     specs: [
       { label: "Product Type", value: "Slotted / Castle Nuts" },
@@ -176,6 +177,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Nylock lock nuts with an integrated nylon insert that grips the bolt thread and resists loosening under vibration — re-usable up to several cycles.",
     icon: Nut,
+    imageUrl: "/images/products/product-nylock-nuts.webp",
     imageAlt: "Nylock nuts with integrated nylon locking collar",
     specs: [
       { label: "Product Type", value: "Nylon Insert Lock Nuts (Nylock)" },
@@ -200,7 +202,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Continuous-thread studs and fully-threaded bars for high-pressure flange bolting, foundation anchoring and custom-length applications.",
     icon: Wrench,
-    imageUrl: "/images/product-studs.webp",
+    imageUrl: "/images/home/product-studs.webp",
     imageAlt: "Stud bolts and fully threaded bars in various diameters and grades",
     specs: [
       { label: "Product Type", value: "Stud Bolts, Threaded Bars, Double-Ended Studs" },
@@ -225,7 +227,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "U-bolts with two threaded legs for clamping pipework, tubes and round sections. Available in round-bend and square-bend configurations, with standard or custom centre-to-centre dimensions.",
     icon: CircleDot,
-    imageUrl: "/images/product-ubolts.webp",
+    imageUrl: "/images/home/product-ubolts.webp",
     imageAlt: "U-bolts for pipe and tube clamping",
     specs: [
       { label: "Product Type", value: "Round Bend / Square Bend U-Bolts" },
@@ -250,7 +252,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Leaf-spring center bolts for heavy and light commercial vehicles. Forged and machined to OEM specifications, supplied to Indian and export markets.",
     icon: CircleDot,
-    imageUrl: "/images/product-ubolts.webp",
+    imageUrl: "/images/products/product-center-bolts.webp",
     imageAlt: "Leaf-spring center bolts for heavy and light commercial vehicles",
     specs: [
       { label: "Product Type", value: "Leaf Spring Center Bolts" },
@@ -263,6 +265,32 @@ export const PRODUCTS: Product[] = [
     overview: [
       "Center bolts clamp the leaves of a leaf-spring pack together, ensuring the entire spring acts as a single unit. Failure of a center bolt leads to catastrophic suspension failure, so we manufacture to the highest grade with full traceability.",
       "Each batch is supplied with material test certificates and is dimensionally inspected against the OEM drawing. We supply Tier-1 auto-ancillary customers across India and to export markets in Europe and Africa.",
+    ],
+  },
+  {
+    id: "washers",
+    slug: "washers",
+    name: "Washers",
+    category: "fasteners",
+    shortDescription:
+      "Plain, machined and spring washers for load distribution and surface protection.",
+    longDescription:
+      "Plain, machined and spring washers for load distribution and surface protection — built to exact dimensional specs as per IS 2016 and IS 3063.",
+    icon: Cog,
+    imageUrl: "/images/products/product-washers.webp",
+    imageAlt:
+      "Plain, machined, and spring washers as per IS 2016 and IS 3063",
+    specs: [
+      { label: "Product Type", value: "Plain / Machined / Spring Washers" },
+      { label: "Material", value: "Carbon Steel, Stainless Steel" },
+      { label: "Standard", value: "IS 2016, IS 3063" },
+      { label: "Size Range", value: "M 6 to M 50" },
+      { label: "Finish", value: "Plain, Zinc Plated, Hot Dip Galvanised" },
+      { label: "Custom", value: "As per customer specs" },
+    ],
+    overview: [
+      "Our washers are produced to IS 2016 (plain) and IS 3063 (spring-lock) tolerances, with full dimensional inspection and surface-finish control. Each lot is hardness-tested to ensure consistent load distribution under clamp.",
+      "We supply bulk and kit-packed washers to fastener distributors, OEMs and infrastructure projects. Custom thicknesses, inner/outer diameters, and material grades are available on request.",
     ],
   },
 ];

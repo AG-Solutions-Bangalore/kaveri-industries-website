@@ -16,7 +16,7 @@ export function ProductSpecsTable({ specs }: ProductSpecsTableProps) {
   return (
     <section
       aria-labelledby="product-specs-heading"
-      className="py-12 md:py-16"
+      className="py-8 md:py-12"
     >
       <h2
         id="product-specs-heading"
@@ -24,10 +24,10 @@ export function ProductSpecsTable({ specs }: ProductSpecsTableProps) {
       >
         Technical Specifications
       </h2>
-      <div className="mt-2 h-px w-24 bg-foreground/15" aria-hidden="true" />
+      <div className="mt-3 mb-6 h-px w-full bg-border" aria-hidden="true" />
 
-      <div className="mt-6 overflow-hidden rounded-sm border border-border">
-        <dl className="divide-y divide-border">
+      <div className="overflow-hidden rounded-none border border-slate-200 dark:border-border">
+        <dl className="divide-y divide-slate-200 dark:divide-border">
           {specs.map((spec, idx) => (
             <motion.div
               key={spec.label}
@@ -36,14 +36,14 @@ export function ProductSpecsTable({ specs }: ProductSpecsTableProps) {
               viewport={{ once: true, margin: "-10% 0px" }}
               transition={{ duration: 0.4, ease: EASE, delay: idx * 0.03 }}
               className={
-                "grid grid-cols-1 gap-2 px-5 py-4 sm:grid-cols-[200px_1fr] sm:gap-6 " +
-                (idx % 2 === 0 ? "bg-slate-50/50 dark:bg-card/40" : "bg-card")
+                "grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-[180px_1fr] sm:gap-6 items-center " +
+                (idx % 2 === 0 ? "bg-slate-50/60 dark:bg-card/40" : "bg-card")
               }
             >
-              <dt className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+              <dt className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground">
                 {spec.label}
               </dt>
-              <dd className="text-sm font-medium text-foreground sm:text-base">
+              <dd className="text-xs sm:text-sm font-medium text-foreground">
                 {spec.value}
               </dd>
             </motion.div>

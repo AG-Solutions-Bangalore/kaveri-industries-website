@@ -15,7 +15,7 @@ export function ProductOverview({ paragraphs }: ProductOverviewProps) {
   return (
     <section
       aria-labelledby="product-overview-heading"
-      className="py-12 md:py-16"
+      className="py-8 md:py-12"
     >
       <h2
         id="product-overview-heading"
@@ -23,9 +23,9 @@ export function ProductOverview({ paragraphs }: ProductOverviewProps) {
       >
         Product Overview
       </h2>
-      <div className="mt-2 h-px w-24 bg-foreground/15" aria-hidden="true" />
+      <div className="mt-3 mb-6 h-px w-full bg-border" aria-hidden="true" />
 
-      <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+      <div className="space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
         {paragraphs.map((para, idx) => (
           <motion.p
             key={idx}

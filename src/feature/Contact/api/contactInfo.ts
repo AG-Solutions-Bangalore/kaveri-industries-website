@@ -48,19 +48,18 @@ export const CONTACT_CARDS: ContactCard[] = [
 ];
 
 /**
- * OpenStreetMap embed URL — free, no API key, no rate limits.
- * Uses the company's `geo` coords and a 15-zoom pin at the factory.
- * User can replace with a Google Maps embed later.
+ * Google Maps embed URL — uses the public `maps.google.com/maps?output=embed`
+ * endpoint so no API key is required. Centred on the factory's lat/lng at
+ * zoom 15. The `q=` param drives the pin; `z=` controls the zoom level.
  */
 export const MAP_EMBED_URL =
-  `https://www.openstreetmap.org/export/embed.html?bbox=` +
-  `${company.address.geo.lng - 0.02},${company.address.geo.lat - 0.01},` +
-  `${company.address.geo.lng + 0.02},${company.address.geo.lat + 0.01}` +
-  `&layer=mapnik&marker=${company.address.geo.lat},${company.address.geo.lng}`;
+  `https://maps.google.com/maps?q=${company.address.geo.lat},${company.address.geo.lng}` +
+  `&hl=en&z=15&output=embed`;
 
+/** "Open in Google Maps" link for the address callout. */
 export const MAP_EXTERNAL_URL =
-  `https://www.openstreetmap.org/?mlat=${company.address.geo.lat}&mlon=${company.address.geo.lng}` +
-  `#map=15/${company.address.geo.lat}/${company.address.geo.lng}`;
+  `https://www.google.com/maps?q=${company.address.geo.lat},${company.address.geo.lng}` +
+  `&hl=en&z=15`;
 
 export const CONTACT_PAGE_CONTENT = {
   hero: {

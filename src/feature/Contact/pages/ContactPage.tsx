@@ -1,19 +1,41 @@
 import { SEO } from "@/components/common/SEO";
-import { company } from "@/lib/company";
+import { ContactHero } from "@/feature/Contact/components/ContactHero";
+import { ContactInfoCards } from "@/feature/Contact/components/ContactInfoCards";
+import { ContactForm } from "@/feature/Contact/components/ContactForm";
+import { ContactLocation } from "@/feature/Contact/components/ContactLocation";
+import { ContactCTA } from "@/feature/Contact/components/ContactCTA";
 import { contactSEO } from "@/feature/Contact/seo/contactSeo";
 
+/**
+ * /contact — single-page contact flow.
+ *
+ * Sections, top to bottom:
+ * 1. ContactHero (dark image hero with title)
+ * 2. Let's Talk + Send Us a Message (two-column: info cards + form)
+ * 3. Our Location (OpenStreetMap embed with address callout)
+ * 4. Looking for a Fastening Solution? (light CTA)
+ */
 export default function ContactPage() {
   return (
     <>
       <SEO {...contactSEO} />
-      <h1 className="text-3xl font-semibold tracking-tight">Contact</h1>
-      <p className="mt-4 text-muted-foreground">
-        Reach our sales desk at{" "}
-        <a className="text-brand-600 underline" href={`mailto:${company.contact.salesEmail}`}>
-          {company.contact.salesEmail}
-        </a>
-        .
-      </p>
+      <ContactHero />
+
+      <section
+        aria-labelledby="contact-talks-heading"
+        className="bg-background py-12 md:py-20"
+      >
+        <h2 id="contact-talks-heading" className="sr-only">
+          Get in touch
+        </h2>
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:gap-16">
+          <ContactInfoCards />
+          <ContactForm />
+        </div>
+      </section>
+
+      <ContactLocation />
+      <ContactCTA />
     </>
   );
 }

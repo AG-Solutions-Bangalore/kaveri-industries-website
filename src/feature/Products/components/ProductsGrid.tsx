@@ -7,8 +7,6 @@ import {
 import { ProductCard } from "@/feature/Products/components/ProductCard";
 import { PRODUCTS, type Product } from "@/feature/Products/api/products";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-
 /**
  * Product grid with category filter. Defaults to "All Categories" so the
  * entire catalogue is visible on first load — matching the design reference.

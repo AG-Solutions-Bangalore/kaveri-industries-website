@@ -29,7 +29,7 @@ export const HERO_CONTENT = {
     href: "/contact",
   },
   /** Image URL for hero visual; set to valid asset path or leave empty for styled mockup */
-  imageUrl: "/images/hero-fasteners.webp",
+  imageUrl: "/images/home/hero-fasteners.webp",
   imageAlt:
     "High-tensile MS structural bolts, hex nuts, and precision fasteners — Kaveri Industries",
 } as const;
@@ -69,7 +69,7 @@ export const QUALITY_CONTENT = {
     href: "/about",
   },
   /** Image URL for factory / quality visual; set to valid asset path or leave empty for styled mockup */
-  imageUrl: "/images/manufacturing-plant.webp",
+  imageUrl: "/images/home/manufacturing-plant.webp",
   imageAlt:
     "State-of-the-art precision machining and quality inspection facility — Kaveri Industries",
 } as const;

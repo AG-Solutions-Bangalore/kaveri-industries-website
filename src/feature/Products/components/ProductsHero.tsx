@@ -15,36 +15,33 @@ export function ProductsHero() {
       {/* Subtle blueprint grid background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-60 dark:opacity-20"
+        className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-20"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(37, 99, 235, 0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(37, 99, 235, 0.10) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
+      {/* Soft industrial wash */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.05] dark:opacity-[0.03] mix-blend-luminosity"
+        style={{
+          backgroundImage: "url(/images/products/product-page-banner.webp)",
+        }}
+      />
       {/* Brand radial wash */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-radial from-brand-600/8 via-transparent to-transparent"
+        className="pointer-events-none absolute inset-0 bg-radial from-brand-600/6 via-transparent to-transparent"
       />
 
-      <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 text-center">
-        <motion.span
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: EASE }}
-          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
-        >
-          <span className="h-px w-6 bg-muted-foreground/60" aria-hidden="true" />
-          Product Range
-          <span className="h-px w-6 bg-muted-foreground/60" aria-hidden="true" />
-        </motion.span>
-
+      <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-3 px-4 text-center">
         <motion.h1
           id="products-hero-heading"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE, delay: 0.05 }}
+          transition={{ duration: 0.6, ease: EASE }}
           className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl"
         >
           Our Products
@@ -53,11 +50,11 @@ export function ProductsHero() {
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE, delay: 0.12 }}
-          className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
+          transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
+          className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base"
         >
-          High-tensile fastening solutions designed for demanding industrial
-          applications. Engineered for precision, manufactured for reliability.
+          High-tensile fastening solutions designed for demanding industrial applications.
+          Engineered for precision, manufactured for reliability.
         </motion.p>
       </div>
     </section>

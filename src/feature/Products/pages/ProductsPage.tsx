@@ -18,7 +18,7 @@ export default function ProductsPage() {
       ...productSchema({
         name: p.name,
         description: p.shortDescription,
-        image: p.imageUrl ?? "/images/product-hex-bolts.webp",
+        image: p.imageUrl ?? "/images/home/product-hex-bolts.webp",
         sku: p.id.toUpperCase(),
       }),
       position: i + 1,

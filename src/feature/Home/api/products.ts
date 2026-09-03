@@ -30,7 +30,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Heavy head structural fasteners (HSFG Bolts) — engineered for the most demanding structural connections.",
     icon: Bolt,
-    imageUrl: "/images/product-hex-bolts.webp",
+    imageUrl: "/images/home/product-hex-bolts.webp",
     imageAlt:
       "Heavy hex structural bolts and screws (HSFG bolts) — Kaveri Industries",
     specs: [
@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Guard rail bolts, foundation bolts, anti-theft nuts & bolts — superior corrosion resistance for harsh environments.",
     icon: Settings2,
-    imageUrl: "/images/product-galvanised.webp",
+    imageUrl: "/images/home/product-galvanised.webp",
     imageAlt:
       "Hot dip galvanised structural fasteners with a bright zinc coating",
     specs: [
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Precision-tapped mating hardware ensuring secure engagement and long-term tension retention across assemblies.",
     icon: Nut,
-    imageUrl: "/images/product-hex-nuts.webp",
+    imageUrl: "/images/home/product-hex-nuts.webp",
     imageAlt:
       "Assorted hex nuts, slotted nuts, and nylock lock nuts in zinc, black, and yellow finishes",
     specs: [
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Continuous threading for custom-length requirements and high-pressure flange bolting.",
     icon: Wrench,
-    imageUrl: "/images/product-studs.webp",
+    imageUrl: "/images/home/product-studs.webp",
     imageAlt:
       "Stud bolts and fully threaded bars in various diameters and grades",
     specs: [
@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
     description:
       "All types of U-bolts and center bolts for heavy & light vehicles used in Indian and export markets.",
     icon: CircleDot,
-    imageUrl: "/images/product-ubolts.webp",
+    imageUrl: "/images/home/product-ubolts.webp",
     imageAlt:
       "U-bolts and leaf-spring center bolts for heavy and light commercial vehicles",
     specs: [
@@ -104,7 +104,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Plain, machined and spring washers for load distribution and surface protection — built to exact dimensional specs.",
     icon: Cog,
-    imageUrl: "/images/product-washers.webp",
+    imageUrl: "/images/products/product-washers.webp",
     imageAlt:
       "Plain, machined, and spring washers as per IS 2016 and IS 3063",
     specs: [
