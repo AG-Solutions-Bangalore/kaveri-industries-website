@@ -1,0 +1,21 @@
+import { SEO } from "@/components/common/SEO";
+import { Hero } from "@/feature/Home/components/Hero";
+import { QualityStatement } from "@/feature/Home/components/QualityStatement";
+import { ProductsCarousel } from "@/feature/Home/components/ProductsCarousel";
+import { TargetSectors } from "@/feature/Home/components/TargetSectors";
+import { CTABanner } from "@/feature/Home/components/CTABanner";
+import { homeSEO } from "@/feature/Home/seo/homeSeo";
+
+export default function HomePage() {
+  return (
+    <>
+      <SEO {...homeSEO} />
+
+      <Hero />
+      <ProductsCarousel />
+      <TargetSectors />
+      <QualityStatement />
+      <CTABanner />
+    </>
+  );
+}
