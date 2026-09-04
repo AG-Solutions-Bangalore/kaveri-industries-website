@@ -1,6 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
+import { NavbarV2 } from "@/components/layout/NavbarV2";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteFooterV2 } from "@/components/layout/SiteFooterV2";
 import { ScrollToTop } from "@/components/common/ScrollToTop";
 
 /**
@@ -12,6 +14,9 @@ import { ScrollToTop } from "@/components/common/ScrollToTop";
  * shell.
  */
 export function RootLayout() {
+  const location = useLocation();
+  const isV2 = location.pathname.startsWith("/v2");
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <a
@@ -21,7 +26,7 @@ export function RootLayout() {
         Skip to main content
       </a>
 
-      <Navbar />
+      {isV2 ? <NavbarV2 /> : <Navbar />}
 
       <ScrollToTop />
 
@@ -33,7 +38,7 @@ export function RootLayout() {
         <Outlet />
       </main>
 
-      <SiteFooter />
+      {isV2 ? <SiteFooterV2 /> : <SiteFooter />}
     </div>
   );
 }

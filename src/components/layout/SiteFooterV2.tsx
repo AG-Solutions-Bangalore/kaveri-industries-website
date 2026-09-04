@@ -2,11 +2,18 @@ import { useState, type FormEvent, type ReactElement, type SVGProps } from "reac
 import { Link } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { Mail, MapPin, Phone, Printer, Send } from "lucide-react";
-import { NAV } from "@/components/layout/Navbar";
 import { Switch } from "@/components/ui/switch";
 import { FlipButton } from "@/components/ui/FlipButton";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
+
+const NAV_V2_FOOTER = [
+  { to: "/v2", label: "Home" },
+  { to: "/about", label: "About Us" },
+  { to: "/products", label: "Products" },
+  { to: "/industries", label: "Industries" },
+  { to: "/contact", label: "Contact Us" },
+];
 
 const FOOTER_LINKS = [
   { to: "/privacy", label: "Privacy Policy" },
@@ -15,13 +22,6 @@ const FOOTER_LINKS = [
   { to: "/sitemap", label: "Sitemap" },
 ];
 
-/* ----------------------------------------------------------------
- * Brand icon set
- * lucide-react dropped the Meta / X / Instagram / LinkedIn / YouTube
- * glyphs from the default export, so we inline the SVGs here. Each
- * component accepts standard SVG props so it can be sized and
- * styled like any other icon used in the file.
- * ---------------------------------------------------------------- */
 type IconProps = SVGProps<SVGSVGElement>;
 
 const LinkedinIcon = (props: IconProps) => (
@@ -48,31 +48,16 @@ const YoutubeIcon = (props: IconProps) => (
   </svg>
 );
 
-/**
- * Maps a `company.social` URL to a brand icon + accessible label.
- * The fallback case logs a warning so missing icons are visible
- * during development rather than silently rendering nothing.
- */
 function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string } | null {
   const lower = url.toLowerCase();
   if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn" };
   if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook" };
   if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter" };
   if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube" };
-  if (import.meta.env.DEV) {
-    // eslint-disable-next-line no-console
-    console.warn(`[SiteFooter] No icon mapping for social URL: ${url}`);
-  }
   return null;
 }
 
-/* ----------------------------------------------------------------
- * Newsletter signup
- * Submits via mailto: so the form is genuinely usable without a
- * backend — the user's mail client opens with the inquiry addressed
- * to the primary inbox, the email in the body. No silent dead-end.
- * ---------------------------------------------------------------- */
-function NewsletterForm() {
+function NewsletterFormV2() {
   const [email, setEmail] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -88,22 +73,22 @@ function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit} className="relative">
-      <label htmlFor="footer-newsletter-email" className="sr-only">
+      <label htmlFor="v2-footer-newsletter-email" className="sr-only">
         Email address for newsletter
       </label>
       <input
-        id="footer-newsletter-email"
+        id="v2-footer-newsletter-email"
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter your email"
-        className="w-full border border-slate-700 bg-slate-900/60 px-3 py-2 pr-11 text-sm text-white placeholder:text-slate-500 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30"
+        className="w-full border border-zinc-800 bg-[#0B0D12] px-3 py-2 pr-11 text-sm text-white placeholder:text-zinc-500 focus-visible:border-[#E5A83B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]/30"
       />
       <button
         type="submit"
         aria-label="Subscribe to newsletter"
-        className="absolute right-1 top-1 grid h-8 w-8 place-items-center rounded-sm bg-brand-600 text-white transition-colors hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+        className="absolute right-1 top-1 grid h-8 w-8 place-items-center rounded-none bg-[#E5A83B] text-[#0B0D12] transition-colors hover:bg-[#dca035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]"
       >
         <Send className="h-3.5 w-3.5 cursor-pointer" aria-hidden="true" />
       </button>
@@ -111,26 +96,15 @@ function NewsletterForm() {
   );
 }
 
-/* ----------------------------------------------------------------
- * ThemeSwitch
- * Radix Switch wired to `next-themes` — uses the `size="lg"` variant
- * for a generous hit-target between the social icons and the column
- * edge, and the Switch's own `transition-colors` + thumb
- * `transition-transform` handle the on/off animation natively (no
- * custom motion wrapper needed).
- *
- * `useMounted` guards the SSR/hydration mismatch that would otherwise
- * flip the switch on the first client render.
- * ---------------------------------------------------------------- */
-function ThemeSwitch() {
+function ThemeSwitchV2() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
   const isDark = mounted && resolvedTheme === "dark";
 
   return (
-    <div className="mt-5 rounded-sm bg-transparent p-4">
+    <div className="mt-5 rounded-none bg-transparent p-0">
       <div className="flex items-center justify-between">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
           Theme
         </p>
       </div>
@@ -141,84 +115,81 @@ function ThemeSwitch() {
           checked={mounted ? isDark : false}
           onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
           aria-label={mounted ? (isDark ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"}
-          className="data-[state=checked]:bg-slate-900 data-[state=unchecked]:bg-amber-400"
+          className="data-[state=checked]:bg-zinc-800 data-[state=unchecked]:bg-[#E5A83B]"
         />
       </div>
     </div>
   );
 }
 
-/* ----------------------------------------------------------------
- * SiteFooter
- * Production footer using the four-column layout (brand + newsletter,
- * quick links, contact, social + theme) with real company data from
- * `company.ts` — no placeholder strings. Replaces the old inline
- * footer in `RootLayout`.
- * ---------------------------------------------------------------- */
-export function SiteFooter() {
+/**
+ * SiteFooterV2: Clean, dark black industrial theme (#07090C / #0B0D12)
+ * without blue undertones, preserving identical layouts, items, and functionality.
+ */
+export function SiteFooterV2() {
   const phoneList = company.contact.phones.map((p) => p.display).join(" / ");
 
   return (
     <footer
-      className="relative overflow-hidden border-t border-slate-800/80 bg-[#071224] pt-12 pb-5 text-white"
-      aria-label="Site footer"
+      className="relative overflow-hidden border-t border-zinc-800/80 bg-[#07090C] pt-12 pb-6 text-white"
+      aria-label="Site footer V2"
     >
-
-
-      {/* Background blueprint grid + radial glow */}
+      {/* Background radial gold glow + subtle dot grid */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <div className="absolute right-0 top-1/2 h-112.5 w-112.5 -translate-y-1/2 translate-x-1/4 rounded-full bg-brand-600/15 blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#DAA235_1px,transparent_1px)] bg-size-[24px_24px] opacity-20" />
+        <div className="absolute right-0 top-1/2 h-96 w-96 -translate-y-1/2 translate-x-1/4 rounded-full bg-[#E5A83B]/10 blur-[120px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#E5A83B_1px,transparent_1px)] bg-size-[24px_24px] opacity-10" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* ── Column 1: Brand + Newsletter ────────────────────────── */}
+          {/* Column 1: Brand + Newsletter */}
           <div>
             <Link
-              to="/"
-              className="group inline-flex items-center gap-2 font-semibold tracking-tight text-white"
+              to="/v2"
+              className="group inline-flex items-center gap-2.5 font-semibold tracking-tight text-white"
               aria-label={`${company.name} — go to home`}
             >
               <span
-                className="grid h-7 w-7 place-items-center rounded-sm bg-brand-600 text-white transition-all duration-300 group-hover:bg-brand-500 group-hover:shadow-[0_0_0_4px_rgb(37_99_235/0.18)]"
+                className="grid h-7 w-7 place-items-center rounded-[2px] bg-[#E5A83B] text-[#07090C] font-black text-sm transition-all duration-300 group-hover:bg-[#dca035]"
                 aria-hidden="true"
               >
-                <span className="text-xs font-bold">{company.monogram}</span>
+                {company.monogram}
               </span>
-              <span className="text-base font-bold">{company.wordmark}</span>
+              <span className="text-base font-extrabold uppercase tracking-wider font-display">
+                {company.wordmark}
+              </span>
             </Link>
 
-            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-400">
+            <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#E5A83B]">
               {company.certificationStatement}
             </p>
-            <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-300">
+            <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-400">
               {company.description}
             </p>
 
             <div className="mt-4">
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
                 Stay in the loop
               </p>
-              <NewsletterForm />
+              <NewsletterFormV2 />
             </div>
           </div>
 
-          {/* ── Column 2: Quick Links ───────────────────────────────── */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Navigation
             </h3>
             <ul className="mt-3 space-y-2 text-sm">
-              {NAV.map((item) => (
+              {NAV_V2_FOOTER.map((item) => (
                 <li key={item.to}>
                   <FlipButton
                     to={item.to}
                     variant="link-brand"
-                    className="gap-0 text-zinc-300! hover:text-brand-500! [&_svg]:hidden"
+                    className="gap-0 text-zinc-300! hover:text-[#E5A83B] [&_svg]:hidden"
                   >
                     {item.label}
                   </FlipButton>
@@ -227,16 +198,15 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* ── Column 3: Contact ──────────────────────────────────── */}
+          {/* Column 3: Contact Details */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Works & Office
             </h3>
-            <address className="mt-3 not-italic text-sm text-slate-300">
-
+            <address className="mt-3 not-italic text-sm text-zinc-300">
               <p className="mt-3 flex items-center gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
                   aria-hidden="true"
                 />
                 <a
@@ -248,14 +218,14 @@ export function SiteFooter() {
               </p>
               <p className="mt-1.5 flex items-center gap-2">
                 <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
                   aria-hidden="true"
                 />
                 <span>Fax: {company.contact.fax.display}</span>
               </p>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
-                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
                   aria-hidden="true"
                 />
                 <a
@@ -267,10 +237,10 @@ export function SiteFooter() {
               </p>
               <p className="mt-1.5 flex items-start gap-2">
                 <MapPin
-                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
                   aria-hidden="true"
                 />
-                <span>
+                <span className="text-xs leading-relaxed text-zinc-400">
                   {company.address.street}
                   <br />
                   {company.address.city} - {company.address.postalCode}
@@ -279,9 +249,9 @@ export function SiteFooter() {
             </address>
           </div>
 
-          {/* ── Column 4: Social + Theme Toggle ────────────────────── */}
+          {/* Column 4: Social + Theme Toggle */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Follow Us
             </h3>
 
@@ -297,7 +267,7 @@ export function SiteFooter() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${company.name} on ${label}`}
-                      className="grid h-9 w-9 place-items-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-200 hover:scale-105 hover:border-brand-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                      className="grid h-9 w-9 place-items-center rounded-none border border-zinc-800 bg-[#0B0D12] text-zinc-400 transition-all duration-200 hover:scale-105 hover:border-[#E5A83B] hover:text-[#E5A83B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]"
                     >
                       <Icon className="h-4 w-4" />
                     </a>
@@ -306,27 +276,23 @@ export function SiteFooter() {
               })}
             </ul>
 
-            {/* Theme switch — segmented Light / Dark control. Larger
-                touch target than the icon-only header toggle, both
-                options visible at once, active state filled in brand
-                colour so the current mode is unambiguous. */}
-            <ThemeSwitch />
+            <ThemeSwitchV2 />
           </div>
         </div>
 
         {/* Bottom bar — copyright + legal links */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-xs text-slate-400 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/80 pt-6 text-xs text-zinc-400 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {company.copyright}
           </p>
-          <nav aria-label="Legal">
+          <nav aria-label="Legal V2">
             <ul className="flex flex-wrap gap-4">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.to}>
                   <FlipButton
                     to={link.to}
                     variant="link-brand"
-                    className="gap-0 text-xs [&_svg]:hidden"
+                    className="gap-0 text-xs text-zinc-400 hover:text-[#E5A83B] [&_svg]:hidden"
                   >
                     {link.label}
                   </FlipButton>
@@ -339,3 +305,5 @@ export function SiteFooter() {
     </footer>
   );
 }
+
+export default SiteFooterV2;

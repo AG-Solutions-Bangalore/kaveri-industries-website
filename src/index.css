@@ -108,6 +108,7 @@
   /* Display family used for all headings via the base-layer rule below.
      Falls back to the body sans stack if the web font hasn't loaded. */
   --font-display: "Space Grotesk", var(--font-sans);
+  --font-condensed: "Oswald", sans-serif;
 
   /* === Shadows — tuned for the white/slate surface === */
   --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.04);

@@ -11,6 +11,7 @@ import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { routePreloader } from "@/lib/routePreloader";
 
 const HomePage = lazy(() => import("@/feature/Home/pages/HomePage"));
+const HomePageV2 = lazy(() => import("@/feature/Home/pages/HomePageV2"));
 const AboutPage = lazy(() => import("@/feature/About/pages/AboutPage"));
 const ProductsPage = lazy(() => import("@/feature/Products/pages/ProductsPage"));
 const ProductDetailPage = lazy(
@@ -45,6 +46,7 @@ export function AppRoutes() {
           errorElement: wrap(NotFoundPage),
           children: [
             { index: true, element: wrap(HomePage) },
+            { path: "v2", element: wrap(HomePageV2) },
             { path: "about", element: wrap(AboutPage) },
             { path: "products", element: wrap(ProductsPage) },
             { path: "products/:slug", element: wrap(ProductDetailPage) },
