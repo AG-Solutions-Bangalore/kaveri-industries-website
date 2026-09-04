@@ -90,10 +90,6 @@ export const PRODUCTS_SECTION_HEADER = {
 export const SECTORS_SECTION_HEADER = {
   badge: "INDUSTRIES WE SERVE",
   heading: "Engineering Solutions for Every Industry",
-  cta: {
-    label: "View All Industries",
-    href: "/contact",
-  },
 } as const;
 
 export const QUALITY_CONTENT = {

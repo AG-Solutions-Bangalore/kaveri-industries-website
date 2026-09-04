@@ -3,7 +3,6 @@ import { ContactHero } from "@/feature/Contact/components/ContactHero";
 import { ContactInfoCards } from "@/feature/Contact/components/ContactInfoCards";
 import { ContactForm } from "@/feature/Contact/components/ContactForm";
 import { ContactLocation } from "@/feature/Contact/components/ContactLocation";
-import { ContactCTA } from "@/feature/Contact/components/ContactCTA";
 import { contactSEO } from "@/feature/Contact/seo/contactSeo";
 
 /**
@@ -35,7 +34,7 @@ export default function ContactPage() {
       </section>
 
       <ContactLocation />
-      <ContactCTA />
+      
     </>
   );
 }

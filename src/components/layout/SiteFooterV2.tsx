@@ -1,11 +1,11 @@
-import { useState, type FormEvent, type ReactElement, type SVGProps } from "react";
-import { Link } from "react-router-dom";
-import { useTheme } from "next-themes";
-import { Mail, MapPin, Phone, Printer, Send } from "lucide-react";
-import { Switch } from "@/components/ui/switch";
 import { FlipButton } from "@/components/ui/FlipButton";
+import { Switch } from "@/components/ui/switch";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
+import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { useTheme } from "next-themes";
+import { type ReactElement, type SVGProps } from "react";
+import { Link } from "react-router-dom";
 
 const NAV_V2_FOOTER = [
   { to: "/v2", label: "Home" },
@@ -57,44 +57,7 @@ function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label:
   return null;
 }
 
-function NewsletterFormV2() {
-  const [email, setEmail] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const trimmed = email.trim();
-    if (!trimmed) return;
-    const subject = encodeURIComponent("Newsletter subscription");
-    const body = encodeURIComponent(
-      `Please subscribe the following address to the Kaveri Industries newsletter:\n\n${trimmed}\n`,
-    );
-    window.location.href = `mailto:${company.contact.primaryEmail}?subject=${subject}&body=${body}`;
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="relative">
-      <label htmlFor="v2-footer-newsletter-email" className="sr-only">
-        Email address for newsletter
-      </label>
-      <input
-        id="v2-footer-newsletter-email"
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter your email"
-        className="w-full border border-zinc-800 bg-[#0B0D12] px-3 py-2 pr-11 text-sm text-white placeholder:text-zinc-500 focus-visible:border-[#E5A83B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]/30"
-      />
-      <button
-        type="submit"
-        aria-label="Subscribe to newsletter"
-        className="absolute right-1 top-1 grid h-8 w-8 place-items-center rounded-none bg-[#E5A83B] text-[#0B0D12] transition-colors hover:bg-[#dca035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]"
-      >
-        <Send className="h-3.5 w-3.5 cursor-pointer" aria-hidden="true" />
-      </button>
-    </form>
-  );
-}
 
 function ThemeSwitchV2() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -170,12 +133,7 @@ export function SiteFooterV2() {
               {company.description}
             </p>
 
-            <div className="mt-4">
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
-                Stay in the loop
-              </p>
-              <NewsletterFormV2 />
-            </div>
+
           </div>
 
           {/* Column 2: Quick Links */}

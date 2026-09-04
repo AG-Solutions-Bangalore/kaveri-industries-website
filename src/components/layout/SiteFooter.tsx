@@ -1,12 +1,12 @@
-import { useState, type FormEvent, type ReactElement, type SVGProps } from "react";
-import { Link } from "react-router-dom";
-import { useTheme } from "next-themes";
-import { Mail, MapPin, Phone, Printer, Send } from "lucide-react";
 import { NAV } from "@/components/layout/Navbar";
-import { Switch } from "@/components/ui/switch";
 import { FlipButton } from "@/components/ui/FlipButton";
+import { Switch } from "@/components/ui/switch";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
+import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { useTheme } from "next-themes";
+import { type ReactElement, type SVGProps } from "react";
+import { Link } from "react-router-dom";
 
 const FOOTER_LINKS = [
   { to: "/privacy", label: "Privacy Policy" },
@@ -64,51 +64,6 @@ function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label:
     console.warn(`[SiteFooter] No icon mapping for social URL: ${url}`);
   }
   return null;
-}
-
-/* ----------------------------------------------------------------
- * Newsletter signup
- * Submits via mailto: so the form is genuinely usable without a
- * backend — the user's mail client opens with the inquiry addressed
- * to the primary inbox, the email in the body. No silent dead-end.
- * ---------------------------------------------------------------- */
-function NewsletterForm() {
-  const [email, setEmail] = useState("");
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const trimmed = email.trim();
-    if (!trimmed) return;
-    const subject = encodeURIComponent("Newsletter subscription");
-    const body = encodeURIComponent(
-      `Please subscribe the following address to the Kaveri Industries newsletter:\n\n${trimmed}\n`,
-    );
-    window.location.href = `mailto:${company.contact.primaryEmail}?subject=${subject}&body=${body}`;
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="relative">
-      <label htmlFor="footer-newsletter-email" className="sr-only">
-        Email address for newsletter
-      </label>
-      <input
-        id="footer-newsletter-email"
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter your email"
-        className="w-full border border-slate-700 bg-slate-900/60 px-3 py-2 pr-11 text-sm text-white placeholder:text-slate-500 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30"
-      />
-      <button
-        type="submit"
-        aria-label="Subscribe to newsletter"
-        className="absolute right-1 top-1 grid h-8 w-8 place-items-center rounded-sm bg-brand-600 text-white transition-colors hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-      >
-        <Send className="h-3.5 w-3.5 cursor-pointer" aria-hidden="true" />
-      </button>
-    </form>
-  );
 }
 
 /* ----------------------------------------------------------------
@@ -199,12 +154,7 @@ export function SiteFooter() {
               {company.description}
             </p>
 
-            <div className="mt-4">
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                Stay in the loop
-              </p>
-              <NewsletterForm />
-            </div>
+           
           </div>
 
           {/* ── Column 2: Quick Links ───────────────────────────────── */}
