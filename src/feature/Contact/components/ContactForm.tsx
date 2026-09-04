@@ -166,6 +166,7 @@ export function ContactForm() {
     setErrors({});
     setServerMessage("");
     setSubmitState("idle");
+    enquiry.reset();
   }
 
   /**
@@ -434,7 +435,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={submitState === "submitting"}
-              className="inline-flex items-center gap-2 rounded-sm bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-sm bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitState === "submitting" ? "Sending…" : "Send Enquiry"}
               <Send className="h-3.5 w-3.5" aria-hidden="true" />

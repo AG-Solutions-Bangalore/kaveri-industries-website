@@ -32,7 +32,8 @@ export interface EnquiryPayload extends UtmParams {
 
 /** Shape the PHP API returns on success. */
 export interface EnquiryResponse {
-  status: string;
+  status?: string;
+  code?: number | string;
   message?: string;
   enquiryId?: string | number;
 }
