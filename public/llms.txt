@@ -6,18 +6,18 @@ The company specialises in precision-engineered structural fasteners engineered 
 
 ## Pages
 
-- [Home](https://kaveri-industries.example.com/): company overview, target sectors, and product highlights.
-- [About Us](https://kaveri-industries.example.com/about): who we are, quality at the core, manufacturing process, and in-house capabilities.
-- [Products](https://kaveri-industries.example.com/products): full product catalogue — hex head bolts, hot-dip galvanised fasteners, hex nuts, studs, U-bolts, and washers.
-- [Contact](https://kaveri-industries.example.com/contact): headquarters address, phone, email, enquiry form, and location map.
-- [Privacy Policy](https://kaveri-industries.example.com/privacy): data handling and user rights.
-- [Terms of Service](https://kaveri-industries.example.com/terms): site usage terms.
-- [Compliance](https://kaveri-industries.example.com/compliance): regulatory and certification details.
-- [Sitemap](https://kaveri-industries.example.com/sitemap): full site navigation map.
+- [Home](https://kaveri.agsdemo.in/): company overview, target sectors, and product highlights.
+- [About Us](https://kaveri.agsdemo.in/about): who we are, quality at the core, manufacturing process, and in-house capabilities.
+- [Products](https://kaveri.agsdemo.in/products): full product catalogue — hex head bolts, hot-dip galvanised fasteners, hex nuts, studs, U-bolts, and washers.
+- [Contact](https://kaveri.agsdemo.in/contact): headquarters address, phone, email, enquiry form, and location map.
+- [Privacy Policy](https://kaveri.agsdemo.in/privacy): data handling and user rights.
+- [Terms of Service](https://kaveri.agsdemo.in/terms): site usage terms.
+- [Compliance](https://kaveri.agsdemo.in/compliance): regulatory and certification details.
+- [Sitemap](https://kaveri.agsdemo.in/sitemap): full site navigation map.
 
 ## Optional
 
-- [Industries served](https://kaveri-industries.example.com/industries): target sectors and applications.
+- [Industries served](https://kaveri.agsdemo.in/industries): target sectors and applications.
 
 ## Company facts
 

@@ -55,6 +55,10 @@ export interface Product {
   /** Image path consumed by the site. Empty → render placeholder. */
   imageUrl?: string;
   imageAlt?: string;
+  /** Image title attribute for SEO */
+  imageTitle?: string;
+  /** Link title attribute for SEO */
+  linkTitle?: string;
   /** Optional badge shown on the card (e.g. "Bestseller"). */
   tag?: string;
   /** Key-value spec rows shown in the spec table on the detail page. */
@@ -77,6 +81,8 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-hex-bolts.webp",
     imageAlt:
       "Heavy hex structural bolts and screws (HSFG bolts) — Kaveri Industries",
+    imageTitle: "Heavy Hex Structural Bolts and HSFG Bolts",
+    linkTitle: "Hex Head Bolts",
     tag: "HSFG Bolts",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
@@ -101,6 +107,8 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-galvanised.webp",
     imageAlt:
       "Hot dip galvanised structural fasteners with a bright zinc coating",
+    imageTitle: "Hot Dip Galvanised Structural Fasteners",
+    linkTitle: "Hot Dip Galvanised Fasteners",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Length Range", value: "20mm to 1000mm" },
@@ -124,6 +132,8 @@ export const PRODUCTS: Product[] = [
     icon: Nut,
     imageUrl: "/images/home/product-hex-nuts.webp",
     imageAlt: "Assorted hex nuts in zinc, black-oxide and yellow finishes",
+    imageTitle: "High Tensile Hex Nuts in Zinc and Black Oxide",
+    linkTitle: "Hex Nuts",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
@@ -145,6 +155,8 @@ export const PRODUCTS: Product[] = [
     icon: Cog,
     imageUrl: "/images/products/product-slotted-nuts.webp",
     imageAlt: "Slotted castle nuts ready for cotter pin locking",
+    imageTitle: "Slotted Castle Nuts for Cotter Pin Locking",
+    linkTitle: "Slotted Nuts",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
@@ -166,6 +178,8 @@ export const PRODUCTS: Product[] = [
     icon: Nut,
     imageUrl: "/images/products/product-nylock-nuts.webp",
     imageAlt: "Nylock nuts with integrated nylon locking collar",
+    imageTitle: "Nylock Nuts with Nylon Locking Collar",
+    linkTitle: "Nylock Nuts",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },
@@ -187,6 +201,8 @@ export const PRODUCTS: Product[] = [
     icon: Wrench,
     imageUrl: "/images/home/product-studs.webp",
     imageAlt: "Stud bolts and fully threaded bars in various diameters and grades",
+    imageTitle: "Stud Bolts and Fully Threaded Bars",
+    linkTitle: "Studs and Threaded Bars",
     specs: [
       { label: "Dia Range", value: "M 6 to M 100" },
       { label: "Length Range", value: "10mm to 1000mm" },
@@ -209,6 +225,8 @@ export const PRODUCTS: Product[] = [
     icon: CircleDot,
     imageUrl: "/images/home/product-ubolts.webp",
     imageAlt: "U-bolts for heavy and light commercial vehicles",
+    imageTitle: "U-Bolts for Commercial Vehicles",
+    linkTitle: "U-Bolts",
     specs: [
       { label: "Application", value: "Heavy & light vehicles" },
       { label: "Market", value: "India & export" },
@@ -230,6 +248,8 @@ export const PRODUCTS: Product[] = [
     icon: CircleDot,
     imageUrl: "/images/products/product-center-bolts.webp",
     imageAlt: "Leaf-spring center bolts for heavy and light commercial vehicles",
+    imageTitle: "Leaf Spring Center Bolts for Commercial Vehicles",
+    linkTitle: "Center Bolts",
     specs: [
       { label: "Application", value: "Heavy & light commercial vehicles" },
       { label: "Market", value: "India & export" },
@@ -252,6 +272,8 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/products/product-washers.webp",
     imageAlt:
       "Plain, machined, and spring washers as per IS: 2016 and 3063",
+    imageTitle: "Plain, Machined and Spring Washers",
+    linkTitle: "Washers",
     specs: [
       { label: "Types", value: "Plain / Machined / Spring Washers" },
       { label: "Standard", value: "IS: 2016, 3063" },

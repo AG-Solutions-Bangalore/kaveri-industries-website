@@ -8,7 +8,7 @@
 
 const SITE_URL =
   (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ??
-  "https://kaveri-industries.example.com";
+  "https://kaveri.agsdemo.in";
 
 export const company = {
   // ── Identity ──────────────────────────────────────────────────────────
@@ -54,8 +54,8 @@ export const company = {
     /** Public-facing inbox. */
     primaryEmail: "kaveriindustries4@hotmail.com",
     /** Department mailboxes (forward to the same inbox in practice). */
-    salesEmail: "sales@kaveri-industries.example.com",
-    legalEmail: "legal@kaveri-industries.example.com",
+    salesEmail: "kaveriindustries4@hotmail.com",
+    legalEmail: "kaveriindustries4@hotmail.com",
     /** Phone numbers — `display` is human-readable, `tel` is RFC 3966. */
     phones: [
       { display: "080 - 27825275", tel: "+918027825275" },

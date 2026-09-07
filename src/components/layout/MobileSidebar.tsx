@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface MobileSidebarProps {
   /** Nav links shown inside the drawer. Mirrors the desktop nav. */
-  navItems: ReadonlyArray<{ to: string; label: string; end?: boolean }>;
+  navItems: ReadonlyArray<{ to: string; label: string; title?: string; end?: boolean }>;
 }
 
 /**
@@ -113,6 +113,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
+                  title={item.title || item.label}
                   end={item.end}
                   className={({ isActive }) =>
                     cn(

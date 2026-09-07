@@ -19,6 +19,7 @@ export interface Product {
   icon: LucideIcon;
   imageUrl?: string;
   imageAlt?: string;
+  imageTitle?: string;
   tag?: string;
   specs: ProductSpec[];
 }
@@ -33,6 +34,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-galvanised.webp",
     imageAlt:
       "Hot dip galvanized structural fasteners with high corrosion resistance",
+    imageTitle: "Hot Dip Galvanized Structural Fasteners",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Length Range", value: "20mm to 1000mm" },
@@ -48,6 +50,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-studs.webp",
     imageAlt:
       "Stud bolts and fully threaded bars in various diameters and grades",
+    imageTitle: "Stud Bolts and Fully Threaded Bars",
     specs: [
       { label: "Dia Range", value: "M 6 to M 100" },
       { label: "Length Range", value: "10mm to 1000mm" },
@@ -63,6 +66,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-ubolts.webp",
     imageAlt:
       "U-bolts and leaf-spring center bolts for heavy and light commercial vehicles",
+    imageTitle: "U-Bolts and Leaf Spring Center Bolts",
     specs: [
       { label: "Application", value: "Heavy & light vehicles" },
       { label: "Market", value: "India & export" },
@@ -77,6 +81,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-washers.webp",
     imageAlt:
       "Plain, machined, and spring washers as per IS: 2016 and 3063",
+    imageTitle: "Plain, Machined and Spring Washers",
     specs: [
       { label: "Standards", value: "IS: 2016, 3063" },
       { label: "Custom", value: "As per customer's specifications" },
@@ -91,6 +96,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-hex-bolts.webp",
     imageAlt:
       "Heavy hex structural bolts and screws (HSFG bolts) — Kaveri Industries",
+    imageTitle: "Heavy Hex Structural Bolts and HSFG Bolts",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Length Range", value: "20mm to 1000mm" },
@@ -106,6 +112,7 @@ export const PRODUCTS: Product[] = [
     imageUrl: "/images/home/product-hex-nuts.webp",
     imageAlt:
       "Assorted hex nuts, slotted nuts, and nyloc lock nuts in zinc and black finishes",
+    imageTitle: "High Tensile Hex Nuts in Zinc and Black Oxide",
     specs: [
       { label: "Dia Range", value: "M 6 to M 50" },
       { label: "Grade", value: "4, 6, 8, 10, 12, 12H etc." },

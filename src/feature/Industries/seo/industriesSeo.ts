@@ -1,10 +1,10 @@
 import { breadcrumbSchema } from "@/lib/schemas";
-import { company } from "@/lib/company";
 import type { SEOProps } from "@/components/common/SEO";
 
 export const industriesSEO: Pick<SEOProps, "title" | "description" | "path" | "schema"> = {
-  title: "Industries We Serve",
-  description: `${company.name} manufactures high-tensile MS fasteners for transmission & telecommunication towers, buildings & bridges, refineries & water treatment plants, wind & power plants, railways & transportation, and road guard rail systems. ${company.isoStandard} certified.`,
+  title: "Industries Served by High Tensile Fasteners | Kaveri Industries",
+  description:
+    "Kaveri Industries supplies high tensile MS fasteners for telecom towers, buildings, bridges, refineries, power plants, railways and guard rails.",
   path: "/industries",
   schema: breadcrumbSchema([
     { name: "Home", url: "/" },

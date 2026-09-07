@@ -16,6 +16,7 @@ interface CapabilityCard {
   description: string;
   image: string;
   imageAlt: string;
+  imageTitle: string;
   icon: LucideIcon;
 }
 
@@ -28,6 +29,8 @@ const CAPABILITIES: CapabilityCard[] = [
     image: "/images/about/team-engineering.webp",
     imageAlt:
       "Three engineers in navy work uniforms reviewing a fastener drawing in a factory aisle",
+    imageTitle:
+      "Kaveri Industries Engineering Team Reviewing Fastener Design",
     icon: Users,
   },
   {
@@ -38,6 +41,7 @@ const CAPABILITIES: CapabilityCard[] = [
     image: "/images/about/quality-tensile-testing.webp",
     imageAlt:
       "Universal Testing Machine tensile rig clamping a high-tensile hex bolt specimen with digital load display",
+    imageTitle: "Tensile Strength Testing of High Tensile Fasteners",
     icon: FlaskConical,
   },
   {
@@ -48,6 +52,8 @@ const CAPABILITIES: CapabilityCard[] = [
     image: "/images/about/quality-hardness-testing.webp",
     imageAlt:
       "Rockwell hardness tester pressing a diamond indenter into a polished steel coupon",
+    imageTitle:
+      "Rockwell Hardness Testing of Steel Fastener Material",
     icon: ShieldCheck,
   },
   {
@@ -58,6 +64,7 @@ const CAPABILITIES: CapabilityCard[] = [
     image: "/images/about/certifications-display.webp",
     imageAlt:
       `${company.isoStandard} certificate with a steel caliper on a walnut desk`,
+    imageTitle: "Kaveri Industries ISO 9001 Quality Certification",
     icon: Award,
   },
 ];
@@ -127,6 +134,7 @@ export function AboutCapabilities() {
                   <img
                     src={card.image}
                     alt={card.imageAlt}
+                    title={card.imageTitle}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   />

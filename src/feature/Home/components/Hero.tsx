@@ -20,12 +20,12 @@ export function Hero() {
     <div className="relative text-white">
       {/* Background banner image */}
       <div
-        aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <img
           src="/images/home/home_banner_image.webp"
-          alt=""
+          alt="High tensile MS fasteners manufactured by Kaveri Industries"
+          title="High Tensile MS Fasteners Manufacturer – Kaveri Industries"
           className="h-full w-full object-cover"
           loading="eager"
           decoding="async"

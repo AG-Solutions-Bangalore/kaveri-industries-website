@@ -6,7 +6,7 @@ import { ShineButton } from "@/components/shine";
 import { cn } from "@/lib/utils";
 
 export const NAV_ITEMS_V2 = [
-  { to: "/v2", label: "Home", end: true },
+  { to: "/v2", label: "Home", title: "Kaveri Industries Home", end: true },
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", hasDropdown: true, end: false },
   { to: "/industries", label: "Industries", end: false },
@@ -29,6 +29,7 @@ export function NavbarV2() {
         {/* Brand Logo matching design */}
         <Link
           to="/v2"
+          title="Kaveri Industries Home"
           className="flex items-center gap-3 group"
           aria-label="Kaveri High Tensile Fasteners — Home"
         >

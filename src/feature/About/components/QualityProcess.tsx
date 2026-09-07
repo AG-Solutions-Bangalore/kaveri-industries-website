@@ -103,6 +103,7 @@ export function QualityProcess() {
               <img
                 src={QUALITY_PROCESS_CONTENT.imageUrl}
                 alt={QUALITY_PROCESS_CONTENT.imageAlt}
+                title={QUALITY_PROCESS_CONTENT.imageTitle}
                 width={1600}
                 height={1000}
                 decoding="async"

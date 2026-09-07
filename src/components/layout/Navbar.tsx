@@ -7,7 +7,7 @@ import { FlipButton } from "@/components/ui/FlipButton";
 import { ShineButton } from "@/components/shine";
 
 export const NAV = [
-  { to: "/", label: "Home", end: true },
+  { to: "/", label: "Home", title: "Kaveri Industries Home", end: true },
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", end: false },
   { to: "/industries", label: "Industries", end: false },
@@ -30,6 +30,7 @@ export function Navbar() {
       >
         <Link
           to="/"
+          title="Kaveri Industries Home"
           className="flex items-center gap-2 font-bold tracking-tight text-foreground"
           aria-label={`${company.name} — go to home`}
         >
@@ -60,6 +61,7 @@ export function Navbar() {
               <li key={item.to}>
                 <FlipButton
                   to={item.to}
+                  title={item.title}
                   variant="link-brand"
                   aria-label={item.label}
                   className={cn(

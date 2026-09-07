@@ -58,6 +58,7 @@ export function TargetSectors() {
                   <img
                     src={sector.imageUrl}
                     alt={sector.imageAlt ?? sector.name}
+                    title={sector.imageTitle}
                     width={800}
                     height={500}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

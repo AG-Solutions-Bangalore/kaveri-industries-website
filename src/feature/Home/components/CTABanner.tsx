@@ -16,13 +16,13 @@ export function CTABanner() {
     >
       {/* Background right-side image + blueprint grid */}
       <div
-        aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         {/* Right-side product image */}
         <img
           src="/images/home/CTABannerRightImage.webp"
-          alt=""
+          alt="Kaveri Industries high tensile fastener manufacturing"
+          title="Kaveri Industries High Tensile Fastener Manufacturing"
           className="absolute right-0 top-[65%] h-[120%] w-auto -translate-y-1/2 object-contain opacity-90"
           loading="lazy"
         />

@@ -25,6 +25,7 @@ export const WHO_WE_ARE_CONTENT = {
   imageUrl: "/images/about/about-who-we-are.webp",
   imageAlt:
     "High-tensile MS hex head bolts, threaded fasteners, and structural washers on workshop bench — Kaveri Industries",
+  imageTitle: "Kaveri Industries High Tensile Fasteners Manufacturing",
 } as const;
 
 export const QUALITY_HERO_CONTENT = {
@@ -44,6 +45,7 @@ export const QUALITY_COMMITMENT_CONTENT = {
   imageUrl: "/images/about/quality-caliper.webp",
   imageAlt:
     "Precision digital vernier caliper measuring high-tensile hex bolt on granite surface table during quality control inspection",
+  imageTitle: "Precision Quality Inspection of High Tensile Hex Bolts",
 } as const;
 
 export const QUALITY_TENETS = [
@@ -85,4 +87,5 @@ export const QUALITY_PROCESS_CONTENT = {
   imageUrl: "/images/about/manufacturing-shop-overview.webp",
   imageAlt:
     "High-angle view of modern CNC manufacturing floor and automated production lines at Kaveri Industries",
+  imageTitle: "Kaveri Industries CNC Fastener Manufacturing Facility",
 } as const;

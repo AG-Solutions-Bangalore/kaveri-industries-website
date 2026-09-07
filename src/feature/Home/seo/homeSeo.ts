@@ -19,8 +19,9 @@ export const homeSEO: Pick<
   SEOProps,
   "title" | "description" | "path" | "schema" | "keywords" | "image" | "imageAlt"
 > = {
-  title: `${company.name} — High-Tensile MS Fasteners Manufacturer`,
-  description: company.description,
+  title: `High Tensile MS Fasteners Manufacturer | ${company.name}`,
+  description:
+    "Kaveri Industries manufactures high tensile MS fasteners, bolts, nuts, U-bolts and washers for towers, infrastructure, power, railways and industrial applications.",
   path: "/",
   keywords: [
     "high tensile fasteners",

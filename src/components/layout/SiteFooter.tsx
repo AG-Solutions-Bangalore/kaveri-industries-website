@@ -53,12 +53,12 @@ const YoutubeIcon = (props: IconProps) => (
  * The fallback case logs a warning so missing icons are visible
  * during development rather than silently rendering nothing.
  */
-function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string } | null {
+function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string; title: string } | null {
   const lower = url.toLowerCase();
-  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn" };
-  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook" };
-  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter" };
-  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube" };
+  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn", title: "Follow Kaveri Industries on LinkedIn" };
+  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook", title: "Follow Kaveri Industries on Facebook" };
+  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
+  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
   if (import.meta.env.DEV) {
     // eslint-disable-next-line no-console
     console.warn(`[SiteFooter] No icon mapping for social URL: ${url}`);
@@ -135,6 +135,7 @@ export function SiteFooter() {
           <div>
             <Link
               to="/"
+              title="Kaveri Industries Home"
               className="group inline-flex items-center gap-2 font-semibold tracking-tight text-white"
               aria-label={`${company.name} — go to home`}
             >
@@ -167,6 +168,7 @@ export function SiteFooter() {
                 <li key={item.to}>
                   <FlipButton
                     to={item.to}
+                    title={item.title}
                     variant="link-brand"
                     className="gap-0 text-zinc-300! hover:text-brand-500! [&_svg]:hidden"
                   >
@@ -191,6 +193,7 @@ export function SiteFooter() {
                 />
                 <a
                   href={`tel:${company.contact.phones[0]?.tel}`}
+                  title="Call Kaveri Industries"
                   className="link-underline hover:text-white"
                 >
                   {phoneList}
@@ -210,6 +213,7 @@ export function SiteFooter() {
                 />
                 <a
                   href={`mailto:${company.contact.primaryEmail}`}
+                  title="Email Kaveri Industries"
                   className="link-underline break-all font-mono text-xs hover:text-white"
                 >
                   {company.contact.primaryEmail}
@@ -239,13 +243,14 @@ export function SiteFooter() {
               {company.social.map((url) => {
                 const mapping = iconForUrl(url);
                 if (!mapping) return null;
-                const { Icon, label } = mapping;
+                const { Icon, label, title } = mapping;
                 return (
                   <li key={url}>
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      title={title}
                       aria-label={`${company.name} on ${label}`}
                       className="grid h-9 w-9 place-items-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-200 hover:scale-105 hover:border-brand-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                     >
