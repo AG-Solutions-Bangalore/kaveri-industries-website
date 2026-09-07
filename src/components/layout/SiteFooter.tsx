@@ -85,7 +85,7 @@ function ThemeSwitch() {
   return (
     <div className="mt-5 rounded-sm bg-transparent p-4">
       <div className="flex items-center justify-between">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           Theme
         </p>
       </div>
@@ -115,7 +115,7 @@ export function SiteFooter() {
 
   return (
     <footer
-      className="relative overflow-hidden border-t border-slate-800/80 bg-[#071224] pt-12 pb-5 text-white"
+      className="relative overflow-hidden border-t border-slate-200 bg-slate-50 pt-12 pb-5 text-slate-900 dark:border-slate-800/80 dark:bg-[#071224] dark:text-white"
       aria-label="Site footer"
     >
 
@@ -126,7 +126,7 @@ export function SiteFooter() {
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <div className="absolute right-0 top-1/2 h-112.5 w-112.5 -translate-y-1/2 translate-x-1/4 rounded-full bg-brand-600/15 blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#DAA235_1px,transparent_1px)] bg-size-[24px_24px] opacity-20" />
+        <div className="absolute inset-0 bg-[radial-gradient(#DAA235_1px,transparent_1px)] bg-size-[24px_24px] opacity-10 dark:opacity-20" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
@@ -136,7 +136,7 @@ export function SiteFooter() {
             <Link
               to="/"
               title="Kaveri Industries Home"
-              className="group inline-flex items-center gap-2 font-semibold tracking-tight text-white"
+              className="group inline-flex items-center gap-2 font-semibold tracking-tight text-slate-900 dark:text-white"
               aria-label={`${company.name} — go to home`}
             >
               <span
@@ -148,10 +148,10 @@ export function SiteFooter() {
               <span className="text-base font-bold">{company.wordmark}</span>
             </Link>
 
-            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-400">
+            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400">
               {company.certificationStatement}
             </p>
-            <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-300">
+            <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
               {company.description}
             </p>
 
@@ -160,7 +160,7 @@ export function SiteFooter() {
 
           {/* ── Column 2: Quick Links ───────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Navigation
             </h3>
             <ul className="mt-3 space-y-2 text-sm">
@@ -170,7 +170,7 @@ export function SiteFooter() {
                     to={item.to}
                     title={item.title}
                     variant="link-brand"
-                    className="gap-0 text-zinc-300! hover:text-brand-500! [&_svg]:hidden"
+                    className="gap-0 text-slate-600! hover:text-brand-600! dark:text-zinc-300! dark:hover:text-brand-500! [&_svg]:hidden"
                   >
                     {item.label}
                   </FlipButton>
@@ -181,47 +181,47 @@ export function SiteFooter() {
 
           {/* ── Column 3: Contact ──────────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Works & Office
             </h3>
-            <address className="mt-3 not-italic text-sm text-slate-300">
+            <address className="mt-3 not-italic text-sm text-slate-600 dark:text-slate-300">
 
               <p className="mt-3 flex items-center gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
                   aria-hidden="true"
                 />
                 <a
                   href={`tel:${company.contact.phones[0]?.tel}`}
                   title="Call Kaveri Industries"
-                  className="link-underline hover:text-white"
+                  className="link-underline hover:text-slate-900 dark:hover:text-white"
                 >
                   {phoneList}
                 </a>
               </p>
               <p className="mt-1.5 flex items-center gap-2">
                 <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
                   aria-hidden="true"
                 />
                 <span>Fax: {company.contact.fax.display}</span>
               </p>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
-                  className="h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
                   aria-hidden="true"
                 />
                 <a
                   href={`mailto:${company.contact.primaryEmail}`}
                   title="Email Kaveri Industries"
-                  className="link-underline break-all font-mono text-xs hover:text-white"
+                  className="link-underline break-all font-mono text-xs hover:text-slate-900 dark:hover:text-white"
                 >
                   {company.contact.primaryEmail}
                 </a>
               </p>
               <p className="mt-1.5 flex items-start gap-2">
                 <MapPin
-                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-400"
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
                   aria-hidden="true"
                 />
                 <span>
@@ -235,7 +235,7 @@ export function SiteFooter() {
 
           {/* ── Column 4: Social + Theme Toggle ────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Follow Us
             </h3>
 
@@ -252,7 +252,7 @@ export function SiteFooter() {
                       rel="noopener noreferrer"
                       title={title}
                       aria-label={`${company.name} on ${label}`}
-                      className="grid h-9 w-9 place-items-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-200 hover:scale-105 hover:border-brand-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+                      className="grid h-9 w-9 place-items-center rounded-full border border-slate-300 bg-white text-slate-500 transition-all duration-200 hover:scale-105 hover:border-brand-500 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:text-white"
                     >
                       <Icon className="h-4 w-4" />
                     </a>
@@ -270,7 +270,7 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom bar — copyright + legal links */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-xs text-slate-400 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {company.copyright}
           </p>

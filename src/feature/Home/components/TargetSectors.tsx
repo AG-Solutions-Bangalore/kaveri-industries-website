@@ -9,9 +9,9 @@ export function TargetSectors() {
   return (
     <section
       aria-labelledby="sectors-heading"
-      className="bg-[#071120] text-white py-16 md:py-24"
+      className="border-t border-slate-200/80 bg-slate-50/60 py-16 text-slate-900 md:py-24 dark:border-slate-800/80 dark:bg-[#071120] dark:text-white"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -21,12 +21,12 @@ export function TargetSectors() {
           className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-400">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
               {SECTORS_SECTION_HEADER.badge}
             </p>
             <h2
               id="sectors-heading"
-              className="mt-1.5 text-2xl md:text-3xl font-extrabold tracking-tight text-white"
+              className="mt-1.5 text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white"
             >
               {SECTORS_SECTION_HEADER.heading}
             </h2>

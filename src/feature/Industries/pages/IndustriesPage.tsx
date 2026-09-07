@@ -10,22 +10,24 @@ export default function IndustriesPage() {
         {...industriesSEO}
         schema={[...(Array.isArray(industriesSEO.schema) ? industriesSEO.schema : [industriesSEO.schema ?? {}]), ...sectorsSchema()]}
       />
-      <section className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-        <header className="mb-10 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            Industries
-          </p>
-          <h1 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">
-            Sectors we engineer for
-          </h1>
-          <p className="mt-4 text-muted-foreground">
-            Six core industries, one rigorous standard. Every Kaveri fastener is
-            produced to the same audited quality programme regardless of
-            application.
-          </p>
-        </header>
-        <TargetSectors />
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+          <header className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
+              Industries
+            </p>
+            <h1 className="mt-1 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl dark:text-white">
+              Sectors we engineer for
+            </h1>
+            <p className="mt-4 text-slate-600 dark:text-muted-foreground">
+              Six core industries, one rigorous standard. Every Kaveri fastener is
+              produced to the same audited quality programme regardless of
+              application.
+            </p>
+          </header>
+        </div>
       </section>
+      <TargetSectors />
     </>
   );
 }
