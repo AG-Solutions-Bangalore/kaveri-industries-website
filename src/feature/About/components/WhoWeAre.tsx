@@ -54,6 +54,7 @@ export function WhoWeAre() {
               <img
                 src={WHO_WE_ARE_CONTENT.imageUrl}
                 alt={WHO_WE_ARE_CONTENT.imageAlt}
+                title={WHO_WE_ARE_CONTENT.imageTitle}
                 width={1200}
                 height={900}
                 decoding="async"

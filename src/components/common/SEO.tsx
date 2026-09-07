@@ -71,7 +71,9 @@ export function SEO({
   alternates,
 }: SEOProps) {
   const fullTitle = title
-    ? `${title} | ${company.name}`
+    ? title.includes(company.name)
+      ? title
+      : `${title} | ${company.name}`
     : `${company.name} — Precision-Engineered Fasteners`;
   const url = `${company.url}${path.startsWith("/") ? "" : "/"}${path}`;
   const ogImage = image ?? company.logo;
@@ -97,6 +99,8 @@ export function SEO({
 
       {/* Core meta */}
       <meta name="description" content={description} />
+      <meta name="author" content={authorName ?? company.name} />
+      <meta name="publisher" content={company.name} />
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(", ")} />
       )}

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 interface MobileSidebarProps {
   /** Nav links shown inside the drawer. Mirrors the desktop nav. */
-  navItems: ReadonlyArray<{ to: string; label: string; end?: boolean }>;
+  navItems: ReadonlyArray<{ to: string; label: string; title?: string; end?: boolean }>;
 }
 
 /**
@@ -23,6 +24,7 @@ interface MobileSidebarProps {
 export function MobileSidebar({ navItems }: MobileSidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { openQuoteModal } = useQuoteModal();
 
   // Close on route change so the drawer doesn't linger after navigation.
   useEffect(() => {
@@ -113,6 +115,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
+                  title={item.title || item.label}
                   end={item.end}
                   className={({ isActive }) =>
                     cn(
@@ -132,8 +135,12 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
 
         {/* Bottom CTA — surfaces the primary conversion action. */}
         <div className="border-t border-border p-4">
-          <Link
-            to="/contact"
+          <button
+            type="button"
+            onClick={() => {
+              setIsOpen(false);
+              openQuoteModal();
+            }}
             className="group inline-flex w-full items-center justify-center gap-2 bg-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Request a Quote
@@ -141,7 +148,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
               className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
               aria-hidden="true"
             />
-          </Link>
+          </button>
           <p className="mt-3 text-center text-[11px] text-muted-foreground">
             ISO 9001:2008 Certified Manufacturer
           </p>

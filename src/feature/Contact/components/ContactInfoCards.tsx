@@ -58,6 +58,7 @@ export function ContactInfoCards() {
                 {card.href ? (
                   <a
                     href={card.href}
+                    title={card.id === "phone" ? "Call Kaveri Industries" : card.id === "email" ? "Email Kaveri Industries" : undefined}
                     className="link-underline mt-1 block break-words text-sm font-medium text-foreground transition-colors hover:text-brand-700 sm:text-base"
                   >
                     {valueNode}
@@ -82,6 +83,7 @@ export function ContactInfoCards() {
         <img
           src="/images/contact/contact-office.webp"
           alt="Inside the Kaveri Industries engineering office — blueprints, sample boxes, and a wall of fastener stock"
+          title="Kaveri Industries Engineering Office and Fastener Stock"
           loading="lazy"
           className="h-48 w-full object-cover sm:h-56"
         />

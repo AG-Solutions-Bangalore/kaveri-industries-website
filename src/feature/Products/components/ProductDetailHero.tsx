@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import type { Product } from "@/feature/Products/api/products";
 import { ProductPlaceholderImage } from "@/feature/Products/components/ProductPlaceholderImage";
 import { ShineButton } from "@/components/shine";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -21,6 +22,7 @@ export interface ProductDetailHeroProps {
 export function ProductDetailHero({ product }: ProductDetailHeroProps) {
   const Icon = product.icon;
   const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <section
@@ -40,6 +42,7 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
               <img
                 src={product.imageUrl}
                 alt={product.imageAlt ?? product.name}
+                title={product.imageTitle}
                 width={1200}
                 height={900}
                 decoding="async"
@@ -89,7 +92,7 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
             className="flex flex-wrap items-center gap-4 pt-4"
           >
             <ShineButton
-              onClick={() => navigate("/contact")}
+              onClick={() => openQuoteModal(product.name)}
               className="inline-flex items-center justify-center rounded-none bg-brand-500 px-7 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Request a Quote

@@ -5,11 +5,13 @@ import { HERO_CONTENT } from "@/feature/Home/api/homeConstants";
 import { ShineButton } from "@/components/shine";
 import HeroFloating from "./HeroFloating";
 import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
 
   const slideUp = {
     initial: { opacity: 0, y: 16 },
@@ -20,12 +22,12 @@ export function Hero() {
     <div className="relative text-white">
       {/* Background banner image */}
       <div
-        aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <img
           src="/images/home/home_banner_image.webp"
-          alt=""
+          alt="High tensile MS fasteners manufactured by Kaveri Industries"
+          title="High Tensile MS Fasteners Manufacturer – Kaveri Industries"
           className="h-full w-full object-cover"
           loading="eager"
           decoding="async"
@@ -138,14 +140,11 @@ export function Hero() {
                 />
               </ShineButton>
               <ShineButton
-                onClick={() => navigate(HERO_CONTENT.secondaryCta.href)}
+                onClick={() => openQuoteModal()}
                 className="group inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/80 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-slate-600 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
               >
                 {HERO_CONTENT.secondaryCta.label}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
-                  aria-hidden="true"
-                />
+               
               </ShineButton>
             </motion.div>
           </div>

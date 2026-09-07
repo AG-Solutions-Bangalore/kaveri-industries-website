@@ -76,6 +76,7 @@ export function ContactLocation() {
               href={MAP_EXTERNAL_URL}
               target="_blank"
               rel="noopener noreferrer"
+              title="View Kaveri Industries Location on Google Maps"
               className="pointer-events-auto mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-700 hover:text-brand-800"
             >
               Open in maps

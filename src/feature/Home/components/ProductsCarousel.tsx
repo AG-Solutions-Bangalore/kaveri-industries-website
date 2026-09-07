@@ -85,6 +85,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             <img
               src={product.imageUrl}
               alt={product.imageAlt ?? product.name}
+              title={product.imageTitle}
               width={400}
               height={400}
               className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"

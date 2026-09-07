@@ -25,6 +25,7 @@ export function QualityStatement() {
               <img
                 src={QUALITY_CONTENT.imageUrl}
                 alt={QUALITY_CONTENT.imageAlt}
+                title={QUALITY_CONTENT.imageTitle}
                 width={800}
                 height={600}
                 className="h-full w-full object-cover"

@@ -121,6 +121,7 @@ export const QUALITY_CONTENT = {
   ],
   imageUrl: "/images/home/manufacturing-plant.webp",
   imageAlt: "Kaveri Industries CNC machining and precision quality inspection",
+  imageTitle: "Kaveri Industries CNC Manufacturing and Quality Inspection",
 } as const;
 
 export const CTA_BANNER_CONTENT = {

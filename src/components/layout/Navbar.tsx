@@ -2,12 +2,13 @@ import { MobileSidebar } from "@/components/layout/MobileSidebar";
 import { company } from "@/lib/company";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { FlipButton } from "@/components/ui/FlipButton";
 import { ShineButton } from "@/components/shine";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export const NAV = [
-  { to: "/", label: "Home", end: true },
+  { to: "/", label: "Home", title: "Kaveri Industries Home", end: true },
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", end: false },
   { to: "/industries", label: "Industries", end: false },
@@ -20,16 +21,17 @@ export const NAV = [
  * cursor-follow, no motion — a calm, minimal treatment.
  */
 export function Navbar() {
-  const navigate = useNavigate();
   const location = useLocation();
+  const { openQuoteModal } = useQuoteModal();
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background text-foreground">
+    <header className="sticky top-0 z-40 bg-background">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4"
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6"
       >
         <Link
           to="/"
+          title="Kaveri Industries Home"
           className="flex items-center gap-2 font-bold tracking-tight text-foreground"
           aria-label={`${company.name} — go to home`}
         >
@@ -60,11 +62,14 @@ export function Navbar() {
               <li key={item.to}>
                 <FlipButton
                   to={item.to}
+                  title={item.title}
                   variant="link-brand"
-                  aria-label={item.label}
+                  showIcon={false}
                   className={cn(
-                    "relative font-display gap-0 py-1 [&_svg]:hidden",
-                    isActive && "!text-brand-500 font-semibold",
+                    "text-sm font-semibold transition-colors",
+                    isActive
+                      ? "text-brand-700 font-bold"
+                      : "text-foreground hover:text-brand-700",
                   )}
                 >
                   {item.label}
@@ -77,7 +82,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-3">
 
           <ShineButton
-            onClick={() => navigate("/contact")}
+            onClick={() => openQuoteModal()}
             className="group inline-flex items-center gap-1.5 bg-brand-500 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:text-sm"
           >
             Request a Quote

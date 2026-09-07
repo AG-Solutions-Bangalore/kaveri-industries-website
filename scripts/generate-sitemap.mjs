@@ -44,7 +44,7 @@ const CHECK_ONLY = args.has("--check");
 const SITE_URL =
   (process.env.SITE_URL ??
     process.env.VITE_SITE_URL ??
-    "https://kaveri-industries.example.com").replace(/\/$/, "");
+    "https://kaveri.agsdemo.in").replace(/\/$/, "");
 
 /** Static routes — keep in sync with `src/routes/routes.tsx`. */
 const STATIC_ROUTES = [

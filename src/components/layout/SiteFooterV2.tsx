@@ -48,12 +48,12 @@ const YoutubeIcon = (props: IconProps) => (
   </svg>
 );
 
-function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string } | null {
+function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string; title: string } | null {
   const lower = url.toLowerCase();
-  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn" };
-  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook" };
-  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter" };
-  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube" };
+  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn", title: "Follow Kaveri Industries on LinkedIn" };
+  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook", title: "Follow Kaveri Industries on Facebook" };
+  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
+  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
   return null;
 }
 
@@ -112,6 +112,7 @@ export function SiteFooterV2() {
           <div>
             <Link
               to="/v2"
+              title="Kaveri Industries Home"
               className="group inline-flex items-center gap-2.5 font-semibold tracking-tight text-white"
               aria-label={`${company.name} — go to home`}
             >
@@ -146,6 +147,7 @@ export function SiteFooterV2() {
                 <li key={item.to}>
                   <FlipButton
                     to={item.to}
+                    title={item.to === "/v2" ? "Kaveri Industries Home" : item.label}
                     variant="link-brand"
                     className="gap-0 text-zinc-300! hover:text-[#E5A83B] [&_svg]:hidden"
                   >
@@ -169,6 +171,7 @@ export function SiteFooterV2() {
                 />
                 <a
                   href={`tel:${company.contact.phones[0]?.tel}`}
+                  title="Call Kaveri Industries"
                   className="link-underline hover:text-white"
                 >
                   {phoneList}
@@ -188,6 +191,7 @@ export function SiteFooterV2() {
                 />
                 <a
                   href={`mailto:${company.contact.primaryEmail}`}
+                  title="Email Kaveri Industries"
                   className="link-underline break-all font-mono text-xs hover:text-white"
                 >
                   {company.contact.primaryEmail}
@@ -217,13 +221,14 @@ export function SiteFooterV2() {
               {company.social.map((url) => {
                 const mapping = iconForUrl(url);
                 if (!mapping) return null;
-                const { Icon, label } = mapping;
+                const { Icon, label, title } = mapping;
                 return (
                   <li key={url}>
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      title={title}
                       aria-label={`${company.name} on ${label}`}
                       className="grid h-9 w-9 place-items-center rounded-none border border-zinc-800 bg-[#0B0D12] text-zinc-400 transition-all duration-200 hover:scale-105 hover:border-[#E5A83B] hover:text-[#E5A83B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]"
                     >

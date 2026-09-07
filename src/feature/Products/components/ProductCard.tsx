@@ -31,6 +31,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
       {/* Image / placeholder */}
       <Link
         to={`/products/${product.slug}`}
+        title={product.linkTitle}
         className="relative block aspect-[4/3] overflow-hidden bg-muted"
         aria-label={`View details for ${product.name}`}
       >
@@ -38,6 +39,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
           <img
             src={product.imageUrl}
             alt={product.imageAlt ?? product.name}
+            title={product.imageTitle}
             width={1200}
             height={900}
             decoding="async"
@@ -56,7 +58,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
 
       {/* Body */}
       <div className="flex flex-1 flex-col p-5">
-        <Link to={`/products/${product.slug}`} className="block">
+        <Link to={`/products/${product.slug}`} title={product.linkTitle} className="block">
           <h3 className="text-base font-bold tracking-tight text-foreground transition-colors group-hover:text-brand-700">
             {product.name}
           </h3>
@@ -67,6 +69,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
         <div className="mt-auto pt-4">
           <Link
             to={`/products/${product.slug}`}
+            title={product.linkTitle}
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 transition-colors hover:text-brand-800"
           >
             View Details

@@ -8,6 +8,7 @@ interface FlipButtonProps {
     variant?: "pink" | "teal" | "white" | "link-teal" | "link-pink" | "link-yellow" | "link-green" | "link-brand";
     className?: string;
     icon?: LucideIcon;
+    showIcon?: boolean;
     onClick?: () => void;
 }
 
@@ -18,6 +19,7 @@ export function FlipButton({
     variant = "pink",
     className = "",
     icon: Icon = ArrowRight,
+    showIcon = true,
     onClick,
 }: FlipButtonProps) {
     let variantStyles = "";
@@ -71,7 +73,9 @@ export function FlipButton({
             </span>
 
             {/* 35 degree / 45 degree Arrow Rotation */}
-            <Icon className="h-4 w-4 shrink-0 transition-transform duration-300 ease-out group-hover:-rotate-[35deg]" />
+            {showIcon && (
+                <Icon className="h-4 w-4 shrink-0 transition-transform duration-300 ease-out group-hover:-rotate-[35deg]" />
+            )}
         </Link>
     );
 }

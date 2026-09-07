@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { FlipButton } from "@/components/ui/FlipButton";
 import { ShineButton } from "@/components/shine";
 import { cn } from "@/lib/utils";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export const NAV_ITEMS_V2 = [
-  { to: "/v2", label: "Home", end: true },
+  { to: "/v2", label: "Home", title: "Kaveri Industries Home", end: true },
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", hasDropdown: true, end: false },
   { to: "/industries", label: "Industries", end: false },
@@ -16,12 +17,12 @@ export const NAV_ITEMS_V2 = [
 ];
 
 export function NavbarV2() {
-  const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0B0D12] text-white">
+    <header className="sticky top-0 z-50 w-full bg-[#0B0D12] text-white">
       <nav
         aria-label="Primary V2"
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
@@ -29,6 +30,7 @@ export function NavbarV2() {
         {/* Brand Logo matching design */}
         <Link
           to="/v2"
+          title="Kaveri Industries Home"
           className="flex items-center gap-3 group"
           aria-label="Kaveri High Tensile Fasteners — Home"
         >
@@ -65,9 +67,10 @@ export function NavbarV2() {
                   <FlipButton
                     to={item.to}
                     variant="link-brand"
+                    showIcon={false}
                     aria-label={item.label}
                     className={cn(
-                      "font-display gap-0 py-1 text-[#FAFAFB]! hover:text-[#E5A83B] transition-colors duration-200 [&_svg]:hidden",
+                      "font-display gap-0 py-1 text-[#FAFAFB]! hover:text-[#E5A83B] transition-colors duration-200",
                       isActive && "!text-[#E5A83B] font-bold"
                     )}
                   >
@@ -93,7 +96,7 @@ export function NavbarV2() {
 
           {/* V1 ShineButton with Shine Sweep Effect */}
           <ShineButton
-            onClick={() => navigate("/contact")}
+            onClick={() => openQuoteModal()}
             className="group inline-flex items-center gap-2 rounded-none bg-[#E5A83B] px-4 py-2 sm:px-5 sm:py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-[#0B0D12] shadow-sm transition-all duration-200 hover:bg-[#dca035] hover:shadow-[0_0_12px_rgba(229,168,59,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5A83B]"
           >
             <span>GET A QUOTE</span>
