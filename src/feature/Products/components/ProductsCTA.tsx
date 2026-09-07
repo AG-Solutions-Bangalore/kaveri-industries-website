@@ -1,16 +1,16 @@
-import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { ShineButton } from "@/components/shine";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
  * "Need a Specific Fastener?" — light themed CTA section that sits between
  * the product grid and the footer on the /products list page.
- * Routes to /contact (the canonical quote request destination).
+ * Opens the Request a Quote popup modal.
  */
 export function ProductsCTA() {
-  const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="products-cta-heading"
@@ -44,7 +44,7 @@ export function ProductsCTA() {
           transition={{ duration: 0.6, ease: EASE, delay: 0.16 }}
         >
           <ShineButton
-            onClick={() => navigate("/contact")}
+            onClick={() => openQuoteModal()}
             className="inline-flex items-center gap-2 rounded-sm bg-brand-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Request a Quote

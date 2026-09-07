@@ -7,6 +7,7 @@ import {
   Phone,
   Package,
   Sparkles,
+  X,
 } from "lucide-react";
 import { company } from "@/lib/company";
 import { useEnquiryMutation } from "@/feature/Contact/hooks/useEnquiryMutation";
@@ -44,6 +45,14 @@ const EMPTY_FORM: FormState = {
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
+export interface ContactFormProps {
+  title?: string;
+  subtitle?: string;
+  isModal?: boolean;
+  defaultSubject?: string;
+  onClose?: () => void;
+}
+
 /**
  * Controlled enquiry form.
  *
@@ -55,19 +64,34 @@ type SubmitState = "idle" | "submitting" | "success" | "error";
  * PHP backend re-validates server-side. UTM parameters are read from the
  * URL on first render and forwarded with the payload.
  */
-export function ContactForm() {
+export function ContactForm({
+  title,
+  subtitle,
+  isModal = false,
+  defaultSubject,
+  onClose,
+}: ContactFormProps = {}) {
   const baseId = useId();
   const id = (key: string) => `${baseId}-${key}`;
 
   const utm = useUtmParams();
   const enquiry = useEnquiryMutation();
 
-  const [values, setValues] = useState<FormState>(EMPTY_FORM);
+  const [values, setValues] = useState<FormState>(() => ({
+    ...EMPTY_FORM,
+    subject: defaultSubject ?? "",
+  }));
   const [errors, setErrors] = useState<EnquiryFieldErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
   const [countdownMs, setCountdownMs] = useState<number>(AUTO_DISMISS_MS);
   const dismissedRef = useRef(false);
+
+  useEffect(() => {
+    if (defaultSubject !== undefined) {
+      setValues((prev) => ({ ...prev, subject: defaultSubject }));
+    }
+  }, [defaultSubject]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -232,22 +256,47 @@ export function ContactForm() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: isModal ? 0 : 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.6, ease: EASE }}
-      className="relative overflow-hidden rounded-sm border border-slate-200/70 bg-white p-6 shadow-xs sm:p-8 dark:border-slate-700/60 dark:bg-slate-900/40"
+      className={`relative overflow-hidden ${
+        isModal
+          ? "bg-white p-5 sm:p-7 dark:bg-slate-900"
+          : "rounded-sm border border-slate-200/70 bg-white p-6 shadow-xs sm:p-8 dark:border-slate-700/60 dark:bg-slate-900/40"
+      }`}
     >
-      <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-        Send Us a Message
-      </h2>
-      <div className="mt-2 h-px w-24 bg-foreground/15" aria-hidden="true" />
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            {title ?? "Send Us a Message"}
+          </h2>
+          <div className="mt-2 h-px w-24 bg-foreground/15" aria-hidden="true" />
+          {subtitle && (
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+              {subtitle}
+            </p>
+          )}
+        </div>
+        {isModal && onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-sm p-1.5 text-muted-foreground transition-colors hover:bg-slate-100 hover:text-foreground dark:hover:bg-slate-800"
+            aria-label="Close quote modal"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        )}
+      </div>
 
       {submitState === "success" ? (
         <SuccessCard
           baseId={baseId}
           countdownMs={countdownMs}
           onAnother={returnToForm}
+          isModal={isModal}
+          onClose={onClose}
         />
       ) : (
         <form noValidate onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -497,10 +546,14 @@ function SuccessCard({
   baseId,
   countdownMs,
   onAnother,
+  isModal,
+  onClose,
 }: {
   baseId: string;
   countdownMs: number;
   onAnother: () => void;
+  isModal?: boolean;
+  onClose?: () => void;
 }) {
   const seconds = Math.ceil(countdownMs / 1000);
 
@@ -596,7 +649,7 @@ function SuccessCard({
         <motion.div
           variants={CHILD_VARIANTS}
           transition={{ duration: 0.5, ease: EASE }}
-          className="grid w-full gap-3 pt-2 sm:grid-cols-2"
+          className={`grid w-full gap-3 pt-2 ${isModal && onClose ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}
         >
           <button
             type="button"
@@ -605,7 +658,7 @@ function SuccessCard({
           >
             <span className="flex items-center gap-2">
               <Send className="h-4 w-4" aria-hidden="true" />
-              Send another enquiry
+              Send another
             </span>
             <ArrowRight
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -615,17 +668,28 @@ function SuccessCard({
 
           <a
             href="/products"
+            onClick={isModal && onClose ? onClose : undefined}
             className="group inline-flex items-center justify-between gap-2 rounded-sm border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-foreground shadow-xs transition-all hover:border-brand-400 hover:bg-brand-50/60 hover:shadow-sm dark:border-slate-700 dark:bg-slate-900/60 dark:hover:bg-slate-900"
           >
             <span className="flex items-center gap-2">
               <Package className="h-4 w-4 text-brand-500" aria-hidden="true" />
-              Browse our products
+              Browse products
             </span>
             <ArrowRight
               className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground"
               aria-hidden="true"
             />
           </a>
+
+          {isModal && onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="group inline-flex items-center justify-center gap-2 rounded-sm border border-slate-300 bg-slate-100 px-4 py-3 text-sm font-semibold text-foreground shadow-xs transition-all hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
+            >
+              Done / Close
+            </button>
+          )}
         </motion.div>
 
         <motion.div

@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { CTA_BANNER_CONTENT } from "@/feature/Home/api/homeConstants";
 import { ShineButton } from "@/components/shine";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function CTABanner() {
   const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <section
@@ -62,7 +64,7 @@ export function CTABanner() {
             className="lg:col-span-3 mr-56 flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col justify-center"
           >
             <ShineButton
-              onClick={() => navigate(CTA_BANNER_CONTENT.primaryCta.href)}
+              onClick={() => openQuoteModal()}
               className="group inline-flex items-center justify-center gap-2 rounded-md bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all duration-200 hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
             >
               {CTA_BANNER_CONTENT.primaryCta.label}

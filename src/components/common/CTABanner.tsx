@@ -2,6 +2,7 @@ import { ArrowRight, MessageSquareCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { ShineButton } from "@/components/shine";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -29,6 +30,7 @@ export function CTABanner({
   secondaryCta = { label: "Request a Quote", href: "/contact" },
 }: CTABannerProps) {
   const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="cta-heading"
@@ -104,7 +106,13 @@ export function CTABanner({
             />
           </ShineButton>
           <ShineButton
-            onClick={() => navigate(secondaryCta.href)}
+            onClick={() => {
+              if (secondaryCta.label.toLowerCase().includes("quote")) {
+                openQuoteModal();
+              } else {
+                navigate(secondaryCta.href);
+              }
+            }}
             className="inline-flex items-center gap-2 rounded-sm border border-slate-700 bg-slate-900/80 px-5 py-2.5 text-xs md:text-sm font-semibold text-white shadow-xs transition-colors duration-200 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             {secondaryCta.label}
