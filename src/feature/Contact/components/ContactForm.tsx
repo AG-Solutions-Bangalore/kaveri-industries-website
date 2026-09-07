@@ -214,10 +214,21 @@ export function ContactForm() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submitState]);
 
+  /**
+   * "Dull" / low-opacity look for the contact form fields.
+   *
+   * - Border at 40% opacity so it recedes into the card
+   * - Tinted background (slate-50) instead of pure white for a softer feel
+   * - Placeholder is heavily muted (25% opacity) so it reads as a hint
+   * - Focus state keeps the brand-gold accent at full strength so the form
+   *   remains obviously interactive when the user tabs through it
+   */
   const inputBase =
-    "h-10 w-full rounded-sm border border-slate-200 bg-white px-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-900/50";
+    "h-10 w-full rounded-sm border border-slate-200/40 bg-slate-50/60 px-3 text-sm text-foreground/85 placeholder:text-muted-foreground/25 focus-visible:border-brand-500 focus-visible:bg-white focus-visible:text-foreground focus-visible:placeholder:text-muted-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 dark:border-slate-700/40 dark:bg-slate-900/30 dark:text-foreground/85 dark:placeholder:text-muted-foreground/30 dark:focus-visible:bg-slate-900/60 dark:focus-visible:placeholder:text-muted-foreground/40";
   const inputError =
-    "border-rose-500 focus-visible:border-rose-500 focus-visible:ring-rose-500/30";
+    "border-rose-400/70 bg-rose-50/40 focus-visible:border-rose-500 focus-visible:ring-rose-500/30 dark:border-rose-500/60 dark:bg-rose-950/20";
+  const textareaBase =
+    "w-full rounded-sm border border-slate-200/40 bg-slate-50/60 px-3 py-2 text-sm text-foreground/85 placeholder:text-muted-foreground/25 focus-visible:border-brand-500 focus-visible:bg-white focus-visible:text-foreground focus-visible:placeholder:text-muted-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 dark:border-slate-700/40 dark:bg-slate-900/30 dark:text-foreground/85 dark:placeholder:text-muted-foreground/30 dark:focus-visible:bg-slate-900/60 dark:focus-visible:placeholder:text-muted-foreground/40";
 
   return (
     <motion.div
@@ -326,15 +337,15 @@ export function ContactForm() {
                 Phone Number
               </label>
               <div
-                className={`mt-1 flex h-10 w-full items-center rounded-sm border bg-white text-sm dark:bg-slate-900/50 ${
+                className={`mt-1 flex h-10 w-full items-center rounded-sm border bg-slate-50/60 text-sm transition-colors focus-within:bg-white dark:bg-slate-900/30 dark:focus-within:bg-slate-900/60 ${
                   errors.enquiryMobile
-                    ? "border-rose-500 focus-within:border-rose-500 focus-within:ring-rose-500/30"
-                    : "border-slate-200 focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/30 dark:border-slate-700"
+                    ? "border-rose-400/70 bg-rose-50/40 focus-within:border-rose-500 focus-within:ring-rose-500/30 dark:border-rose-500/60 dark:bg-rose-950/20"
+                    : "border-slate-200/40 focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/30 dark:border-slate-700/40"
                 }`}
               >
                 <span
                   aria-hidden="true"
-                  className="select-none border-r border-slate-200 px-3 font-medium text-muted-foreground dark:border-slate-700"
+                  className="select-none border-r border-slate-200/40 px-3 font-medium text-muted-foreground/70 dark:border-slate-700/40"
                 >
                   {PHONE_PREFIX}
                 </span>
@@ -372,7 +383,7 @@ export function ContactForm() {
                   }}
                   placeholder="9876543210"
                   aria-invalid={Boolean(errors.enquiryMobile)}
-                  className="h-full w-full bg-transparent px-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none"
+                  className="h-full w-full bg-transparent px-3 text-sm text-foreground/85 placeholder:text-muted-foreground/25 focus:text-foreground focus:placeholder:text-muted-foreground/40 focus:outline-none"
                 />
               </div>
               {errors.enquiryMobile && (
@@ -419,9 +430,7 @@ export function ContactForm() {
               onChange={(e) => update("message", e.target.value)}
               placeholder="Please provide details about your requirements…"
               aria-invalid={Boolean(errors.enquiryMessage)}
-              className={`mt-1 w-full rounded-sm border border-slate-200 bg-white px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-900/50 ${
-                errors.enquiryMessage ? "border-rose-500" : ""
-              }`}
+              className={`mt-1 ${textareaBase} ${errors.enquiryMessage ? "border-rose-400/70 bg-rose-50/40 focus-visible:border-rose-500 focus-visible:ring-rose-500/30 dark:border-rose-500/60 dark:bg-rose-950/20" : ""}`}
             />
             {errors.enquiryMessage && (
               <p className="mt-1 flex items-center gap-1 text-xs text-rose-600">

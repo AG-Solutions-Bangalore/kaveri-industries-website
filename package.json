@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/images-to-webp.mjs",
+    "predev": "node scripts/images-to-webp.mjs && node scripts/generate-sitemap.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/images-to-webp.mjs",
+    "prebuild": "node scripts/images-to-webp.mjs && node scripts/generate-sitemap.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "images:check": "node scripts/images-to-webp.mjs --check",
-    "images:convert": "node scripts/images-to-webp.mjs"
+    "images:convert": "node scripts/images-to-webp.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "sitemap:check": "node scripts/generate-sitemap.mjs --check"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.15",

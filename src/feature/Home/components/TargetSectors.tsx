@@ -1,20 +1,17 @@
-import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "motion/react";
-import { TARGET_SECTORS } from "@/feature/Home/api/sectors";
 import { SECTORS_SECTION_HEADER } from "@/feature/Home/api/homeConstants";
+import { TARGET_SECTORS } from "@/feature/Home/api/sectors";
+import { motion } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function TargetSectors() {
-  const navigate = useNavigate();
 
   return (
     <section
       aria-labelledby="sectors-heading"
       className="bg-[#071120] text-white py-16 md:py-24"
     >
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -35,16 +32,7 @@ export function TargetSectors() {
             </h2>
           </div>
 
-          <button
-            onClick={() => navigate(SECTORS_SECTION_HEADER.cta.href)}
-            className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-brand-400 hover:text-brand-300"
-          >
-            {SECTORS_SECTION_HEADER.cta.label}
-            <ArrowRight
-              className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-rotate-45"
-              aria-hidden="true"
-            />
-          </button>
+        
         </motion.div>
 
         {/* 3x2 Grid of Sector Cards */}

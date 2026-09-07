@@ -19,72 +19,93 @@
  * ---------------------------------------------------------------- */
 @theme {
   /* === Brand palette — gold #DAA235 (CTAs, accents, highlights) === */
-  --color-brand-50:  #fdf8eb;
+  --color-brand-50: #fdf8eb;
   --color-brand-100: #f9edcd;
   --color-brand-200: #f3da9a;
   --color-brand-300: #ebc467;
   --color-brand-400: #e3b14d;
-  --color-brand-500: #DAA235;   /* brand base */
-  --color-brand-600: #b88525;   /* primary CTA / highlight */
-  --color-brand-700: #95691e;   /* primary hover / active */
-  --color-brand-800: #73511a;   /* logo / brand mark */
+  --color-brand-500: #DAA235;
+  /* brand base */
+  --color-brand-600: #b88525;
+  /* primary CTA / highlight */
+  --color-brand-700: #95691e;
+  /* primary hover / active */
+  --color-brand-800: #73511a;
+  /* logo / brand mark */
   --color-brand-900: #503815;
   --color-brand-950: #2e2010;
 
   /* === Neutral palette — slate (text + surfaces) === */
-  --color-slate-50:  #f8fafc;   /* subtle section surface */
-  --color-slate-100: #f1f5f9;   /* muted surface */
-  --color-slate-200: #e2e8f0;   /* borders */
+  --color-slate-50: #f8fafc;
+  /* subtle section surface */
+  --color-slate-100: #f1f5f9;
+  /* muted surface */
+  --color-slate-200: #e2e8f0;
+  /* borders */
   --color-slate-300: #cbd5e1;
   --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;   /* muted-foreground */
+  --color-slate-500: #64748b;
+  /* muted-foreground */
   --color-slate-600: #475569;
   --color-slate-700: #334155;
-  --color-slate-800: #1e293b;   /* body text */
-  --color-slate-900: #0f172a;   /* heading + dark CTA band */
+  --color-slate-800: #1e293b;
+  /* body text */
+  --color-slate-900: #0f172a;
+  /* heading + dark CTA band */
   --color-slate-950: #020617;
 
   /* === Semantic tokens (HSL channels — drives `bg-background` etc.) === */
-  --color-background:           0 0% 100%;          /* #ffffff */
-  --color-foreground:           222 47% 11%;        /* slate-900 */
+  --color-background: 0 0% 100%;
+  /* #ffffff */
+  --color-foreground: 222 47% 11%;
+  /* slate-900 */
 
-  --color-card:                 0 0% 100%;
-  --color-card-foreground:      222 47% 11%;
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 222 47% 11%;
 
-  --color-popover:              0 0% 100%;
-  --color-popover-foreground:   222 47% 11%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 222 47% 11%;
 
   /* Main CTA — gold #DAA235 (HSL 41 67% 53%) */
-  --color-primary:              41 67% 53%;         /* #DAA235 — main CTA */
-  --color-primary-foreground:   222 47% 11%;        /* dark text on gold */
+  --color-primary: 41 67% 53%;
+  /* #DAA235 — main CTA */
+  --color-primary-foreground: 222 47% 11%;
+  /* dark text on gold */
 
-  --color-secondary:            210 40% 98%;        /* slate-50 — section surface */
+  --color-secondary: 210 40% 98%;
+  /* slate-50 — section surface */
   --color-secondary-foreground: 222 47% 11%;
 
-  --color-muted:                210 40% 96%;        /* slate-100 */
-  --color-muted-foreground:     215 16% 47%;        /* slate-500 */
+  --color-muted: 210 40% 96%;
+  /* slate-100 */
+  --color-muted-foreground: 215 16% 47%;
+  /* slate-500 */
 
-  --color-accent:               41 67% 53%;         /* #DAA235 — link/highlight */
-  --color-accent-foreground:    222 47% 11%;
+  --color-accent: 41 67% 53%;
+  /* #DAA235 — link/highlight */
+  --color-accent-foreground: 222 47% 11%;
 
-  --color-destructive:          0 84% 60%;
+  --color-destructive: 0 84% 60%;
   --color-destructive-foreground: 0 0% 100%;
 
-  --color-success:              142 71% 45%;
-  --color-success-foreground:   0 0% 100%;
+  --color-success: 142 71% 45%;
+  --color-success-foreground: 0 0% 100%;
 
-  --color-warning:              38  92% 50%;
-  --color-warning-foreground:   0 0% 100%;
+  --color-warning: 38 92% 50%;
+  --color-warning-foreground: 0 0% 100%;
 
-  --color-border:               214 32% 91%;        /* slate-200 */
-  --color-input:                214 32% 91%;
-  --color-ring:                 41 67% 53%;         /* #DAA235 */
+  --color-border: 214 32% 91%;
+  /* slate-200 */
+  --color-input: 214 32% 91%;
+  --color-ring: 41 67% 53%;
+  /* #DAA235 */
 
   /* Inverted "dark band" used for the bottom CTA section
      ("Looking for the Right Fastening Solution?"). Stays static
      regardless of color mode. */
-  --color-inverted:             222 47% 11%;        /* slate-900 */
-  --color-inverted-foreground:  0 0% 100%;
+  --color-inverted: 222 47% 11%;
+  /* slate-900 */
+  --color-inverted-foreground: 0 0% 100%;
 
   /* === Radii — small compact units === */
   --radius-xs: 0.125rem;
@@ -123,51 +144,70 @@
 /* === Dark mode === */
 @layer base {
   .dark {
-    --color-background:           222 47% 6%;
-    --color-foreground:           210 40% 98%;
+    --color-background: 222 47% 6%;
+    --color-foreground: 210 40% 98%;
 
-    --color-card:                 222 47% 8%;
-    --color-card-foreground:      210 40% 98%;
+    --color-card: 222 47% 8%;
+    --color-card-foreground: 210 40% 98%;
 
-    --color-popover:              222 47% 8%;
-    --color-popover-foreground:   210 40% 98%;
+    --color-popover: 222 47% 8%;
+    --color-popover-foreground: 210 40% 98%;
 
-    --color-primary:              41 67% 53%;         /* #DAA235 */
-    --color-primary-foreground:   222 47% 11%;
+    --color-primary: 41 67% 53%;
+    /* #DAA235 */
+    --color-primary-foreground: 222 47% 11%;
 
-    --color-secondary:            217 33% 17%;
+    --color-secondary: 217 33% 17%;
     --color-secondary-foreground: 210 40% 98%;
 
-    --color-muted:                217 33% 17%;
-    --color-muted-foreground:     215 20% 65%;
+    --color-muted: 217 33% 17%;
+    --color-muted-foreground: 215 20% 65%;
 
-    --color-accent:               41 67% 53%;         /* #DAA235 */
-    --color-accent-foreground:    210 40% 98%;
+    --color-accent: 41 67% 53%;
+    /* #DAA235 */
+    --color-accent-foreground: 210 40% 98%;
 
-    --color-destructive:          0 63% 45%;
+    --color-destructive: 0 63% 45%;
     --color-destructive-foreground: 210 40% 98%;
 
-    --color-border:               217 33% 20%;
-    --color-input:                217 33% 20%;
-    --color-ring:                 41 67% 53%;         /* #DAA235 */
+    --color-border: 217 33% 20%;
+    --color-input: 217 33% 20%;
+    --color-ring: 41 67% 53%;
+    /* #DAA235 */
   }
 }
 
 @keyframes accordion-down {
-  from { height: 0; }
-  to   { height: var(--radix-accordion-content-height); }
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
+
 @keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); }
-  to   { height: 0; }
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
 }
 
 /* Auto-scrolling marquee for the product carousel.
    Track is `display: flex` + `width: max-content` with cards duplicated, so
    translating by -50% creates a seamless loop. */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ----------------------------------------------------------------
@@ -178,38 +218,76 @@
    `data-revealed` attribute set by `useReveal` once an element
    enters the viewport. */
 @keyframes reveal-up {
-  from { opacity: 0; transform: translate3d(0, 12px, 0); }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* Soft floating motion — used on the Hero tolerance-spec badge. */
 @keyframes float-soft {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(0, -6px, 0); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
 }
 
 /* Gentle glow pulse — used on the CTABanner primary CTA. */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgb(218 162 53 / 0.0); }
-  50%      { box-shadow: 0 0 0 6px rgb(218 162 53 / 0.25); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(218 162 53 / 0.0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgb(218 162 53 / 0.25);
+  }
 }
 
 /* Slow grid-drift for the CTABanner blueprint backdrop. */
 @keyframes grid-drift {
-  from { background-position: 0 0; }
-  to   { background-position: 40px 40px; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 40px 40px;
+  }
 }
 
 /* Heading-highlight gradient sweep on the Hero h1 accent. */
 @keyframes sheen {
-  from { background-position: 0% 50%; }
-  to   { background-position: 200% 50%; }
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
 }
 
 /* Soft pulse for stat numbers (QualityStatement 20+, Zero). */
 @keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.7; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 /* ----------------------------------------------------------------
@@ -217,59 +295,152 @@
  * `bg-background` → `hsl(var(--color-background))`, etc.
  * ---------------------------------------------------------------- */
 @layer utilities {
-  .bg-background             { background-color: hsl(var(--color-background)); }
-  .text-foreground           { color: hsl(var(--color-foreground)); }
+  .bg-background {
+    background-color: hsl(var(--color-background));
+  }
 
-  .bg-card                   { background-color: hsl(var(--color-card)); }
-  .text-card-foreground      { color: hsl(var(--color-card-foreground)); }
+  .text-foreground {
+    color: hsl(var(--color-foreground));
+  }
 
-  .bg-popover                { background-color: hsl(var(--color-popover)); }
-  .text-popover-foreground   { color: hsl(var(--color-popover-foreground)); }
+  .bg-card {
+    background-color: hsl(var(--color-card));
+  }
 
-  .bg-primary                { background-color: hsl(var(--color-primary)); }
-  .text-primary-foreground   { color: hsl(var(--color-primary-foreground)); }
-  .hover\:bg-primary\/90:hover { background-color: hsl(var(--color-primary) / 0.9); }
+  .text-card-foreground {
+    color: hsl(var(--color-card-foreground));
+  }
 
-  .bg-secondary              { background-color: hsl(var(--color-secondary)); }
-  .text-secondary-foreground { color: hsl(var(--color-secondary-foreground)); }
+  .bg-popover {
+    background-color: hsl(var(--color-popover));
+  }
 
-  .bg-muted                  { background-color: hsl(var(--color-muted)); }
-  .text-muted-foreground     { color: hsl(var(--color-muted-foreground)); }
+  .text-popover-foreground {
+    color: hsl(var(--color-popover-foreground));
+  }
 
-  .bg-accent                 { background-color: hsl(var(--color-accent)); }
-  .text-accent               { color: hsl(var(--color-accent)); }
-  .text-accent-foreground    { color: hsl(var(--color-accent-foreground)); }
-  .hover\:bg-accent:hover    { background-color: hsl(var(--color-accent)); }
-  .hover\:text-accent-foreground:hover { color: hsl(var(--color-accent-foreground)); }
+  .bg-primary {
+    background-color: hsl(var(--color-primary));
+  }
 
-  .bg-destructive            { background-color: hsl(var(--color-destructive)); }
-  .text-destructive          { color: hsl(var(--color-destructive)); }
-  .text-destructive-foreground { color: hsl(var(--color-destructive-foreground)); }
+  .text-primary-foreground {
+    color: hsl(var(--color-primary-foreground));
+  }
 
-  .bg-success                { background-color: hsl(var(--color-success)); }
-  .text-success              { color: hsl(var(--color-success)); }
-  .text-success-foreground   { color: hsl(var(--color-success-foreground)); }
+  .hover\:bg-primary\/90:hover {
+    background-color: hsl(var(--color-primary) / 0.9);
+  }
 
-  .bg-warning                { background-color: hsl(var(--color-warning)); }
-  .text-warning              { color: hsl(var(--color-warning)); }
-  .text-warning-foreground   { color: hsl(var(--color-warning-foreground)); }
+  .bg-secondary {
+    background-color: hsl(var(--color-secondary));
+  }
 
-  .border-border             { border-color: hsl(var(--color-border)); }
-  .border-input              { border-color: hsl(var(--color-input)); }
-  .ring-ring                 { --tw-ring-color: hsl(var(--color-ring)); }
+  .text-secondary-foreground {
+    color: hsl(var(--color-secondary-foreground));
+  }
+
+  .bg-muted {
+    background-color: hsl(var(--color-muted));
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--color-muted-foreground));
+  }
+
+  .bg-accent {
+    background-color: hsl(var(--color-accent));
+  }
+
+  .text-accent {
+    color: hsl(var(--color-accent));
+  }
+
+  .text-accent-foreground {
+    color: hsl(var(--color-accent-foreground));
+  }
+
+  .hover\:bg-accent:hover {
+    background-color: hsl(var(--color-accent));
+  }
+
+  .hover\:text-accent-foreground:hover {
+    color: hsl(var(--color-accent-foreground));
+  }
+
+  .bg-destructive {
+    background-color: hsl(var(--color-destructive));
+  }
+
+  .text-destructive {
+    color: hsl(var(--color-destructive));
+  }
+
+  .text-destructive-foreground {
+    color: hsl(var(--color-destructive-foreground));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--color-success));
+  }
+
+  .text-success {
+    color: hsl(var(--color-success));
+  }
+
+  .text-success-foreground {
+    color: hsl(var(--color-success-foreground));
+  }
+
+  .bg-warning {
+    background-color: hsl(var(--color-warning));
+  }
+
+  .text-warning {
+    color: hsl(var(--color-warning));
+  }
+
+  .text-warning-foreground {
+    color: hsl(var(--color-warning-foreground));
+  }
+
+  .border-border {
+    border-color: hsl(var(--color-border));
+  }
+
+  .border-input {
+    border-color: hsl(var(--color-input));
+  }
+
+  .ring-ring {
+    --tw-ring-color: hsl(var(--color-ring));
+  }
+
   .focus-visible\:ring-ring:focus-visible {
     --tw-ring-color: hsl(var(--color-ring));
   }
 
   /* Inverted band (dark CTA section / "ISO 9001:2008" style badge) */
-  .bg-inverted               { background-color: hsl(var(--color-inverted)); }
-  .text-inverted             { color: hsl(var(--color-inverted)); }
-  .text-inverted-foreground  { color: hsl(var(--color-inverted-foreground)); }
+  .bg-inverted {
+    background-color: hsl(var(--color-inverted));
+  }
+
+  .text-inverted {
+    color: hsl(var(--color-inverted));
+  }
+
+  .text-inverted-foreground {
+    color: hsl(var(--color-inverted-foreground));
+  }
 
   /* Focus-ring offset color — defaults to the page background; can be set
      per-section (e.g. dark CTA band) via `ring-offset-inverted`. */
-  .ring-offset-background    { --tw-ring-offset-color: hsl(var(--color-background)); }
-  .ring-offset-inverted      { --tw-ring-offset-color: hsl(var(--color-inverted)); }
+  .ring-offset-background {
+    --tw-ring-offset-color: hsl(var(--color-background));
+  }
+
+  .ring-offset-inverted {
+    --tw-ring-offset-color: hsl(var(--color-inverted));
+  }
 
   /* === Scroll-reveal === */
   /* Hidden initial state, animates to visible once `data-revealed="true"`.
@@ -278,6 +449,7 @@
     opacity: 0;
     will-change: transform, opacity;
   }
+
   [data-revealed="true"] {
     animation: reveal-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: var(--reveal-delay, 0ms);
@@ -287,12 +459,15 @@
   .float-soft {
     animation: float-soft 5s ease-in-out infinite;
   }
+
   .glow-pulse {
     animation: glow-pulse 2.6s ease-in-out infinite;
   }
+
   .grid-drift {
     animation: grid-drift 18s linear infinite;
   }
+
   .pulse-soft {
     animation: pulse-soft 3.4s ease-in-out infinite;
   }
@@ -302,6 +477,7 @@
   .nav-underline {
     position: relative;
   }
+
   .nav-underline::after {
     content: "";
     position: absolute;
@@ -314,6 +490,7 @@
     transform-origin: left center;
     transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
   }
+
   .nav-underline:hover::after,
   .nav-underline.is-active::after {
     transform: scaleX(1);
@@ -323,6 +500,7 @@
   .link-underline {
     position: relative;
   }
+
   .link-underline::after {
     content: "";
     position: absolute;
@@ -335,6 +513,7 @@
     transform-origin: left center;
     transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
   }
+
   .link-underline:hover::after,
   .link-underline:focus-visible::after {
     transform: scaleX(1);
@@ -356,10 +535,16 @@
   /* All headings use Space Grotesk. The -0.015em letter-spacing
      counterbalances Space Grotesk's relatively open tracking so
      large display sizes read tighter than body copy. */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     letter-spacing: -0.015em;
   }
+
   html {
     color-scheme: light dark;
     -webkit-text-size-adjust: 100%;
@@ -370,6 +555,7 @@
        unaffected because Lenis uses syncTouch: false. */
     overscroll-behavior: none;
   }
+
   body {
     background-color: hsl(var(--color-background));
     color: hsl(var(--color-foreground));
@@ -378,4 +564,13 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+}
+
+
+input::placeholder {
+  color: #8f8f8f !important;
+}
+
+textarea::placeholder {
+  color: #8f8f8f !important;
 }
