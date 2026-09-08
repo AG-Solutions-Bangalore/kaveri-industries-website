@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from "@/lib/images";
 /**
  * Homepage section copy.
  *
@@ -42,7 +43,7 @@ export const HERO_CONTENT = {
     label: "Request a Quote",
     href: "/contact",
   },
-  imageUrl: "/images/home/hero-fasteners.webp",
+  imageUrl: `${IMAGE_BASE_URL}/home/hero-fasteners.webp`,
   imageAlt:
     "High-tensile MS structural bolts, hex nuts, and precision fasteners — Kaveri Industries",
 } as const;
@@ -119,7 +120,7 @@ export const QUALITY_CONTENT = {
       icon: "shield-check",
     },
   ],
-  imageUrl: "/images/home/manufacturing-plant.webp",
+  imageUrl: `${IMAGE_BASE_URL}/home/manufacturing-plant.webp`,
   imageAlt: "Kaveri Industries CNC machining and precision quality inspection",
   imageTitle: "Kaveri Industries CNC Manufacturing and Quality Inspection",
 } as const;
@@ -136,5 +137,5 @@ export const CTA_BANNER_CONTENT = {
     label: "Contact Us",
     href: "/contact",
   },
-  imageUrl: "/images/home/cta-bolt.webp",
+  imageUrl: `${IMAGE_BASE_URL}/home/cta-bolt.webp`,
 } as const;

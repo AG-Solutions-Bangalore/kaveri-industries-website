@@ -6,6 +6,7 @@
  */
 
 import { company } from "@/lib/company";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 export const ABOUT_HERO_CONTENT = {
   heading: `About ${company.name}`,
@@ -22,7 +23,7 @@ export const WHO_WE_ARE_CONTENT = {
     "Each employee is immensely quality conscious and takes it upon himself to ensure that there is no room for even the slightest error. Accordingly, they deliver and settle for nothing but the very best.",
     "Encompassing the total customer experience — we have the privilege of serving our most quality conscious customers in the industry. Over the years, we have built up the reputation of being a reliable & quality supplier source to our esteemed clients.",
   ],
-  imageUrl: "/images/about/about-who-we-are.webp",
+  imageUrl: `${IMAGE_BASE_URL}/about/about-who-we-are.webp`,
   imageAlt:
     "High-tensile MS hex head bolts, threaded fasteners, and structural washers on workshop bench — Kaveri Industries",
   imageTitle: "Kaveri Industries High Tensile Fasteners Manufacturing",
@@ -42,7 +43,7 @@ export const QUALITY_COMMITMENT_CONTENT = {
     `We have made quality a way of life at every step of the manufacturing process. The ${company.isoStandard.split(":")[0]} certification is ample proof of our insatiable quest for quality and desire for perfection.`,
     "Each employee is immensely quality conscious and takes it upon himself to ensure that there is no room for even the slightest error. Accordingly, they deliver and settle for nothing but the very best.",
   ],
-  imageUrl: "/images/about/quality-caliper.webp",
+  imageUrl: `${IMAGE_BASE_URL}/about/quality-caliper.webp`,
   imageAlt:
     "Precision digital vernier caliper measuring high-tensile hex bolt on granite surface table during quality control inspection",
   imageTitle: "Precision Quality Inspection of High Tensile Hex Bolts",
@@ -84,7 +85,7 @@ export const QUALITY_PROCESS_CONTENT = {
   heading: "Quality Through Manufacturing",
   paragraph:
     "Quality is integral to Kaveri's manufacturing approach, woven directly into the fabric of our production line. Rather than treating inspection as an afterthought, process controls are embedded at critical junctures. This systemic approach ensures that deviations are identified and corrected at the source, maintaining the integrity of the high-tensile fasteners we produce.",
-  imageUrl: "/images/about/manufacturing-shop-overview.webp",
+  imageUrl: `${IMAGE_BASE_URL}/about/manufacturing-shop-overview.webp`,
   imageAlt:
     "High-angle view of modern CNC manufacturing floor and automated production lines at Kaveri Industries",
   imageTitle: "Kaveri Industries CNC Fastener Manufacturing Facility",

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { CONTACT_PAGE_CONTENT } from "@/feature/Contact/api/contactInfo";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -17,7 +18,7 @@ export function ContactHero() {
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/contact/contact-hero-factory.webp)" }}
+        style={{ backgroundImage: `url(${IMAGE_BASE_URL}/contact/contact-hero-factory.webp)` }}
       />
       {/* Dark gradient wash for legibility */}
       <div

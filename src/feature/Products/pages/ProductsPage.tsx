@@ -5,6 +5,7 @@ import { ProductsCTA } from "@/feature/Products/components/ProductsCTA";
 import { productsSEO } from "@/feature/Products/seo/productsSeo";
 import { PRODUCTS } from "@/feature/Products/api/products";
 import { breadcrumbSchema, productSchema } from "@/lib/schemas";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 /**
  * /products — list of every product line with category filter and a
@@ -18,7 +19,7 @@ export default function ProductsPage() {
       ...productSchema({
         name: p.name,
         description: p.shortDescription,
-        image: p.imageUrl ?? "/images/home/product-hex-bolts.webp",
+        image: p.imageUrl ?? `${IMAGE_BASE_URL}/home/product-hex-bolts.webp`,
         sku: p.id.toUpperCase(),
       }),
       position: i + 1,

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const HERO_SLIDES = [
   {
@@ -157,11 +158,11 @@ export function HeroV2() {
         {/* Industrial Bolt Photography Background */}
         <picture>
           <source
-            srcSet="/images/home/hero-banner-bg-v2.webp"
+            srcSet={`${IMAGE_BASE_URL}/home/hero-banner-bg-v2.webp`}
             type="image/webp"
           />
           <img
-            src="/images/home/hero-banner-bg-v2.png"
+            src={`${IMAGE_BASE_URL}/home/hero-banner-bg-v2.png`}
             alt="Kaveri High Tensile 10.9 Hex Bolts and Fasteners"
             className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[62%_center]"
             loading="eager"

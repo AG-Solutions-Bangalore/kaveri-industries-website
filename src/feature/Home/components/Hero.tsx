@@ -6,6 +6,7 @@ import { ShineButton } from "@/components/shine";
 import HeroFloating from "./HeroFloating";
 import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -25,7 +26,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <img
-          src="/images/home/home_banner_image.webp"
+          src={`${IMAGE_BASE_URL}/home/home_banner_image.webp`}
           alt="High tensile MS fasteners manufactured by Kaveri Industries"
           title="High Tensile MS Fasteners Manufacturer – Kaveri Industries"
           className="h-full w-full object-cover"

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { QUALITY_HERO_CONTENT } from "@/feature/About/api/aboutConstants";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -18,7 +19,7 @@ export function QualityBanner() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.14] mix-blend-luminosity grayscale contrast-125"
-        style={{ backgroundImage: "url(/images/about/about-hero-panorama.webp)" }}
+        style={{ backgroundImage: `url(${IMAGE_BASE_URL}/about/about-hero-panorama.webp)` }}
       />
 
       {/* Blueprint grid background */}

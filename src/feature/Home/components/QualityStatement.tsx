@@ -1,6 +1,7 @@
 import { Calendar, Package, ShieldCheck, Users } from "lucide-react";
 import { motion } from "motion/react";
 import { QUALITY_CONTENT } from "@/feature/Home/api/homeConstants";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -169,7 +170,7 @@ export function QualityStatement() {
             <div className="flex flex-wrap items-center gap-6 sm:gap-8">
               {/* IAF & NABCB Combined Logo */}
               <img
-                src="/images/iaf-and-nbac-logo.webp"
+                src={`${IMAGE_BASE_URL}/iaf-and-nbac-logo.webp`}
                 alt="IAF and NABCB accredited — QMS 011"
                 title="IAF — International Accreditation Forum & NABCB — QMS 011"
                 width={140}
@@ -180,7 +181,7 @@ export function QualityStatement() {
 
               {/* Make In India Lion Logo */}
               <img
-                src="/images/made-in-india-logo.webp"
+                src={`${IMAGE_BASE_URL}/made-in-india-logo.webp`}
                 alt="Make In India certified"
                 title="Make In India Certified"
                 width={160}

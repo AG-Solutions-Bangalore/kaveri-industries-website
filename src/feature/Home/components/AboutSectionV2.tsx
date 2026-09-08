@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Play, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const PILLARS = [
   {
@@ -82,11 +83,11 @@ export function AboutSectionV2() {
       {/* Background Hot Rolling Mill Photography */}
       <picture>
         <source
-          srcSet="/images/home/v2-hero-section-3rd-image-bg.webp"
+          srcSet={`${IMAGE_BASE_URL}/home/v2-hero-section-3rd-image-bg.webp`}
           type="image/webp"
         />
         <img
-          src="/images/home/v2-hero-section-3rd-image-bg.png"
+          src={`${IMAGE_BASE_URL}/home/v2-hero-section-3rd-image-bg.png`}
           alt="Kaveri Industries automated hot forging and fastener rolling facility"
           className="absolute inset-0 h-full w-full object-cover object-center"
           loading="lazy"
@@ -256,7 +257,7 @@ export function AboutSectionV2() {
             </div>
             <div className="mt-4 aspect-video w-full overflow-hidden bg-slate-900 flex items-center justify-center relative">
               <img
-                src="/images/home/v2-hero-section-3rd-image-bg.webp"
+                src={`${IMAGE_BASE_URL}/home/v2-hero-section-3rd-image-bg.webp`}
                 alt="Facility walkthrough"
                 className="h-full w-full object-cover"
               />
