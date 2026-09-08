@@ -1,10 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import {
-  localBusinessSchema,
-  organizationSchema,
-  websiteSchema,
-  type JsonLd,
-} from "@/lib/schemas";
+import { type JsonLd } from "@/lib/schemas";
 import { company } from "@/lib/company";
 
 export type SeoOgType = "website" | "article" | "product" | "profile";
@@ -23,8 +18,11 @@ export interface SEOProps {
   /** Set true on pages you don't want indexed (e.g. 404, internal tools). */
   noindex?: boolean;
   /**
-   * Extra schema.org JSON-LD. Site-wide Organization + WebSite +
-   * LocalBusiness are injected automatically — pass page-specific ones here.
+   * Page-specific schema.org JSON-LD. The site-wide Organization + WebSite +
+   * LocalBusiness graph lives ONCE as static JSON-LD in index.html (visible
+   * without JavaScript) — do NOT re-emit those here or validators will
+   * report every entity twice. Pass only page-specific schemas
+   * (BreadcrumbList, Product/ItemList, FAQPage, Service, …).
    */
   schema?: JsonLd | JsonLd[];
   /** Drives OG `og:type` + `twitter:card`. */
@@ -76,21 +74,21 @@ export function SEO({
       : `${title} | ${company.name}`
     : `${company.name} — Precision-Engineered Fasteners`;
   const url = `${company.url}${path.startsWith("/") ? "" : "/"}${path}`;
-  const ogImage = image ?? company.logo;
+  // og:image / twitter:image must be absolute — resolve `/`-rooted paths
+  // against the site URL so validators never receive a relative URL.
+  const rawImage = image ?? company.logo;
+  const ogImage = /^https?:\/\//i.test(rawImage)
+    ? rawImage
+    : `${company.url}${rawImage.startsWith("/") ? "" : "/"}${rawImage}`;
 
-  // Default site-wide schemas — Google reads these for Knowledge Panel +
-  // sitelinks search box. LocalBusiness powers Maps / "near me" searches.
-  const siteWide: Record<string, unknown>[] = [
-    organizationSchema(),
-    localBusinessSchema(),
-    websiteSchema(),
-  ];
-  const extra = schema
+  // Page-specific schemas only — site-wide entities are served statically
+  // from index.html. Emitting them here too would duplicate every entity
+  // (Rich Results Test would show "2 valid items" per type).
+  const ld: Record<string, unknown>[] = schema
     ? Array.isArray(schema)
-      ? schema
+      ? (schema as Record<string, unknown>[])
       : [schema as Record<string, unknown>]
     : [];
-  const ld = [...siteWide, ...extra];
 
   return (
     <Helmet prioritizeSeoTags>

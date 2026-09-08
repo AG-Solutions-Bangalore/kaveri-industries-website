@@ -65,8 +65,96 @@
     />
     <meta name="twitter:image" content="https://agsdemo.in/kaveri/api/assets/images/home/home_banner_image.webp" />
 
+    <!-- Schema.org JSON-LD — site-wide Organization + LocalBusiness + WebSite.
+         Single-Page Apps must serve their site-level graph in static HTML: a
+         crawler's first HTML-only wave would otherwise see zero <script
+         type="application/ld+json"> tags (the "No items detected" cause).
+         Organization and LocalBusiness are unified into a single canonical
+         entity (@type: ["Organization", "LocalBusiness"]) to prevent duplicate
+         items and missing-field warnings in Google's Rich Results Test.
+         Keep in sync with src/lib/company.ts and src/lib/schemas.ts.
+         Page-specific schemas (BreadcrumbList, Product, …) are injected
+         client-side by the <SEO /> component per route. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["Organization", "LocalBusiness"],
+            "@id": "https://kaveri.agsdemo.in/#organization",
+            "name": "Kaveri Industries",
+            "legalName": "Kaveri Industries",
+            "url": "https://kaveri.agsdemo.in/",
+            "logo": "https://kaveri.agsdemo.in/og/logo.png",
+            "image": "https://kaveri.agsdemo.in/og/logo.png",
+            "description": "Manufacturers of High Tensile MS Fasteners for transmission & telecommunication towers, buildings & bridges, refineries & water treatment plants, wind & power plants, railways & transportation, and road guard rail systems. An ISO 9001 Certified Company.",
+            "foundingDate": "2008",
+            "email": "kaveriindustries4@hotmail.com",
+            "telephone": "+918027825275",
+            "priceRange": "₹₹",
+            "sameAs": [
+              "https://www.linkedin.com/company/kaveri-industries",
+              "https://www.facebook.com/kaveriindustries",
+              "https://twitter.com/kaveri_industries",
+              "https://www.youtube.com/@kaveri-industries"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Survey No. 485, 486 Jigani Industrial Area 2nd Phase",
+              "addressLocality": "Bangalore",
+              "addressRegion": "Karnataka",
+              "postalCode": "560105",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 12.7842,
+              "longitude": 77.6369
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday"],
+                "opens": "09:00",
+                "closes": "13:00"
+              }
+            ],
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "kaveriindustries4@hotmail.com",
+                "telephone": "+918027825275",
+                "areaServed": ["IN", "AE", "SG", "DE"],
+                "availableLanguage": ["English", "Hindi"]
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kaveri.agsdemo.in/#website",
+            "name": "Kaveri Industries",
+            "url": "https://kaveri.agsdemo.in/",
+            "inLanguage": "en-IN"
+          }
+        ]
+      }
+    </script>
+
     <!-- Performance: blocking-supports-rel=preload scripts tagged with high priority
-         so the React entry gets parsed ASAP. -->
+          so the React entry gets parsed ASAP. -->
     <link rel="modulepreload" href="/src/main.tsx" />
   </head>
   <body>

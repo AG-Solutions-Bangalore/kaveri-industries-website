@@ -1,19 +1,17 @@
-import {
-  breadcrumbSchema,
-  siteNavigationSchema,
-} from "@/lib/schemas";
+import { IMAGE_BASE_URL } from "@/lib/images";
 import { company } from "@/lib/company";
 import { sectorsSchema } from "@/feature/Home/api/sectorsSchema";
-import { NAV } from "@/components/layout/Navbar";
 import type { SEOProps } from "@/components/common/SEO";
-
-const PRIMARY_NAV = NAV.map((item) => ({ name: item.label, url: item.to }));
 
 /**
  * SEO config for the homepage. The site-wide Organization + LocalBusiness
- * + WebSite schemas are injected automatically by `<SEO />` — here we add
- * breadcrumb, site navigation, the per-sector `Service` blocks, and the
- * review block (AggregateRating + each individual Review).
+ * + WebSite graph is served ONCE as static JSON-LD in index.html (visible
+ * without JavaScript) — `<SEO />` only adds the page-specific schemas below.
+ *
+ * NOTE: no BreadcrumbList here — Google ignores single-item breadcrumbs, so
+ * a "Home"-only crumb would add weight without ever producing a rich result.
+ * SiteNavigationElement is also omitted — it is not a Google-supported rich
+ * result type. Per-sector `Service` blocks describe visible page content.
  */
 export const homeSEO: Pick<
   SEOProps,
@@ -38,11 +36,7 @@ export const homeSEO: Pick<
     `${company.isoStandard} fasteners`,
     "Jigani Bangalore fasteners",
   ],
-  image: "/og/cover.png",
+  image: `${IMAGE_BASE_URL}/home/home_banner_image.webp`,
   imageAlt: `${company.name} — manufacturers of high-tensile MS fasteners for transmission towers, refineries, railways, and structural infrastructure`,
-  schema: [
-    breadcrumbSchema([{ name: "Home", url: "/" }]),
-    siteNavigationSchema(PRIMARY_NAV),
-    ...sectorsSchema(),
-  ],
+  schema: [...sectorsSchema()],
 };
