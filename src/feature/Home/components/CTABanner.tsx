@@ -21,13 +21,19 @@ export function CTABanner() {
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        {/* Right-side product image */}
+        {/* Right-side product image — below fold, fully lazy with
+            dimensions reserved to avoid CLS when it decodes. */}
         <img
           src={`${IMAGE_BASE_URL}/home/CTABannerRightImage.webp`}
           alt="Kaveri Industries high tensile fastener manufacturing"
           title="Kaveri Industries High Tensile Fastener Manufacturing"
           className="absolute right-0 top-[65%] h-[120%] w-auto -translate-y-1/2 object-contain opacity-40 dark:opacity-90"
+          width={640}
+          height={480}
+          sizes="(max-width: 768px) 50vw, 33vw"
           loading="lazy"
+          decoding="async"
+          fetchPriority="low"
         />
         {/* Gradient overlay for left-side text readability */}
         <div className="absolute inset-0 bg-linear-to-r from-slate-100 via-slate-100/85 to-transparent dark:from-[#071224] dark:via-[#071224]/85 dark:to-transparent" />

@@ -9,26 +9,47 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Space Grotesk — display font for all headings. `preconnect` to
-         both the CSS and font-file origins warms the TLS handshake so
-         the first paint isn't blocked waiting on DNS / TCP / TLS.
-         The variable-axis range 300..700 covers the full weight range
-         the design uses (light, regular, medium, semibold, bold). -->
+    <!-- Fonts — non-blocking load so the Google Fonts stylesheet never
+         delays FCP/LCP. `preload as=style` warms the CSS, the
+         `media="print" onload` trick applies it async once fetched.
+         `display=swap` keeps text visible with a fallback meanwhile.
+         NOTE: image base URL lives in ONE place: src/lib/images.ts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@300..700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@300..700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@300..700&display=swap"
+      />
+    </noscript>
 
-    <!-- LCP image preload — warms the hero banner image immediately for faster LCP.
-         NOTE: image base URL lives in ONE place: src/lib/images.ts (IMAGE_BASE_URL).
-         index.html can't import TS, so if the domain changes, update the 3 hardcoded
-         URLs below (preload + og:image + twitter:image) to match. -->
+    <!-- Image CDN hints — hero/LCP bytes come from agsdemo.in, so warm
+         its connection early instead of paying DNS+TLS after FCP. -->
+    <link rel="preconnect" href="https://agsdemo.in" crossorigin />
+    <link rel="dns-prefetch" href="https://agsdemo.in" />
+
+    <!-- LCP image preload — LOCAL banner (public/images/home/) with responsive
+         variants: mobile downloads the 15KB 768w file instead of the 243KB
+         original. og:image / twitter:image below stay remote (absolute URLs
+         required for social crawlers — they don't affect Lighthouse). -->
     <link
       rel="preload"
       as="image"
-      href="https://agsdemo.in/kaveri/api/assets/images/home/home_banner_image.webp"
+      type="image/webp"
+      imagesrcset="/images/home/home_banner_image-768.webp 768w, /images/home/home_banner_image-1280.webp 1280w, /images/home/home_banner_image-1440.webp 1440w, /images/home/home_banner_image.webp 1920w"
+      imagesizes="100vw"
+      href="/images/home/home_banner_image-1280.webp"
       fetchpriority="high"
     />
 
@@ -153,9 +174,6 @@
       }
     </script>
 
-    <!-- Performance: blocking-supports-rel=preload scripts tagged with high priority
-          so the React entry gets parsed ASAP. -->
-    <link rel="modulepreload" href="/src/main.tsx" />
   </head>
   <body>
     <noscript>

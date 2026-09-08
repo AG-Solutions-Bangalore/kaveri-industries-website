@@ -1,13 +1,16 @@
 import {
+  Suspense,
   lazy,
   useEffect,
   useMemo,
   type ComponentType,
   type LazyExoticComponent,
+  type ReactNode,
 } from "react";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "@/components/layout/RootLayout";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
+import { LoadingFallback } from "@/components/common/LoadingFallback";
 import { routePreloader } from "@/lib/routePreloader";
 
 const HomePage = lazy(() => import("@/feature/Home/pages/HomePage"));
@@ -25,9 +28,11 @@ const IndustriesPage = lazy(
 const LegalPage = lazy(() => import("@/feature/Legal/pages/LegalPage"));
 const DemoPage = lazy(() => import("@/feature/Demo/pages/DemoPage"));
 
-const wrap = (Page: LazyExoticComponent<ComponentType>) => (
+const wrap = (Page: LazyExoticComponent<ComponentType>): ReactNode => (
   <ErrorBoundary>
-    <Page />
+    <Suspense fallback={<LoadingFallback />}>
+      <Page />
+    </Suspense>
   </ErrorBoundary>
 );
 
@@ -67,17 +72,18 @@ export function AppRoutes() {
 
   useEffect(() => {
     const ric = (window as Window & {
-      requestIdleCallback?: (cb: () => void) => number;
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
       cancelIdleCallback?: (h: number) => void;
     }).requestIdleCallback;
     const cic = (window as Window & {
       cancelIdleCallback?: (h: number) => void;
     }).cancelIdleCallback;
 
+    // Delay well past LCP so idle prefetching never inflates TBT on mobile.
     const handle: number =
       typeof ric === "function"
-        ? ric.call(window, routePreloader)
-        : (window.setTimeout(routePreloader, 1500) as unknown as number);
+        ? ric.call(window, routePreloader, { timeout: 4000 })
+        : (window.setTimeout(routePreloader, 3500) as unknown as number);
 
     return () => {
       if (typeof cic === "function") cic.call(window, handle);
