@@ -7,6 +7,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { company } from "@/lib/company";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -26,7 +27,7 @@ const CAPABILITIES: CapabilityCard[] = [
     title: "Engineering Team",
     description:
       "A multidisciplinary engineering team supports material selection, custom drawing development, and rapid prototyping for OEM customers.",
-    image: "/images/about/team-engineering.webp",
+    image: `${IMAGE_BASE_URL}/about/team-engineering.webp`,
     imageAlt:
       "Three engineers in navy work uniforms reviewing a fastener drawing in a factory aisle",
     imageTitle:
@@ -38,7 +39,7 @@ const CAPABILITIES: CapabilityCard[] = [
     title: "Tensile Testing",
     description:
       "Universal Testing Machine (UTM) tensile rigs validate load capacity, proof load, and yield strength on every batch.",
-    image: "/images/about/quality-tensile-testing.webp",
+    image: `${IMAGE_BASE_URL}/about/quality-tensile-testing.webp`,
     imageAlt:
       "Universal Testing Machine tensile rig clamping a high-tensile hex bolt specimen with digital load display",
     imageTitle: "Tensile Strength Testing of High Tensile Fasteners",
@@ -49,7 +50,7 @@ const CAPABILITIES: CapabilityCard[] = [
     title: "Hardness Testing",
     description:
       "Rockwell hardness testing on every production lot — Vickers for surface and case-hardened parts — guarantees consistent mechanical properties.",
-    image: "/images/about/quality-hardness-testing.webp",
+    image: `${IMAGE_BASE_URL}/about/quality-hardness-testing.webp`,
     imageAlt:
       "Rockwell hardness tester pressing a diamond indenter into a polished steel coupon",
     imageTitle:
@@ -61,7 +62,7 @@ const CAPABILITIES: CapabilityCard[] = [
     title: "Certifications",
     description:
       `${company.isoStandard} certified manufacturing process with full material traceability and batch-level test certificates on dispatch.`,
-    image: "/images/about/certifications-display.webp",
+    image: `${IMAGE_BASE_URL}/about/certifications-display.webp`,
     imageAlt:
       `${company.isoStandard} certificate with a steel caliper on a walnut desk`,
     imageTitle: "Kaveri Industries ISO 9001 Quality Certification",

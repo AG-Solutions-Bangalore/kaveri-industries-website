@@ -7,6 +7,7 @@ import {
   Shield,
   type LucideIcon,
 } from "lucide-react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 /**
  * Target sectors for Kaveri Industries fasteners.
@@ -31,7 +32,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "High-tensile bolting assemblies built to withstand extreme wind loads and vibration in lattice structures.",
     icon: RadioTower,
-    imageUrl: "/images/home/sector-telecom.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/sector-telecom.webp`,
     imageAlt:
       "High-voltage transmission and telecommunication lattice towers against an open sky",
     imageTitle: "Transmission and Telecommunication Tower Fasteners",
@@ -42,7 +43,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Structural bolts and connection hardware essential for the safety and stability of commercial complexes, bridges and large civil structures.",
     icon: Building2,
-    imageUrl: "/images/home/sector-structures.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/sector-structures.webp`,
     imageAlt:
       "Steel framework of a building and bridge under construction — structural bolting in use",
     imageTitle: "Structural Fasteners for Buildings and Bridges",
@@ -53,7 +54,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Corrosion-resistant high-pressure fasteners engineered for critical flanged connections in pipeline networks and processing units.",
     icon: Factory,
-    imageUrl: "/images/home/sector-refineries.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/sector-refineries.webp`,
     imageAlt:
       "Petrochemical refinery columns and a water-treatment plant under daylight",
     imageTitle: "Fasteners for Refineries and Water Treatment Plants",
@@ -64,7 +65,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Specialized flange connections for tower foundations, nacelles and other critical components in renewable and conventional power generation.",
     icon: Wind,
-    imageUrl: "/images/home/sector-wind-power.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/sector-wind-power.webp`,
     imageAlt:
       "Row of wind turbines across a green field — renewable power generation",
     imageTitle: "Fasteners for Wind and Power Plants",
@@ -75,7 +76,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Wide range of fasteners used in track infrastructure, rolling stock systems fitting & other dynamic railway applications.",
     icon: Train,
-    imageUrl: "/images/home/sector-railways.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/sector-railways.webp`,
     imageAlt:
       "High-speed trains at a modern railway platform — transportation infrastructure",
     imageTitle: "Railway and Transportation Fasteners",
@@ -86,7 +87,7 @@ export const TARGET_SECTORS: TargetSector[] = [
     description:
       "Heavy-duty high-galvanized fasteners designed for crash-barrier assemblies, highway safety and longevity.",
     icon: Shield,
-    imageUrl: "/images/home/sector-guard-rail.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/sector-guard-rail.webp`,
     imageAlt:
       "Hot-dip galvanised road guard rail / crash barrier along a curved highway",
     imageTitle: "Hot Dip Galvanized Road Guard Rail Fasteners",

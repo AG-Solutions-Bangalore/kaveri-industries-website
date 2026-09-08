@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { CONTACT_CARDS, CONTACT_PAGE_CONTENT } from "@/feature/Contact/api/contactInfo";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -81,7 +82,7 @@ export function ContactInfoCards() {
         className="overflow-hidden rounded-sm border border-slate-200/70 shadow-xs dark:border-slate-700/60"
       >
         <img
-          src="/images/contact/contact-office.webp"
+          src={`${IMAGE_BASE_URL}/contact/contact-office.webp`}
           alt="Inside the Kaveri Industries engineering office — blueprints, sample boxes, and a wall of fastener stock"
           title="Kaveri Industries Engineering Office and Fastener Stock"
           loading="lazy"

@@ -7,6 +7,7 @@ import {
   Settings2,
   Wrench,
 } from "lucide-react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 /**
  * Full product catalogue for the Products page and detail pages.
@@ -78,7 +79,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Heavy head structural Fasteners (HSFG BOLTS) — engineered for the most demanding structural connections in transmission towers, buildings, bridges, refineries, and rail infrastructure.",
     icon: Bolt,
-    imageUrl: "/images/home/product-hex-bolts.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/product-hex-bolts.webp`,
     imageAlt:
       "Heavy hex structural bolts and screws (HSFG bolts) — Kaveri Industries",
     imageTitle: "Heavy Hex Structural Bolts and HSFG Bolts",
@@ -104,7 +105,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Guard Rail Bolts, Foundation Bolts, Anti Theft Nut & Bolts — hot-dip galvanised for decades of maintenance-free service in outdoor and corrosive environments.",
     icon: Settings2,
-    imageUrl: "/images/home/product-galvanised.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/product-galvanised.webp`,
     imageAlt:
       "Hot dip galvanised structural fasteners with a bright zinc coating",
     imageTitle: "Hot Dip Galvanised Structural Fasteners",
@@ -130,7 +131,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Hex nuts precision-tapped to mate with high-tensile bolts. The dependable mating half of any structural bolting assembly.",
     icon: Nut,
-    imageUrl: "/images/home/product-hex-nuts.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/product-hex-nuts.webp`,
     imageAlt: "Assorted hex nuts in zinc, black-oxide and yellow finishes",
     imageTitle: "High Tensile Hex Nuts in Zinc and Black Oxide",
     linkTitle: "Hex Nuts",
@@ -153,7 +154,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Slotted (castle) nuts machined with axial slots to accept a cotter pin — the classic positive-locking solution for vibration and dynamic loading.",
     icon: Cog,
-    imageUrl: "/images/products/product-slotted-nuts.webp",
+    imageUrl: `${IMAGE_BASE_URL}/products/product-slotted-nuts.webp`,
     imageAlt: "Slotted castle nuts ready for cotter pin locking",
     imageTitle: "Slotted Castle Nuts for Cotter Pin Locking",
     linkTitle: "Slotted Nuts",
@@ -176,7 +177,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Nylock lock nuts with an integrated nylon insert that grips the bolt thread and resists loosening under vibration — reusable across multiple cycles.",
     icon: Nut,
-    imageUrl: "/images/products/product-nylock-nuts.webp",
+    imageUrl: `${IMAGE_BASE_URL}/products/product-nylock-nuts.webp`,
     imageAlt: "Nylock nuts with integrated nylon locking collar",
     imageTitle: "Nylock Nuts with Nylon Locking Collar",
     linkTitle: "Nylock Nuts",
@@ -199,7 +200,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Studs and threaded bars for high-pressure flange bolting, foundation anchoring, and custom-length requirements.",
     icon: Wrench,
-    imageUrl: "/images/home/product-studs.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/product-studs.webp`,
     imageAlt: "Stud bolts and fully threaded bars in various diameters and grades",
     imageTitle: "Stud Bolts and Fully Threaded Bars",
     linkTitle: "Studs and Threaded Bars",
@@ -223,7 +224,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "All type of U-Bolts, Center Bolts for all types of heavy & light vehicles used in Indian & foreign market.",
     icon: CircleDot,
-    imageUrl: "/images/home/product-ubolts.webp",
+    imageUrl: `${IMAGE_BASE_URL}/home/product-ubolts.webp`,
     imageAlt: "U-bolts for heavy and light commercial vehicles",
     imageTitle: "U-Bolts for Commercial Vehicles",
     linkTitle: "U-Bolts",
@@ -246,7 +247,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Leaf-spring center bolts for heavy and light commercial vehicles. Forged and machined to OEM specifications, supplied to Indian and export markets.",
     icon: CircleDot,
-    imageUrl: "/images/products/product-center-bolts.webp",
+    imageUrl: `${IMAGE_BASE_URL}/products/product-center-bolts.webp`,
     imageAlt: "Leaf-spring center bolts for heavy and light commercial vehicles",
     imageTitle: "Leaf Spring Center Bolts for Commercial Vehicles",
     linkTitle: "Center Bolts",
@@ -269,7 +270,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "All type of plain, machined & spring washers As per IS: 2016, 3063 & as per customer's specifications.",
     icon: Cog,
-    imageUrl: "/images/products/product-washers.webp",
+    imageUrl: `${IMAGE_BASE_URL}/products/product-washers.webp`,
     imageAlt:
       "Plain, machined, and spring washers as per IS: 2016 and 3063",
     imageTitle: "Plain, Machined and Spring Washers",

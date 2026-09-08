@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -17,7 +18,7 @@ export function ProductsHero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.05] dark:opacity-[0.03] mix-blend-luminosity"
         style={{
-          backgroundImage: "url(/images/products/product-page-banner.webp)",
+          backgroundImage: `url(${IMAGE_BASE_URL}/products/product-page-banner.webp)`,
         }}
       />
       {/* Brand radial wash */}

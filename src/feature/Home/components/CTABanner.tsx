@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { CTA_BANNER_CONTENT } from "@/feature/Home/api/homeConstants";
 import { ShineButton } from "@/components/shine";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -22,7 +23,7 @@ export function CTABanner() {
       >
         {/* Right-side product image */}
         <img
-          src="/images/home/CTABannerRightImage.webp"
+          src={`${IMAGE_BASE_URL}/home/CTABannerRightImage.webp`}
           alt="Kaveri Industries high tensile fastener manufacturing"
           title="Kaveri Industries High Tensile Fastener Manufacturing"
           className="absolute right-0 top-[65%] h-[120%] w-auto -translate-y-1/2 object-contain opacity-40 dark:opacity-90"

@@ -1,42 +1,43 @@
 import { ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const V2_PRODUCTS = [
   {
     id: "hex-bolts",
     name: "HEX BOLTS",
-    image: "/images/home/v2-hex-bolts.webp",
+    image: `${IMAGE_BASE_URL}/home/v2-hex-bolts.webp`,
     href: "/products/hex-bolts",
   },
   {
     id: "socket-head-cap-screws",
     name: "SOCKET HEAD CAP SCREWS",
-    image: "/images/home/v2-socket-head-cap-screws.webp",
+    image: `${IMAGE_BASE_URL}/home/v2-socket-head-cap-screws.webp`,
     href: "/products",
   },
   {
     id: "anchor-bolts",
     name: "ANCHOR BOLTS",
-    image: "/images/home/v2-anchor-bolts.webp",
+    image: `${IMAGE_BASE_URL}/home/v2-anchor-bolts.webp`,
     href: "/products",
   },
   {
     id: "threaded-rods",
     name: "THREADED RODS",
-    image: "/images/home/v2-threaded-rods.webp",
+    image: `${IMAGE_BASE_URL}/home/v2-threaded-rods.webp`,
     href: "/products/studs",
   },
   {
     id: "nuts",
     name: "NUTS",
-    image: "/images/home/v2-nuts.webp",
+    image: `${IMAGE_BASE_URL}/home/v2-nuts.webp`,
     href: "/products/hex-nuts",
   },
   {
     id: "washers",
     name: "WASHERS",
-    image: "/images/home/v2-washers.webp",
+    image: `${IMAGE_BASE_URL}/home/v2-washers.webp`,
     href: "/products/washers",
   },
 ];

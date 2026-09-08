@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { IMAGE_BASE_URL } from "@/lib/images";
 
 const INDUSTRIES = [
   {
@@ -203,7 +204,7 @@ export function TrustedSectionV2() {
               {/* ISO 9001:2015 Image */}
               <div className="flex flex-col items-center group cursor-pointer transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/images/certifications/iso-9001-2015.webp"
+                  src={`${IMAGE_BASE_URL}/certifications/iso-9001-2015.webp`}
                   alt="ISO 9001:2015 Certified"
                   className="h-12 w-auto object-contain dark:invert dark:brightness-125 transition-all"
                   loading="lazy"
@@ -213,7 +214,7 @@ export function TrustedSectionV2() {
               {/* CE Mark Image */}
               <div className="group cursor-pointer transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/images/certifications/ce-mark.webp"
+                  src={`${IMAGE_BASE_URL}/certifications/ce-mark.webp`}
                   alt="CE Conformity Certified"
                   className="h-10 w-auto object-contain dark:invert dark:brightness-125 transition-all"
                   loading="lazy"
@@ -223,7 +224,7 @@ export function TrustedSectionV2() {
               {/* ISI Mark Image */}
               <div className="group cursor-pointer transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/images/certifications/isi-mark.webp"
+                  src={`${IMAGE_BASE_URL}/certifications/isi-mark.webp`}
                   alt="ISI BIS Quality Certified"
                   className="h-11 w-auto object-contain dark:invert dark:brightness-125 transition-all"
                   loading="lazy"
