@@ -155,16 +155,20 @@ export function HeroV2() {
     >
       {/* Visual Canvas — Compact, balanced height without bloated vertical empty space */}
       <div className="relative w-full">
-        {/* Industrial Bolt Photography Background */}
+        {/* Industrial Bolt Photography Background — webp primary with
+            explicit dimensions (no CLS); PNG kept only as legacy fallback. */}
         <picture>
           <source
             srcSet={`${IMAGE_BASE_URL}/home/hero-banner-bg-v2.webp`}
             type="image/webp"
           />
           <img
-            src={`${IMAGE_BASE_URL}/home/hero-banner-bg-v2.png`}
+            src={`${IMAGE_BASE_URL}/home/hero-banner-bg-v2.webp`}
             alt="Kaveri High Tensile 10.9 Hex Bolts and Fasteners"
-            className="absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-[62%_center]"
+            className="absolute inset-0 h-full w-full bg-[#0A0D12] object-cover object-[70%_center] md:object-[62%_center]"
+            width={1920}
+            height={1080}
+            sizes="100vw"
             loading="eager"
             fetchPriority="high"
             decoding="async"

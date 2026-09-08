@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useLenis } from "lenis/react";
+import { getLenisInstance } from "@/lib/lenisInstance";
 
 /**
  * Restores scroll position on client-side navigation.
@@ -18,7 +18,9 @@ import { useLenis } from "lenis/react";
  */
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
-  const lenis = useLenis();
+  // Read — never hook — the Lenis instance so `lenis/react` stays out of
+  // the first-paint bundle (see lib/lenisInstance.ts).
+  const lenis = getLenisInstance();
 
   useEffect(() => {
     // Hash navigation: honour the in-page anchor if it exists, otherwise

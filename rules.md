@@ -59,9 +59,10 @@ appear together. Image must be 1200×630 with explicit `og:image:width`,
 
 Never hand-write `<script type="application/ld+json">`. Use a builder:
 
-- `organizationSchema()` — auto-injected site-wide.
-- `localBusinessSchema()` — auto-injected site-wide.
-- `websiteSchema()` — auto-injected site-wide.
+- `organizationSchema()` / `localBusinessSchema()` — unified single entity (`["Organization", "LocalBusiness"]`) emitted ONCE as static JSON-LD in `index.html`.
+- `websiteSchema()` — emitted ONCE as static JSON-LD in `index.html`.
+- Never pass site-wide builders via `<SEO schema={...} />` — every
+  entity would be detected twice (double "valid items" in Rich Results Test).
 - `breadcrumbSchema(items)` — required on every non-home page.
 - `productSchema(p)` — product detail pages.
 - `faqSchema(qa)` — FAQ section / page.

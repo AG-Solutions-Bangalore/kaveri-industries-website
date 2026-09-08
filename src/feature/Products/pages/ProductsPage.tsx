@@ -4,7 +4,7 @@ import { ProductsGrid } from "@/feature/Products/components/ProductsGrid";
 import { ProductsCTA } from "@/feature/Products/components/ProductsCTA";
 import { productsSEO } from "@/feature/Products/seo/productsSeo";
 import { PRODUCTS } from "@/feature/Products/api/products";
-import { breadcrumbSchema, productSchema } from "@/lib/schemas";
+import { breadcrumbSchema, productSchema, absUrl } from "@/lib/schemas";
 import { IMAGE_BASE_URL } from "@/lib/images";
 
 /**
@@ -16,14 +16,15 @@ export default function ProductsPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: PRODUCTS.map((p, i) => ({
-      ...productSchema({
+      "@type": "ListItem",
+      position: i + 1,
+      url: absUrl(`/products/${p.slug}`),
+      item: productSchema({
         name: p.name,
         description: p.shortDescription,
         image: p.imageUrl ?? `${IMAGE_BASE_URL}/home/product-hex-bolts.webp`,
         sku: p.id.toUpperCase(),
       }),
-      position: i + 1,
-      url: `/products/${p.slug}`,
     })),
   };
 
