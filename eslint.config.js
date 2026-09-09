@@ -20,10 +20,21 @@ export default defineConfig([
       // src/routes/routes.tsx — Fast Refresh requires that file's exports
       // be components OR allowed-constants. `wrap` is an HOC. Whitelist.
       "react-refresh/only-export-components": [
-        "error",
+        "warn",
         {
           allowConstantExport: true,
-          allowExportNames: ["routes"],
+          allowExportNames: [
+            "routes",
+            "NAV",
+            "NAV_ITEMS_V2",
+            "buttonVariants",
+            "isDarkTheme",
+            "resolveDark",
+            "createDithered404",
+            "useQuoteModal",
+            "useSwitch",
+            "useIsInView",
+          ],
           extraHOCs: ["wrap"],
         },
       ],

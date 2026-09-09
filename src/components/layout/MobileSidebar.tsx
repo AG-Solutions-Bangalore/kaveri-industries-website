@@ -27,9 +27,11 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
   const { openQuoteModal } = useQuoteModal();
 
   // Close on route change so the drawer doesn't linger after navigation.
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
     setIsOpen(false);
-  }, [location.pathname]);
+  }
 
   // Lock body scroll while open; restore the prior value on close/unmount.
   useEffect(() => {

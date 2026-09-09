@@ -87,11 +87,13 @@ export function ContactForm({
   const [countdownMs, setCountdownMs] = useState<number>(AUTO_DISMISS_MS);
   const dismissedRef = useRef(false);
 
-  useEffect(() => {
+  const [prevDefaultSubject, setPrevDefaultSubject] = useState(defaultSubject);
+  if (prevDefaultSubject !== defaultSubject) {
+    setPrevDefaultSubject(defaultSubject);
     if (defaultSubject !== undefined) {
       setValues((prev) => ({ ...prev, subject: defaultSubject }));
     }
-  }, [defaultSubject]);
+  }
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
