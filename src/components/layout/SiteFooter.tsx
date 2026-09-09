@@ -60,7 +60,6 @@ function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label:
   if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
   if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
   if (import.meta.env.DEV) {
-    // eslint-disable-next-line no-console
     console.warn(`[SiteFooter] No icon mapping for social URL: ${url}`);
   }
   return null;

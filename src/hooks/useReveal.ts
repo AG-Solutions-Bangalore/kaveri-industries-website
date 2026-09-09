@@ -20,16 +20,25 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
   options: IntersectionObserverInit = {},
 ) {
   const ref = useRef<T | null>(null);
-  const [revealed, setRevealed] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
+  const [revealed, setRevealed] = useState(
+    () => reducedMotion || typeof IntersectionObserver === "undefined",
+  );
+
+  const [prevReducedMotion, setPrevReducedMotion] = useState(reducedMotion);
+  if (prevReducedMotion !== reducedMotion) {
+    setPrevReducedMotion(reducedMotion);
+    if (reducedMotion) {
+      setRevealed(true);
+    }
+  }
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
-    // Skip the observer if motion is reduced — mark revealed immediately.
+    // Skip the observer if motion is reduced — already marked revealed.
     if (reducedMotion || typeof IntersectionObserver === "undefined") {
-      setRevealed(true);
       return;
     }
 
