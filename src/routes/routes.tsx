@@ -25,6 +25,9 @@ const NotFoundPage = lazy(() => import("@/feature/NotFound/pages/NotFoundPage"))
 const IndustriesPage = lazy(
   () => import("@/feature/Industries/pages/IndustriesPage"),
 );
+const CertificatePage = lazy(
+  () => import("@/feature/Certificate/pages/CertificatePage"),
+);
 const LegalPage = lazy(() => import("@/feature/Legal/pages/LegalPage"));
 const DemoPage = lazy(() => import("@/feature/Demo/pages/DemoPage"));
 
@@ -56,6 +59,8 @@ export function AppRoutes() {
             { path: "products", element: wrap(ProductsPage) },
             { path: "products/:slug", element: wrap(ProductDetailPage) },
             { path: "industries", element: wrap(IndustriesPage) },
+            { path: "certificate", element: wrap(CertificatePage) },
+            { path: "certificates", element: <Navigate to="/certificate" replace /> },
             { path: "contact", element: wrap(ContactPage) },
             { path: "privacy", element: <LegalPage slug="privacy" /> },
             { path: "terms", element: <LegalPage slug="terms" /> },

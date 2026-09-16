@@ -11,8 +11,7 @@ export const NAV_ITEMS_V2 = [
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", hasDropdown: true, end: false },
   { to: "/industries", label: "Industries", end: false },
-  { to: "/about", label: "Quality", end: false },
-  { to: "/contact", label: "Careers", end: false },
+  { to: "/certificate", label: "Certifications", end: false },
   { to: "/contact", label: "Contact Us", end: false },
 ];
 
