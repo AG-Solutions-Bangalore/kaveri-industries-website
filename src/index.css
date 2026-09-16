@@ -442,6 +442,17 @@
     --tw-ring-offset-color: hsl(var(--color-inverted));
   }
 
+  /* === Hide scrollbars on snap-scroll carousels (Tailwind v4 has no
+     scrollbar-none utility by default) === */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   /* === Scroll-reveal === */
   /* Hidden initial state, animates to visible once `data-revealed="true"`.
      `--reveal-delay` (seconds) lets siblings stagger without extra JS. */

@@ -53,7 +53,7 @@ export function VendorApprovalHero() {
           </span>
         </nav>
 
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8">
           {/* Left Column: Heading, Subtitle, Badges */}
           <div className="lg:col-span-7">
             <motion.h1
@@ -81,14 +81,14 @@ export function VendorApprovalHero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE, delay: 0.2 }}
-              className="mt-8 flex flex-wrap items-center gap-5 sm:gap-6"
+              className="mt-6 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 sm:mt-8 lg:flex lg:flex-wrap lg:items-center lg:gap-6"
             >
               {VENDOR_HERO_PILLS.map((pill, idx) => (
                 <div
                   key={pill.line1}
-                  className={`flex items-center gap-3 ${
+                  className={`flex min-w-0 items-center gap-3 ${
                     idx < VENDOR_HERO_PILLS.length - 1
-                      ? "sm:border-r sm:border-slate-700/80 sm:pr-6"
+                      ? "lg:border-r lg:border-slate-700/80 lg:pr-6"
                       : ""
                   }`}
                 >

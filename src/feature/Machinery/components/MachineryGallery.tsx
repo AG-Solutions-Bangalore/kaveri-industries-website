@@ -17,7 +17,7 @@ export function MachineryGallery() {
   return (
     <section
       aria-labelledby="machinery-gallery-heading"
-      className="bg-slate-50/50 py-16 dark:bg-[#071224]/50"
+      className="bg-slate-50/50 py-12 sm:py-16 dark:bg-[#071224]/50"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header with Carousel Navigation */}
@@ -34,7 +34,9 @@ export function MachineryGallery() {
             </h2>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Carousel arrows are only needed on mobile (snap-scroll list).
+              sm+ renders a static grid, so hide them there. */}
+          <div className="flex items-center gap-2 sm:hidden">
             <button
               type="button"
               onClick={() => handleScroll("left")}
@@ -54,15 +56,15 @@ export function MachineryGallery() {
           </div>
         </div>
 
-        {/* 4 Gallery Cards */}
+        {/* Mobile: snap-scroll carousel. sm+: static grid. */}
         <div
           ref={scrollRef}
-          className="mt-8 flex gap-6 overflow-x-auto pb-4 scrollbar-none sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
+          className="-mx-4 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-4 scrollbar-none sm:mx-0 sm:mt-8 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4"
         >
           {MACHINERY_GALLERY_DATA.map((item) => (
             <div
               key={item.id}
-              className="group min-w-[260px] sm:min-w-0 flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+              className="group flex w-[78%] min-w-[240px] max-w-[320px] shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md sm:w-auto sm:min-w-0 sm:max-w-none dark:border-slate-800 dark:bg-slate-900"
             >
               {/* Photo Frame */}
               <div className="aspect-4/3 w-full overflow-hidden bg-slate-100 dark:bg-slate-950">

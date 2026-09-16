@@ -21,7 +21,7 @@ export function CertificateModal({
         <Dialog.Overlay className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
         <Dialog.Content
           aria-describedby="cert-dialog-desc"
-          className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[95vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-slate-700/60 bg-slate-900 p-6 text-white shadow-2xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
+          className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[95vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-slate-700/60 bg-slate-900 p-4 text-white shadow-2xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:p-6"
         >
           <div className="flex items-start justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
@@ -51,13 +51,13 @@ export function CertificateModal({
 
           {/* Metadata & Actions */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-xs sm:text-sm">
+            <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs break-words sm:text-sm">
               <span className="text-slate-400">Certificate No:</span>
-              <span className="font-semibold text-slate-200">{certificate.certNo}</span>
+              <span className="font-semibold break-words text-slate-200">{certificate.certNo}</span>
               <span className="text-slate-400">Issued By:</span>
-              <span className="font-semibold text-slate-200">{certificate.issuedBy}</span>
+              <span className="font-semibold break-words text-slate-200">{certificate.issuedBy}</span>
               <span className="text-slate-400">Valid Until:</span>
-              <span className="font-semibold text-slate-200">{certificate.validUntil}</span>
+              <span className="font-semibold break-words text-slate-200">{certificate.validUntil}</span>
             </div>
 
             <a
@@ -65,7 +65,7 @@ export function CertificateModal({
               download
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-md transition-colors hover:bg-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-md transition-colors hover:bg-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 sm:w-auto"
             >
               <Download className="h-4 w-4" />
               Download Official Certificate

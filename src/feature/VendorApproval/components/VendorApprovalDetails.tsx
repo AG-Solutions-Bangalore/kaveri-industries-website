@@ -46,9 +46,9 @@ export function VendorApprovalDetails() {
           <button
             type="button"
             onClick={handleDownloadSummary}
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-brand-500/40 bg-white px-4 py-2.5 text-xs font-semibold text-brand-700 shadow-xs transition-colors hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-brand-500/30 dark:bg-slate-900 dark:text-brand-300 dark:hover:bg-brand-950/40 sm:text-sm"
+            className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-lg border border-brand-500/40 bg-white px-4 py-2.5 text-xs font-semibold text-brand-700 shadow-xs transition-colors hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-brand-500/30 dark:bg-slate-900 dark:text-brand-300 dark:hover:bg-brand-950/40 sm:w-auto sm:text-sm"
           >
-            <Download className="h-4 w-4" />
+            <Download className="h-4 w-4 shrink-0" />
             Download Approval Summary (PDF)
           </button>
         </div>
@@ -63,10 +63,10 @@ export function VendorApprovalDetails() {
                   key={row.label}
                   className="grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-12 sm:items-center sm:gap-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/30"
                 >
-                  <span className="font-semibold text-slate-700 dark:text-slate-300 sm:col-span-5">
+                  <span className="font-semibold break-words text-slate-700 dark:text-slate-300 sm:col-span-5">
                     {row.label}
                   </span>
-                  <div className="text-slate-600 dark:text-slate-300 sm:col-span-7">
+                  <div className="min-w-0 break-words text-slate-600 dark:text-slate-300 sm:col-span-7">
                     {row.status ? (
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -117,8 +117,8 @@ export function VendorApprovalDetails() {
               </button>
             </div>
 
-            {/* Action Buttons */}
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            {/* Action Buttons: stacked on very small phones, side-by-side above 420px */}
+            <div className="mt-5 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
