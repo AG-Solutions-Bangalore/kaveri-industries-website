@@ -87,7 +87,7 @@ export function AboutSectionV2() {
           type="image/webp"
         />
         <img
-          src={`${IMAGE_BASE_URL}/home/v2-hero-section-3rd-image-bg.png`}
+          src={`${IMAGE_BASE_URL}/home/v2-hero-section-3rd-image-bg.webp`}
           alt="Kaveri Industries automated hot forging and fastener rolling facility"
           className="absolute inset-0 h-full w-full object-cover object-center"
           loading="lazy"

@@ -12,7 +12,7 @@ export function VendorApprovalDetails() {
   const handleDownloadSummary = () => {
     const link = document.createElement("a");
     link.href = RDSO_CERTIFICATE_DATA.downloadUrl;
-    link.download = "RDSO_Vendor_Approval_Summary.jpg";
+    link.download = "RDSO_Vendor_Approval_Summary.webp";
     link.click();
   };
 

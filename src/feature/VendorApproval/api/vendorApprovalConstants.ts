@@ -77,7 +77,7 @@ export const RDSO_CERTIFICATE_DATA = {
   subtitle: "Official approval certificate issued by RDSO.",
   image: "/images/vendor-approval/rdso_cert_preview.webp",
   imageAlt: "Official RDSO Vendor Approval Certificate preview",
-  downloadUrl: "/images/vendor-approval/rdso_cert_preview.jpg",
+  downloadUrl: "/images/vendor-approval/rdso_cert_preview.webp",
   certNo: "RDSO/PE/S/XXX/202X",
   authority: "RDSO (Ministry of Railways)",
   validity: "14 March 2028",

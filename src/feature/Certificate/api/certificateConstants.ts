@@ -61,7 +61,7 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     validUntil: "14 Mar 2026",
     image: "/images/certificate/cert_iso_9001.webp",
     imageAlt: "ISO 9001:2015 Quality Management System Certificate",
-    downloadUrl: "/images/certificate/cert_iso_9001.jpg",
+    downloadUrl: "/images/certificate/cert_iso_9001.webp",
   },
   {
     id: "rdso",
@@ -72,7 +72,7 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     validUntil: "14 Mar 2028",
     image: "/images/certificate/cert_rdso.webp",
     imageAlt: "RDSO Vendor Approval Certificate by Ministry of Railways",
-    downloadUrl: "/images/certificate/cert_rdso.jpg",
+    downloadUrl: "/images/certificate/cert_rdso.webp",
   },
   {
     id: "bis",
@@ -83,7 +83,7 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     validUntil: "22 Jan 2027",
     image: "/images/certificate/cert_bis.webp",
     imageAlt: "BIS Certificate of Conformity by Bureau of Indian Standards",
-    downloadUrl: "/images/certificate/cert_bis.jpg",
+    downloadUrl: "/images/certificate/cert_bis.webp",
   },
   {
     id: "iso-14001",
@@ -94,7 +94,7 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     validUntil: "14 Mar 2026",
     image: "/images/certificate/cert_iso_14001.webp",
     imageAlt: "ISO 14001:2015 Environmental Management Certificate",
-    downloadUrl: "/images/certificate/cert_iso_14001.jpg",
+    downloadUrl: "/images/certificate/cert_iso_14001.webp",
   },
 ];
 

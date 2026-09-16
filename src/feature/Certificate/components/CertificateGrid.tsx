@@ -10,7 +10,7 @@ export function CertificateGrid() {
     // Triggers download of primary ISO certificate or first item, or opens dialog
     const link = document.createElement("a");
     link.href = MAIN_CERTIFICATES[0].downloadUrl;
-    link.download = "Kaveri_Industries_Certificates.jpg";
+    link.download = "Kaveri_Industries_Certificates.webp";
     link.click();
   };
 

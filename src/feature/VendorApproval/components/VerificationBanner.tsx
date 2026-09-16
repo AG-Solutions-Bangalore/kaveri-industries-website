@@ -8,7 +8,7 @@ export function VerificationBanner() {
   const handleDownloadAll = () => {
     const link = document.createElement("a");
     link.href = RDSO_CERTIFICATE_DATA.downloadUrl;
-    link.download = "RDSO_Vendor_Approval_All_Documents.jpg";
+    link.download = "RDSO_Vendor_Approval_All_Documents.webp";
     link.click();
   };
 
