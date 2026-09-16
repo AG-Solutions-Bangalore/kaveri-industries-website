@@ -28,6 +28,9 @@ const IndustriesPage = lazy(
 const CertificatePage = lazy(
   () => import("@/feature/Certificate/pages/CertificatePage"),
 );
+const VendorApprovalPage = lazy(
+  () => import("@/feature/VendorApproval/pages/VendorApprovalPage"),
+);
 const LegalPage = lazy(() => import("@/feature/Legal/pages/LegalPage"));
 const DemoPage = lazy(() => import("@/feature/Demo/pages/DemoPage"));
 
@@ -59,6 +62,9 @@ export function AppRoutes() {
             { path: "products", element: wrap(ProductsPage) },
             { path: "products/:slug", element: wrap(ProductDetailPage) },
             { path: "industries", element: wrap(IndustriesPage) },
+            { path: "vendor-approval", element: wrap(VendorApprovalPage) },
+            { path: "vendor-approvals", element: <Navigate to="/vendor-approval" replace /> },
+            { path: "certificate/vendor-approval", element: <Navigate to="/vendor-approval" replace /> },
             { path: "certificate", element: wrap(CertificatePage) },
             { path: "certificates", element: <Navigate to="/certificate" replace /> },
             { path: "contact", element: wrap(ContactPage) },

@@ -1,21 +1,19 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Shield, Settings, Users, ChevronRight } from "lucide-react";
-import { HERO_PILLS } from "../api/certificateConstants";
+import { Shield, Briefcase, Settings, ChevronRight } from "lucide-react";
+import { VENDOR_HERO_PILLS } from "../api/vendorApprovalConstants";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export function CertificateHero() {
-  const getIcon = (icon: string) => {
+export function VendorApprovalHero() {
+  const getIcon = (icon: "shield" | "briefcase" | "settings") => {
     switch (icon) {
       case "shield":
         return <Shield className="h-4 w-4 text-brand-400" />;
+      case "briefcase":
+        return <Briefcase className="h-4 w-4 text-brand-400" />;
       case "settings":
         return <Settings className="h-4 w-4 text-brand-400" />;
-      case "users":
-        return <Users className="h-4 w-4 text-brand-400" />;
-      default:
-        return <Shield className="h-4 w-4 text-brand-400" />;
     }
   };
 
@@ -24,9 +22,9 @@ export function CertificateHero() {
       {/* Background banner image matching Hero.tsx layout & width */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900">
         <img
-          src="/images/certificate/hero_banner.webp"
-          alt="Certifications & Approvals – Kaveri Industries"
-          title="Certifications & Approvals – Kaveri Industries"
+          src="/images/vendor-approval/vendor_hero_banner.webp"
+          alt="Vendor Approval – Kaveri Industries"
+          title="Vendor Approval – Kaveri Industries"
           className="h-full w-full object-cover"
           width={1920}
           height={1080}
@@ -35,13 +33,13 @@ export function CertificateHero() {
           decoding="async"
         />
 
-        {/* Gradient overlay to ensure crisp readability on the left while showcasing the stamp on the right */}
+        {/* Gradient overlays for contrast and stamp visibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#071120] from-20% via-[#071120]/85 via-55% to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#071120]/50 via-transparent to-[#071120]/80" />
       </div>
 
       <section
-        aria-labelledby="cert-hero-heading"
+        aria-labelledby="vendor-hero-heading"
         className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-20 md:pt-16 md:pb-28"
       >
         {/* Breadcrumbs */}
@@ -51,7 +49,7 @@ export function CertificateHero() {
           </Link>
           <ChevronRight className="h-3 w-3 text-slate-600" />
           <span className="font-medium text-slate-300" aria-current="page">
-            Certifications
+            Vendor Approval
           </span>
         </nav>
 
@@ -59,14 +57,13 @@ export function CertificateHero() {
           {/* Left Column: Heading, Subtitle, Badges */}
           <div className="lg:col-span-7">
             <motion.h1
-              id="cert-hero-heading"
+              id="vendor-hero-heading"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE }}
               className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl"
             >
-              Certifications &{" "}
-              <span className="text-brand-400">Approvals</span>
+              Vendor <span className="text-brand-400">Approval</span>
             </motion.h1>
 
             <motion.p
@@ -75,25 +72,25 @@ export function CertificateHero() {
               transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
               className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base"
             >
-              Our commitment to quality, safety and compliance is validated
-              through recognized certifications and approvals from leading
-              authorities.
+              Recognized and approved by RDSO and other authorized bodies for our
+              manufacturing capabilities and product quality.
             </motion.p>
 
-            {/* Badges / Pills */}
+            {/* Badges / Pills: 2 lines each */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE, delay: 0.2 }}
               className="mt-8 flex flex-wrap items-center gap-5 sm:gap-6"
             >
-              {HERO_PILLS.map((pill, idx) => (
+              {VENDOR_HERO_PILLS.map((pill, idx) => (
                 <div
                   key={pill.line1}
-                  className={`flex items-center gap-3 ${idx < HERO_PILLS.length - 1
+                  className={`flex items-center gap-3 ${
+                    idx < VENDOR_HERO_PILLS.length - 1
                       ? "sm:border-r sm:border-slate-700/80 sm:pr-6"
                       : ""
-                    }`}
+                  }`}
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-500/30 bg-brand-500/10">
                     {getIcon(pill.icon)}
@@ -107,7 +104,7 @@ export function CertificateHero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Industrial Stamp Typography */}
+          {/* Right Column: Stacked Credentials Typography */}
           <div className="flex justify-start lg:col-span-5 lg:justify-end">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -116,16 +113,22 @@ export function CertificateHero() {
               className="border-l-2 border-slate-700/80 pl-5 py-2 space-y-1 backdrop-blur-[2px]"
             >
               <span className="block text-xs font-bold tracking-[0.22em] text-white">
-                COMPLIANCE
+                TRUSTED
               </span>
               <span className="block text-xs font-bold tracking-[0.22em] text-brand-400">
-                QUALITY
+                APPROVED
               </span>
               <span className="block text-xs font-bold tracking-[0.22em] text-white">
-                TRUST
+                RELIABLE
               </span>
-              <span className="block pt-1 text-[10px] font-semibold tracking-wider text-slate-300">
-                A STRONGER TOMORROW
+              <span className="block text-xs font-bold tracking-[0.22em] text-slate-300">
+                FOR A
+              </span>
+              <span className="block text-xs font-bold tracking-[0.22em] text-white">
+                STRONGER
+              </span>
+              <span className="block text-xs font-bold tracking-[0.22em] text-slate-300">
+                TOMORROW
               </span>
             </motion.div>
           </div>

@@ -1,0 +1,23 @@
+import {
+  VENDOR_HERO_PILLS,
+  VENDOR_APPROVAL_TABLE,
+  APPROVED_PRODUCTS_DATA,
+  RDSO_CERTIFICATE_DATA,
+  VERIFICATION_BANNER_DATA,
+} from "./vendorApprovalConstants";
+
+export function getApprovedProducts() {
+  return APPROVED_PRODUCTS_DATA;
+}
+
+export function getApprovalDetails() {
+  return VENDOR_APPROVAL_TABLE;
+}
+
+export {
+  VENDOR_HERO_PILLS,
+  VENDOR_APPROVAL_TABLE,
+  APPROVED_PRODUCTS_DATA,
+  RDSO_CERTIFICATE_DATA,
+  VERIFICATION_BANNER_DATA,
+};
