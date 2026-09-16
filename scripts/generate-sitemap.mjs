@@ -48,15 +48,18 @@ const SITE_URL =
 
 /** Static routes — keep in sync with `src/routes/routes.tsx`. */
 const STATIC_ROUTES = [
-  { path: "/",            changefreq: "weekly",  priority: 1.0 },
-  { path: "/about",       changefreq: "monthly", priority: 0.8 },
-  { path: "/products",    changefreq: "weekly",  priority: 0.9 },
-  { path: "/industries",  changefreq: "monthly", priority: 0.7 },
-  { path: "/contact",     changefreq: "yearly",  priority: 0.6 },
-  { path: "/privacy",     changefreq: "yearly",  priority: 0.3 },
-  { path: "/terms",       changefreq: "yearly",  priority: 0.3 },
-  { path: "/compliance",  changefreq: "yearly",  priority: 0.3 },
-  { path: "/demo",        changefreq: "monthly", priority: 0.4 },
+  { path: "/",                changefreq: "weekly",  priority: 1.0 },
+  { path: "/about",           changefreq: "monthly", priority: 0.8 },
+  { path: "/products",        changefreq: "weekly",  priority: 0.9 },
+  { path: "/industries",      changefreq: "monthly", priority: 0.7 },
+  { path: "/machinery",       changefreq: "monthly", priority: 0.8 },
+  { path: "/vendor-approval", changefreq: "monthly", priority: 0.8 },
+  { path: "/certificate",     changefreq: "monthly", priority: 0.8 },
+  { path: "/contact",         changefreq: "yearly",  priority: 0.6 },
+  { path: "/privacy",         changefreq: "yearly",  priority: 0.3 },
+  { path: "/terms",           changefreq: "yearly",  priority: 0.3 },
+  { path: "/compliance",      changefreq: "yearly",  priority: 0.3 },
+  { path: "/demo",            changefreq: "monthly", priority: 0.4 },
 ];
 
 /**

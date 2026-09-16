@@ -11,7 +11,10 @@ export const NAV = [
   { to: "/", label: "Home", title: "Kaveri Industries Home", end: true },
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", end: false },
+  { to: "/machinery", label: "Machinery", end: false },
   { to: "/industries", label: "Industries", end: false },
+  { to: "/vendor-approval", label: "Vendor Approval", end: false },
+  { to: "/certificate", label: "Certifications", end: false },
   { to: "/contact", label: "Contact Us", end: false },
 ];
 

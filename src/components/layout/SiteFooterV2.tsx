@@ -11,7 +11,10 @@ const NAV_V2_FOOTER = [
   { to: "/v2", label: "Home" },
   { to: "/about", label: "About Us" },
   { to: "/products", label: "Products" },
+  { to: "/machinery", label: "Machinery" },
   { to: "/industries", label: "Industries" },
+  { to: "/vendor-approval", label: "Vendor Approval" },
+  { to: "/certificate", label: "Certifications" },
   { to: "/contact", label: "Contact Us" },
 ];
 
