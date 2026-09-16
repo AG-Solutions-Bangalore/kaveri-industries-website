@@ -10,6 +10,7 @@ export const NAV_ITEMS_V2 = [
   { to: "/v2", label: "Home", title: "Kaveri Industries Home", end: true },
   { to: "/about", label: "About Us", end: false },
   { to: "/products", label: "Products", hasDropdown: true, end: false },
+  { to: "/machinery", label: "Machinery", end: false },
   { to: "/industries", label: "Industries", end: false },
   { to: "/vendor-approval", label: "Vendor Approval", end: false },
   { to: "/certificate", label: "Certifications", end: false },
