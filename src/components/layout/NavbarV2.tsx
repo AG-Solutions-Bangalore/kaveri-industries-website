@@ -12,8 +12,7 @@ export const NAV_ITEMS_V2 = [
   { to: "/products", label: "Products", hasDropdown: true, end: false },
   { to: "/machinery", label: "Machinery", end: false },
   { to: "/industries", label: "Industries", end: false },
-  { to: "/vendor-approval", label: "Vendor Approval", end: false },
-  { to: "/certificate", label: "Certifications", end: false },
+  { to: "/rdso-approval", label: "RDSO Approval", end: false },
   { to: "/contact", label: "Contact Us", end: false },
 ];
 

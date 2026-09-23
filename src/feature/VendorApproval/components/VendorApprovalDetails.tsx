@@ -12,7 +12,7 @@ export function VendorApprovalDetails() {
   const handleDownloadSummary = () => {
     const link = document.createElement("a");
     link.href = RDSO_CERTIFICATE_DATA.downloadUrl;
-    link.download = "RDSO_Vendor_Approval_Summary.webp";
+    link.download = "RDSO_Approval_Summary.webp";
     link.click();
   };
 
@@ -32,7 +32,7 @@ export function VendorApprovalDetails() {
               id="approval-details-heading"
               className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl"
             >
-              RDSO Vendor Approval
+              RDSO Approval
             </h2>
             <p className="mt-2 max-w-3xl text-xs leading-relaxed text-slate-600 dark:text-slate-400 sm:text-sm">
               We are an approved vendor under the Research Designs and Standards
@@ -81,7 +81,7 @@ export function VendorApprovalDetails() {
             </div>
           </div>
 
-          {/* Right Column: Vendor Approval Certificate Card */}
+          {/* Right Column: RDSO Approval Certificate Card */}
           <div className="rounded-xl border border-slate-200/90 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900 lg:col-span-5">
             {/* Header */}
             <div className="flex items-start gap-3 border-b border-slate-100 pb-4 dark:border-slate-800">

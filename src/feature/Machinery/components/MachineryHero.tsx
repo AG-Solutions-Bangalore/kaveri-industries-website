@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Cpu, Factory, Crosshair, Users, ChevronRight } from "lucide-react";
 import { MACHINERY_HERO_PILLS } from "../api/machineryConstants";
+import { WEB_IMAGE_BASE } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -24,7 +25,7 @@ export function MachineryHero() {
       {/* Background banner image matching Hero.tsx layout & width */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900">
         <img
-          src="/images/machinery/machinery_hero_banner.webp"
+          src={`${WEB_IMAGE_BASE}/machinery/machinery_hero_banner.webp`}
           alt="Machinery & Manufacturing Facilities – Kaveri Industries"
           title="Machinery & Manufacturing Facilities – Kaveri Industries"
           className="h-full w-full object-cover"
@@ -104,29 +105,6 @@ export function MachineryHero() {
                   </div>
                 </div>
               ))}
-            </motion.div>
-          </div>
-
-          {/* Right Column: Stacked Credentials Typography */}
-          <div className="flex justify-start lg:col-span-4 lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
-              className="border-l-2 border-slate-700/80 pl-5 py-2 space-y-1 backdrop-blur-[2px]"
-            >
-              <span className="block text-xs font-bold tracking-[0.22em] text-white">
-                BUILT
-              </span>
-              <span className="block text-xs font-bold tracking-[0.22em] text-brand-400">
-                FOR A
-              </span>
-              <span className="block text-xs font-bold tracking-[0.22em] text-white">
-                STRONGER
-              </span>
-              <span className="block text-xs font-bold tracking-[0.22em] text-slate-300">
-                TOMORROW
-              </span>
             </motion.div>
           </div>
         </div>

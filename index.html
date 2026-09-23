@@ -39,17 +39,17 @@
     <link rel="preconnect" href="https://agsdemo.in" crossorigin />
     <link rel="dns-prefetch" href="https://agsdemo.in" />
 
-    <!-- LCP image preload — LOCAL banner (public/images/home/) with responsive
-         variants: mobile downloads the 15KB 768w file instead of the 243KB
+    <!-- LCP image preload — remote CDN banner with responsive
+         variants: mobile downloads the 768w file instead of the full
          original. og:image / twitter:image below stay remote (absolute URLs
          required for social crawlers — they don't affect Lighthouse). -->
     <link
       rel="preload"
       as="image"
       type="image/webp"
-      imagesrcset="/images/home/home_banner_image-768.webp 768w, /images/home/home_banner_image-1280.webp 1280w, /images/home/home_banner_image-1440.webp 1440w, /images/home/home_banner_image.webp 1920w"
+      imagesrcset="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-768.webp 768w, https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-1280.webp 1280w, https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-1440.webp 1440w, https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp 1920w"
       imagesizes="100vw"
-      href="/images/home/home_banner_image-1280.webp"
+      href="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-1280.webp"
       fetchpriority="high"
     />
 
@@ -72,7 +72,7 @@
       content="Kaveri Industries manufactures high tensile MS fasteners, bolts, nuts, U-bolts and washers for towers, infrastructure, power, railways and industrial applications."
     />
     <meta property="og:url" content="https://kaveri.agsdemo.in/" />
-    <meta property="og:image" content="https://agsdemo.in/kaveri/api/assets/images/home/home_banner_image.webp" />
+    <meta property="og:image" content="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="900" />
     <meta property="og:locale" content="en_IN" />
@@ -84,7 +84,7 @@
       name="twitter:description"
       content="Kaveri Industries manufactures high tensile MS fasteners, bolts, nuts, U-bolts and washers for towers, infrastructure, power, railways and industrial applications."
     />
-    <meta name="twitter:image" content="https://agsdemo.in/kaveri/api/assets/images/home/home_banner_image.webp" />
+    <meta name="twitter:image" content="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp" />
 
     <!-- Schema.org JSON-LD — site-wide Organization + LocalBusiness + WebSite.
          Single-Page Apps must serve their site-level graph in static HTML: a

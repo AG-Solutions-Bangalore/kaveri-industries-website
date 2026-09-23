@@ -1,3 +1,4 @@
+import { WEB_IMAGE_BASE } from "@/lib/images";
 export interface CertificateItem {
   id: string;
   title: string;
@@ -59,9 +60,9 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     certNo: "QMS/2023/001",
     issuedBy: "TÜV NORD",
     validUntil: "14 Mar 2026",
-    image: "/images/certificate/cert_iso_9001.webp",
+    image: `${WEB_IMAGE_BASE}/certificate/cert_iso_9001.webp`,
     imageAlt: "ISO 9001:2015 Quality Management System Certificate",
-    downloadUrl: "/images/certificate/cert_iso_9001.webp",
+    downloadUrl: `${WEB_IMAGE_BASE}/certificate/cert_iso_9001.webp`,
   },
   {
     id: "rdso",
@@ -70,9 +71,9 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     certNo: "RDSO/PE/S/XXX/2022",
     issuedBy: "RDSO (Ministry of Railways)",
     validUntil: "14 Mar 2028",
-    image: "/images/certificate/cert_rdso.webp",
+    image: `${WEB_IMAGE_BASE}/certificate/cert_rdso.webp`,
     imageAlt: "RDSO Vendor Approval Certificate by Ministry of Railways",
-    downloadUrl: "/images/certificate/cert_rdso.webp",
+    downloadUrl: `${WEB_IMAGE_BASE}/certificate/cert_rdso.webp`,
   },
   {
     id: "bis",
@@ -81,9 +82,9 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     certNo: "CM/L-1234567",
     issuedBy: "Bureau of Indian Standards",
     validUntil: "22 Jan 2027",
-    image: "/images/certificate/cert_bis.webp",
+    image: `${WEB_IMAGE_BASE}/certificate/cert_bis.webp`,
     imageAlt: "BIS Certificate of Conformity by Bureau of Indian Standards",
-    downloadUrl: "/images/certificate/cert_bis.webp",
+    downloadUrl: `${WEB_IMAGE_BASE}/certificate/cert_bis.webp`,
   },
   {
     id: "iso-14001",
@@ -92,9 +93,9 @@ export const MAIN_CERTIFICATES: CertificateItem[] = [
     certNo: "EMS/2023/010",
     issuedBy: "TÜV NORD",
     validUntil: "14 Mar 2026",
-    image: "/images/certificate/cert_iso_14001.webp",
+    image: `${WEB_IMAGE_BASE}/certificate/cert_iso_14001.webp`,
     imageAlt: "ISO 14001:2015 Environmental Management Certificate",
-    downloadUrl: "/images/certificate/cert_iso_14001.webp",
+    downloadUrl: `${WEB_IMAGE_BASE}/certificate/cert_iso_14001.webp`,
   },
 ];
 
@@ -140,7 +141,7 @@ export const QUALITY_COMMITMENT_DATA = {
     "Continuous monitoring and improvement",
     "Full documentation for verification",
   ],
-  image: "/images/certificate/quality_fasteners.webp",
+  image: `${WEB_IMAGE_BASE}/certificate/quality_fasteners.webp`,
   imageAlt: "High tensile hex bolts, studs and precision fasteners detail",
   badgeText: "QUALITY IN EVERY DETAIL",
 };

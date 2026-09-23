@@ -5,7 +5,7 @@ import { HERO_CONTENT } from "@/feature/Home/api/homeConstants";
 import { ShineButton } from "@/components/shine";
 import HeroFloating from "./HeroFloating";
 import { useQuoteModal } from "@/context/QuoteModalContext";
-import { LOCAL_IMAGE_BASE } from "@/lib/images";
+import { WEB_IMAGE_BASE } from "@/lib/images";
 
 // RollingText pulls the whole `motion` runtime — defer it past first paint.
 // Fallback renders the identical word statically, so there is no layout
@@ -36,8 +36,8 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900"
       >
         <img
-          src={`${LOCAL_IMAGE_BASE}/home/home_banner_image-1280.webp`}
-          srcSet={`${LOCAL_IMAGE_BASE}/home/home_banner_image-768.webp 768w, ${LOCAL_IMAGE_BASE}/home/home_banner_image-1280.webp 1280w, ${LOCAL_IMAGE_BASE}/home/home_banner_image-1440.webp 1440w, ${LOCAL_IMAGE_BASE}/home/home_banner_image.webp 1920w`}
+          src={`${WEB_IMAGE_BASE}/home/home_banner_image-1280.webp`}
+          srcSet={`${WEB_IMAGE_BASE}/home/home_banner_image-768.webp 768w, ${WEB_IMAGE_BASE}/home/home_banner_image-1280.webp 1280w, ${WEB_IMAGE_BASE}/home/home_banner_image-1440.webp 1440w, ${WEB_IMAGE_BASE}/home/home_banner_image.webp 1920w`}
           alt="High tensile MS fasteners manufactured by Kaveri Industries"
           title="High Tensile MS Fasteners Manufacturer – Kaveri Industries"
           className="h-full w-full object-cover"

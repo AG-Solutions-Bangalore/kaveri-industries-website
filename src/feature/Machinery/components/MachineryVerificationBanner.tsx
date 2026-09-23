@@ -5,7 +5,7 @@ export function MachineryVerificationBanner() {
   const handleDownloadAll = () => {
     const link = document.createElement("a");
     link.href = MACHINERY_VERIFICATION_DATA.downloadUrl;
-    link.download = "Kaveri_Industries_Machinery_Equipment_Inspection_Data.webp";
+    link.download = MACHINERY_VERIFICATION_DATA.downloadFileName;
     link.click();
   };
 

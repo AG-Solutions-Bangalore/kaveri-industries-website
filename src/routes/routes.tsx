@@ -25,9 +25,6 @@ const NotFoundPage = lazy(() => import("@/feature/NotFound/pages/NotFoundPage"))
 const IndustriesPage = lazy(
   () => import("@/feature/Industries/pages/IndustriesPage"),
 );
-const CertificatePage = lazy(
-  () => import("@/feature/Certificate/pages/CertificatePage"),
-);
 const VendorApprovalPage = lazy(
   () => import("@/feature/VendorApproval/pages/VendorApprovalPage"),
 );
@@ -65,13 +62,14 @@ export function AppRoutes() {
             { path: "products", element: wrap(ProductsPage) },
             { path: "products/:slug", element: wrap(ProductDetailPage) },
             { path: "industries", element: wrap(IndustriesPage) },
-            { path: "vendor-approval", element: wrap(VendorApprovalPage) },
-            { path: "vendor-approvals", element: <Navigate to="/vendor-approval" replace /> },
-            { path: "certificate/vendor-approval", element: <Navigate to="/vendor-approval" replace /> },
+            { path: "rdso-approval", element: wrap(VendorApprovalPage) },
+            { path: "vendor-approval", element: <Navigate to="/rdso-approval" replace /> },
+            { path: "vendor-approvals", element: <Navigate to="/rdso-approval" replace /> },
+            { path: "certificate/vendor-approval", element: <Navigate to="/rdso-approval" replace /> },
             { path: "machinery", element: wrap(MachineryPage) },
             { path: "infrastructure/machinery", element: <Navigate to="/machinery" replace /> },
-            { path: "certificate", element: wrap(CertificatePage) },
-            { path: "certificates", element: <Navigate to="/certificate" replace /> },
+            { path: "certificate", element: <Navigate to="/rdso-approval" replace /> },
+            { path: "certificates", element: <Navigate to="/rdso-approval" replace /> },
             { path: "contact", element: wrap(ContactPage) },
             { path: "privacy", element: <LegalPage slug="privacy" /> },
             { path: "terms", element: <LegalPage slug="terms" /> },
