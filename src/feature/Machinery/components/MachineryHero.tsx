@@ -106,29 +106,6 @@ export function MachineryHero() {
               ))}
             </motion.div>
           </div>
-
-          {/* Right Column: Stacked Credentials Typography */}
-          <div className="flex justify-start lg:col-span-4 lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
-              className="border-l-2 border-slate-700/80 pl-5 py-2 space-y-1 backdrop-blur-[2px]"
-            >
-              <span className="block text-xs font-bold tracking-[0.22em] text-white">
-                BUILT
-              </span>
-              <span className="block text-xs font-bold tracking-[0.22em] text-brand-400">
-                FOR A
-              </span>
-              <span className="block text-xs font-bold tracking-[0.22em] text-white">
-                STRONGER
-              </span>
-              <span className="block text-xs font-bold tracking-[0.22em] text-slate-300">
-                TOMORROW
-              </span>
-            </motion.div>
-          </div>
         </div>
       </section>
     </div>

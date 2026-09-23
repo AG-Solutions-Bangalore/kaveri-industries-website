@@ -144,15 +144,4 @@ export const RDSO_APPROVAL_DOCUMENTS: ApprovalDocumentItem[] = [
     badgeIcon: "file",
     badgeDark: true,
   },
-  {
-    id: "machine-list",
-    title: "Machine List",
-    description:
-      "Complete list of in-house machines and manufacturing infrastructure supporting our RDSO-approved production capabilities.",
-    pdfUrl: "/pdf/vendor-approval/LIST%20OF%20MACHINE.pdf",
-    fileName: "LIST OF MACHINE.pdf",
-    pdfLabel: "Machine List",
-    pdfSize: "PDF (0.9 MB)",
-    badgeIcon: "file",
-  },
 ];
