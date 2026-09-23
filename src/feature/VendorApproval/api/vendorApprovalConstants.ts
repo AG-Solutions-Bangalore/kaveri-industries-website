@@ -1,3 +1,4 @@
+import { WEB_IMAGE_BASE, pdfUrl } from "@/lib/images";
 export interface HeroBadge {
   icon: "shield" | "briefcase" | "settings";
   line1: string;
@@ -42,7 +43,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
     id: "studs-threaded-bars",
     title: "Studs & Threaded Bars",
     approvalNo: "Approval No: RDSO/PE/S/XXX",
-    image: "/images/vendor-approval/prod_studs_bars.webp",
+    image: `${WEB_IMAGE_BASE}/vendor-approval/prod_studs_bars.webp`,
     imageAlt: "High tensile studs and threaded bars approved by RDSO",
     link: "/products",
   },
@@ -50,7 +51,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
     id: "u-bolts",
     title: "U-Bolts",
     approvalNo: "Approval No: RDSO/PE/S/XXX",
-    image: "/images/vendor-approval/prod_u_bolts.webp",
+    image: `${WEB_IMAGE_BASE}/vendor-approval/prod_u_bolts.webp`,
     imageAlt: "Heavy duty U-bolts approved by RDSO",
     link: "/products",
   },
@@ -58,7 +59,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
     id: "center-bolts",
     title: "Center Bolts & Other Fasteners",
     approvalNo: "Approval No: RDSO/PE/S/XXX",
-    image: "/images/vendor-approval/prod_center_bolts.webp",
+    image: `${WEB_IMAGE_BASE}/vendor-approval/prod_center_bolts.webp`,
     imageAlt: "Precision center bolts and hex fasteners approved by RDSO",
     link: "/products",
   },
@@ -66,7 +67,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
     id: "washers",
     title: "Washers",
     approvalNo: "Approval No: RDSO/PE/S/XXX",
-    image: "/images/vendor-approval/prod_washers.webp",
+    image: `${WEB_IMAGE_BASE}/vendor-approval/prod_washers.webp`,
     imageAlt: "Industrial plain and spring washers approved by RDSO",
     link: "/products",
   },
@@ -75,9 +76,9 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
 export const RDSO_CERTIFICATE_DATA = {
   title: "RDSO Approval Certificate",
   subtitle: "Official approval certificate issued by RDSO.",
-  image: "/images/vendor-approval/rdso_cert_preview.webp",
+  image: `${WEB_IMAGE_BASE}/vendor-approval/rdso_cert_preview.webp`,
   imageAlt: "Official RDSO Approval Certificate preview",
-  downloadUrl: "/images/vendor-approval/rdso_cert_preview.webp",
+  downloadUrl: `${WEB_IMAGE_BASE}/vendor-approval/rdso_cert_preview.webp`,
   certNo: "RDSO/PE/S/XXX/202X",
   authority: "RDSO (Ministry of Railways)",
   validity: "14 March 2028",
@@ -115,7 +116,7 @@ export const RDSO_APPROVAL_DOCUMENTS: ApprovalDocumentItem[] = [
     title: "Lab Report",
     description:
       "Test reports from authorized laboratories as per RDSO standards, confirming the quality, performance and compliance of our products.",
-    pdfUrl: "/pdf/vendor-approval/LIST%20OF%20LAB.pdf",
+    pdfUrl: pdfUrl("vendor-approval/LIST OF LAB.pdf"),
     fileName: "LIST OF LAB.pdf",
     pdfLabel: "Lab Report",
     pdfSize: "PDF (0.4 MB)",
@@ -126,7 +127,7 @@ export const RDSO_APPROVAL_DOCUMENTS: ApprovalDocumentItem[] = [
     title: "ISO 9001:2015",
     description:
       "Our Quality Management System is certified under ISO 9001:2015, ensuring consistent quality, process excellence and customer satisfaction.",
-    pdfUrl: "/pdf/vendor-approval/1.ISO%20Certificate%202025-2028.pdf",
+    pdfUrl: pdfUrl("vendor-approval/1.ISO Certificate 2025-2028.pdf"),
     fileName: "1.ISO Certificate 2025-2028.pdf",
     pdfLabel: "ISO 9001:2015 Certificate",
     pdfSize: "PDF (0.5 MB)",
@@ -137,7 +138,7 @@ export const RDSO_APPROVAL_DOCUMENTS: ApprovalDocumentItem[] = [
     title: "RDSO Approval Certificate",
     description:
       "Official approval certificate issued by RDSO for our products, validating our manufacturing capabilities and compliance with railway standards.",
-    pdfUrl: "/pdf/vendor-approval/RDSO%20Approval.pdf",
+    pdfUrl: pdfUrl("vendor-approval/RDSO Approval.pdf"),
     fileName: "RDSO Approval.pdf",
     pdfLabel: "RDSO Approval Certificate",
     pdfSize: "PDF (89 KB)",

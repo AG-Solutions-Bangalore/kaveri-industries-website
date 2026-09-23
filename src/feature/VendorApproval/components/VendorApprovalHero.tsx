@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Shield, Briefcase, Settings, ChevronRight } from "lucide-react";
 import { VENDOR_HERO_PILLS } from "../api/vendorApprovalConstants";
+import { WEB_IMAGE_BASE } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -22,7 +23,7 @@ export function VendorApprovalHero() {
       {/* Background banner image */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900">
         <img
-          src="/images/vendor-approval/vendor_hero_banner.webp"
+          src={`${WEB_IMAGE_BASE}/vendor-approval/vendor_hero_banner.webp`}
           alt="RDSO Approval – Kaveri Industries"
           title="RDSO Approval – Kaveri Industries"
           className="h-full w-full object-cover"

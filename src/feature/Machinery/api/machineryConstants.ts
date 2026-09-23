@@ -1,3 +1,4 @@
+import { WEB_IMAGE_BASE, pdfUrl } from "@/lib/images";
 export interface MachineryHeroPill {
   line1: string;
   line2: string;
@@ -41,7 +42,7 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     id: "cnc-machining-centre",
     title: "CNC Machining Centre",
     description: "High precision machining for complex components.",
-    image: "/images/machinery/cnc_machining_centre.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/cnc_machining_centre.webp`,
     imageAlt: "CNC Machining Centre at Kaveri Industries",
     link: "/contact?subject=CNC+Machining+Inquiry",
   },
@@ -49,7 +50,7 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     id: "cnc-lathe-machine",
     title: "CNC Lathe Machine",
     description: "Efficient turning operations with superior finish.",
-    image: "/images/machinery/cnc_lathe_machine.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/cnc_lathe_machine.webp`,
     imageAlt: "CNC Lathe Machine in operation at Kaveri Industries",
     link: "/contact?subject=CNC+Turning+Inquiry",
   },
@@ -57,7 +58,7 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     id: "drilling-milling-machine",
     title: "Drilling & Milling Machine",
     description: "Precision drilling and milling capabilities.",
-    image: "/images/machinery/drilling_milling_machine.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/drilling_milling_machine.webp`,
     imageAlt: "Drilling & Milling Machine setup at Kaveri Industries",
     link: "/contact?subject=Drilling+Milling+Inquiry",
   },
@@ -65,7 +66,7 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     id: "testing-equipment",
     title: "Testing Equipment",
     description: "Advanced testing for quality assurance.",
-    image: "/images/machinery/testing_equipment.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/testing_equipment.webp`,
     imageAlt: "Advanced Metrology and Testing Equipment at Kaveri Industries",
     link: "/contact?subject=Testing+Equipment+Inquiry",
   },
@@ -270,25 +271,25 @@ export const MACHINERY_GALLERY_DATA: GalleryItem[] = [
   {
     id: "gallery-cnc-turning",
     title: "CNC Turning Centre",
-    image: "/images/machinery/gallery_cnc_turning.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/gallery_cnc_turning.webp`,
     imageAlt: "CNC Turning Centre inside Kaveri Industries plant",
   },
   {
     id: "gallery-vmc",
     title: "VMC Machine",
-    image: "/images/machinery/gallery_vmc.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/gallery_vmc.webp`,
     imageAlt: "Vertical Machining Centre in factory shop floor",
   },
   {
     id: "gallery-lathe",
     title: "Lathe Machine",
-    image: "/images/machinery/gallery_lathe.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/gallery_lathe.webp`,
     imageAlt: "Heavy Duty Lathe Machine setup",
   },
   {
     id: "gallery-grinding",
     title: "Grinding Machine",
-    image: "/images/machinery/gallery_grinding.webp",
+    image: `${WEB_IMAGE_BASE}/machinery/gallery_grinding.webp`,
     imageAlt: "Precision Surface Grinding Machine",
   },
 ];
@@ -299,6 +300,6 @@ export const MACHINERY_VERIFICATION_DATA = {
   description:
     "Complete machinery details, specifications and supporting documents are available for inspection and verification by RDO/RDSO and other authorized agencies.",
   ctaText: "Download Detailed Machinery List",
-  downloadUrl: "/pdf/vendor-approval/LIST%20OF%20MACHINE.pdf",
+  downloadUrl: pdfUrl("vendor-approval/LIST OF MACHINE.pdf"),
   downloadFileName: "LIST OF MACHINE.pdf",
 };

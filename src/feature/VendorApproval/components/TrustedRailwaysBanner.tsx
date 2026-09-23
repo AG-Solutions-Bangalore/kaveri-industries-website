@@ -1,4 +1,5 @@
 import { ShieldCheck } from "lucide-react";
+import { WEB_IMAGE_BASE } from "@/lib/images";
 
 export function TrustedRailwaysBanner() {
   return (
@@ -10,7 +11,7 @@ export function TrustedRailwaysBanner() {
         <div className="relative overflow-hidden rounded-xl bg-[#f2f7ff] px-6 py-8 dark:bg-slate-900 sm:px-10">
           {/* Faint factory line-art on the right (matches design) */}
           <img
-            src="/images/vendor-approval/faint-factory.webp"
+            src={`${WEB_IMAGE_BASE}/vendor-approval/faint-factory.webp`}
             alt=""
             aria-hidden="true"
             loading="lazy"

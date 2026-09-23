@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Cpu, Factory, Crosshair, Users, ChevronRight } from "lucide-react";
 import { MACHINERY_HERO_PILLS } from "../api/machineryConstants";
+import { WEB_IMAGE_BASE } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -24,7 +25,7 @@ export function MachineryHero() {
       {/* Background banner image matching Hero.tsx layout & width */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900">
         <img
-          src="/images/machinery/machinery_hero_banner.webp"
+          src={`${WEB_IMAGE_BASE}/machinery/machinery_hero_banner.webp`}
           alt="Machinery & Manufacturing Facilities – Kaveri Industries"
           title="Machinery & Manufacturing Facilities – Kaveri Industries"
           className="h-full w-full object-cover"

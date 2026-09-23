@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Shield, Settings, Users, ChevronRight } from "lucide-react";
 import { HERO_PILLS } from "../api/certificateConstants";
+import { WEB_IMAGE_BASE } from "@/lib/images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -24,7 +25,7 @@ export function CertificateHero() {
       {/* Background banner image matching Hero.tsx layout & width */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900">
         <img
-          src="/images/certificate/hero_banner.webp"
+          src={`${WEB_IMAGE_BASE}/certificate/hero_banner.webp`}
           alt="Certifications & Approvals – Kaveri Industries"
           title="Certifications & Approvals – Kaveri Industries"
           className="h-full w-full object-cover"

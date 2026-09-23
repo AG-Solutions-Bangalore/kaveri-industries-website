@@ -1,7 +1,8 @@
 import { Download } from "lucide-react";
 import { MACHINERY_SECTIONS } from "../api/machineryConstants";
+import { pdfUrl } from "@/lib/images";
 
-const MACHINE_PDF_URL = "/pdf/vendor-approval/LIST%20OF%20MACHINE.pdf";
+const MACHINE_PDF_URL = pdfUrl("vendor-approval/LIST OF MACHINE.pdf");
 const MACHINE_PDF_NAME = "LIST OF MACHINE.pdf";
 
 export function EquipmentTable() {
