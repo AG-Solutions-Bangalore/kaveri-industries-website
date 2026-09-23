@@ -22,7 +22,7 @@ export function ApprovedProductsGrid() {
               Products Covered Under Approval
             </h2>
             <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400 sm:text-sm">
-              The following products are covered under our RDSO vendor approval.
+              The following products are covered under our RDSO approval.
             </p>
           </div>
 

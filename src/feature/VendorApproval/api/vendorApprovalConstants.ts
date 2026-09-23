@@ -20,9 +20,9 @@ export interface ApprovedProductItem {
 }
 
 export const VENDOR_HERO_PILLS: HeroBadge[] = [
-  { icon: "shield", line1: "Authorized", line2: "Manufacturer" },
-  { icon: "briefcase", line1: "RDSO Approved", line2: "Products" },
-  { icon: "settings", line1: "Compliant with", line2: "Industry Standards" },
+  { icon: "shield", line1: "Verified", line2: "Documents" },
+  { icon: "briefcase", line1: "RDSO", line2: "Approved" },
+  { icon: "settings", line1: "Compliant with", line2: "Railway Standards" },
 ];
 
 export const VENDOR_APPROVAL_TABLE: ApprovalDetailRow[] = [
@@ -73,10 +73,10 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
 ];
 
 export const RDSO_CERTIFICATE_DATA = {
-  title: "Vendor Approval Certificate",
+  title: "RDSO Approval Certificate",
   subtitle: "Official approval certificate issued by RDSO.",
   image: "/images/vendor-approval/rdso_cert_preview.webp",
-  imageAlt: "Official RDSO Vendor Approval Certificate preview",
+  imageAlt: "Official RDSO Approval Certificate preview",
   downloadUrl: "/images/vendor-approval/rdso_cert_preview.webp",
   certNo: "RDSO/PE/S/XXX/202X",
   authority: "RDSO (Ministry of Railways)",
@@ -90,3 +90,69 @@ export const VERIFICATION_BANNER_DATA = {
     "All relevant documents certificates and supporting information are available for inspection and verification by RDO/RDSO and other authorized agencies.",
   ctaText: "Download All Approval Documents",
 };
+
+export interface ApprovalDocumentItem {
+  id: string;
+  title: string;
+  description: string;
+  /** Real PDF under public/pdf/vendor-approval (URL-encoded). */
+  pdfUrl: string;
+  /** Original file name, used for the download attribute. */
+  fileName: string;
+  pdfLabel: string;
+  pdfSize: string;
+  badgeIcon: "flask" | "award" | "file";
+  badgeDark?: boolean;
+}
+
+/**
+ * Documents shown in "Official Documents for Verification".
+ * Served from public/pdf/vendor-approval.
+ */
+export const RDSO_APPROVAL_DOCUMENTS: ApprovalDocumentItem[] = [
+  {
+    id: "lab-list",
+    title: "Lab Report",
+    description:
+      "Test reports from authorized laboratories as per RDSO standards, confirming the quality, performance and compliance of our products.",
+    pdfUrl: "/pdf/vendor-approval/LIST%20OF%20LAB.pdf",
+    fileName: "LIST OF LAB.pdf",
+    pdfLabel: "Lab Report",
+    pdfSize: "PDF (0.4 MB)",
+    badgeIcon: "flask",
+  },
+  {
+    id: "iso-9001",
+    title: "ISO 9001:2015",
+    description:
+      "Our Quality Management System is certified under ISO 9001:2015, ensuring consistent quality, process excellence and customer satisfaction.",
+    pdfUrl: "/pdf/vendor-approval/1.ISO%20Certificate%202025-2028.pdf",
+    fileName: "1.ISO Certificate 2025-2028.pdf",
+    pdfLabel: "ISO 9001:2015 Certificate",
+    pdfSize: "PDF (0.5 MB)",
+    badgeIcon: "award",
+  },
+  {
+    id: "rdso-certificate",
+    title: "RDSO Approval Certificate",
+    description:
+      "Official approval certificate issued by RDSO for our products, validating our manufacturing capabilities and compliance with railway standards.",
+    pdfUrl: "/pdf/vendor-approval/RDSO%20Approval.pdf",
+    fileName: "RDSO Approval.pdf",
+    pdfLabel: "RDSO Approval Certificate",
+    pdfSize: "PDF (89 KB)",
+    badgeIcon: "file",
+    badgeDark: true,
+  },
+  {
+    id: "machine-list",
+    title: "Machine List",
+    description:
+      "Complete list of in-house machines and manufacturing infrastructure supporting our RDSO-approved production capabilities.",
+    pdfUrl: "/pdf/vendor-approval/LIST%20OF%20MACHINE.pdf",
+    fileName: "LIST OF MACHINE.pdf",
+    pdfLabel: "Machine List",
+    pdfSize: "PDF (0.9 MB)",
+    badgeIcon: "file",
+  },
+];

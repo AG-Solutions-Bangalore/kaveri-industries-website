@@ -28,7 +28,7 @@ export function VendorApprovalHighlights() {
   return (
     <FloatingHighlightStrip
       items={VENDOR_HIGHLIGHTS}
-      ariaLabel="Vendor Approval Highlights"
+      ariaLabel="RDSO Approval Highlights"
     />
   );
 }
