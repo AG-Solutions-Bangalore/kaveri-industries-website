@@ -1,11 +1,10 @@
 import { SEO } from "@/components/common/SEO";
-import { machinerySEO } from "../seo/machinerySeo";
-import { MachineryHero } from "../components/MachineryHero";
-import { MachineryHighlights } from "../components/MachineryHighlights";
 import { AdvancedEquipmentGrid } from "../components/AdvancedEquipmentGrid";
 import { EquipmentTable } from "../components/EquipmentTable";
-import { MachineryGallery } from "../components/MachineryGallery";
+import { MachineryHero } from "../components/MachineryHero";
+import { MachineryHighlights } from "../components/MachineryHighlights";
 import { MachineryVerificationBanner } from "../components/MachineryVerificationBanner";
+import { machinerySEO } from "../seo/machinerySeo";
 
 /**
  * Machinery & Manufacturing Facilities Page.
@@ -26,7 +25,6 @@ export default function MachineryPage() {
       <MachineryHighlights />
       <AdvancedEquipmentGrid />
       <EquipmentTable />
-      <MachineryGallery />
       <MachineryVerificationBanner />
     </>
   );
