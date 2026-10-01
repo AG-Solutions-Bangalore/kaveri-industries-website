@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ScrollToTop } from "@/components/common/ScrollToTop";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { SeoManager } from "@/seo";
 
 // Defer everything not needed for first paint:
 // - QuoteModal pulls @radix-ui/react-dialog + the 700-line ContactForm +
@@ -52,6 +53,7 @@ export function RootLayout() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SeoManager />
       <a
         href="#main-content"
         title="Skip to Main Content"

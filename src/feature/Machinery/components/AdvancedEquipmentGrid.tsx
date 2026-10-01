@@ -9,6 +9,8 @@ function EquipmentCard({ item }: { item: EquipmentItem }) {
   return (
     <Link
       to={item.link}
+      title={item.linkTitle}
+      aria-label={item.linkTitle}
       className="group flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
     >
       {/* Image Frame */}
@@ -17,6 +19,7 @@ function EquipmentCard({ item }: { item: EquipmentItem }) {
           <img
             src={item.image}
             alt={item.imageAlt}
+            title={item.imageTitle}
             className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
             decoding="async"

@@ -35,7 +35,7 @@ export function Navbar() {
           to="/"
           title="Kaveri Industries Home"
           className="flex items-center gap-2 font-bold tracking-tight text-foreground"
-          aria-label={`${company.name} — go to home`}
+          aria-label={company.name}
         >
           <span
             className="grid h-7 w-7 place-items-center rounded-sm bg-brand-700 text-white shadow-sm"
@@ -85,7 +85,7 @@ export function Navbar() {
 
           <ShineButton
             onClick={() => openQuoteModal()}
-            className="group inline-flex items-center gap-1.5 bg-brand-500 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:text-sm"
+            className="group inline-flex items-center gap-1.5 bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:text-sm"
           >
             Request a Quote
             <ArrowRight

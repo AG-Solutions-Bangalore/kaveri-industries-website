@@ -1,10 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion } from "motion/react";
 import { PRODUCTS, type Product } from "@/feature/Home/api/products";
 import { PRODUCTS_SECTION_HEADER } from "@/feature/Home/api/homeConstants";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { useNativeInView } from "@/hooks/useNativeInView";
 
 export function ProductsCarousel() {
   const navigate = useNavigate();
@@ -16,15 +14,9 @@ export function ProductsCarousel() {
     >
       <div className="mx-auto max-w-7xl px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10% 0px" }}
-          transition={{ duration: 0.55, ease: EASE }}
-          className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
-        >
+        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-700 dark:text-brand-400">
               {PRODUCTS_SECTION_HEADER.badge}
             </p>
             <h2
@@ -37,7 +29,7 @@ export function ProductsCarousel() {
 
           <button
             onClick={() => navigate(PRODUCTS_SECTION_HEADER.cta.href)}
-            className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400"
+            className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400"
           >
             {PRODUCTS_SECTION_HEADER.cta.label}
             <ArrowRight
@@ -45,43 +37,38 @@ export function ProductsCarousel() {
               aria-hidden="true"
             />
           </button>
-        </motion.div>
-
-        {/* 6-Card Product Range Grid */}
-        <div
-          role="list"
-          aria-label="Product range"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-        >
-          {PRODUCTS.slice(0, 4).map((product, idx) => (
-            <ProductCard key={product.id} product={product} index={idx} />
-          ))}
         </div>
+
+        {/* 4-Card Product Range Grid */}
+        <ul
+          aria-label="Product range"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 list-none p-0 m-0"
+        >
+          {PRODUCTS.slice(0, 4).map((product) => (
+            <li key={product.id} className="list-none h-full">
+              <ProductCard product={product} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
 }
 
 /** Product card precisely matching input_file_2.png */
-function ProductCard({ product, index }: { product: Product; index: number }) {
+function ProductCard({ product }: { product: Product }) {
   const Icon = product.icon;
+  const { ref, isInView } = useNativeInView<HTMLDivElement>("0px");
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.5, ease: EASE, delay: index * 0.05 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-brand-900"
-    >
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-brand-900">
       <Link
         to="/products"
         className="flex flex-1 flex-col"
-        aria-label={`View ${product.name}`}
       >
         {/* Product Image Frame — show complete image, no cropping */}
-        <div className="relative aspect-10/9 w-full overflow-hidden bg-white p-2 dark:bg-slate-800/60">
-          {product.imageUrl ? (
+        <div ref={ref} className="relative aspect-10/9 w-full overflow-hidden bg-white p-2 dark:bg-slate-800/60">
+          {product.imageUrl && isInView ? (
             <img
               src={product.imageUrl}
               alt={product.imageAlt ?? product.name}
@@ -90,6 +77,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               height={400}
               className="h-full w-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-105"
               loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-brand-600">
@@ -119,6 +107,6 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-    </motion.article>
+    </article>
   );
 }

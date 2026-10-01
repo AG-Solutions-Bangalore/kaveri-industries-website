@@ -1,4 +1,4 @@
-import { serviceSchema } from "@/lib/schemas";
+import { serviceSchema } from "@/seo";
 import { TARGET_SECTORS } from "@/feature/Home/api/sectors";
 
 /** Build the JSON-LD block for all target sectors. Pass into <SEO schema={...} />. */

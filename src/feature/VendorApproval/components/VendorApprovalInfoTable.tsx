@@ -18,6 +18,8 @@ function ContactLine({ line }: { line: string }) {
         Email:{" "}
         <a
           href={`mailto:${email}`}
+          title="Email Kaveri Industries"
+          aria-label="Email Kaveri Industries"
           className="font-medium break-all text-brand-700 hover:underline dark:text-brand-400"
         >
           {email}
@@ -29,17 +31,25 @@ function ContactLine({ line }: { line: string }) {
     return (
       <p className="break-words">
         Phone:{" "}
-        {company.contact.phones.map((p, i) => (
-          <span key={p.tel} className="whitespace-nowrap">
-            {i > 0 && " / "}
-            <a
-              href={`tel:${p.tel}`}
-              className="font-medium text-brand-700 hover:underline dark:text-brand-400"
-            >
-              {p.display}
-            </a>
-          </span>
-        ))}
+        {company.contact.phones.map((p, i) => {
+          const phoneTitle =
+            p.tel === "+918027825275"
+              ? "Call Kaveri Industries – +91 80 2782 5275"
+              : "Call Kaveri Industries – +91 80 2782 5276";
+          return (
+            <span key={p.tel} className="whitespace-nowrap">
+              {i > 0 && " / "}
+              <a
+                href={`tel:${p.tel}`}
+                title={phoneTitle}
+                aria-label={phoneTitle}
+                className="font-medium text-brand-700 hover:underline dark:text-brand-400"
+              >
+                {p.display}
+              </a>
+            </span>
+          );
+        })}
       </p>
     );
   }
@@ -52,6 +62,8 @@ function ContactLine({ line }: { line: string }) {
           href={company.url}
           target="_blank"
           rel="noreferrer"
+          title="Kaveri Industries Official Website"
+          aria-label="Kaveri Industries Official Website"
           className="font-medium break-all text-brand-700 hover:underline dark:text-brand-400"
         >
           {host}

@@ -16,6 +16,7 @@
          NOTE: image base URL lives in ONE place: src/lib/images.ts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       rel="preload"
       as="style"
@@ -34,57 +35,65 @@
       />
     </noscript>
 
-    <!-- Image CDN hints — hero/LCP bytes come from agsdemo.in, so warm
-         its connection early instead of paying DNS+TLS after FCP. -->
+    <!-- Agentic Resource Discovery Manifest (ARD 1.0) -->
+    <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/ai-catalog+json" />
+
+    <!-- Image CDN hints — warming external CDN connection for below-fold lazy images -->
     <link rel="preconnect" href="https://agsdemo.in" crossorigin />
     <link rel="dns-prefetch" href="https://agsdemo.in" />
 
-    <!-- LCP image preload — remote CDN banner with responsive
-         variants: mobile downloads the 768w file instead of the full
-         original. og:image / twitter:image below stay remote (absolute URLs
-         required for social crawlers — they don't affect Lighthouse). -->
+    <!-- LCP image preload — self-hosted local banner (zero cross-origin TLS/DNS latency)
+         Mobile downloads the 15KB 768w file instead of remote 1280w variant. -->
     <link
       rel="preload"
       as="image"
       type="image/webp"
-      imagesrcset="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-768.webp 768w, https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-1280.webp 1280w, https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-1440.webp 1440w, https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp 1920w"
+      imagesrcset="/images/home/home_banner_image-768.webp 768w, /images/home/home_banner_image-1280.webp 1280w, /images/home/home_banner_image-1440.webp 1440w, /images/home/home_banner_image.webp 1920w"
       imagesizes="100vw"
-      href="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image-1280.webp"
+      href="/images/home/home_banner_image-768.webp"
       fetchpriority="high"
     />
 
-    <title>High Tensile MS Fasteners Manufacturer | Kaveri Industries</title>
+    <title data-rh="true">High Tensile MS Fasteners Manufacturer | Kaveri Industries</title>
     <meta
+      data-rh="true"
       name="description"
       content="Kaveri Industries manufactures high tensile MS fasteners, bolts, nuts, U-bolts and washers for towers, infrastructure, power, railways and industrial applications."
     />
-    <link rel="canonical" href="https://kaveri.agsdemo.in/" />
-    <meta name="author" content="Kaveri Industries" />
-    <meta name="publisher" content="Kaveri Industries" />
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+    <meta
+      data-rh="true"
+      name="keywords"
+      content="high tensile fasteners, MS fasteners manufacturer, hex head bolts, HSFG bolts, foundation bolts, guard rail bolts, hot dip galvanised fasteners, U-bolts, center bolts, washers IS 2016 IS 3063, transmission tower fasteners, ISO 9001:2008 fasteners, Jigani Bangalore fasteners"
+    />
+    <link data-rh="true" rel="canonical" href="https://kaveri.agsdemo.in/" />
+    <meta data-rh="true" name="author" content="Kaveri Industries" />
+    <meta data-rh="true" name="publisher" content="Kaveri Industries" />
+    <meta data-rh="true" name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kaveri Industries" />
-    <meta property="og:title" content="High Tensile MS Fasteners Manufacturer | Kaveri Industries" />
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="Kaveri Industries" />
+    <meta data-rh="true" property="og:title" content="High Tensile MS Fasteners Manufacturer | Kaveri Industries" />
     <meta
+      data-rh="true"
       property="og:description"
       content="Kaveri Industries manufactures high tensile MS fasteners, bolts, nuts, U-bolts and washers for towers, infrastructure, power, railways and industrial applications."
     />
-    <meta property="og:url" content="https://kaveri.agsdemo.in/" />
-    <meta property="og:image" content="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="900" />
-    <meta property="og:locale" content="en_IN" />
+    <meta data-rh="true" property="og:url" content="https://kaveri.agsdemo.in/" />
+    <meta data-rh="true" property="og:image" content="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp" />
+    <meta data-rh="true" property="og:image:width" content="1200" />
+    <meta data-rh="true" property="og:image:height" content="900" />
+    <meta data-rh="true" property="og:locale" content="en_IN" />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="High Tensile MS Fasteners Manufacturer | Kaveri Industries" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="High Tensile MS Fasteners Manufacturer | Kaveri Industries" />
     <meta
+      data-rh="true"
       name="twitter:description"
       content="Kaveri Industries manufactures high tensile MS fasteners, bolts, nuts, U-bolts and washers for towers, infrastructure, power, railways and industrial applications."
     />
-    <meta name="twitter:image" content="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp" />
+    <meta data-rh="true" name="twitter:image" content="https://agsdemo.in/kaveri/api/assets/images/web_images/images/home/home_banner_image.webp" />
 
     <!-- Schema.org JSON-LD — site-wide Organization + LocalBusiness + WebSite.
          Single-Page Apps must serve their site-level graph in static HTML: a

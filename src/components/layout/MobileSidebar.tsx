@@ -81,8 +81,10 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
         )}
       />
 
-      {/* Sidebar panel */}
-      <aside
+      {/* Sidebar panel — a <div> (not <aside>) because `dialog` is not
+          an allowed ARIA role for <aside>; using aside+dialog breaks the
+          accessibility tree (axe `aria-allowed-role`). */}
+      <div
         id="mobile-sidebar-panel"
         role="dialog"
         aria-modal="true"
@@ -143,7 +145,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
               setIsOpen(false);
               openQuoteModal();
             }}
-            className="group inline-flex w-full items-center justify-center gap-2 bg-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group inline-flex w-full items-center justify-center gap-2 bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Request a Quote
             <ArrowRight
@@ -155,7 +157,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
             ISO 9001:2008 Certified Manufacturer
           </p>
         </div>
-      </aside>
+      </div>
     </>
   );
 }

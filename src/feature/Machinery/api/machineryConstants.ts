@@ -37,7 +37,9 @@ export interface EquipmentItem {
   description: string;
   image: string;
   imageAlt: string;
+  imageTitle: string;
   link: string;
+  linkTitle: string;
 }
 
 export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
@@ -50,7 +52,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "High-speed multi-station cold heading machine engineered for forming high-tensile bolt heads and blanks up to M30×200 mm with optimal grain structure.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("cold_headin_machine_m30x200.webp")}`,
     imageAlt: "Cold Heading Machine M30X200 at Kaveri Industries",
+    imageTitle: "Cold Heading Machine M30X200 at Kaveri Industries",
     link: "/contact?subject=Cold+Heading+Machine+M30X200+Inquiry",
+    linkTitle: "Inquire About Cold Heading Machine M30X200",
   },
   {
     id: "control-panel",
@@ -61,7 +65,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Centralized PLC and digital temperature control panel engineered for precise multi-zone thermal cycle regulation across continuous heat treatment lines.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("control_paneal.webp")}`,
     imageAlt: "Control Panel at Kaveri Industries",
+    imageTitle: "Control Panel at Kaveri Industries",
     link: "/contact?subject=Control+Panel+Inquiry",
+    linkTitle: "Inquire About Control Panel",
   },
   {
     id: "electro-plating-plant",
@@ -72,7 +78,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Automated barrel and rack electro-galvanizing plant providing uniform anti-corrosion zinc electroplating and passivated finish for industrial fasteners.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("electro_plating_plant.webp")}`,
     imageAlt: "Electro Plating Plant at Kaveri Industries",
+    imageTitle: "Electro Plating Plant at Kaveri Industries",
     link: "/contact?subject=Electro+Plating+Plant+Inquiry",
+    linkTitle: "Inquire About Electro Plating Plant",
   },
   {
     id: "hardening-unit",
@@ -83,7 +91,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Continuous mesh-belt atmosphere hardening furnace providing controlled heating up to 900°C for uniform core hardness, grain refinement, and tensile strength.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("hardning_unit.webp")}`,
     imageAlt: "Hardening Unit at Kaveri Industries",
+    imageTitle: "Hardening Unit at Kaveri Industries",
     link: "/contact?subject=Hardening+Unit+Inquiry",
+    linkTitle: "Inquire About Hardening Unit",
   },
   {
     id: "hot-dip-galvanizing-furnace",
@@ -94,7 +104,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "High-capacity molten zinc hot dip galvanizing furnace delivering durable, weather-resistant metallurgical zinc coatings compliant with IS/ASTM standards.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("hot_dip_galvanizing_furnace.webp")}`,
     imageAlt: "Hot Dip Galvanizing Furnace at Kaveri Industries",
+    imageTitle: "Hot Dip Galvanizing Furnace at Kaveri Industries",
     link: "/contact?subject=Hot+Dip+Galvanizing+Furnace+Inquiry",
+    linkTitle: "Inquire About Hot Dip Galvanizing Furnace",
   },
   {
     id: "hot-nut-former",
@@ -105,7 +117,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "High-tonnage hot forging nut header engineered for rapid, high-precision hot forming of heavy hexagonal, flange, and railway track nuts up to M36.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("Hot_nut_former.webp")}`,
     imageAlt: "Hot Nut Former at Kaveri Industries",
+    imageTitle: "Hot Nut Former at Kaveri Industries",
     link: "/contact?subject=Hot+Nut+Former+Inquiry",
+    linkTitle: "Inquire About Hot Nut Former",
   },
   {
     id: "quenching-tank",
@@ -116,7 +130,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Agitated rapid quench oil and polymer bath engineered for immediate martensitic transformation, uniform hardness distribution, and distortion control.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("Ouenching_tank.webp")}`,
     imageAlt: "Quenching Tank at Kaveri Industries",
+    imageTitle: "Quenching Tank at Kaveri Industries",
     link: "/contact?subject=Quenching+Tank+Inquiry",
+    linkTitle: "Inquire About Quenching Tank",
   },
   {
     id: "roll-threading-machine-m30x200",
@@ -127,7 +143,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Heavy-duty hydraulic thread rolling machine delivering uninterrupted grain flow, superior surface burnishing, and maximum fatigue resistance up to M30×200 mm.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("Roll_threading_machine _m30x200.webp")}`,
     imageAlt: "Roll Threading Machine M30X200 at Kaveri Industries",
+    imageTitle: "Roll Threading Machine M30X200 at Kaveri Industries",
     link: "/contact?subject=Roll+Threading+Machine+M30X200+Inquiry",
+    linkTitle: "Inquire About Roll Threading Machine M30X200",
   },
   {
     id: "tempering-unit",
@@ -138,7 +156,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Continuous atmosphere tempering furnace calibrated to relieve internal quenching stresses and achieve precise ductility, impact toughness, and specified HRC.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("Tempering_unit.webp")}`,
     imageAlt: "Tempering Unit at Kaveri Industries",
+    imageTitle: "Tempering Unit at Kaveri Industries",
     link: "/contact?subject=Tempering+Unit+Inquiry",
+    linkTitle: "Inquire About Tempering Unit",
   },
   {
     id: "trimming-machine",
@@ -149,7 +169,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Automatic high-speed bolt head trimming machine for cutting sharp, clean hexagonal heads and circular flanges up to M30×200 mm with strict dimensional tolerance.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("Trimming_machine.webp")}`,
     imageAlt: "Trimming Machine at Kaveri Industries",
+    imageTitle: "Trimming Machine at Kaveri Industries",
     link: "/contact?subject=Trimming+Machine+Inquiry",
+    linkTitle: "Inquire About Trimming Machine",
   },
   {
     id: "wire-draw-machine-m36",
@@ -160,7 +182,9 @@ export const ADVANCED_EQUIPMENT_DATA: EquipmentItem[] = [
     description: "Heavy bull-block wire drawing machine with in-line pointing and descaling to calibrate raw wire rod diameters up to 36 mm for high-precision cold forging.",
     image: `${WEB_IMAGE_BASE}/machinery/${encodeURI("Wire_draw _achine _m36.webp")}`,
     imageAlt: "Wire Draw Machine M36 at Kaveri Industries",
+    imageTitle: "Wire Draw Machine M36 at Kaveri Industries",
     link: "/contact?subject=Wire+Draw+Machine+M36+Inquiry",
+    linkTitle: "Inquire About Wire Draw Machine M36",
   },
 ];
 

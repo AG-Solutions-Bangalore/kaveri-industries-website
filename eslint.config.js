@@ -43,4 +43,13 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // src/seo/seo.tsx intentionally mixes the <SeoManager /> component with
+    // pure SEO helpers/constants (SEO_CONFIG, resolveRouteSEO, schemas, ...).
+    // Fast Refresh warnings are not applicable to this non-UI utility module.
+    files: ['src/seo/**/*.{ts,tsx}', 'src/prerender.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])

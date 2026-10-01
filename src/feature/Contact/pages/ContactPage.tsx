@@ -1,9 +1,7 @@
-import { SEO } from "@/components/common/SEO";
 import { ContactHero } from "@/feature/Contact/components/ContactHero";
 import { ContactInfoCards } from "@/feature/Contact/components/ContactInfoCards";
 import { ContactForm } from "@/feature/Contact/components/ContactForm";
 import { ContactLocation } from "@/feature/Contact/components/ContactLocation";
-import { contactSEO } from "@/feature/Contact/seo/contactSeo";
 
 /**
  * /contact — single-page contact flow.
@@ -17,7 +15,6 @@ import { contactSEO } from "@/feature/Contact/seo/contactSeo";
 export default function ContactPage() {
   return (
     <>
-      <SEO {...contactSEO} />
       <ContactHero />
 
       <section
@@ -34,7 +31,6 @@ export default function ContactPage() {
       </section>
 
       <ContactLocation />
-      
     </>
   );
 }

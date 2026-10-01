@@ -3,10 +3,11 @@
 
 User-agent: *
 Allow: /
+Allow: /.well-known/
+Allow: /ai-catalog.json
 
-# Block obvious crawler traps and build output.
+# Block build internals and source maps
 Disallow: /assets/
-Disallow: /*.json$
 Disallow: /*.map$
 
 # Sitemap location

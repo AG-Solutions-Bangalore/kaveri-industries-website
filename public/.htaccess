@@ -1,0 +1,84 @@
+# ----------------------------------------------------------------------
+# | MIME Types (Apache mod_mime)                                       |
+# ----------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType application/javascript .js .mjs
+    AddType text/javascript .js .mjs
+    AddType text/css .css
+    AddType image/svg+xml .svg
+    AddType application/json .json .ld+json
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+    AddType image/webp .webp
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Gzip / Deflate Compression (Apache mod_deflate)                    |
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json application/ld+json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Cache-Control & Expiry Headers (Apache mod_expires & mod_headers)  |
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Static hashed assets: Cache permanently (1 year)
+    <FilesMatch "\.(js|mjs|css|webp|woff2|woff|svg)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # ARD and manifest JSON files: enable CORS for AI agents and crawlers
+    <FilesMatch "\.(json|ld\+json)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    </FilesMatch>
+
+    # HTML files: Revalidate immediately so new builds are seen
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Pre-rendered Static Routes & SPA Fallback                          |
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Allow .well-known/ resources (Agentic Resource Discovery, etc.)
+    RewriteRule ^\.well-known/ - [L]
+
+    # If requested directory exists with index.html, serve it
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_FILENAME}/index.html -f
+    RewriteRule [^/]$ %{REQUEST_URI}/ [R=301,L]
+
+    # If file exists, serve it
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # If directory exists, serve it
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Fallback to root index.html for client routing
+    RewriteRule . /index.html [L]
+</IfModule>

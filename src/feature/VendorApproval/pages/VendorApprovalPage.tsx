@@ -1,5 +1,3 @@
-import { SEO } from "@/components/common/SEO";
-import { vendorApprovalSEO } from "../seo/vendorApprovalSeo";
 import { VendorApprovalHero } from "../components/VendorApprovalHero";
 import { VendorApprovalInfoTable } from "../components/VendorApprovalInfoTable";
 import { ApprovalDocumentsGrid } from "../components/ApprovalDocumentsGrid";
@@ -19,7 +17,6 @@ import { TrustedRailwaysBanner } from "../components/TrustedRailwaysBanner";
 export default function VendorApprovalPage() {
   return (
     <>
-      <SEO {...vendorApprovalSEO} />
       <VendorApprovalHero />
       <VendorApprovalInfoTable />
       <ApprovalDocumentsGrid />
