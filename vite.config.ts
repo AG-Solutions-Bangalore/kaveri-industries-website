@@ -1,12 +1,135 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import fs from 'node:fs'
+import zlib from 'node:zlib'
+import { MessagePort } from 'node:worker_threads'
 import react, { reactCompilerPreset } from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import compression from 'vite-plugin-compression'
+import { vitePrerenderPlugin } from 'vite-prerender-plugin'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = import.meta.dirname ?? path.dirname(fileURLToPath(import.meta.url))
+
+// CRITICAL EVENT-LOOP UNBLOCK FIX:
+// React 18/19 scheduler keeps a Node MessagePort open, causing Vite SSG builds to hang indefinitely.
+if (typeof MessagePort !== 'undefined' && MessagePort.prototype) {
+  const origOn = Object.getOwnPropertyDescriptor(MessagePort.prototype, 'onmessage')
+  if (origOn && origOn.set) {
+    Object.defineProperty(MessagePort.prototype, 'onmessage', {
+      set(fn) {
+        origOn.set!.call(this, fn)
+        const port = this as MessagePort & { unref?: () => void }
+        if (fn && typeof port.unref === 'function') {
+          port.unref()
+        }
+      },
+      get() {
+        return origOn.get?.call(this)
+      },
+      configurable: true,
+      enumerable: true,
+    })
+  }
+}
+
+// vite-plugin-compression keeps a module-level mtime cache, so the second
+// instance (brotli) sees every file as already compressed and emits nothing.
+// This tiny post plugin guarantees .br files exist with the same threshold.
+function brotliFallback(): Plugin {
+  return {
+    name: 'brotli-fallback',
+    apply: 'build',
+    enforce: 'post',
+    async closeBundle() {
+      const outDir = path.resolve(__dirname, 'dist')
+      if (!fs.existsSync(outDir)) return
+      console.log('[build] Generating brotli pre-compressed files...')
+      const walk = (dir: string): string[] => {
+        const out: string[] = []
+        for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+          const full = path.join(dir, entry.name)
+          if (entry.isDirectory()) out.push(...walk(full))
+          else if (/\.(js|mjs|json|css|html)$/i.test(full)) out.push(full)
+        }
+        return out
+      }
+      for (const file of walk(outDir)) {
+        const stat = fs.statSync(file)
+        if (stat.size < 1024) continue
+        const brPath = `${file}.br`
+        if (fs.existsSync(brPath)) continue
+        const input = fs.readFileSync(file)
+        const compressed = zlib.brotliCompressSync(input, {
+          params: {
+            [zlib.constants.BROTLI_PARAM_QUALITY]: zlib.constants.BROTLI_MAX_QUALITY,
+            [zlib.constants.BROTLI_PARAM_MODE]: zlib.constants.BROTLI_MODE_TEXT,
+          },
+        })
+        fs.writeFileSync(brPath, compressed)
+      }
+      console.log('[build] Brotli pre-compression complete.')
+    },
+  }
+}
+
+// Heavy vendors leave the critical path via manualChunks:
+// motion|framer-motion → "motion", lenis → "lenis",
+// lucide-react|@radix-ui|radix-ui → "ui-vendor",
+// plus router/query/helmet splits.
+function manualChunks(id: string) {
+  const nid = id.replace(/\\/g, '/')
+
+  // Skip the build-time prerender worker entirely — it is bundled by
+  // vite-prerender-plugin, never loaded in the browser.
+  if (nid.includes('/src/prerender.') || nid.includes('/src/seo/prerender.')) {
+    return undefined
+  }
+
+  // PERF: split React client runtime into its own cached chunk, EXCLUDING
+  // any file with "server" in the path (react-dom/server* is SSR-only and
+  // lives in the async server.browser chunk). Without the exclusion the
+  // browser `react` chunk swallows +200KB of SSR code; without this rule at
+  // all React inlines into `index` (205KB) and blocks FCP on parse.
+  const lower = nid.toLowerCase()
+  if (lower.includes('server')) {
+    return undefined
+  }
+  if (
+    nid.includes('node_modules/react/') ||
+    nid.includes('node_modules/react-dom/') ||
+    nid.includes('node_modules/scheduler/') ||
+    nid.includes('react-jsx-runtime') ||
+    nid.includes('compiler-runtime')
+  ) {
+    return 'react'
+  }
+
+  if (
+    nid.includes('framer-motion') ||
+    nid.includes('motion-dom') ||
+    nid.includes('motion-utils') ||
+    nid.includes('/motion/')
+  ) {
+    return 'motion'
+  }
+  if (nid.includes('node_modules/lenis') || nid.includes('/lenis/')) return 'lenis'
+  if (
+    nid.includes('lucide-react') ||
+    nid.includes('@radix-ui') ||
+    nid.includes('radix-ui')
+  ) {
+    return 'ui-vendor'
+  }
+  if (nid.includes('axios')) return 'axios'
+  if (nid.includes('react-router')) return 'router'
+  if (nid.includes('@tanstack/')) return 'query'
+  if (nid.includes('dynamicData')) return 'dynamic-data'
+  if (nid.includes('react-helmet')) return 'helmet'
+  if (nid.includes('next-themes')) return 'themes'
+  return undefined
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,63 +137,51 @@ export default defineConfig({
     react(),
     tailwindcss(),
     babel({ presets: [reactCompilerPreset()] }),
-    // Emit pre-compressed .gz + .br assets so static hosts serve the
-    // smallest bytes without runtime compression (better TTFB / LCP).
-    // @ts-expect-error — see import note above.
-    compression({ algorithm: 'gzip', ext: '.gz', threshold: 1024 }),
-    // @ts-expect-error — see import note above.
-    compression({ algorithm: 'brotliCompress', ext: '.br', threshold: 1024 }),
+    vitePrerenderPlugin({
+      prerenderScript: path.resolve(__dirname, 'src/seo/prerender.tsx'),
+      renderTarget: '#root',
+    }),
+    // @ts-expect-error — vite-plugin-compression CJS/ESM interop under nodenext
+    compression({
+      algorithm: 'gzip',
+      ext: '.gz',
+      threshold: 1024,
+      deleteOriginFile: false,
+    }),
+    // @ts-expect-error — vite-plugin-compression CJS/ESM interop under nodenext
+    compression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+      threshold: 1024,
+      deleteOriginFile: false,
+    }),
+    brotliFallback(),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   build: {
-    target: 'es2022',
     minify: 'esbuild',
     cssMinify: true,
-    cssCodeSplit: true,
-    sourcemap: false,
-    reportCompressedSize: false,
-    chunkSizeWarningLimit: 500,
-    // Inline tiny assets (SVG icons) to avoid extra requests; keep the
-    // limit low so photos stay as separate cacheable files.
     assetsInlineLimit: 4096,
-    modulePreload: {
-      resolveDependencies(_filename, deps) {
-        return deps.filter((dep) => !dep.includes('lenis'))
-      },
-    },
+    chunkSizeWarningLimit: 500,
+    reportCompressedSize: false,
+    // PERF: re-enable modulepreload for the critical chain
+    // (index → react/jsx/router/query/AppRoutes). `false` forced a
+    // waterfall: browser discovered each chunk only after parsing the
+    // previous one, delaying LCP by ~1s.
+    modulePreload: true,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (!id.includes('node_modules')) return
-          // Heavy animation runtime — deferred so critical path paints first
-          if (id.includes('motion/') || id.includes('framer-motion'))
-            return 'motion'
-          // Smooth-scroll — deferred via idle callback
-          if (id.includes('lenis')) return 'lenis'
-          // Icon + primitive UI kits
-          if (
-            id.includes('lucide-react') ||
-            id.includes('@radix-ui') ||
-            id.includes('radix-ui')
-          )
-            return 'ui-vendor'
-          // Core framework runtime
-          if (
-            id.includes('react-router') ||
-            id.includes('react-helmet-async') ||
-            id.includes('next-themes') ||
-            id.includes('/react/') ||
-            id.includes('/react-dom/') ||
-            id.match(/node_modules\/react\//) ||
-            id.match(/node_modules\/react-dom\//) ||
-            id.match(/node_modules\/scheduler\//)
-          )
-            return 'vendor'
-        },
+        manualChunks,
+      },
+    },
+    // Vite 8 (Rolldown) reads rolldownOptions; keep both in sync.
+    rolldownOptions: {
+      output: {
+        manualChunks,
       },
     },
   },

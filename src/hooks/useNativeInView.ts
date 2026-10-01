@@ -4,7 +4,7 @@ export function useNativeInView<T extends HTMLElement = HTMLElement>(
   rootMargin = "250px",
 ) {
   const ref = useRef<T>(null);
-  const [isInView, setIsInView] = useState(typeof window === "undefined");
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     if (isInView || typeof window === "undefined") return;
