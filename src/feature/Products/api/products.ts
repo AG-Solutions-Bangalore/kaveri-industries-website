@@ -270,7 +270,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "All type of plain, machined & spring washers As per IS: 2016, 3063 & as per customer's specifications.",
     icon: Cog,
-    imageUrl: `${IMAGE_BASE_URL}/products/product-washers.webp`,
+    imageUrl: `${IMAGE_BASE_URL}/home/product-washers.webp`,
     imageAlt:
       "Plain, machined, and spring washers as per IS: 2016 and 3063",
     imageTitle: "Plain, Machined and Spring Washers",

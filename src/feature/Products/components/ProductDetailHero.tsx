@@ -35,9 +35,9 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="relative flex items-center justify-center overflow-hidden rounded-none border border-slate-200/80 bg-[#F6F8FB] p-6 sm:p-10 dark:border-border dark:bg-card/40"
+          className="relative flex items-center justify-center overflow-hidden rounded-none border border-slate-200/80 bg-white p-2 sm:p-2.5 dark:border-border dark:bg-card/40"
         >
-          <div className="relative aspect-[4/3] w-full max-w-lg overflow-hidden bg-white shadow-xs">
+          <div className="relative w-full max-w-lg overflow-hidden bg-white shadow-xs">
             {product.imageUrl ? (
               <img
                 src={product.imageUrl}
@@ -46,7 +46,7 @@ export function ProductDetailHero({ product }: ProductDetailHeroProps) {
                 width={1200}
                 height={900}
                 decoding="async"
-                className="h-full w-full object-cover"
+                className="h-auto max-h-[560px] w-full object-contain object-center"
                 loading="eager"
               />
             ) : (
