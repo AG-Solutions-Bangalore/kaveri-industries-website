@@ -1,9 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { SEO } from "@/components/common/SEO";
 import { Dithered404 } from "@/components/ui/dithered-404";
-import { notFoundSEO } from "@/feature/NotFound/seo/notFoundSeo";
 
 /**
  * Interactive 404 page — the centerpiece is the `<Dithered404 />`
@@ -25,9 +23,7 @@ import { notFoundSEO } from "@/feature/NotFound/seo/notFoundSeo";
 export default function NotFoundPage() {
   const navigate = useNavigate();
   return (
-    <>
-      <SEO {...notFoundSEO} />
-      <section className="relative min-h-[calc(100vh-4rem)] w-full overflow-hidden bg-background">
+    <section className="relative min-h-[calc(100vh-4rem)] w-full overflow-hidden bg-background">
         <Dithered404 />
 
         <div className="relative z-10 flex min-h-[calc(100vh-4rem)] flex-col items-center justify-end px-4 pb-16 text-center">
@@ -49,6 +45,5 @@ export default function NotFoundPage() {
           </button>
         </div>
       </section>
-    </>
   );
 }

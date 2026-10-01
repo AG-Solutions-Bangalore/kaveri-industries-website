@@ -1,5 +1,3 @@
-import { SEO } from "@/components/common/SEO";
-import { certificateSEO } from "../seo/certificateSeo";
 import { CertificateHero } from "../components/CertificateHero";
 import { CertificateHighlights } from "../components/CertificateHighlights";
 import { CertificateGrid } from "../components/CertificateGrid";
@@ -19,7 +17,6 @@ import { QualityCommitmentSection } from "../components/QualityCommitmentSection
 export default function CertificatePage() {
   return (
     <>
-      <SEO {...certificateSEO} />
       <CertificateHero />
       <CertificateHighlights />
       <CertificateGrid />

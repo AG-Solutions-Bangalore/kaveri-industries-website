@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
-import { SEO } from "@/components/common/SEO";
 import { Footerdemo } from "@/components/ui/footer-section";
-import { demoSEO } from "@/feature/Demo/seo/demoSeo";
 
 /**
  * Section wrapper used by the `/demo` showcase page.
@@ -67,8 +65,6 @@ function DemoSection({
 export default function DemoPage() {
   return (
     <>
-      <SEO {...demoSEO} />
-
       {/* Page header — keeps the same intro pattern as the other feature
           pages (label → heading → short description). */}
       <section className="bg-background py-12 md:py-20">

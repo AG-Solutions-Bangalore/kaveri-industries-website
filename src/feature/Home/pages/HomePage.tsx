@@ -1,7 +1,5 @@
 import { Suspense, lazy } from "react";
-import { SEO } from "@/components/common/SEO";
 import { Hero } from "@/feature/Home/components/Hero";
-import { homeSEO } from "@/feature/Home/seo/homeSeo";
 
 // Below-the-fold sections are split into separate chunks and hydrated after
 // the Hero paints, so LCP only waits on the hero + critical CSS/JS.
@@ -29,8 +27,6 @@ const CTABanner = lazy(() =>
 export default function HomePage() {
   return (
     <>
-      <SEO {...homeSEO} />
-
       <Hero />
       <Suspense fallback={null}>
         <ProductsCarousel />

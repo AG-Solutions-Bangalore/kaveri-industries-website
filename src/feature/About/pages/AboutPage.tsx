@@ -1,6 +1,4 @@
-import { SEO } from "@/components/common/SEO";
 import { CTABanner } from "@/components/common/CTABanner";
-import { aboutSEO } from "@/feature/About/seo/aboutSeo";
 import { AboutHero } from "@/feature/About/components/AboutHero";
 import { WhoWeAre } from "@/feature/About/components/WhoWeAre";
 import { QualityBanner } from "@/feature/About/components/QualityBanner";
@@ -25,8 +23,6 @@ import { AboutCapabilities } from "@/feature/About/components/AboutCapabilities"
 export default function AboutPage() {
   return (
     <>
-      <SEO {...aboutSEO} />
-
       <AboutHero />
       <WhoWeAre />
       <QualityBanner />

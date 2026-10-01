@@ -12,8 +12,8 @@ export function TrustedRailwaysBanner() {
           {/* Faint factory line-art on the right (matches design) */}
           <img
             src={`${WEB_IMAGE_BASE}/vendor-approval/faint-factory.webp`}
-            alt=""
-            aria-hidden="true"
+            alt="Kaveri Industries Factory for RDSO Approved Manufacturing"
+            title="Kaveri Industries RDSO Approved Manufacturing Facility"
             loading="lazy"
             decoding="async"
             width={1200}

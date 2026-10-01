@@ -50,6 +50,8 @@ export function MachineryVerificationBanner() {
               <button
                 type="button"
                 onClick={handleDownloadAll}
+                title="Download List of Machines PDF"
+                aria-label="Download List of Machines PDF"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-500 px-6 py-3 text-xs font-bold text-slate-950 shadow-md transition-colors hover:bg-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 sm:w-auto sm:text-sm"
               >
                 <Download className="h-4 w-4" />

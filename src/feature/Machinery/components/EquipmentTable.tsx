@@ -33,6 +33,8 @@ export function EquipmentTable() {
           <a
             href={MACHINE_PDF_URL}
             download={MACHINE_PDF_NAME}
+            title="Download List of Machines PDF"
+            aria-label="Download List of Machines PDF"
             className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-lg border border-brand-500/40 bg-white px-4 py-2.5 text-xs font-semibold text-brand-700 shadow-xs transition-colors hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-brand-500/30 dark:bg-slate-900 dark:text-brand-300 dark:hover:bg-brand-950/40 sm:w-auto sm:text-sm"
           >
             <Download className="h-4 w-4 shrink-0" />

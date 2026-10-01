@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import {
   Send,
@@ -668,8 +669,8 @@ function SuccessCard({
             />
           </button>
 
-          <a
-            href="/products"
+          <Link
+            to="/products"
             onClick={isModal && onClose ? onClose : undefined}
             className="group inline-flex items-center justify-between gap-2 rounded-sm border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-foreground shadow-xs transition-all hover:border-brand-400 hover:bg-brand-50/60 hover:shadow-sm dark:border-slate-700 dark:bg-slate-900/60 dark:hover:bg-slate-900"
           >
@@ -681,7 +682,7 @@ function SuccessCard({
               className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground"
               aria-hidden="true"
             />
-          </a>
+          </Link>
 
           {isModal && onClose && (
             <button

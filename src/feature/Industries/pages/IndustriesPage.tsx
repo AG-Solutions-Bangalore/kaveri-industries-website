@@ -1,15 +1,8 @@
-import { SEO } from "@/components/common/SEO";
 import { TargetSectors } from "@/feature/Home/components/TargetSectors";
-import { sectorsSchema } from "@/feature/Home/api/sectorsSchema";
-import { industriesSEO } from "@/feature/Industries/seo/industriesSeo";
 
 export default function IndustriesPage() {
   return (
     <>
-      <SEO
-        {...industriesSEO}
-        schema={[...(Array.isArray(industriesSEO.schema) ? industriesSEO.schema : [industriesSEO.schema ?? {}]), ...sectorsSchema()]}
-      />
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
           <header className="max-w-2xl">

@@ -1,10 +1,8 @@
-import { SEO } from "@/components/common/SEO";
 import { AdvancedEquipmentGrid } from "../components/AdvancedEquipmentGrid";
 import { EquipmentTable } from "../components/EquipmentTable";
 import { MachineryHero } from "../components/MachineryHero";
 import { MachineryHighlights } from "../components/MachineryHighlights";
 import { MachineryVerificationBanner } from "../components/MachineryVerificationBanner";
-import { machinerySEO } from "../seo/machinerySeo";
 
 /**
  * Machinery & Manufacturing Facilities Page.
@@ -20,7 +18,6 @@ import { machinerySEO } from "../seo/machinerySeo";
 export default function MachineryPage() {
   return (
     <>
-      <SEO {...machinerySEO} />
       <MachineryHero />
       <MachineryHighlights />
       <AdvancedEquipmentGrid />

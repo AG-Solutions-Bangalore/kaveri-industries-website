@@ -1,7 +1,4 @@
-import { SEO } from "@/components/common/SEO";
-import { breadcrumbSchema } from "@/lib/schemas";
 import { company } from "@/lib/company";
-import type { SEOProps } from "@/components/common/SEO";
 
 const LEGAL_TITLES: Record<string, { title: string; body: string }> = {
   privacy: {
@@ -28,32 +25,20 @@ export interface LegalPageProps {
 
 export default function LegalPage({ slug }: LegalPageProps) {
   const entry = LEGAL_TITLES[slug];
-  const seo: Pick<SEOProps, "title" | "path" | "schema" | "noindex"> = {
-    title: entry.title,
-    path: `/${slug}`,
-    noindex: true,
-    schema: breadcrumbSchema([
-      { name: "Home", url: "/" },
-      { name: entry.title, url: `/${slug}` },
-    ]),
-  };
 
   return (
-    <>
-      <SEO {...seo} />
-      <section className="mx-auto max-w-3xl px-4 py-16 md:py-20">
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-          {entry.title}
-        </h1>
-        <p className="mt-6 text-muted-foreground">{entry.body}</p>
-        <p className="mt-6 text-sm text-muted-foreground">
-          For questions about this policy, write to{" "}
-          <a className="text-accent underline" href={`mailto:${company.contact.legalEmail}`}>
-            {company.contact.legalEmail}
-          </a>
-          .
-        </p>
-      </section>
-    </>
+    <section className="mx-auto max-w-3xl px-4 py-16 md:py-20">
+      <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+        {entry.title}
+      </h1>
+      <p className="mt-6 text-muted-foreground">{entry.body}</p>
+      <p className="mt-6 text-sm text-muted-foreground">
+        For questions about this policy, write to{" "}
+        <a className="text-accent underline" href={`mailto:${company.contact.legalEmail}`}>
+          {company.contact.legalEmail}
+        </a>
+        .
+      </p>
+    </section>
   );
 }
