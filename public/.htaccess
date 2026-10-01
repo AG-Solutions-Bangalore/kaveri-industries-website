@@ -42,6 +42,12 @@
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
 
+    # ARD and manifest JSON files: enable CORS for AI agents and crawlers
+    <FilesMatch "\.(json|ld\+json)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    </FilesMatch>
+
     # HTML files: Revalidate immediately so new builds are seen
     <FilesMatch "\.(html|htm)$">
         Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
@@ -56,6 +62,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
+
+    # Allow .well-known/ resources (Agentic Resource Discovery, etc.)
+    RewriteRule ^\.well-known/ - [L]
 
     # If requested directory exists with index.html, serve it
     RewriteCond %{REQUEST_FILENAME} -d

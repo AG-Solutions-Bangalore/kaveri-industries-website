@@ -633,6 +633,7 @@ export function SeoManager(props: SEOProps = {}) {
       <meta name="format-detection" content="telephone=no" />
 
       <link rel="canonical" href={canonical} />
+      <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/ai-catalog+json" />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />

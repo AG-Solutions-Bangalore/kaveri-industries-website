@@ -44,7 +44,7 @@ function SectorCard({
       {/* Content Overlay */}
       <div className="relative z-10 flex flex-col items-start">
         {/* Number Badge */}
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white shadow-md shadow-brand-600/30 mb-3">
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-xs font-bold text-white shadow-md shadow-brand-700/30 mb-3">
           {formattedIndex}
         </span>
 
@@ -72,7 +72,7 @@ export function TargetSectors() {
         {/* Section Header */}
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-700 dark:text-brand-400">
               {SECTORS_SECTION_HEADER.badge}
             </p>
             <h2

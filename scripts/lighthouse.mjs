@@ -32,7 +32,7 @@ const args = Object.fromEntries(
   }),
 );
 
-const TARGET_URL = args.url || "http://localhost:4173/";
+const TARGET_URL = args.url || "http://127.0.0.1:4173/";
 const FORM_FACTOR = String(args["form-factor"] || "both").toLowerCase();
 const THRESHOLD = Number(args.threshold ?? 85);
 const SHOULD_SERVE = args.serve !== false && args["no-serve"] === undefined;
@@ -50,8 +50,8 @@ async function isReachable(url) {
 }
 
 function startPreview(port = 4173) {
-  console.log(`[lighthouse] starting \`vite preview --port ${port}\`…`);
-  const child = spawn("npx", ["vite", "preview", "--port", String(port), "--strictPort"], {
+  console.log(`[lighthouse] starting \`vite preview --port ${port} --host 127.0.0.1\`…`);
+  const child = spawn("npx", ["vite", "preview", "--port", String(port), "--host", "127.0.0.1", "--strictPort"], {
     cwd: ROOT,
     stdio: ["ignore", "pipe", "pipe"],
     shell: true,
@@ -67,7 +67,7 @@ async function runOnce(url, formFactor, port) {
     port,
     output: ["html", "json"],
     logLevel: "error",
-    onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
+    onlyCategories: ["performance", "accessibility", "best-practices", "seo", "agentic-browsing"],
   };
   let config = undefined;
   if (formFactor === "desktop") {
@@ -133,11 +133,13 @@ async function main() {
       });
 
       console.log(`\n  ${factor.toUpperCase()}  ${finalUrl}`);
-      for (const key of ["performance", "accessibility", "best-practices", "seo"]) {
-        const s = categories[key]?.score ?? 0;
+      for (const key of ["performance", "accessibility", "best-practices", "seo", "agentic-browsing"]) {
+        const cat = categories[key];
+        if (!cat) continue;
+        const s = cat.score ?? 0;
         const mark = s * 100 >= THRESHOLD ? "✓" : "✗";
-        console.log(`  ${mark} ${key.padEnd(15)} ${bar(s)}`);
-        if (s * 100 < THRESHOLD) failed = true;
+        console.log(`  ${mark} ${key.padEnd(18)} ${bar(s)}`);
+        if (key !== "agentic-browsing" && s * 100 < THRESHOLD) failed = true;
       }
 
       const metrics = ["first-contentful-paint", "largest-contentful-paint", "total-blocking-time", "cumulative-layout-shift", "speed-index", "interactive"];

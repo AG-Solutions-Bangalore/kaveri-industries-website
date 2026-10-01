@@ -94,6 +94,15 @@ function buildHeadElements(
       },
     },
     { type: "link", props: { rel: "canonical", href: canonical, "data-rh": rh } },
+    {
+      type: "link",
+      props: {
+        rel: "ai-catalog",
+        href: "/.well-known/ai-catalog.json",
+        type: "application/ai-catalog+json",
+        "data-rh": rh,
+      },
+    },
     { type: "meta", props: { property: "og:type", content: type, "data-rh": rh } },
     { type: "meta", props: { property: "og:site_name", content: company.name, "data-rh": rh } },
     { type: "meta", props: { property: "og:title", content: title, "data-rh": rh } },

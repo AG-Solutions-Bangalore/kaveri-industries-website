@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { useLenis } from "lenis/react";
+import { getLenisInstance } from "@/lib/lenisInstance";
 import { ProductDetailBreadcrumb } from "@/feature/Products/components/ProductDetailBreadcrumb";
 import { ProductDetailHero } from "@/feature/Products/components/ProductDetailHero";
 import { ProductOverview } from "@/feature/Products/components/ProductOverview";
@@ -18,17 +18,17 @@ import { getProductBySlug } from "@/feature/Products/api/products";
 export default function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const product = slug ? getProductBySlug(slug) : undefined;
-  const lenis = useLenis();
 
   // Reset scroll to top on slug change. Uses Lenis when available so the
   // jump stays instantaneous instead of animating through the new page.
   useEffect(() => {
+    const lenis = getLenisInstance();
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
       window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     }
-  }, [slug, lenis]);
+  }, [slug]);
 
   if (!product) {
     return (

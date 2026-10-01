@@ -16,7 +16,7 @@ export function ProductsCarousel() {
         {/* Section Header */}
         <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-700 dark:text-brand-400">
               {PRODUCTS_SECTION_HEADER.badge}
             </p>
             <h2
@@ -29,7 +29,7 @@ export function ProductsCarousel() {
 
           <button
             onClick={() => navigate(PRODUCTS_SECTION_HEADER.cta.href)}
-            className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400"
+            className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400"
           >
             {PRODUCTS_SECTION_HEADER.cta.label}
             <ArrowRight
@@ -58,7 +58,7 @@ export function ProductsCarousel() {
 /** Product card precisely matching input_file_2.png */
 function ProductCard({ product }: { product: Product }) {
   const Icon = product.icon;
-  const { ref, isInView } = useNativeInView<HTMLDivElement>("200px");
+  const { ref, isInView } = useNativeInView<HTMLDivElement>("0px");
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-brand-900">

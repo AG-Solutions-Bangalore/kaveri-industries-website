@@ -80,55 +80,50 @@ function brotliFallback(): Plugin {
 // plus router/query/helmet splits.
 function manualChunks(id: string) {
   const nid = id.replace(/\\/g, '/')
+  let res: string | undefined = undefined
 
-  // Skip the build-time prerender worker entirely — it is bundled by
-  // vite-prerender-plugin, never loaded in the browser.
   if (nid.includes('/src/prerender.') || nid.includes('/src/seo/prerender.')) {
-    return undefined
-  }
-
-  // PERF: split React client runtime into its own cached chunk, EXCLUDING
-  // any file with "server" in the path (react-dom/server* is SSR-only and
-  // lives in the async server.browser chunk). Without the exclusion the
-  // browser `react` chunk swallows +200KB of SSR code; without this rule at
-  // all React inlines into `index` (205KB) and blocks FCP on parse.
-  const lower = nid.toLowerCase()
-  if (lower.includes('server')) {
-    return undefined
-  }
-  if (
-    nid.includes('node_modules/react/') ||
-    nid.includes('node_modules/react-dom/') ||
-    nid.includes('node_modules/scheduler/') ||
-    nid.includes('react-jsx-runtime') ||
+    res = undefined
+  } else if (nid.toLowerCase().includes('server')) {
+    res = undefined
+  } else if (
+    nid.includes('/react/') ||
+    nid.includes('/react-dom/') ||
+    nid.includes('/scheduler/') ||
+    nid.includes('jsx-runtime') ||
     nid.includes('compiler-runtime')
   ) {
-    return 'react'
-  }
-
-  if (
+    res = 'react'
+  } else if (
     nid.includes('framer-motion') ||
     nid.includes('motion-dom') ||
     nid.includes('motion-utils') ||
     nid.includes('/motion/')
   ) {
-    return 'motion'
-  }
-  if (nid.includes('node_modules/lenis') || nid.includes('/lenis/')) return 'lenis'
-  if (
+    res = 'motion'
+  } else if (nid.includes('node_modules/lenis') || nid.includes('/lenis/')) {
+    res = 'lenis'
+  } else if (
     nid.includes('lucide-react') ||
     nid.includes('@radix-ui') ||
     nid.includes('radix-ui')
   ) {
-    return 'ui-vendor'
+    res = 'ui-vendor'
+  } else if (nid.includes('axios')) {
+    res = 'axios'
+  } else if (nid.includes('react-router')) {
+    res = 'router'
+  } else if (nid.includes('@tanstack/')) {
+    res = 'query'
+  } else if (nid.includes('dynamicData')) {
+    res = 'dynamic-data'
+  } else if (nid.includes('react-helmet')) {
+    res = 'helmet'
+  } else if (nid.includes('next-themes')) {
+    res = 'themes'
   }
-  if (nid.includes('axios')) return 'axios'
-  if (nid.includes('react-router')) return 'router'
-  if (nid.includes('@tanstack/')) return 'query'
-  if (nid.includes('dynamicData')) return 'dynamic-data'
-  if (nid.includes('react-helmet')) return 'helmet'
-  if (nid.includes('next-themes')) return 'themes'
-  return undefined
+
+  return res
 }
 
 // https://vite.dev/config/
@@ -168,11 +163,17 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     chunkSizeWarningLimit: 500,
     reportCompressedSize: false,
-    // PERF: re-enable modulepreload for the critical chain
-    // (index → react/jsx/router/query/AppRoutes). `false` forced a
-    // waterfall: browser discovered each chunk only after parsing the
-    // previous one, delaying LCP by ~1s.
-    modulePreload: true,
+    modulePreload: {
+      resolveDependencies(_url, deps) {
+        return deps.filter(
+          (dep) =>
+            !dep.includes('motion') &&
+            !dep.includes('lenis') &&
+            !dep.includes('axios') &&
+            !dep.includes('prerender')
+        )
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks,

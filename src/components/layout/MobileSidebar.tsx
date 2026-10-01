@@ -145,7 +145,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
               setIsOpen(false);
               openQuoteModal();
             }}
-            className="group inline-flex w-full items-center justify-center gap-2 bg-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="group inline-flex w-full items-center justify-center gap-2 bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Request a Quote
             <ArrowRight

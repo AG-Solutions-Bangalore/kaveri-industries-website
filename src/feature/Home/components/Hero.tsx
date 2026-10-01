@@ -4,7 +4,6 @@ import { HERO_CONTENT } from "@/feature/Home/api/homeConstants";
 import { ShineButton } from "@/components/shine";
 import HeroFloating from "./HeroFloating";
 import { useQuoteModal } from "@/context/QuoteModalContext";
-import { WEB_IMAGE_BASE } from "@/lib/images";
 
 export function Hero() {
   const navigate = useNavigate();
@@ -17,8 +16,8 @@ export function Hero() {
           bg paints instantly so LCP never shows a white flash. */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-900">
         <img
-          src={`${WEB_IMAGE_BASE}/home/home_banner_image-1280.webp`}
-          srcSet={`${WEB_IMAGE_BASE}/home/home_banner_image-768.webp 768w, ${WEB_IMAGE_BASE}/home/home_banner_image-1280.webp 1280w, ${WEB_IMAGE_BASE}/home/home_banner_image-1440.webp 1440w, ${WEB_IMAGE_BASE}/home/home_banner_image.webp 1920w`}
+          src="/images/home/home_banner_image-1280.webp"
+          srcSet="/images/home/home_banner_image-768.webp 768w, /images/home/home_banner_image-1280.webp 1280w, /images/home/home_banner_image-1440.webp 1440w, /images/home/home_banner_image.webp 1920w"
           alt="High tensile MS fasteners manufactured by Kaveri Industries"
           title="High Tensile MS Fasteners Manufacturer – Kaveri Industries"
           className="h-full w-full object-cover"
