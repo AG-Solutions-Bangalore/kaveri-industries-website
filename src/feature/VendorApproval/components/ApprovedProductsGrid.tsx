@@ -43,12 +43,12 @@ export function ApprovedProductsGrid() {
               to={product.link}
               className="group flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
             >
-              {/* Image Frame */}
-              <div className="aspect-4/3 w-full overflow-hidden bg-slate-100 dark:bg-slate-950">
+              {/* Image Frame — show complete image */}
+              <div className="aspect-4/3 w-full overflow-hidden bg-white p-2 dark:bg-slate-950">
                 <img
                   src={product.image}
                   alt={product.imageAlt}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 

@@ -79,8 +79,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         className="flex flex-1 flex-col"
         aria-label={`View ${product.name}`}
       >
-        {/* Product Image Frame — fills entire space, no inner padding */}
-        <div className="relative aspect-10/9 w-full overflow-hidden bg-[#f4f5f8] dark:bg-slate-800/60">
+        {/* Product Image Frame — show complete image, no cropping */}
+        <div className="relative aspect-10/9 w-full overflow-hidden bg-white p-2 dark:bg-slate-800/60">
           {product.imageUrl ? (
             <img
               src={product.imageUrl}
@@ -88,7 +88,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               title={product.imageTitle}
               width={400}
               height={400}
-              className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              className="h-full w-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-105"
               loading="lazy"
             />
           ) : (

@@ -58,15 +58,17 @@ export function ApprovalDocumentsGrid() {
               key={doc.id}
               className="flex flex-col overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xs transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
             >
-              {/* Real PDF preview with overlapping badge */}
+              {/* Real PDF preview with overlapping badge — scroller hidden */}
               <div className="relative">
-                <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 dark:bg-slate-950">
+                <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden dark:bg-slate-950">
                   <iframe
-                    src={`${doc.pdfUrl}#page=1&toolbar=0&navpanes=0&scrollbar=0`}
+                    src={`${doc.pdfUrl}#page=1&toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
                     title={`${doc.title} document preview`}
                     loading="lazy"
                     tabIndex={-1}
-                    className="pointer-events-none h-full w-full border-0"
+                    scrolling="no"
+                    className="pointer-events-none h-[calc(100%+48px)] w-[calc(100%+20px)] max-w-none border-0"
+                    style={{ overflow: "hidden" }}
                   />
                 </div>
                 <div

@@ -32,7 +32,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
       <Link
         to={`/products/${product.slug}`}
         title={product.linkTitle}
-        className="relative block aspect-[4/3] overflow-hidden bg-muted"
+        className="relative block aspect-[4/3] overflow-hidden bg-white p-2"
         aria-label={`View details for ${product.name}`}
       >
         {product.imageUrl ? (
@@ -43,7 +43,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
             width={1200}
             height={900}
             decoding="async"
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+            className="h-full w-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
             loading="lazy"
           />
         ) : (
