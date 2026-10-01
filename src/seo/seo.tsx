@@ -566,6 +566,7 @@ export function SeoManager(props: SEOProps = {}) {
     if (typeof document === "undefined") return;
 
     // 1. Title
+    // eslint-disable-next-line react-hooks/immutability -- intentional direct DOM sync inside useEffect (title/meta/canonical must match active URL)
     document.title = title;
 
     // 2. Canonical tag: update in place without removing nodes to prevent React 19 reconciliation errors
