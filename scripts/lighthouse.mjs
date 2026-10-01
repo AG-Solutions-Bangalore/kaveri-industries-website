@@ -67,15 +67,14 @@ async function runOnce(url, formFactor, port) {
     port,
     output: ["html", "json"],
     logLevel: "error",
-    formFactor,
-    screenEmulation:
-      formFactor === "desktop"
-        ? { mobile: false, width: 1350, height: 940, deviceScaleFactor: 1, disabled: false }
-        : { mobile: true, width: 360, height: 640, deviceScaleFactor: 2, disabled: false },
-    throttlingMethod: "simulate",
     onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
   };
-  return lighthouse(url, flags);
+  let config = undefined;
+  if (formFactor === "desktop") {
+    const { default: desktopConfig } = await import("lighthouse/core/config/desktop-config.js");
+    config = desktopConfig;
+  }
+  return lighthouse(url, flags, config);
 }
 
 function bar(score) {

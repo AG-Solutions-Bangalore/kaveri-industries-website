@@ -4,6 +4,8 @@ function printReport(file) {
   const data = JSON.parse(fs.readFileSync(file, "utf8"));
   console.log(`\n=== REPORT: ${file} ===`);
   console.log(`Perf Score: ${Math.round(data.categories.performance.score * 100)}`);
+  console.log(`Throttling:`, data.configSettings?.throttling);
+  console.log(`Form Factor:`, data.configSettings?.formFactor);
   
   const metrics = [
     "first-contentful-paint",
