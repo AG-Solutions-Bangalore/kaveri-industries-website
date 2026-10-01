@@ -1,12 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "motion/react";
 import { CTA_BANNER_CONTENT } from "@/feature/Home/api/homeConstants";
 import { ShineButton } from "@/components/shine";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { IMAGE_BASE_URL } from "@/lib/images";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function CTABanner() {
   const navigate = useNavigate();
@@ -44,13 +41,7 @@ export function CTABanner() {
       <div className="relative mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between gap-8">
           {/* Left: Heading & Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="lg:col-span-6 space-y-3 flex-1"
-          >
+          <div className="lg:col-span-6 space-y-3 flex-1">
             <h2
               id="cta-heading"
               className="text-2xl sm:text-3xl lg:text-4xl whitespace-nowrap font-extrabold tracking-tight text-slate-900 dark:text-white leading-snug"
@@ -60,16 +51,10 @@ export function CTABanner() {
             <p className="text-xs sm:text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-300 max-w-xl">
               {CTA_BANNER_CONTENT.description}
             </p>
-          </motion.div>
+          </div>
 
           {/* Middle: 2 Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
-            className="lg:col-span-3 mr-56 flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col justify-center"
-          >
+          <div className="lg:col-span-3 mr-56 flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col justify-center">
             <ShineButton
               onClick={() => openQuoteModal()}
               className="group inline-flex items-center justify-center gap-2 rounded-md bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all duration-200 hover:bg-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
@@ -91,7 +76,7 @@ export function CTABanner() {
                 aria-hidden="true"
               />
             </ShineButton>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

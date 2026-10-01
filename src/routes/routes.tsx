@@ -10,7 +10,7 @@ import {
 } from "react";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 
-const HomePage = lazy(() => import("@/feature/Home/pages/HomePage"));
+import HomePage from "@/feature/Home/pages/HomePage";
 const HomePageV2 = lazy(() => import("@/feature/Home/pages/HomePageV2"));
 const AboutPage = lazy(() => import("@/feature/About/pages/AboutPage"));
 const ProductsPage = lazy(() => import("@/feature/Products/pages/ProductsPage"));
@@ -31,13 +31,16 @@ const MachineryPage = lazy(
 const LegalPage = lazy(() => import("@/feature/Legal/pages/LegalPage"));
 const DemoPage = lazy(() => import("@/feature/Demo/pages/DemoPage"));
 
-const wrap = (Page: LazyExoticComponent<ComponentType>): ReactNode => (
+const wrapNode = (node: ReactNode): ReactNode => (
   <ErrorBoundary>
     <Suspense fallback={<LoadingFallback />}>
-      <Page />
+      {node}
     </Suspense>
   </ErrorBoundary>
 );
+
+const wrap = (Page: LazyExoticComponent<ComponentType>): ReactNode =>
+  wrapNode(<Page />);
 
 /**
  * Mounts the router and warms lazy chunks for routes the user is likely to
@@ -50,7 +53,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: wrap(NotFoundPage),
     children: [
-      { index: true, element: wrap(HomePage) },
+      { index: true, element: <ErrorBoundary><HomePage /></ErrorBoundary> },
       { path: "v2", element: wrap(HomePageV2) },
       { path: "about", element: wrap(AboutPage) },
       { path: "products", element: wrap(ProductsPage) },
@@ -65,10 +68,10 @@ const router = createBrowserRouter([
       { path: "certificate", element: <Navigate to="/rdso-approval" replace /> },
       { path: "certificates", element: <Navigate to="/rdso-approval" replace /> },
       { path: "contact", element: wrap(ContactPage) },
-      { path: "privacy", element: <LegalPage slug="privacy" /> },
-      { path: "terms", element: <LegalPage slug="terms" /> },
-      { path: "compliance", element: <LegalPage slug="compliance" /> },
-      { path: "sitemap", element: <LegalPage slug="sitemap" /> },
+            { path: "privacy", element: wrapNode(<LegalPage slug="privacy" />) },
+            { path: "terms", element: wrapNode(<LegalPage slug="terms" />) },
+            { path: "compliance", element: wrapNode(<LegalPage slug="compliance" />) },
+            { path: "sitemap", element: wrapNode(<LegalPage slug="sitemap" />) },
       { path: "demo", element: wrap(DemoPage) },
       { path: "404", element: wrap(NotFoundPage) },
       { path: "*", element: <Navigate to="/404" replace /> },

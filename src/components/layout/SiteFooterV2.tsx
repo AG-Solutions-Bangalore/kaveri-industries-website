@@ -116,7 +116,7 @@ export function SiteFooterV2() {
               to="/v2"
               title="Kaveri Industries Home"
               className="group inline-flex items-center gap-2.5 font-semibold tracking-tight text-white"
-              aria-label={`${company.name} — go to home`}
+              aria-label={company.name}
             >
               <span
                 className="grid h-7 w-7 place-items-center rounded-[2px] bg-[#E5A83B] text-[#07090C] font-black text-sm transition-all duration-300 group-hover:bg-[#dca035]"

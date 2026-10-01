@@ -11,7 +11,7 @@ const SmoothScroll = lazy(() =>
 
 export function DeferredSmoothScroll({ children }: { children: ReactNode }) {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={children}>
       <SmoothScroll>{children}</SmoothScroll>
     </Suspense>
   );

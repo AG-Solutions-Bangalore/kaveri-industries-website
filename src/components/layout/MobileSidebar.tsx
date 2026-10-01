@@ -81,8 +81,10 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
         )}
       />
 
-      {/* Sidebar panel */}
-      <aside
+      {/* Sidebar panel — a <div> (not <aside>) because `dialog` is not
+          an allowed ARIA role for <aside>; using aside+dialog breaks the
+          accessibility tree (axe `aria-allowed-role`). */}
+      <div
         id="mobile-sidebar-panel"
         role="dialog"
         aria-modal="true"
@@ -155,7 +157,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
             ISO 9001:2008 Certified Manufacturer
           </p>
         </div>
-      </aside>
+      </div>
     </>
   );
 }

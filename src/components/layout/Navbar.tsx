@@ -35,7 +35,7 @@ export function Navbar() {
           to="/"
           title="Kaveri Industries Home"
           className="flex items-center gap-2 font-bold tracking-tight text-foreground"
-          aria-label={`${company.name} — go to home`}
+          aria-label={company.name}
         >
           <span
             className="grid h-7 w-7 place-items-center rounded-sm bg-brand-700 text-white shadow-sm"

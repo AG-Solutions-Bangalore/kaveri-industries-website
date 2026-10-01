@@ -10,7 +10,6 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { Thing } from "schema-dts";
 
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
@@ -148,37 +147,31 @@ function buildHeadElements(
 
 function renderRouteHtml(url: string): string {
   try {
-    const client = new QueryClient({
-      defaultOptions: { queries: { retry: false, staleTime: Infinity } },
-    });
-
     return renderToString(
       <HelmetProvider>
-        <QueryClientProvider client={client}>
-          <QuoteModalProvider>
-            <StaticRouter location={url}>
-              <Routes>
-                <Route path="/" element={<RootLayout />}>
-                  <Route index element={<HomePage />} />
-                  <Route path="v2" element={<HomePageV2 />} />
-                  <Route path="about" element={<AboutPage />} />
-                  <Route path="products" element={<ProductsPage />} />
-                  <Route path="products/:slug" element={<ProductDetailPage />} />
-                  <Route path="industries" element={<IndustriesPage />} />
-                  <Route path="rdso-approval" element={<VendorApprovalPage />} />
-                  <Route path="machinery" element={<MachineryPage />} />
-                  <Route path="contact" element={<ContactPage />} />
-                  <Route path="certificate" element={<VendorApprovalPage />} />
-                  <Route path="privacy" element={<LegalPage slug="privacy" />} />
-                  <Route path="terms" element={<LegalPage slug="terms" />} />
-                  <Route path="compliance" element={<LegalPage slug="compliance" />} />
-                  <Route path="sitemap" element={<LegalPage slug="sitemap" />} />
-                  <Route path="*" element={<NotFoundPage />} />
-                </Route>
-              </Routes>
-            </StaticRouter>
-          </QuoteModalProvider>
-        </QueryClientProvider>
+        <QuoteModalProvider>
+          <StaticRouter location={url}>
+            <Routes>
+              <Route path="/" element={<RootLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="v2" element={<HomePageV2 />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="products" element={<ProductsPage />} />
+                <Route path="products/:slug" element={<ProductDetailPage />} />
+                <Route path="industries" element={<IndustriesPage />} />
+                <Route path="rdso-approval" element={<VendorApprovalPage />} />
+                <Route path="machinery" element={<MachineryPage />} />
+                <Route path="contact" element={<ContactPage />} />
+                <Route path="certificate" element={<VendorApprovalPage />} />
+                <Route path="privacy" element={<LegalPage slug="privacy" />} />
+                <Route path="terms" element={<LegalPage slug="terms" />} />
+                <Route path="compliance" element={<LegalPage slug="compliance" />} />
+                <Route path="sitemap" element={<LegalPage slug="sitemap" />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+            </Routes>
+          </StaticRouter>
+        </QuoteModalProvider>
       </HelmetProvider>,
     );
   } catch (err) {

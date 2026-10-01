@@ -37,36 +37,39 @@ export default defineConfig({
     // Inline tiny assets (SVG icons) to avoid extra requests; keep the
     // limit low so photos stay as separate cacheable files.
     assetsInlineLimit: 4096,
+    modulePreload: {
+      resolveDependencies(_filename, deps) {
+        return deps.filter((dep) => !dep.includes('lenis'))
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (!id.includes('node_modules')) return
-          // Animation — the largest TBT driver; isolate so the critical
-          // path (react/router) can parse before motion evaluates.
+          // Heavy animation runtime — deferred so critical path paints first
           if (id.includes('motion/') || id.includes('framer-motion'))
             return 'motion'
-          // Smooth-scroll — deferred via lazy import, never critical.
+          // Smooth-scroll — deferred via idle callback
           if (id.includes('lenis')) return 'lenis'
-          // Icon + primitive UI kits — many small modules, one shared chunk.
+          // Icon + primitive UI kits
           if (
             id.includes('lucide-react') ||
             id.includes('@radix-ui') ||
             id.includes('radix-ui')
           )
             return 'ui-vendor'
-          if (id.includes('react-router-dom')) return 'router'
-          if (id.includes('@tanstack/react-query') || id.includes('axios'))
-            return 'query'
-          if (id.includes('react-helmet-async')) return 'helmet'
+          // Core framework runtime
           if (
+            id.includes('react-router') ||
+            id.includes('react-helmet-async') ||
+            id.includes('next-themes') ||
             id.includes('/react/') ||
             id.includes('/react-dom/') ||
             id.match(/node_modules\/react\//) ||
             id.match(/node_modules\/react-dom\//) ||
             id.match(/node_modules\/scheduler\//)
           )
-            return 'react'
-          if (id.includes('next-themes')) return 'themes'
+            return 'vendor'
         },
       },
     },

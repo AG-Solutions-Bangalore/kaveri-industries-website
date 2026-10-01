@@ -1,9 +1,6 @@
 import { Calendar, Package, ShieldCheck, Users } from "lucide-react";
-import { motion } from "motion/react";
 import { QUALITY_CONTENT } from "@/feature/Home/api/homeConstants";
 import { IMAGE_BASE_URL } from "@/lib/images";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function QualityStatement() {
   return (
@@ -15,13 +12,7 @@ export function QualityStatement() {
         {/* Top 2-Column Section */}
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Left Visual Column — CNC Machine Operator */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.65, ease: EASE }}
-            className="lg:col-span-5"
-          >
+          <div className="lg:col-span-5">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-slate-200/90 dark:border-slate-800 bg-slate-100 shadow-md">
               <img
                 src={QUALITY_CONTENT.imageUrl}
@@ -33,49 +24,27 @@ export function QualityStatement() {
                 loading="lazy"
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Content Column */}
           <div className="lg:col-span-7 space-y-5">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400"
-            >
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
               {QUALITY_CONTENT.badge}
-            </motion.p>
+            </p>
 
-            <motion.h2
+            <h2
               id="quality-heading"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.55, ease: EASE, delay: 0.06 }}
               className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight"
             >
               {QUALITY_CONTENT.heading}
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.55, ease: EASE, delay: 0.12 }}
-              className="text-xs sm:text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-300"
-            >
+            <p className="text-xs sm:text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-300">
               {QUALITY_CONTENT.description}
-            </motion.p>
+            </p>
 
             {/* 4 Stats Grid with Blue Line Icons */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.6, ease: EASE, delay: 0.18 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
               {/* Stat 1: 20+ */}
               <div className="flex items-center gap-3">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-400">
@@ -135,18 +104,12 @@ export function QualityStatement() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Certifications Banner Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10% 0px" }}
-          transition={{ duration: 0.6, ease: EASE, delay: 0.24 }}
-          className="mt-14 rounded-xl border border-slate-200/80 bg-slate-50/70 p-6 md:px-8 md:py-6 dark:border-slate-800 dark:bg-slate-900/50"
-        >
+        <div className="mt-14 rounded-xl border border-slate-200/80 bg-slate-50/70 p-6 md:px-8 md:py-6 dark:border-slate-800 dark:bg-slate-900/50">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             {/* Left: OUR CERTIFICATIONS + ISO 9001:2008 */}
             <div className="flex flex-wrap items-center gap-6 sm:gap-8">
@@ -196,7 +159,7 @@ export function QualityStatement() {
               We are an ISO 9001:2008 certified company committed to international quality standards and continuous improvement.
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

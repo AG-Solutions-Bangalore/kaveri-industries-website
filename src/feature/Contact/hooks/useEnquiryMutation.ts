@@ -1,29 +1,63 @@
-/**
- * React Query mutation hook for submitting the contact-form enquiry.
- *
- * Wires the pure service (`submitEnquiry`) into React Query so consumers get:
- *   - `isPending` / `isError` / `isSuccess` flags for free
- *   - centralised error normalisation (already done by the axios interceptor)
- *   - retry semantics inherited from `queryClient` defaults
- *
- * Usage:
- *   const enquiry = useEnquiryMutation();
- *   enquiry.mutate(payload, { onSuccess, onError });
- */
-import { useMutation, type UseMutationResult } from "@tanstack/react-query";
+import { useState } from "react";
 import { submitEnquiry } from "@/feature/Contact/api/enquiry";
 import type {
   EnquiryPayload,
   EnquiryResponse,
 } from "@/feature/Contact/api/enquiryTypes";
-import { ApiError } from "@/utils/apiError";
+import type { ApiError } from "@/utils/apiError";
 
-export function useEnquiryMutation(): UseMutationResult<
-  EnquiryResponse,
-  ApiError | Error,
-  EnquiryPayload
-> {
-  return useMutation<EnquiryResponse, ApiError | Error, EnquiryPayload>({
-    mutationFn: (payload) => submitEnquiry(payload),
-  });
+export interface EnquiryMutationResult {
+  mutate: (
+    payload: EnquiryPayload,
+    options?: {
+      onSuccess?: (data: EnquiryResponse) => void;
+      onError?: (err: ApiError | Error) => void;
+    },
+  ) => Promise<void>;
+  isPending: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+  error: ApiError | Error | null;
+  reset: () => void;
+}
+
+export function useEnquiryMutation(): EnquiryMutationResult {
+  const [isPending, setIsPending] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<ApiError | Error | null>(null);
+
+  const mutate = async (
+    payload: EnquiryPayload,
+    options?: {
+      onSuccess?: (data: EnquiryResponse) => void;
+      onError?: (err: ApiError | Error) => void;
+    },
+  ) => {
+    setIsPending(true);
+    setIsError(false);
+    setIsSuccess(false);
+    setError(null);
+    try {
+      const data = await submitEnquiry(payload);
+      setIsSuccess(true);
+      options?.onSuccess?.(data);
+    } catch (err: unknown) {
+      setIsError(true);
+      const apiErr = err as ApiError | Error;
+      setError(apiErr);
+      options?.onError?.(apiErr);
+    } finally {
+      setIsPending(false);
+    }
+  };
+
+  const reset = () => {
+    setIsPending(false);
+    setIsError(false);
+    setIsSuccess(false);
+    setError(null);
+  };
+
+  return { mutate, isPending, isError, isSuccess, error, reset };
 }
