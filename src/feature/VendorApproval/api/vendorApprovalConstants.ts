@@ -30,12 +30,12 @@ export const VENDOR_HERO_PILLS: HeroBadge[] = [
 export const VENDOR_APPROVAL_TABLE: ApprovalDetailRow[] = [
   { label: "Approval Authority", value: "RDSO (Research Designs and Standards Organisation)" },
   { label: "Vendor Name", value: "Kaveri Industries" },
-  { label: "Vendor Code / Registration No.", value: "RDSO/XXXX/202X" },
-  { label: "Approval No.", value: "RDSO/PE/S/XXX/202X" },
-  { label: "Category", value: "High Tensile MS Fasteners" },
-  { label: "Approved Products", value: "Studs & Threaded Bars, U-Bolts, Center Bolts, Washers, Other Fasteners" },
-  { label: "Issue Date", value: "15 March 2023" },
-  { label: "Validity", value: "14 March 2028" },
+  { label: "Vendor Code / Registration No.", value: "Registration Request ID: 1986" },
+  { label: "Approval No.", value: "RDSO/108/1901/00005623" },
+  { label: "Category", value: "HSFG Bolting Assemblies with DTI Washer" },
+  { label: "Approved Products", value: "Item ID: 3100428, Sub Item ID: 3100428001" },
+  { label: "Issue Date", value: "26 October 2021" },
+  { label: "Validity", value: "24 October 2026" },
   { label: "Status", value: "Active", status: true },
 ];
 
@@ -123,17 +123,20 @@ export const KAVERI_VENDOR_PROFILE_SECTIONS: VendorProfileSection[] = [
       {
         info: "Item Name & Category",
         details: [
-          "High Tensile MS Fasteners",
-          "Studs & Threaded Bars, U-Bolts, Center Bolts, Washers, Other Fasteners",
+          "Item ID: 3100428, HSFG Bolting Assemblies with DTI Washer",
+          "Sub Item ID: 3100428001, HSFG Bolting Assemblies with DTI Washer",
         ],
       },
       {
         info: "Approval & Registration No.",
-        details: ["Approval No.: RDSO/PE/S/XXX/202X", "Vendor Code / Registration No.: RDSO/XXXX/202X"],
+        details: [
+          "Approval No.: RDSO/108/1901/00005623",
+          "Vendor Code / Registration No.: Registration Request ID: 1986",
+        ],
       },
       {
         info: "Approval Validity",
-        details: ["Issue Date: 15 March 2023", "Validity: 14 March 2028"],
+        details: ["Issue Date: 26 October 2021", "Validity: 24 October 2026"],
         statusActive: "Active",
       },
     ],
@@ -196,7 +199,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
   {
     id: "studs-threaded-bars",
     title: "Studs & Threaded Bars",
-    approvalNo: "Approval No: RDSO/PE/S/XXX",
+    approvalNo: "Approval No: RDSO/108/1901/00005623",
     image: `${WEB_IMAGE_BASE}/vendor-approval/prod_studs_bars.webp`,
     imageAlt: "High tensile studs and threaded bars approved by RDSO",
     link: "/products",
@@ -204,7 +207,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
   {
     id: "u-bolts",
     title: "U-Bolts",
-    approvalNo: "Approval No: RDSO/PE/S/XXX",
+    approvalNo: "Approval No: RDSO/108/1901/00005623",
     image: `${WEB_IMAGE_BASE}/vendor-approval/prod_u_bolts.webp`,
     imageAlt: "Heavy duty U-bolts approved by RDSO",
     link: "/products",
@@ -212,7 +215,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
   {
     id: "center-bolts",
     title: "Center Bolts & Other Fasteners",
-    approvalNo: "Approval No: RDSO/PE/S/XXX",
+    approvalNo: "Approval No: RDSO/108/1901/00005623",
     image: `${WEB_IMAGE_BASE}/vendor-approval/prod_center_bolts.webp`,
     imageAlt: "Precision center bolts and hex fasteners approved by RDSO",
     link: "/products",
@@ -220,7 +223,7 @@ export const APPROVED_PRODUCTS_DATA: ApprovedProductItem[] = [
   {
     id: "washers",
     title: "Washers",
-    approvalNo: "Approval No: RDSO/PE/S/XXX",
+    approvalNo: "Approval No: RDSO/108/1901/00005623",
     image: `${WEB_IMAGE_BASE}/vendor-approval/prod_washers.webp`,
     imageAlt: "Industrial plain and spring washers approved by RDSO",
     link: "/products",
@@ -233,9 +236,9 @@ export const RDSO_CERTIFICATE_DATA = {
   image: `${WEB_IMAGE_BASE}/vendor-approval/rdso_cert_preview.webp`,
   imageAlt: "Official RDSO Approval Certificate preview",
   downloadUrl: `${WEB_IMAGE_BASE}/vendor-approval/rdso_cert_preview.webp`,
-  certNo: "RDSO/PE/S/XXX/202X",
+  certNo: "RDSO/108/1901/00005623",
   authority: "RDSO (Ministry of Railways)",
-  validity: "14 March 2028",
+  validity: "24 October 2026",
 };
 
 export const VERIFICATION_BANNER_DATA = {
