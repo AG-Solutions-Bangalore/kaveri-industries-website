@@ -192,9 +192,10 @@ export const SEO_CONFIG: Record<SeoKey, SeoRouteConfig> = {
   rdsoApproval: {
     title: `RDSO Approval | ${company.name}`,
     description:
-      "Kaveri Industries is an authorized RDSO approved vendor for high tensile MS fasteners, studs, U-bolts, and washers for Indian Railways infrastructure.",
+      "Kaveri Industries is an authorized RDSO approved vendor for HSFG bolting assemblies with DTI washer and high tensile MS fasteners for Indian Railways infrastructure.",
     keywords: [
       "RDSO approved vendor",
+      "HSFG bolting assemblies with DTI washer",
       "RDSO fasteners manufacturer",
       "Indian Railways fastener supplier",
       "railway track bolts",
