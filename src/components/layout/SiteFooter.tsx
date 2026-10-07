@@ -3,7 +3,7 @@ import { FlipButton } from "@/components/ui/FlipButton";
 import { Switch } from "@/components/ui/switch";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import { type ReactElement, type SVGProps } from "react";
 import { Link } from "react-router-dom";
@@ -110,8 +110,6 @@ function ThemeSwitch() {
  * footer in `RootLayout`.
  * ---------------------------------------------------------------- */
 export function SiteFooter() {
-  const phoneList = company.contact.phones.map((p) => p.display).join(" / ");
-
   return (
     <footer
       className="relative overflow-hidden border-t border-slate-200 bg-slate-50 pt-12 pb-5 text-slate-900 dark:border-slate-800/80 dark:bg-[#071224] dark:text-white"
@@ -138,13 +136,13 @@ export function SiteFooter() {
               className="group inline-flex items-center gap-2 font-semibold tracking-tight text-slate-900 dark:text-white"
               aria-label={company.name}
             >
-              <span
-                className="grid h-7 w-7 place-items-center rounded-sm bg-brand-600 text-white transition-all duration-300 group-hover:bg-brand-500 group-hover:shadow-[0_0_0_4px_rgb(37_99_235/0.18)]"
-                aria-hidden="true"
-              >
-                <span className="text-xs font-bold">{company.monogram}</span>
-              </span>
-              <span className="text-base font-bold">{company.wordmark}</span>
+              <img
+                src="/images/ki_logo.png"
+                alt={company.name}
+                width={140}
+                height={52}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400">
@@ -185,26 +183,24 @@ export function SiteFooter() {
             </h3>
             <address className="mt-3 not-italic text-sm text-slate-600 dark:text-slate-300">
 
-              <p className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-start gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
+                  className="mt-1 h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
                   aria-hidden="true"
                 />
-                <a
-                  href={`tel:${company.contact.phones[0]?.tel}`}
-                  title="Call Kaveri Industries"
-                  className="link-underline hover:text-slate-900 dark:hover:text-white"
-                >
-                  {phoneList}
-                </a>
-              </p>
-              <p className="mt-1.5 flex items-center gap-2">
-                <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
-                  aria-hidden="true"
-                />
-                <span>Fax: {company.contact.fax.display}</span>
-              </p>
+                <div className="flex flex-col gap-1">
+                  {company.contact.phones.map((phone) => (
+                    <a
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      title={`Call Kaveri Industries: ${phone.display}`}
+                      className="link-underline hover:text-slate-900 dark:hover:text-white"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
+              </div>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
                   className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"

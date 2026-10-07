@@ -2,7 +2,7 @@ import { FlipButton } from "@/components/ui/FlipButton";
 import { Switch } from "@/components/ui/switch";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import { type ReactElement, type SVGProps } from "react";
 import { Link } from "react-router-dom";
@@ -92,7 +92,6 @@ function ThemeSwitchV2() {
  * without blue undertones, preserving identical layouts, items, and functionality.
  */
 export function SiteFooterV2() {
-  const phoneList = company.contact.phones.map((p) => p.display).join(" / ");
 
   return (
     <footer
@@ -118,15 +117,13 @@ export function SiteFooterV2() {
               className="group inline-flex items-center gap-2.5 font-semibold tracking-tight text-white"
               aria-label={company.name}
             >
-              <span
-                className="grid h-7 w-7 place-items-center rounded-[2px] bg-[#E5A83B] text-[#07090C] font-black text-sm transition-all duration-300 group-hover:bg-[#dca035]"
-                aria-hidden="true"
-              >
-                {company.monogram}
-              </span>
-              <span className="text-base font-extrabold uppercase tracking-wider font-display">
-                {company.wordmark}
-              </span>
+              <img
+                src="/images/ki_logo.png"
+                alt={company.name}
+                width={140}
+                height={52}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#E5A83B]">
@@ -166,26 +163,24 @@ export function SiteFooterV2() {
               Works & Office
             </h3>
             <address className="mt-3 not-italic text-sm text-zinc-300">
-              <p className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-start gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
+                  className="mt-1 h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
                   aria-hidden="true"
                 />
-                <a
-                  href={`tel:${company.contact.phones[0]?.tel}`}
-                  title="Call Kaveri Industries"
-                  className="link-underline hover:text-white"
-                >
-                  {phoneList}
-                </a>
-              </p>
-              <p className="mt-1.5 flex items-center gap-2">
-                <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
-                  aria-hidden="true"
-                />
-                <span>Fax: {company.contact.fax.display}</span>
-              </p>
+                <div className="flex flex-col gap-1">
+                  {company.contact.phones.map((phone) => (
+                    <a
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      title={`Call Kaveri Industries: ${phone.display}`}
+                      className="link-underline hover:text-white"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
+              </div>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
                   className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"

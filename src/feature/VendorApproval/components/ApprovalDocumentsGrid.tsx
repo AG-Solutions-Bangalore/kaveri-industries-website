@@ -52,7 +52,7 @@ export function ApprovalDocumentsGrid() {
         </div>
 
         {/* Cards */}
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
           {RDSO_APPROVAL_DOCUMENTS.map((doc) => (
             <article
               key={doc.id}

@@ -34,25 +34,16 @@ export function Navbar() {
         <Link
           to="/"
           title="Kaveri Industries Home"
-          className="flex items-center gap-2 font-bold tracking-tight text-foreground"
+          className="flex items-center gap-2 font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
           aria-label={company.name}
         >
-          <span
-            className="grid h-7 w-7 place-items-center rounded-sm bg-brand-700 text-white shadow-sm"
-            aria-hidden="true"
-          >
-            <span className="text-xs font-bold">{company.monogram}</span>
-          </span>
-          <span className="hidden sm:inline">
-            {company.wordmark.split(" ").map((part, i, arr) => (
-              <span key={part}>
-                {part}
-                {i < arr.length - 1 ? (
-                  <span className="text-brand-600">.</span>
-                ) : null}
-              </span>
-            ))}
-          </span>
+          <img
+            src="/images/ki_logo.png"
+            alt={company.name}
+            width={120}
+            height={44}
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         <ul className="hidden items-center gap-7 text-sm md:flex">

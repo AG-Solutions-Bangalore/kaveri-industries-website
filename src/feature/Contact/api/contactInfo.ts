@@ -22,6 +22,7 @@ export interface ContactCard {
 }
 
 const primaryPhone = company.contact.phones[0];
+const secondaryPhone = company.contact.phones[1];
 
 export const CONTACT_CARDS: ContactCard[] = [
   {
@@ -36,6 +37,7 @@ export const CONTACT_CARDS: ContactCard[] = [
     label: "Phone",
     icon: Phone,
     value: primaryPhone.display,
+    valueSecondary: secondaryPhone ? secondaryPhone.display : undefined,
     href: `tel:${primaryPhone.tel}`,
   },
   {

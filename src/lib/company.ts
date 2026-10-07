@@ -26,7 +26,7 @@ export const company = {
   // ── Web presence ───────────────────────────────────────────────────────
   url: SITE_URL,
   /** Absolute logo URL — used in schema + OG fallback image. */
-  logo: `${SITE_URL}/og/logo.webp`,
+  logo: `${SITE_URL}/images/ki_logo.png`,
   /** BCP-47 locale for OG + schema. */
   locale: "en_IN",
   /** Twitter handle without leading @ in some renderers — keeps the @. */
@@ -58,10 +58,9 @@ export const company = {
     legalEmail: "kaveriindustries4@hotmail.com",
     /** Phone numbers — `display` is human-readable, `tel` is RFC 3966. */
     phones: [
-      { display: "080 - 27825275", tel: "+918027825275" },
-      { display: "080 - 27825276", tel: "+918027825276" },
+      { display: "+91 93414 43666", tel: "+919341443666" },
+      { display: "+91 93412 67776", tel: "+919341267776" },
     ],
-    fax: { display: "080 - 26782341", tel: "+918026782341" },
   },
 
   // ── Address ───────────────────────────────────────────────────────────

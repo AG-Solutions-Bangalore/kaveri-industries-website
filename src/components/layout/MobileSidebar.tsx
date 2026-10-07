@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { company } from "@/lib/company";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 interface MobileSidebarProps {
@@ -96,9 +97,20 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
       >
         {/* Header row — matches the navbar's own header treatment */}
         <div className="flex h-16 items-center justify-between border-b border-border px-5">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-            Menu
-          </span>
+          <Link
+            to="/"
+            onClick={() => setIsOpen(false)}
+            aria-label={company.name}
+            className="flex items-center"
+          >
+            <img
+              src="/images/ki_logo.png"
+              alt={company.name}
+              width={100}
+              height={36}
+              className="h-8 w-auto object-contain"
+            />
+          </Link>
           <button
             type="button"
             aria-label="Close menu"
