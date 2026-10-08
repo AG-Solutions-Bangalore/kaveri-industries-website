@@ -2,23 +2,23 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "Kaveri Industries",
-    "identifier": "did:web:kaveri.agsdemo.in",
-    "documentationUrl": "https://kaveri.agsdemo.in/about",
-    "logoUrl": "https://kaveri.agsdemo.in/og/logo.webp"
+    "identifier": "did:web:kaveriindustries.com",
+    "documentationUrl": "https://kaveriindustries.com/about",
+    "logoUrl": "https://kaveriindustries.com/og/logo.webp"
   },
   "entries": [
     {
       "identifier": "urn:air:kaveri-industries:fasteners:catalog",
       "displayName": "Kaveri Industrial Fasteners Catalog",
       "type": "application/ai-catalog+json",
-      "url": "https://kaveri.agsdemo.in/products",
+      "url": "https://kaveriindustries.com/products",
       "representativeQueries": [
         "high tensile fasteners manufacturer",
         "industrial hex head bolts and nuts",
         "transmission tower hot dip galvanized fasteners"
       ],
       "trustManifest": {
-        "identity": "kaveri.agsdemo.in"
+        "identity": "kaveriindustries.com"
       }
     }
   ]

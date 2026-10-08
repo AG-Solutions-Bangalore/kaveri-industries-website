@@ -11,4 +11,4 @@ Disallow: /assets/
 Disallow: /*.map$
 
 # Sitemap location
-Sitemap: https://kaveri.agsdemo.in/sitemap.xml
+Sitemap: https://kaveriindustries.com/sitemap.xml

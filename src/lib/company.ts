@@ -8,7 +8,7 @@
 
 const SITE_URL =
   (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ??
-  "https://kaveri.agsdemo.in";
+  "https://kaveriindustries.com";
 
 export const company = {
   // ── Identity ──────────────────────────────────────────────────────────

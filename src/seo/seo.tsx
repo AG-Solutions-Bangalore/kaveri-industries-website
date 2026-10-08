@@ -286,7 +286,7 @@ export const SEO_CONFIG: Record<SeoKey, SeoRouteConfig> = {
   terms: {
     title: `Terms of Service | ${company.name}`,
     description:
-      "By using kaveri.agsdemo.in you agree to the acceptable-use terms set out in our master supply agreement.",
+      "By using kaveriindustries.com you agree to the acceptable-use terms set out in our master supply agreement.",
     keywords: "terms of service",
     path: "/terms",
     noindex: true,

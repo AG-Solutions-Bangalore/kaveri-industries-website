@@ -20,15 +20,15 @@
  */
 
 /** Legacy CDN tree — product/sector/about/contact/v2/logo images. */
-export const IMAGE_BASE_URL = "https://agsdemo.in/kaveri/api/assets/images";
+export const IMAGE_BASE_URL = "https://kaveriindustries.com/api/assets/images";
 
 /** New `web_images` tree — home banner, vendor-approval, certificate, machinery. */
 export const WEB_IMAGE_BASE =
-  "https://agsdemo.in/kaveri/api/assets/images/web_images/images";
+  "https://kaveriindustries.com/api/assets/images/web_images/images";
 
 /** `web_images` root (images + pdf live beneath it). */
 export const ASSET_BASE_URL =
-  "https://agsdemo.in/kaveri/api/assets/images/web_images";
+  "https://kaveriindustries.com/api/assets/images/web_images";
 
 /** Base URL for every PDF (`{ASSET_BASE_URL}/pdf`). */
 export const PDF_BASE_URL = `${ASSET_BASE_URL}/pdf`;
