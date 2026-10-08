@@ -27,7 +27,6 @@ export function CTABanner() {
           className="absolute right-0 top-[65%] h-[120%] w-auto -translate-y-1/2 object-contain opacity-40 dark:opacity-90"
           width={640}
           height={480}
-          sizes="(max-width: 768px) 50vw, 33vw"
           loading="lazy"
           decoding="async"
           fetchPriority="low"

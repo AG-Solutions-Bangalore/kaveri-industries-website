@@ -168,7 +168,6 @@ export function HeroV2() {
             className="absolute inset-0 h-full w-full bg-[#0A0D12] object-cover object-[70%_center] md:object-[62%_center]"
             width={1920}
             height={1080}
-            sizes="100vw"
             loading="eager"
             fetchPriority="high"
             decoding="async"

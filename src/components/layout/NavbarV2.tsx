@@ -37,6 +37,7 @@ export function NavbarV2() {
           <img
             src="/images/ki_logo.webp"
             alt="Kaveri Industries"
+            title="Kaveri Industries"
             width={120}
             height={44}
             className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"

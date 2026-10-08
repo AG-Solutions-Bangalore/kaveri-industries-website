@@ -29,7 +29,6 @@ export function VendorApprovalHero() {
           className="h-full w-full object-cover"
           width={1920}
           height={1080}
-          sizes="100vw"
           loading="eager"
           decoding="async"
         />

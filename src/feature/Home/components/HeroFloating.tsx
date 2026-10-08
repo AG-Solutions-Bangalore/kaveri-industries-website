@@ -30,9 +30,9 @@ export function HeroFloating() {
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                  <h2 className="text-sm font-bold text-slate-900 dark:text-white">
                     {pillar.title}
-                  </h3>
+                  </h2>
                   <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                     {pillar.description}
                   </p>

@@ -40,6 +40,7 @@ export function Navbar() {
           <img
             src="/images/ki_logo.webp"
             alt={company.name}
+            title={company.name}
             width={120}
             height={44}
             className="h-10 w-auto object-contain"

@@ -66,7 +66,6 @@ export function ApprovalDocumentsGrid() {
                     title={`${doc.title} document preview`}
                     loading="lazy"
                     tabIndex={-1}
-                    scrolling="no"
                     className="pointer-events-none h-[calc(100%+48px)] w-[calc(100%+20px)] max-w-none border-0"
                     style={{ overflow: "hidden" }}
                   />

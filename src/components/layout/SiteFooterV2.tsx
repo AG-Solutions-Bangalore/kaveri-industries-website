@@ -149,6 +149,7 @@ export function SiteFooterV2() {
               <img
                 src="/images/ki_logo.webp"
                 alt={company.name}
+                title={company.name}
                 width={140}
                 height={52}
                 className="h-10 w-auto object-contain"
@@ -165,9 +166,9 @@ export function SiteFooterV2() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Navigation
-            </h3>
+            </h2>
             <ul className="mt-3 space-y-2 text-sm">
               {NAV_V2_FOOTER.map((item) => (
                 <li key={item.to}>
@@ -188,9 +189,9 @@ export function SiteFooterV2() {
 
           {/* Column 3: Contact Details */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Works & Office
-            </h3>
+            </h2>
             <address className="mt-3 not-italic text-sm text-zinc-300">
               <div className="mt-3 flex items-start gap-2">
                 <Phone
@@ -239,9 +240,9 @@ export function SiteFooterV2() {
 
           {/* Column 4: Social + Theme Toggle */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Follow Us
-            </h3>
+            </h2>
 
             <ul className="mt-3 flex flex-wrap gap-2">
               {company.social.map((url) => {

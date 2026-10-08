@@ -169,6 +169,7 @@ export function SiteFooter() {
               <img
                 src="/images/ki_logo.webp"
                 alt={company.name}
+                title={company.name}
                 width={140}
                 height={52}
                 className="h-10 w-auto object-contain"
@@ -185,9 +186,9 @@ export function SiteFooter() {
 
           {/* ── Column 2: Quick Links ───────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Navigation
-            </h3>
+            </h2>
             <ul className="mt-3 space-y-2 text-sm">
               {NAV.map((item) => (
                 <li key={item.to}>
@@ -206,9 +207,9 @@ export function SiteFooter() {
 
           {/* ── Column 3: Contact ──────────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Works & Office
-            </h3>
+            </h2>
             <address className="mt-3 not-italic text-sm text-slate-600 dark:text-slate-300">
               <div className="mt-3 flex items-start gap-2">
                 <Phone
@@ -257,9 +258,9 @@ export function SiteFooter() {
 
           {/* ── Column 4: Social + Theme Toggle ────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Follow Us
-            </h3>
+            </h2>
 
             <ul className="mt-3 flex flex-wrap gap-2">
               {company.social.map((url) => {

@@ -96,9 +96,9 @@ export function FloatingHighlightStrip({
                 </div>
               )}
               <div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                <h2 className="text-sm font-bold text-slate-900 dark:text-white">
                   {item.title}
-                </h3>
+                </h2>
                 <p className="mt-0.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                   {item.description}
                 </p>

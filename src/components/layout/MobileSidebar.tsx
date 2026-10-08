@@ -111,6 +111,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
             <img
               src="/images/ki_logo.webp"
               alt={company.name}
+              title={company.name}
               width={100}
               height={36}
               className="h-8 w-auto object-contain"
