@@ -286,7 +286,7 @@ export const SEO_CONFIG: Record<SeoKey, SeoRouteConfig> = {
   terms: {
     title: `Terms of Service | ${company.name}`,
     description:
-      "By using kaveri.agsdemo.in you agree to the acceptable-use terms set out in our master supply agreement.",
+      "By using kaveriindustries.com you agree to the acceptable-use terms set out in our master supply agreement.",
     keywords: "terms of service",
     path: "/terms",
     noindex: true,
@@ -604,6 +604,15 @@ export function SeoManager(props: SEOProps = {}) {
     setMeta("name", "twitter:description", description);
     setMeta("name", "twitter:image", image);
   }, [title, description, keywords, canonical, image, type, noindex]);
+
+  // SSR/SSG guard: react-helmet-async under React 19 renders <title>/<meta>/
+  // <link> inline via React 19's hoisting. During renderToString (no window)
+  // those tags stay inline inside the #root div instead of moving to <head>,
+  // producing W3C "title not allowed as child of div" + duplicate meta.
+  // The prerender entry (src/seo/prerender.tsx) already injects the
+  // authoritative per-route head via buildHeadElements(), so SeoManager must
+  // render nothing on the server. Client hydration still manages <head>.
+  if (typeof window === "undefined") return null;
 
   return (
     <Helmet prioritizeSeoTags>

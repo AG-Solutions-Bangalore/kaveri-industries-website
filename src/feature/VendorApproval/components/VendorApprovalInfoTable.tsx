@@ -1,4 +1,5 @@
 import { company } from "@/lib/company";
+import { ExternalLink, FileText } from "lucide-react";
 import { KAVERI_VENDOR_PROFILE_SECTIONS } from "../api/vendorApprovalConstants";
 
 /**
@@ -32,10 +33,7 @@ function ContactLine({ line }: { line: string }) {
       <p className="break-words">
         Phone:{" "}
         {company.contact.phones.map((p, i) => {
-          const phoneTitle =
-            p.tel === "+918027825275"
-              ? "Call Kaveri Industries – +91 80 2782 5275"
-              : "Call Kaveri Industries – +91 80 2782 5276";
+          const phoneTitle = `Call Kaveri Industries – ${p.display}`;
           return (
             <span key={p.tel} className="whitespace-nowrap">
               {i > 0 && " / "}
@@ -188,13 +186,44 @@ export function VendorApprovalInfoTable() {
                         </th>
                       )}
                       <td className="border-l border-slate-200/70 px-5 py-4 font-medium break-words text-slate-700 dark:border-slate-800 dark:text-slate-300">
-                        {row.info}
+                        {row.actions && row.actions.length > 0 ? (
+                          <a
+                            href={row.actions[0].href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 font-semibold text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-400 dark:hover:text-brand-300"
+                            title={`Open ${row.info} PDF`}
+                          >
+                            <span>{row.info}</span>
+                            <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-80" aria-hidden="true" />
+                          </a>
+                        ) : (
+                          row.info
+                        )}
                       </td>
                       <td className="min-w-0 px-5 py-4 text-slate-600 dark:text-slate-300">
                         {row.info === "Proprietor" ? (
                           <ProprietorBadge />
                         ) : (
                           <DetailLines info={row.info} lines={row.details} />
+                        )}
+
+                        {row.actions && row.actions.length > 0 && (
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {row.actions.map((act) => (
+                              <a
+                                key={act.href}
+                                href={act.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-lg bg-brand-500 px-3.5 py-2 text-xs font-bold text-slate-950 shadow-xs transition-colors hover:bg-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                              >
+                                <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />
+                                <span>{act.label}</span>
+                                <ExternalLink className="h-3 w-3 shrink-0 opacity-80" aria-hidden="true" />
+                              </a>
+                            ))}
+                          </div>
                         )}
 
                         {row.statusActive && (
@@ -228,13 +257,42 @@ export function VendorApprovalInfoTable() {
                 {section.rows.map((row) => (
                   <div key={row.info} className="min-w-0 px-4 py-3.5">
                     <dt className="break-words text-xs font-bold text-[#16233f] dark:text-brand-400">
-                      {row.info}
+                      {row.actions && row.actions.length > 0 ? (
+                        <a
+                          href={row.actions[0].href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-brand-700 hover:underline dark:text-brand-400 font-bold"
+                        >
+                          <span>{row.info}</span>
+                          <ExternalLink className="h-3 w-3 shrink-0 opacity-80" aria-hidden="true" />
+                        </a>
+                      ) : (
+                        row.info
+                      )}
                     </dt>
                     <dd className="mt-1.5 min-w-0 text-xs leading-relaxed break-words text-slate-600 sm:text-[13px] dark:text-slate-300">
                       {row.info === "Proprietor" ? (
                         <ProprietorBadge compact />
                       ) : (
                         <DetailLines info={row.info} lines={row.details} />
+                      )}
+                      {row.actions && row.actions.length > 0 && (
+                        <div className="mt-2.5">
+                          {row.actions.map((act) => (
+                            <a
+                              key={act.href}
+                              href={act.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-md bg-brand-500 px-3 py-1.5 text-xs font-bold text-slate-950 hover:bg-brand-400"
+                            >
+                              <FileText className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                              <span>{act.label}</span>
+                              <ExternalLink className="h-3 w-3 shrink-0 opacity-80" aria-hidden="true" />
+                            </a>
+                          ))}
+                        </div>
                       )}
                       {row.statusActive && (
                         <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400">

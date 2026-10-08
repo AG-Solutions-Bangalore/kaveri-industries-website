@@ -115,7 +115,7 @@ export function organizationSchema(): LocalBusiness {
     description: company.description,
     foundingDate: company.foundingDate,
     email: company.contact.primaryEmail,
-    telephone: company.contact.phones[0]?.tel ?? "+918027825275",
+    telephone: company.contact.phones[0]?.tel ?? "+919341443666",
     priceRange: "₹₹",
     sameAs: [...company.social],
     address: {
@@ -142,7 +142,7 @@ export function organizationSchema(): LocalBusiness {
         "@type": "ContactPoint",
         contactType: "sales",
         email: company.contact.salesEmail,
-        telephone: company.contact.phones[0]?.tel ?? "+918027825275",
+        telephone: company.contact.phones[0]?.tel ?? "+919341443666",
         areaServed: ["IN", "AE", "SG", "DE"],
         availableLanguage: ["English", "Hindi"],
       },

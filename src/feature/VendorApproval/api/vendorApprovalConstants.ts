@@ -186,9 +186,17 @@ export const KAVERI_VENDOR_PROFILE_SECTIONS: VendorProfileSection[] = [
         details: ["RDSO  •  ISO 9001  •  BIS (as applicable)"],
       },
       {
-        info: "Credentials & Works in Hand",
+        info: "Order in Hand (Ongoing Works)",
         details: [
-          "Supply credentials and current orders available for verification by RDSO / authorised agencies on request.",
+          "List of ongoing works for Indian Railways — HSFG Bolt, Nut & Washer Assembly with DTI Washer.",
+          "Project orders: P01 (16 MT), P02 (24 MT) in Bangalore.",
+        ],
+        actions: [
+          {
+            label: "Open Order in Hand (PDF)",
+            href: "/Kaveriy%20Industries.pdf",
+            fileName: "Kaveriy Industries.pdf",
+          },
         ],
       },
     ],
@@ -301,5 +309,16 @@ export const RDSO_APPROVAL_DOCUMENTS: ApprovalDocumentItem[] = [
     pdfSize: "PDF (89 KB)",
     badgeIcon: "file",
     badgeDark: true,
+  },
+  {
+    id: "order-in-hand",
+    title: "Order in Hand (Ongoing Works)",
+    description:
+      "Official list of ongoing works for Indian Railways covering HSFG bolt, nut and washer assembly with DTI washer.",
+    pdfUrl: "/Kaveriy%20Industries.pdf",
+    fileName: "Kaveriy Industries.pdf",
+    pdfLabel: "Order in Hand (Ongoing Works)",
+    pdfSize: "PDF (361 KB)",
+    badgeIcon: "file",
   },
 ];

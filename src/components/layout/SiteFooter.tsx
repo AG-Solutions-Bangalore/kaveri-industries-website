@@ -3,7 +3,7 @@ import { FlipButton } from "@/components/ui/FlipButton";
 import { Switch } from "@/components/ui/switch";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import { type ReactElement, type SVGProps } from "react";
 import { Link } from "react-router-dom";
@@ -53,12 +53,38 @@ const YoutubeIcon = (props: IconProps) => (
  * The fallback case logs a warning so missing icons are visible
  * during development rather than silently rendering nothing.
  */
-function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string; title: string } | null {
+function iconForUrl(
+  url: string,
+): {
+  Icon: (p: IconProps) => ReactElement;
+  label: string;
+  title: string;
+} | null {
   const lower = url.toLowerCase();
-  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn", title: "Follow Kaveri Industries on LinkedIn" };
-  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook", title: "Follow Kaveri Industries on Facebook" };
-  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
-  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
+  if (lower.includes("linkedin.com"))
+    return {
+      Icon: LinkedinIcon,
+      label: "LinkedIn",
+      title: "Follow Kaveri Industries on LinkedIn",
+    };
+  if (lower.includes("facebook.com"))
+    return {
+      Icon: FacebookIcon,
+      label: "Facebook",
+      title: "Follow Kaveri Industries on Facebook",
+    };
+  if (lower.includes("twitter.com") || lower.includes("x.com"))
+    return {
+      Icon: TwitterIcon,
+      label: "Twitter",
+      title: "Follow Kaveri Industries on X (Twitter)",
+    };
+  if (lower.includes("youtube.com") || lower.includes("youtu.be"))
+    return {
+      Icon: YoutubeIcon,
+      label: "YouTube",
+      title: "Subscribe to Kaveri Industries on YouTube",
+    };
   if (import.meta.env.DEV) {
     console.warn(`[SiteFooter] No icon mapping for social URL: ${url}`);
   }
@@ -94,7 +120,13 @@ function ThemeSwitch() {
           size="lg"
           checked={mounted ? isDark : false}
           onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-          aria-label={mounted ? (isDark ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"}
+          aria-label={
+            mounted
+              ? isDark
+                ? "Switch to light theme"
+                : "Switch to dark theme"
+              : "Toggle theme"
+          }
           className="data-[state=checked]:bg-slate-900 data-[state=unchecked]:bg-amber-400"
         />
       </div>
@@ -110,15 +142,11 @@ function ThemeSwitch() {
  * footer in `RootLayout`.
  * ---------------------------------------------------------------- */
 export function SiteFooter() {
-  const phoneList = company.contact.phones.map((p) => p.display).join(" / ");
-
   return (
     <footer
       className="relative overflow-hidden border-t border-slate-200 bg-slate-50 pt-12 pb-5 text-slate-900 dark:border-slate-800/80 dark:bg-[#071224] dark:text-white"
       aria-label="Site footer"
     >
-
-
       {/* Background blueprint grid + radial glow */}
       <div
         aria-hidden="true"
@@ -138,13 +166,14 @@ export function SiteFooter() {
               className="group inline-flex items-center gap-2 font-semibold tracking-tight text-slate-900 dark:text-white"
               aria-label={company.name}
             >
-              <span
-                className="grid h-7 w-7 place-items-center rounded-sm bg-brand-600 text-white transition-all duration-300 group-hover:bg-brand-500 group-hover:shadow-[0_0_0_4px_rgb(37_99_235/0.18)]"
-                aria-hidden="true"
-              >
-                <span className="text-xs font-bold">{company.monogram}</span>
-              </span>
-              <span className="text-base font-bold">{company.wordmark}</span>
+              <img
+                src="/images/ki_logo.webp"
+                alt={company.name}
+                title={company.name}
+                width={140}
+                height={52}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400">
@@ -153,15 +182,13 @@ export function SiteFooter() {
             <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
               {company.description}
             </p>
-
-           
           </div>
 
           {/* ── Column 2: Quick Links ───────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Navigation
-            </h3>
+            </h2>
             <ul className="mt-3 space-y-2 text-sm">
               {NAV.map((item) => (
                 <li key={item.to}>
@@ -180,31 +207,28 @@ export function SiteFooter() {
 
           {/* ── Column 3: Contact ──────────────────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Works & Office
-            </h3>
+            </h2>
             <address className="mt-3 not-italic text-sm text-slate-600 dark:text-slate-300">
-
-              <p className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-start gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
+                  className="mt-1 h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
                   aria-hidden="true"
                 />
-                <a
-                  href={`tel:${company.contact.phones[0]?.tel}`}
-                  title="Call Kaveri Industries"
-                  className="link-underline hover:text-slate-900 dark:hover:text-white"
-                >
-                  {phoneList}
-                </a>
-              </p>
-              <p className="mt-1.5 flex items-center gap-2">
-                <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
-                  aria-hidden="true"
-                />
-                <span>Fax: {company.contact.fax.display}</span>
-              </p>
+                <div className="flex flex-col gap-1">
+                  {company.contact.phones.map((phone) => (
+                    <a
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      title={`Call Kaveri Industries: ${phone.display}`}
+                      className="link-underline hover:text-slate-900 dark:hover:text-white"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
+              </div>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
                   className="h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
@@ -234,9 +258,9 @@ export function SiteFooter() {
 
           {/* ── Column 4: Social + Theme Toggle ────────────────────── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Follow Us
-            </h3>
+            </h2>
 
             <ul className="mt-3 flex flex-wrap gap-2">
               {company.social.map((url) => {

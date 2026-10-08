@@ -11,13 +11,13 @@ import { ApiError } from "@/utils/apiError";
  *
  * Resolution order:
  *   1. `VITE_API_BASE_URL` env var (preferred for staging/production)
- *   2. Hard-coded demo endpoint `https://agsdemo.in/kaveri/api`
+ *   2. Hard-coded production endpoint `https://kaveriindustries.com/api`
  *
  * Trailing slashes are stripped so callers can safely write `enquiry.php`.
  */
 const BASE_URL =
   import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "") ??
-  "https://agsdemo.in/kaveri/api";
+  "https://kaveriindustries.com/api";
 
 /**
  * Shared, pre-configured axios instance.

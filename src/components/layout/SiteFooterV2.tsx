@@ -2,7 +2,7 @@ import { FlipButton } from "@/components/ui/FlipButton";
 import { Switch } from "@/components/ui/switch";
 import { useMounted } from "@/hooks/useMounted";
 import { company } from "@/lib/company";
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import { type ReactElement, type SVGProps } from "react";
 import { Link } from "react-router-dom";
@@ -50,16 +50,40 @@ const YoutubeIcon = (props: IconProps) => (
   </svg>
 );
 
-function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string; title: string } | null {
+function iconForUrl(
+  url: string,
+): {
+  Icon: (p: IconProps) => ReactElement;
+  label: string;
+  title: string;
+} | null {
   const lower = url.toLowerCase();
-  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn", title: "Follow Kaveri Industries on LinkedIn" };
-  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook", title: "Follow Kaveri Industries on Facebook" };
-  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
-  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
+  if (lower.includes("linkedin.com"))
+    return {
+      Icon: LinkedinIcon,
+      label: "LinkedIn",
+      title: "Follow Kaveri Industries on LinkedIn",
+    };
+  if (lower.includes("facebook.com"))
+    return {
+      Icon: FacebookIcon,
+      label: "Facebook",
+      title: "Follow Kaveri Industries on Facebook",
+    };
+  if (lower.includes("twitter.com") || lower.includes("x.com"))
+    return {
+      Icon: TwitterIcon,
+      label: "Twitter",
+      title: "Follow Kaveri Industries on X (Twitter)",
+    };
+  if (lower.includes("youtube.com") || lower.includes("youtu.be"))
+    return {
+      Icon: YoutubeIcon,
+      label: "YouTube",
+      title: "Subscribe to Kaveri Industries on YouTube",
+    };
   return null;
 }
-
-
 
 function ThemeSwitchV2() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -79,7 +103,13 @@ function ThemeSwitchV2() {
           size="lg"
           checked={mounted ? isDark : false}
           onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-          aria-label={mounted ? (isDark ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"}
+          aria-label={
+            mounted
+              ? isDark
+                ? "Switch to light theme"
+                : "Switch to dark theme"
+              : "Toggle theme"
+          }
           className="data-[state=checked]:bg-zinc-800 data-[state=unchecked]:bg-[#E5A83B]"
         />
       </div>
@@ -92,8 +122,6 @@ function ThemeSwitchV2() {
  * without blue undertones, preserving identical layouts, items, and functionality.
  */
 export function SiteFooterV2() {
-  const phoneList = company.contact.phones.map((p) => p.display).join(" / ");
-
   return (
     <footer
       className="relative overflow-hidden border-t border-zinc-800/80 bg-[#07090C] pt-12 pb-6 text-white"
@@ -118,15 +146,14 @@ export function SiteFooterV2() {
               className="group inline-flex items-center gap-2.5 font-semibold tracking-tight text-white"
               aria-label={company.name}
             >
-              <span
-                className="grid h-7 w-7 place-items-center rounded-[2px] bg-[#E5A83B] text-[#07090C] font-black text-sm transition-all duration-300 group-hover:bg-[#dca035]"
-                aria-hidden="true"
-              >
-                {company.monogram}
-              </span>
-              <span className="text-base font-extrabold uppercase tracking-wider font-display">
-                {company.wordmark}
-              </span>
+              <img
+                src="/images/ki_logo.webp"
+                alt={company.name}
+                title={company.name}
+                width={140}
+                height={52}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#E5A83B]">
@@ -135,21 +162,21 @@ export function SiteFooterV2() {
             <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-400">
               {company.description}
             </p>
-
-
           </div>
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Navigation
-            </h3>
+            </h2>
             <ul className="mt-3 space-y-2 text-sm">
               {NAV_V2_FOOTER.map((item) => (
                 <li key={item.to}>
                   <FlipButton
                     to={item.to}
-                    title={item.to === "/v2" ? "Kaveri Industries Home" : item.label}
+                    title={
+                      item.to === "/v2" ? "Kaveri Industries Home" : item.label
+                    }
                     variant="link-brand"
                     className="gap-0 text-zinc-300! hover:text-[#E5A83B] [&_svg]:hidden"
                   >
@@ -162,30 +189,28 @@ export function SiteFooterV2() {
 
           {/* Column 3: Contact Details */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Works & Office
-            </h3>
+            </h2>
             <address className="mt-3 not-italic text-sm text-zinc-300">
-              <p className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-start gap-2">
                 <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
+                  className="mt-1 h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
                   aria-hidden="true"
                 />
-                <a
-                  href={`tel:${company.contact.phones[0]?.tel}`}
-                  title="Call Kaveri Industries"
-                  className="link-underline hover:text-white"
-                >
-                  {phoneList}
-                </a>
-              </p>
-              <p className="mt-1.5 flex items-center gap-2">
-                <Printer
-                  className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
-                  aria-hidden="true"
-                />
-                <span>Fax: {company.contact.fax.display}</span>
-              </p>
+                <div className="flex flex-col gap-1">
+                  {company.contact.phones.map((phone) => (
+                    <a
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      title={`Call Kaveri Industries: ${phone.display}`}
+                      className="link-underline hover:text-white"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
+              </div>
               <p className="mt-1.5 flex items-center gap-2">
                 <Mail
                   className="h-3.5 w-3.5 shrink-0 text-[#E5A83B]"
@@ -215,9 +240,9 @@ export function SiteFooterV2() {
 
           {/* Column 4: Social + Theme Toggle */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-display">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white font-display">
               Follow Us
-            </h3>
+            </h2>
 
             <ul className="mt-3 flex flex-wrap gap-2">
               {company.social.map((url) => {

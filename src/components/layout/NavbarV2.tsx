@@ -31,27 +31,17 @@ export function NavbarV2() {
         <Link
           to="/v2"
           title="Kaveri Industries Home"
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-3 group transition-opacity hover:opacity-90"
           aria-label="Kaveri High Tensile Fasteners — Home"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-[2px] bg-[#E5A83B] text-[#0B0D12] font-black text-lg shadow-md transition-transform duration-200 group-hover:scale-105">
-            <svg
-              className="h-5 w-5 fill-current"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M4 2 H8 V10.5 L15.5 2 H20.5 L12.5 11 L21 22 H16 L9.5 13.2 L8 15 V22 H4 Z" />
-            </svg>
-          </div>
-
-          <div className="flex flex-col">
-            <span className="text-lg font-black tracking-wider text-white uppercase leading-tight font-display">
-              KAVERI
-            </span>
-            <span className="text-[7.5px] font-bold uppercase tracking-[0.22em] text-slate-400 leading-none mt-0.5">
-              HIGH TENSILE FASTENERS
-            </span>
-          </div>
+          <img
+            src="/images/ki_logo.webp"
+            alt="Kaveri Industries"
+            title="Kaveri Industries"
+            width={120}
+            height={44}
+            className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop Navigation Links with V1 FlipButton Text Animation and Active State */}
@@ -71,7 +61,7 @@ export function NavbarV2() {
                     aria-label={item.label}
                     className={cn(
                       "font-display gap-0 py-1 text-[#FAFAFB]! hover:text-[#E5A83B] transition-colors duration-200",
-                      isActive && "!text-[#E5A83B] font-bold"
+                      isActive && "!text-[#E5A83B] font-bold",
                     )}
                   >
                     {item.label}
@@ -138,7 +128,9 @@ export function NavbarV2() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
                       "block py-1.5 transition-colors",
-                      isActive ? "text-[#E5A83B] font-bold" : "text-slate-300 hover:text-white"
+                      isActive
+                        ? "text-[#E5A83B] font-bold"
+                        : "text-slate-300 hover:text-white",
                     )}
                   >
                     {item.label}

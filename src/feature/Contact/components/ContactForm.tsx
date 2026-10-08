@@ -408,7 +408,7 @@ export function ContactForm({
                   inputMode="numeric"
                   pattern="\d{10}"
                   maxLength={PHONE_DIGIT_MAX}
-                  autoComplete="tel-national"
+                  autoComplete="tel"
                   value={values.phone}
                   onChange={(e) => updatePhone(e.target.value)}
                   onKeyDown={(e) => {

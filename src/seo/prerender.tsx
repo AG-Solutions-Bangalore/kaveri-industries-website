@@ -94,15 +94,6 @@ function buildHeadElements(
       },
     },
     { type: "link", props: { rel: "canonical", href: canonical, "data-rh": rh } },
-    {
-      type: "link",
-      props: {
-        rel: "ai-catalog",
-        href: "/.well-known/ai-catalog.json",
-        type: "application/ai-catalog+json",
-        "data-rh": rh,
-      },
-    },
     { type: "meta", props: { property: "og:type", content: type, "data-rh": rh } },
     { type: "meta", props: { property: "og:site_name", content: company.name, "data-rh": rh } },
     { type: "meta", props: { property: "og:title", content: title, "data-rh": rh } },
@@ -155,9 +146,15 @@ function buildHeadElements(
 /* ------------------------------------------------------------------ */
 
 function renderRouteHtml(url: string): string {
+  // Provide a helmet context so react-helmet-async extracts <title>/<meta>/
+  // <link> during renderToString instead of inlining them into the #root
+  // HTML string (which would place SEO tags inside <body> → W3C errors).
+  // Head tags are supplied authoritatively via buildHeadElements() above,
+  // so the extracted helmet state is intentionally discarded here.
+  const helmetContext = {};
   try {
     return renderToString(
-      <HelmetProvider>
+      <HelmetProvider context={helmetContext}>
         <QuoteModalProvider>
           <StaticRouter location={url}>
             <Routes>

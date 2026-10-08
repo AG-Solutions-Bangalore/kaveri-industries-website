@@ -34,25 +34,17 @@ export function Navbar() {
         <Link
           to="/"
           title="Kaveri Industries Home"
-          className="flex items-center gap-2 font-bold tracking-tight text-foreground"
+          className="flex items-center gap-2 font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
           aria-label={company.name}
         >
-          <span
-            className="grid h-7 w-7 place-items-center rounded-sm bg-brand-700 text-white shadow-sm"
-            aria-hidden="true"
-          >
-            <span className="text-xs font-bold">{company.monogram}</span>
-          </span>
-          <span className="hidden sm:inline">
-            {company.wordmark.split(" ").map((part, i, arr) => (
-              <span key={part}>
-                {part}
-                {i < arr.length - 1 ? (
-                  <span className="text-brand-600">.</span>
-                ) : null}
-              </span>
-            ))}
-          </span>
+          <img
+            src="/images/ki_logo.webp"
+            alt={company.name}
+            title={company.name}
+            width={120}
+            height={44}
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         <ul className="hidden items-center gap-7 text-sm md:flex">
@@ -82,7 +74,6 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2 md:gap-3">
-
           <ShineButton
             onClick={() => openQuoteModal()}
             className="group inline-flex items-center gap-1.5 bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:text-sm"
@@ -94,7 +85,6 @@ export function Navbar() {
             />
           </ShineButton>
           <MobileSidebar navItems={NAV} />
-
         </div>
       </nav>
     </header>

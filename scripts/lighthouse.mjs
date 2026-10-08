@@ -4,7 +4,7 @@
  * Usage:
  *   npm run lighthouse                 # build is NOT run; audits http://localhost:4173 (vite preview)
  *   npm run perf                       # build + preview + audit (recommended for real scores)
- *   node scripts/lighthouse.mjs --url=https://kaveri.agsdemo.in/ --form-factor=mobile
+  *   node scripts/lighthouse.mjs --url=https://kaveriindustries.com/ --form-factor=mobile
  *   node scripts/lighthouse.mjs --threshold=90 --no-serve
  *
  * Flags:
