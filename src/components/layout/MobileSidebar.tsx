@@ -7,7 +7,12 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 
 interface MobileSidebarProps {
   /** Nav links shown inside the drawer. Mirrors the desktop nav. */
-  navItems: ReadonlyArray<{ to: string; label: string; title?: string; end?: boolean }>;
+  navItems: ReadonlyArray<{
+    to: string;
+    label: string;
+    title?: string;
+    end?: boolean;
+  }>;
 }
 
 /**
@@ -104,7 +109,7 @@ export function MobileSidebar({ navItems }: MobileSidebarProps) {
             className="flex items-center"
           >
             <img
-              src="/images/ki_logo.png"
+              src="/images/ki_logo.webp"
               alt={company.name}
               width={100}
               height={36}

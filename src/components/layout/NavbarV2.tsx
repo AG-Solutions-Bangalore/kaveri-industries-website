@@ -35,7 +35,7 @@ export function NavbarV2() {
           aria-label="Kaveri High Tensile Fasteners — Home"
         >
           <img
-            src="/images/ki_logo.png"
+            src="/images/ki_logo.webp"
             alt="Kaveri Industries"
             width={120}
             height={44}
@@ -60,7 +60,7 @@ export function NavbarV2() {
                     aria-label={item.label}
                     className={cn(
                       "font-display gap-0 py-1 text-[#FAFAFB]! hover:text-[#E5A83B] transition-colors duration-200",
-                      isActive && "!text-[#E5A83B] font-bold"
+                      isActive && "!text-[#E5A83B] font-bold",
                     )}
                   >
                     {item.label}
@@ -127,7 +127,9 @@ export function NavbarV2() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
                       "block py-1.5 transition-colors",
-                      isActive ? "text-[#E5A83B] font-bold" : "text-slate-300 hover:text-white"
+                      isActive
+                        ? "text-[#E5A83B] font-bold"
+                        : "text-slate-300 hover:text-white",
                     )}
                   >
                     {item.label}

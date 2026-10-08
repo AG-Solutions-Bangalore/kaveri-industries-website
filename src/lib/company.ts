@@ -26,7 +26,7 @@ export const company = {
   // ── Web presence ───────────────────────────────────────────────────────
   url: SITE_URL,
   /** Absolute logo URL — used in schema + OG fallback image. */
-  logo: `${SITE_URL}/images/ki_logo.png`,
+  logo: `${SITE_URL}/images/ki_logo.webp`,
   /** BCP-47 locale for OG + schema. */
   locale: "en_IN",
   /** Twitter handle without leading @ in some renderers — keeps the @. */

@@ -50,16 +50,40 @@ const YoutubeIcon = (props: IconProps) => (
   </svg>
 );
 
-function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string; title: string } | null {
+function iconForUrl(
+  url: string,
+): {
+  Icon: (p: IconProps) => ReactElement;
+  label: string;
+  title: string;
+} | null {
   const lower = url.toLowerCase();
-  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn", title: "Follow Kaveri Industries on LinkedIn" };
-  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook", title: "Follow Kaveri Industries on Facebook" };
-  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
-  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
+  if (lower.includes("linkedin.com"))
+    return {
+      Icon: LinkedinIcon,
+      label: "LinkedIn",
+      title: "Follow Kaveri Industries on LinkedIn",
+    };
+  if (lower.includes("facebook.com"))
+    return {
+      Icon: FacebookIcon,
+      label: "Facebook",
+      title: "Follow Kaveri Industries on Facebook",
+    };
+  if (lower.includes("twitter.com") || lower.includes("x.com"))
+    return {
+      Icon: TwitterIcon,
+      label: "Twitter",
+      title: "Follow Kaveri Industries on X (Twitter)",
+    };
+  if (lower.includes("youtube.com") || lower.includes("youtu.be"))
+    return {
+      Icon: YoutubeIcon,
+      label: "YouTube",
+      title: "Subscribe to Kaveri Industries on YouTube",
+    };
   return null;
 }
-
-
 
 function ThemeSwitchV2() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -79,7 +103,13 @@ function ThemeSwitchV2() {
           size="lg"
           checked={mounted ? isDark : false}
           onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-          aria-label={mounted ? (isDark ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"}
+          aria-label={
+            mounted
+              ? isDark
+                ? "Switch to light theme"
+                : "Switch to dark theme"
+              : "Toggle theme"
+          }
           className="data-[state=checked]:bg-zinc-800 data-[state=unchecked]:bg-[#E5A83B]"
         />
       </div>
@@ -92,7 +122,6 @@ function ThemeSwitchV2() {
  * without blue undertones, preserving identical layouts, items, and functionality.
  */
 export function SiteFooterV2() {
-
   return (
     <footer
       className="relative overflow-hidden border-t border-zinc-800/80 bg-[#07090C] pt-12 pb-6 text-white"
@@ -118,7 +147,7 @@ export function SiteFooterV2() {
               aria-label={company.name}
             >
               <img
-                src="/images/ki_logo.png"
+                src="/images/ki_logo.webp"
                 alt={company.name}
                 width={140}
                 height={52}
@@ -132,8 +161,6 @@ export function SiteFooterV2() {
             <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-400">
               {company.description}
             </p>
-
-
           </div>
 
           {/* Column 2: Quick Links */}
@@ -146,7 +173,9 @@ export function SiteFooterV2() {
                 <li key={item.to}>
                   <FlipButton
                     to={item.to}
-                    title={item.to === "/v2" ? "Kaveri Industries Home" : item.label}
+                    title={
+                      item.to === "/v2" ? "Kaveri Industries Home" : item.label
+                    }
                     variant="link-brand"
                     className="gap-0 text-zinc-300! hover:text-[#E5A83B] [&_svg]:hidden"
                   >

@@ -38,7 +38,7 @@ export function Navbar() {
           aria-label={company.name}
         >
           <img
-            src="/images/ki_logo.png"
+            src="/images/ki_logo.webp"
             alt={company.name}
             width={120}
             height={44}
@@ -73,7 +73,6 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2 md:gap-3">
-
           <ShineButton
             onClick={() => openQuoteModal()}
             className="group inline-flex items-center gap-1.5 bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:text-sm"
@@ -85,7 +84,6 @@ export function Navbar() {
             />
           </ShineButton>
           <MobileSidebar navItems={NAV} />
-
         </div>
       </nav>
     </header>

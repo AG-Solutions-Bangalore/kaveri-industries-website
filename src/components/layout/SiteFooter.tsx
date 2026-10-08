@@ -53,12 +53,38 @@ const YoutubeIcon = (props: IconProps) => (
  * The fallback case logs a warning so missing icons are visible
  * during development rather than silently rendering nothing.
  */
-function iconForUrl(url: string): { Icon: (p: IconProps) => ReactElement; label: string; title: string } | null {
+function iconForUrl(
+  url: string,
+): {
+  Icon: (p: IconProps) => ReactElement;
+  label: string;
+  title: string;
+} | null {
   const lower = url.toLowerCase();
-  if (lower.includes("linkedin.com")) return { Icon: LinkedinIcon, label: "LinkedIn", title: "Follow Kaveri Industries on LinkedIn" };
-  if (lower.includes("facebook.com")) return { Icon: FacebookIcon, label: "Facebook", title: "Follow Kaveri Industries on Facebook" };
-  if (lower.includes("twitter.com") || lower.includes("x.com")) return { Icon: TwitterIcon, label: "Twitter", title: "Follow Kaveri Industries on X (Twitter)" };
-  if (lower.includes("youtube.com") || lower.includes("youtu.be")) return { Icon: YoutubeIcon, label: "YouTube", title: "Subscribe to Kaveri Industries on YouTube" };
+  if (lower.includes("linkedin.com"))
+    return {
+      Icon: LinkedinIcon,
+      label: "LinkedIn",
+      title: "Follow Kaveri Industries on LinkedIn",
+    };
+  if (lower.includes("facebook.com"))
+    return {
+      Icon: FacebookIcon,
+      label: "Facebook",
+      title: "Follow Kaveri Industries on Facebook",
+    };
+  if (lower.includes("twitter.com") || lower.includes("x.com"))
+    return {
+      Icon: TwitterIcon,
+      label: "Twitter",
+      title: "Follow Kaveri Industries on X (Twitter)",
+    };
+  if (lower.includes("youtube.com") || lower.includes("youtu.be"))
+    return {
+      Icon: YoutubeIcon,
+      label: "YouTube",
+      title: "Subscribe to Kaveri Industries on YouTube",
+    };
   if (import.meta.env.DEV) {
     console.warn(`[SiteFooter] No icon mapping for social URL: ${url}`);
   }
@@ -94,7 +120,13 @@ function ThemeSwitch() {
           size="lg"
           checked={mounted ? isDark : false}
           onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-          aria-label={mounted ? (isDark ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"}
+          aria-label={
+            mounted
+              ? isDark
+                ? "Switch to light theme"
+                : "Switch to dark theme"
+              : "Toggle theme"
+          }
           className="data-[state=checked]:bg-slate-900 data-[state=unchecked]:bg-amber-400"
         />
       </div>
@@ -115,8 +147,6 @@ export function SiteFooter() {
       className="relative overflow-hidden border-t border-slate-200 bg-slate-50 pt-12 pb-5 text-slate-900 dark:border-slate-800/80 dark:bg-[#071224] dark:text-white"
       aria-label="Site footer"
     >
-
-
       {/* Background blueprint grid + radial glow */}
       <div
         aria-hidden="true"
@@ -137,7 +167,7 @@ export function SiteFooter() {
               aria-label={company.name}
             >
               <img
-                src="/images/ki_logo.png"
+                src="/images/ki_logo.webp"
                 alt={company.name}
                 width={140}
                 height={52}
@@ -151,8 +181,6 @@ export function SiteFooter() {
             <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
               {company.description}
             </p>
-
-           
           </div>
 
           {/* ── Column 2: Quick Links ───────────────────────────────── */}
@@ -182,7 +210,6 @@ export function SiteFooter() {
               Works & Office
             </h3>
             <address className="mt-3 not-italic text-sm text-slate-600 dark:text-slate-300">
-
               <div className="mt-3 flex items-start gap-2">
                 <Phone
                   className="mt-1 h-3.5 w-3.5 shrink-0 text-brand-600 dark:text-brand-400"
